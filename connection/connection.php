@@ -8,7 +8,7 @@
 
 	}
 
-	$select_db = mysql_select_db('grannynanny');
+	$select_db = mysql_select_db('garnnynanny');
 
 	if (!$select_db){
 
