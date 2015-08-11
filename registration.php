@@ -1,49 +1,47 @@
-<?php
-	 require('connection/connection.php');
-	    // If the values are posted, insert them into the database.
 
-	    if (isset($_POST['firstname']) && isset($_POST['pass'])){
+<!doctype html>
+<html>
 
-	        $firstname = $_POST['firstname'];
-			$lastname =$_POST['lastname'];
-			$address= $_POST['address'];
-	        $email = $_POST['email'];
-			$tel = $_POST['tel'];
-	        $password = $_POST['pass'];
-
-	  
-
-	        $query = "INSERT INTO `parenuser` (firstname, lastname, tel, address, pass, email) VALUES ('$firstname', '$lastname', '$tel', '$address', '$password', '$email')";
-
-	        $result = mysql_query($query);
-
-	        if($result){
-
-	            
-        header("Location: success.html");
-
-	        }
-
-	    }
-
-	    ?>
-
-
-
-<form method="POST" action="" class="regForm">
-	<label >First Name</label>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration</title>
+   
+</head>
+<body>
+<form method="POST" action="registrationValidation.php" class="regForm">
+	<label >Име</label>
 	<input type="text" name="firstname"></input>
-	<label>Last Name </label>
+	<label>Фамилия</label>
 	<input type="text" name="lastname">
-	<label>Address</label>
-	<input type="text" name="address"></input>
-	<label>Telephone</label>
+	<label>Фрад</label>
+	<select name="city">
+	<option value="">Град</option>
+	<option value="София">София</option>
+	<option value="Перник">Перник</option>
+	<option value="Ямбол">Ямбол</option>
+	<option value="Русе">Русе</option>
+	<option value="Бургас">Бургас</option>
+	<option value="Варна">Варна</option>
+	</select>
+	<label>Кавартал</label>
+	<input type="text" name="district"></input>
+	<label>Улица</label>
+	<input type="text" name="street"></input>
+	<label>Номер на улица</label>
+	<input type="number" name="num"></input>
+	<label>Блок(номер/вход)</label>
+	<input type="text" name="flat"></input>
+	<label>Телефонен номер</label>
 	<input type="tel" name="tel" ></input>
 	<label>Email</label>
 	<input type="email" name="email"></input>
-	<label>Password</label>
+	<label>Парола</label>
 	<input type="password" name="pass"></input>
-	<label>Confirm Password</label>
+	<label>Повтори  парола</label>
 	<input type="password" name="pass2"></input>
 	<input type="submit" name="submit"></input>
 </form>
+</body>
+
+</html>
