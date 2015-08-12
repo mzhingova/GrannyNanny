@@ -30,7 +30,7 @@ echo "Invalid Login Credentials.";
 		
 if (isset($_SESSION['email'])){
 $email = $_SESSION['email'];
-header("Location: congratulations.php");
+header("Location: user_profile.php");
 }
 ?>
 
