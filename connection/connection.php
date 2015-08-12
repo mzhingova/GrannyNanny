@@ -1,6 +1,6 @@
 	<?php
 
-	$connection = mysql_connect('localhost', 'root', '');
+	$connection = mysqli_connect('localhost', 'root', '');
 
 	if (!$connection){
 
@@ -8,7 +8,7 @@
 
 	}
 
-	$select_db = mysql_select_db('grannynanny');
+	$select_db = mysqli_select_db($connection,'grannynanny');
 
 	if (!$select_db){
 

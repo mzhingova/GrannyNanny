@@ -1,45 +1,45 @@
 <?php
-
-	 require('connection/connection.php');
-	    if(isset($_POST['submit'])) {
+error_reporting(E_ALL); ini_set('display_errors', 1);
+	
+	$conn  = new mysqli("localhost", "root", "", "grannynanny");
+			if(! $conn )
+			{
+				die('Could not connect: ' . mysql_error());
+			}
+			
+			$conn ->set_charset("utf8");
+			$count=0;
+			$errors = array();
+	    if(isset($_POST['submit'])){
 	        $firstname = $_POST['firstname'];
 			$lastname =$_POST['lastname'];
-	        $email = $_POST['email'];
+	        $emaill = $_POST['email'];
 			$tel = $_POST['tel'];
 	        $password = $_POST['pass'];
-			$flat =$_POST['flat'];
-			$num =$_POST['num'];
-			$street =$_POST['street'];
-			$distrct =$_POST['district'];
+			$flat = $_POST['flat'];
+			$num = $_POST['num'];
+			$street = $_POST['street'];
+			$district = $_POST['district'];
 			$selected_val = $_POST['city'];
-			$count=0;
-			mysql_query('SET NAMES utf8');
+			
+			
 			
 			//form validation.
-			if(empty($_POST['firstname'])){
-				echo "qq";
+			if(!empty($firstname)){
+			
+				
 			}
-		}	
 			
 			
-			
-			
-			
-			
-			
-			// If the values are posted, insert them into the database.
-			if (isset($_POST['firstname']) && isset($_POST['pass'])){
-	        $query = "INSERT INTO `parenuser` (flat, num, street, district, city, firstname, lastname, tel, pass, email) VALUES ('$flat', '$num', '$street', '$district', '$selected_val', '$firstname', '$lastname', '$tel', '$password', '$email')";
+				$sql ="INSERT INTO `parenuser` (flat, num, street, district, city, firstname, lastname, tel, pass, email) VALUES ('$flat', '$num', '$street', '$district', '$selected_val', '$firstname', '$lastname', '$tel', '$password', '$emaill')";
+				$result=mysqli_query($conn ,$sql)or die("Error in the consult.." . mysqli_error($conn));
 
-	        $result = mysql_query($query);
-
-	        if($result){
-
-	            
+				if($result){
 				header("Location: success.html");
 
-	        }
+				}
 
-	    }
-
+			
+		
+		}
 	    ?>
