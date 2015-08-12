@@ -9,11 +9,6 @@
    
 </head>
 <body>
-
-<?php
-include('registrationValidation.php');
-echo $email;
-?>
 <form method="POST" action="registrationValidation.php" class="regForm">
 	<label >Име</label>
 	<input type="text" name="firstname"></input>
