@@ -20,15 +20,18 @@ $count = mysqli_num_rows($result);
 
 		
 if ($count == 1){
+$_SESSION['email'] = $email;
 
-while($row=mysqli_fetch_array($result)){
-	echo  "Hallo ".$row['firstname'];
-}
 }else{
 		
 echo "Invalid Login Credentials.";
 }
 }
 		
+if (isset($_SESSION['email'])){
+$email = $_SESSION['email'];
+header("Location: user_profile.php");
 
+}
+?>
 
