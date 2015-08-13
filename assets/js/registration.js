@@ -51,7 +51,7 @@ function validateForm(){
     if (num === null || num === "") {
         
 	}
-	else if (!(flat.match^[a-zA-Z\u0400-\u04FF\0-9]{0,6}$))){
+	else if (!(/^[a-zA-Z\u0400-\u04FF\0-9]{0,6}$/)){
 		alert("Моля въведете валиденен номер на блок.");
 		return false;
 	}

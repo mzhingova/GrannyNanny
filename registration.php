@@ -70,6 +70,6 @@
 			<div class="container">
 			</div>
 		</div>
-		<script src="assets/js/registration.js"></script>
+		<script type="text/javascript" src="assets/js/registration.js"></script>
 	</body>
 </html>
