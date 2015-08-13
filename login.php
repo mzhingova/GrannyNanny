@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <?php  
 error_reporting(E_ALL); ini_set('display_errors', 1);
 	
@@ -35,7 +35,7 @@ header("Location: user_profile.php");
 
 }
 ?>
-=======
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>

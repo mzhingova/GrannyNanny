@@ -7,7 +7,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="Description" lang="en" content="ADD SITE DESCRIPTION">
 		<!-- Override CSS file - add your own CSS rules -->
-		<link rel="stylesheet" href="assets/css/styles.css">
+		<link rel="stylesheet" href="assets/css/registration_style.css">
 	</head>
 	<body>
 		<div class="header">
@@ -25,14 +25,17 @@
 			</div>
 		</div>
 		<div class="container">
-				<div class="main">
-				    <h1>Регистрация</h1>
-						<form name="regform" method="POST" action="registrationValidation.php" class="regForm" onsubmit="return validateForm()">
-						<label>Име*</label>
+				<div >
+				   
+						<form name="regform" method="POST" action="registration_validation.php" class="regForm" onsubmit="return validateForm()">
+						 <h1>Регистрация</h1>
+						<label class="wtf">Име*</label>
+						<div class="patt">Mоже да съдържа само букви и да има дължина 2-16 символа.</div>
 						<input type="text" name="firstname"></input>
 						<label>Фамилия*</label>
+						<div class="patt">Mоже да съдържа само букви и да има дължина 2-16 символа.</div>
 						<input type="text" name="lastname">
-						<label>Gрад*</label>
+						<label>Град*</label>
 						<select name="city">
 						<option value="">Град</option>
 						<option value="София">София</option>
@@ -55,10 +58,11 @@
 						<label>Email*</label>
 						<input type="email" name="email"></input>
 						<label>Парола*</label>
+						<div class="patt">Tрябва да съдържа поне една цифра ,един специален символ , да е с дължина 5-16 символа.</div>
 						<input type="password" name="pass"></input>
 						<label>Повтори  парола*</label>
 						<input type="password" name="pass2"></input>
-						<input type="submit" name="submit" class="btn></input>
+						<input type="submit" name="submit" class="btn"></input>
 					</form>
 				</div>
 			</div>
