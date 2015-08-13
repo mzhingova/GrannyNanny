@@ -156,7 +156,7 @@
                 <h3>Парола: </h3><input type='password' name='pass' style="width: 25%; height: 10%;" /><br><br>
                 <input type='submit' style="width: 15%; height: 30px;" name='submit' value='Вход'/><br><br>
                 <a href="forgot1.php">Забравена Парола</a><br><br>
-                Нямате акаунт?<a href="Registration.php" style="color: black">
+                Нямате акаунт?<a href="registration.php" style="color: black">
                 <span class="glyphicon glyphicon-user"> Регистрирайте се! </span></a>
             </font>
         </form>

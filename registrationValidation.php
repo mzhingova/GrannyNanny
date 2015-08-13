@@ -123,8 +123,6 @@ error_reporting(E_ALL); ini_set('display_errors', 1);
 					if($password==$password2){
 						$count++;
 					}
-					
-					
 				}
 				else{
 					echo "Моля въведете валидена парола.";
@@ -143,11 +141,9 @@ error_reporting(E_ALL); ini_set('display_errors', 1);
 				header("Location: success.html");
 
 				}
-
 			}
 			else{
 				echo "QQ";
 			}
-		
 		}
 	    ?>
