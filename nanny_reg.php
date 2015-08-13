@@ -28,7 +28,7 @@
 		<div class="container">
 				<div >
 				   
-						<form name="regform" method="POST" action="registration_validation.php" class="regForm" onsubmit="return validateForm()">
+						<form name="regform" method="POST" action="nanny_validation.php" class="regForm" onsubmit="return validateForm()">
 						 <h1>Регистрация</h1>
 						<label class="wtf">Име*</label>
 						<div class="patt">Mоже да съдържа само букви и да има дължина 2-16 символа.</div>
@@ -60,11 +60,23 @@
 						<input type="number" name="pid" ></input>
 						<div>
 						<label>Образование*</label>
-						<input type="text" name="education" ></input>
+						<select name="education">
+						<option value=""></option>
+						<option value="София">София</option>
+						<option value="Перник">Перник</option>
+						<option value="Ямбол">Ямбол</option>
+						<option value="Русе">Русе</option>
+						<option value="Бургас">Бургас</option>
+						<option value="Варна">Варна</option>
+						</select>
 						<label>Работен статус*</label>
-						<input type="radio" name="pid" value="" >Пълен работен ден </input>
-						<input type="radio" name="pid" value="" >1/2 работен ден </input>
-						<input type="radio" name="pid" value="" >Безработен </input>
+						<input type="radio" name="work_status" value="full" >Пълен работен ден </input>
+						<input type="radio" name="work_status" value="" >1/2 работен ден </input>
+						<input type="radio" name="work_status" value="" >Безработен </input>
+						<label>Пол*</label>
+						<input type="radio" name="gender" value="full" >Пълен работен ден </input>
+						<input type="radio" name="gender" value="" >1/2 работен ден </input>
+						
 						</div>
 						<label>Възможност за работа извън града*</label>
 						<input type="checkbox" name="workout" value="" >ДА </input>

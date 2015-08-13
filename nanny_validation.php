@@ -21,7 +21,44 @@ error_reporting(E_ALL); ini_set('display_errors', 1);
 			$num = $_POST['num'];
 			$street = $_POST['street'];
 			$district = $_POST['district'];
-			$selected_val = $_POST['city'];
+			$pid=$_POST['pid'];
+			$education=$_POST['education'];
+			$motivation=$_POST['motivation'];
+			
+			
+			if(!(isset($_POST['workout'])))
+			{
+			
+			}
+			else{
+				$workout=$_POST['workout'];
+			}
+			//city validation 
+			if(!(isset($_POST['city'])))
+			{
+				echo "";
+			}
+			else{
+				$city=$_POST['city'];
+			}
+			//gender validation
+			if(!(isset($_POST['gender'])))
+			{
+				echo "Моля изберете пол";
+			}
+			else{
+				$gender=$_POST['gender'];
+			}
+			//work status 
+			
+			if(!(isset($_POST['work_status'])))
+			{
+				echo "Моля изберете работен статус";
+			}
+			else{
+				$work_status=$_POST['work_status'];
+			}
+			
 			$conn ->set_charset("utf8");
 			
 			
@@ -131,10 +168,36 @@ error_reporting(E_ALL); ini_set('display_errors', 1);
 			else{
 				 echo "Моля въведете парола.";
 			}
+						//pid validation 
+			if(!empty($pid)){
+				if(preg_match("/^[0-9]{10,}$/i",$pid)){
+					$count++;
+				}
+				else{
+					echo "Моля въведете валидено ЕГН.";
+				}
+			}
+			else{
+				 echo "Моля въведете ЕГН.";
+			}
+			
+			//motivation validation  
+			
+			if(!empty($motivatin)){
+				if(preg_match("/^{255,}$/i",$motivation)){
+					$count++;
+				}
+				else{
+					echo "Моля въведете валидено ЕГН.";
+				}
+			}
+			
+			
+			
 			echo $count;
 			
 			if($count>4){
-				$sql ="INSERT INTO `parenuser` (flat, num, street, district, city, firstname, lastname, tel, pass, email, status) VALUES ('$flat', '$num', '$street', '$district', '$selected_val', '$firstname', '$lastname', '$tel', '$password', '$email', 'nanny')";
+				$sql ="INSERT INTO `parenuser` (pid, workout, work_status, gender, education, motivation, flat, num, street, district, city, firstname, lastname, tel, pass, email, status) VALUES ('$pid','$workout','$work_status','$gender','$edication', '$motivation', '$flat', '$num', '$street', '$district', '$selected_val', '$firstname', '$lastname', '$tel', '$password', '$email', 'nanny')";
 				$result=mysqli_query($conn ,$sql)or die("Error in the consult.." . mysqli_error($conn));
 
 				if($result){

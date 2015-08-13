@@ -33,7 +33,7 @@ function validateForm(){
     if (district === null || street === "") {
         
 	}
-	else if (!(street.match(/^[a-zA-Z\u0400-\u04FF\0-9]{2,20}$/i))){
+	else if (!(/^[a-zA-Z\u0400-\u04FF\0-9]{2,20}$/i)){
 		alert("Моля въведете валидена улица.");
 		return false;
 	}
