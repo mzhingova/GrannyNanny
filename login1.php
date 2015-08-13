@@ -14,7 +14,7 @@
 		<link rel="shortcut icon" href="favicon.ico">
 
 		<!-- Override CSS file - add your own CSS rules -->
-		<link rel="stylesheet" href="assets/css/styles.css">
+		<link rel="stylesheet" href="assets\login css\styles.css">
 	</head>
 	<body>
 		<div class="header">
