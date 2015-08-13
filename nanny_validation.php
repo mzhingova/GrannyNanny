@@ -131,11 +131,10 @@ error_reporting(E_ALL); ini_set('display_errors', 1);
 			else{
 				 echo "Моля въведете парола.";
 			}
-			
+			echo $count;
 			
 			if($count>4){
-				$sql ="INSERT INTO `parenuser` (flat, num, street, district, city, firstname, lastname, tel, pass, email) VALUES ('$flat', '$num', '$street', '$district', '$selected_val', '$firstname', '$lastname', '$tel', '$password', '$email
-')";
+				$sql ="INSERT INTO `parenuser` (flat, num, street, district, city, firstname, lastname, tel, pass, email, status) VALUES ('$flat', '$num', '$street', '$district', '$selected_val', '$firstname', '$lastname', '$tel', '$password', '$email', 'nanny')";
 				$result=mysqli_query($conn ,$sql)or die("Error in the consult.." . mysqli_error($conn));
 
 				if($result){
@@ -144,7 +143,7 @@ error_reporting(E_ALL); ini_set('display_errors', 1);
 				}
 			}
 			else{
-				
+				echo "QQ";
 			}
 		}
 	    ?>
