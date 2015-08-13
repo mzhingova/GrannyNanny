@@ -22,7 +22,7 @@
 		<div class="nav-bar">
 			<div class="container">
 				<ul class="nav">
-				    <li><a href="registration.php">Регистрирайте се.</a></li>
+				    <li><a href="registration.php">Registration</a></li>
 					<li><a href="#">Granny profile</a></li>
 					<li><a href="#">Search</a></li>
 					<li><a href="nanny_reg.php">Nanny registration</a></li>
@@ -147,15 +147,15 @@
 						</tbody>
 					</table>
 				</div>
-				    <h1>Вход </h1>
+				   <h1>Р’С…РѕРґ </h1>
         <form action='login.php' method='post'>
             <font color="black">
-                <h3>Поща: </h3><input type='text' name='email' style="width: 25%; height: 10%;" /><br><br>
-                <h3>Парола: </h3><input type='password' name='pass' style="width: 25%; height: 10%;" /><br><br>
-                <input type='submit' style="width: 15%; height: 30px;" name='submit' value='Вход'/><br><br>
-                <a href="forgot1.php">Забравена Парола</a><br><br>
-                Нямате акаунт?<a href="registration.php" style="color: black">
-                <span class="glyphicon glyphicon-user"> Регистрирайте се! </span></a>
+                <h3>РџРѕС‰Р°: </h3><input type='text' name='email' style="width: 25%; height: 10%;" /><br><br>
+                <h3>РџР°СЂРѕР»Р°: </h3><input type='password' name='pass' style="width: 25%; height: 10%;" /><br><br>
+                <input type='submit' style="width: 15%; height: 30px;" name='submit' value='Р’С…РѕРґ'/><br><br>
+                <a href="forgot1.php">Р—Р°Р±СЂР°РІРµРЅР° РџР°СЂРѕР»Р°</a><br><br>
+                РќСЏРјР°С‚Рµ Р°РєР°СѓРЅС‚?<a href="registration.php" style="color: black">
+                <span class="glyphicon glyphicon-user"> Р РµРіРёСЃС‚СЂРёСЂР°Р№С‚Рµ СЃРµ! </span></a>
             </font>
         </form>
 			</div>

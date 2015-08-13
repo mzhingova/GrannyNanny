@@ -6,7 +6,7 @@ error_reporting(E_ALL); ini_set('display_errors', 1);
 			{
 				die('Could not connect: ' . mysql_error());
 			}
-			
+
 	
 if (isset($_POST['email']) and isset($_POST['pass'])){
 	
@@ -22,9 +22,10 @@ $count = mysqli_num_rows($result);
 if ($count == 1){
 
 while($row=mysqli_fetch_array($result)){
-	echo  "Hallo ".$row['firstname'];
+	echo  "Hello ".$row['firstname'];
 }
-}else{
+}
+else{
 		
 echo "Invalid Login Credentials.";
 }
