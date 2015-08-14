@@ -69,13 +69,13 @@
 						<option value="Бургас">Бургас</option>
 						<option value="Варна">Варна</option>
 						</select>
-						<label>Работен статус*</label>
+						<label>Работен статус*</label><br>
 						<input type="radio" name="work_status" value="full" >Пълен работен ден </input>
 						<input type="radio" name="work_status" value="" >1/2 работен ден </input>
-						<input type="radio" name="work_status" value="" >Безработен </input>
-						<label>Пол*</label>
-						<input type="radio" name="gender" value="full" >Пълен работен ден </input>
-						<input type="radio" name="gender" value="" >1/2 работен ден </input>
+						<input type="radio" name="work_status" value="" >Безработен </input><br>
+						<label>Пол*</label><br>
+						<input type="radio" name="gender" value="fmale" >Жена</input>
+						<input type="radio" name="gender" value="male" >Мъж </input>
 						
 						</div>
 						<label>Възможност за работа извън града*</label>

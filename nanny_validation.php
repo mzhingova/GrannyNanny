@@ -23,7 +23,7 @@ error_reporting(E_ALL); ini_set('display_errors', 1);
 			$district = $_POST['district'];
 			$pid=$_POST['pid'];
 			
-			$motivation=$_POST['motivation'];
+			$m0
 			
 			
 			//education validation
