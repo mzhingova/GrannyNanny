@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 13, 2015 at 04:22 PM
+-- Generation Time: Aug 14, 2015 at 09:22 AM
 -- Server version: 5.6.25
 -- PHP Version: 5.6.11
 
@@ -40,27 +40,19 @@ CREATE TABLE IF NOT EXISTS `parenuser` (
   `gender` varchar(255) NOT NULL,
   `pid` varchar(255) NOT NULL,
   `workout` varchar(255) NOT NULL,
-  `work_status` varchar(200) NOT NULL
+  `work_status` varchar(200) NOT NULL,
   `education` varchar(255) NOT NULL,
-  `motivation varchar(255) NOT NULL,
+  `motivation` varchar(255) NOT NULL,
   `status` varchar(255) NOT NULL,
   `tel` int(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `parenuser`
 --
 
-INSERT INTO `parenuser` (`userID`, `firstname`, `lastname`, `email`, `city`, `district`, `street`, `num`, `flat`, `pass`, `tel`) VALUES
-(1, 'rew', '', '', '', '', '', '', '', '', 0),
-(2, 'qwe', '', '', '', '', '', '', '', '', 0),
-(3, 'werwe', '', 'qq@qq', '', '', '', '', '', 'qq', 0),
-(4, 'ewq', '', '', '', '', '', '', '', '', 0),
-(5, 'eqwe', 'gdfg', '', '', '', '', '', '', 'qwe123', 896222819),
-(6, 'eqwe', 'gdfg', '', '', '', '', '', '', '123qwe!', 896222819),
-(7, 'решр', 'ршерше', '', '', 'рше', 'рше', '', '', '123qwe@', 896222819),
-(8, 'fre', 'fsdf', '', '', '', '', '', '', '123QWE!', 313123123),
-(9, 'eqw', 'eqwe', 'mimeto_love_you@abv.bg\r\n', '', '', '', '', '', 'qwe123@', 123123213);
+INSERT INTO `parenuser` (`userID`, `firstname`, `lastname`, `email`, `city`, `district`, `street`, `num`, `flat`, `pass`, `gender`, `pid`, `workout`, `work_status`, `education`, `motivation`, `status`, `tel`) VALUES
+(10, 'dasd', 'dasdas', 'mimeto_love_you@abv.bg', '', '', '', '', '', 'qwe123@', 'full', '1111111111', '', 'full', '', '', 'nanny', 2147483647);
 
 --
 -- Indexes for dumped tables
@@ -80,7 +72,7 @@ ALTER TABLE `parenuser`
 -- AUTO_INCREMENT for table `parenuser`
 --
 ALTER TABLE `parenuser`
-  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
