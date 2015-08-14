@@ -23,7 +23,7 @@ error_reporting(E_ALL); ini_set('display_errors', 1);
 			$district = $_POST['district'];
 			$pid=$_POST['pid'];
 			
-			$m0
+			
 			
 			
 			//education validation
@@ -47,10 +47,11 @@ error_reporting(E_ALL); ini_set('display_errors', 1);
 			//city validation 
 			if(!(isset($_POST['city'])))
 			{
-	
+				
 			}
 			else{
 				$city=$_POST['city'];
+				$count++;
 			}
 			//gender validation
 			if(!(isset($_POST['gender'])))
@@ -169,7 +170,7 @@ error_reporting(E_ALL); ini_set('display_errors', 1);
 			}
 			// f this pass validation 
 			if(!empty($password) && !empty($password2)){
-				if(preg_match("/^(?=(.*\d))(?=.*[a-zA-Z])(?=.*[!@#$%])[0-9a-zA-Z!@#$%]{5,16}/",$password)){
+				if(preg_match("/^(?=(.*\d))(?=.*[a-zA-Z])(?=.*[!@#$%.*?,`~+-_=^\"\;:></()|])[0-9a-zA-Z!@#$%.*?,`!+-_=^\"\;:></()|]{5,16}/",$password)){
 					if($password==$password2){
 						$count++;
 					}

@@ -56,7 +56,7 @@ function validateForm(){
 		return false;
 	}
 	//telephone 
-		var tel = document.forms['regform']['let'].value;
+		var tel = document.forms['regform']['tel'].value;
     if (tel === null || tel === "") {
         alert("Моля въведете телефон");
         return false;
@@ -71,7 +71,7 @@ function validateForm(){
         alert("Моля въведете email");
         return false;
 	}
-	else if (!(email.match(/^(?=(.*\d))(?=.*[a-zA-Z])(?=.*[!@#$%])[0-9a-zA-Z!@#$%]{5,16}/))){
+	else if (!(email.match(/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/))){
 		alert("Моля въведете валиден email.");
 		return false;
 	}

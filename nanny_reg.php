@@ -7,7 +7,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="Description" lang="en" content="ADD SITE DESCRIPTION">
 		<!-- Override CSS file - add your own CSS rules -->
-		<link rel="stylesheet" href="assets/css/registration_style.css">
+		<link rel="stylesheet" href="assets/css/nany_registration_style.css">
 	</head>
 	<body>
 		<div class="header">
@@ -58,30 +58,36 @@
 						<input type="tel" name="tel" ></input>
 						<label>ЕГН*</label>
 						<input type="number" name="pid" ></input>
-						<div>
+						
 						<label>Образование*</label>
 						<select name="education">
 						<option value=""></option>
-						<option value="София">София</option>
-						<option value="Перник">Перник</option>
-						<option value="Ямбол">Ямбол</option>
-						<option value="Русе">Русе</option>
-						<option value="Бургас">Бургас</option>
-						<option value="Варна">Варна</option>
+						<option value="Средно">Средно</option>
+						<option value="Средно специално">Средно специално"</option>
+						<option value="Висше">Висше</option>
 						</select>
+						<div>
 						<label>Работен статус*</label><br>
-						<input type="radio" name="work_status" value="full" >Пълен работен ден </input>
-						<input type="radio" name="work_status" value="" >1/2 работен ден </input>
-						<input type="radio" name="work_status" value="" >Безработен </input><br>
-						<label>Пол*</label><br>
-						<input type="radio" name="gender" value="fmale" >Жена</input>
-						<input type="radio" name="gender" value="male" >Мъж </input>
-						
+						<select name="work_status">
+						<option value=""></option>
+						<option value="Пълен">Пълен работен ден </option>
+						<option value="Половин">половин работен ден </option>
+						<option value="Безработен">Безработен </option>
+						</select>
 						</div>
-						<label>Възможност за работа извън града*</label>
-						<input type="checkbox" name="workout" value="" >ДА </input>
+						<div id="gender">
+						<label>Пол*</label><br>
+						Жена<input type="radio" name="gender" value="fmale" ></input>
+						Мъж <input type="radio" name="gender" value="male" ></input>
+						</div>
+						<div id="workout">
+						<label>Възможност за работа извън града</label>
+						<input type="checkbox" name="workout" value="да" ></input>
+						</div>
+						
 						<label>Мотивационно поле*</label>
 						<input type="text" name="motivation" ></input>
+						
 						<label>Email*</label>
 						<input type="email" name="email"></input>
 						<label>Парола*</label>
