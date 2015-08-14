@@ -31,12 +31,12 @@
 						 <h1>Регистрация</h1>
 						<label class="wtf">Име*</label>
 						<div class="patt">Mоже да съдържа само букви и да има дължина 2-16 символа.</div>
-						<input type="text" name="firstname"></input>
+						<input  id="fname"type="text" name="firstname"></input>
 						<label>Фамилия*</label>
 						<div class="patt">Mоже да съдържа само букви и да има дължина 2-16 символа.</div>
-						<input type="text" name="lastname">
+						<input id="lname" type="text" name="lastname">
 						<label>Град*</label>
-						<select name="city">
+						<select id="city" name="city">
 						<option value="">Град</option>
 						<option value="София">София</option>
 						<option value="Перник">Перник</option>
@@ -46,23 +46,23 @@
 						<option value="Варна">Варна</option>
 						</select>
 						<label>Кавартал</label>
-						<input type="text" name="district"></input>
+						<input id="district" type="text" name="district"></input>
 						<label>Улица</label>
-						<input type="text" name="street"></input>
+						<input id="street" type="text" name="street"></input>
 						<label>Номер на улица</label>
-						<input type="number" name="num"></input>
+						<input id="num" type="number" name="num"></input>
 						<label>Блок(номер/вход)</label>
-						<input type="text" name="flat"></input>
+						<input id ="flat" type="text" name="flat"></input>
 						<label>Телефонен номер*</label>
-						<input type="tel" name="tel" ></input>
+						<input id="tel" type="tel" name="tel" ></input>
 						<label>Email*</label>
-						<input type="email" name="email"></input>
+						<input id="email" type="email" name="email"></input>
 						<label>Парола*</label>
 						<div class="patt">Tрябва да съдържа поне една цифра ,един специален символ , да е с дължина 5-16 символа.</div>
-						<input type="password" name="pass"></input>
+						<input id="pass" type="password" name="pass"></input>
 						<label>Повтори  парола*</label>
-						<input type="password" name="pass2"></input>
-						<input type="submit" name="submit" class="btn"></input>
+						<input id="pass2" type="password" name="pass2"></input>
+						<input id="btn" type="submit" name="submit" class="btn"></input>
 					</form>
 				</div>
 			</div>

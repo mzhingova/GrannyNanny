@@ -22,21 +22,32 @@ error_reporting(E_ALL); ini_set('display_errors', 1);
 			$street = $_POST['street'];
 			$district = $_POST['district'];
 			$pid=$_POST['pid'];
-			$education=$_POST['education'];
+			
 			$motivation=$_POST['motivation'];
 			
 			
+			//education validation
+				if(!(isset($_POST['education'])))
+			{
+				echo "Изберете образование.";
+			}
+			else{
+			$education=$_POST['education'];
+			$count++;
+				
+			}
 			if(!(isset($_POST['workout'])))
 			{
 			
 			}
 			else{
 				$workout=$_POST['workout'];
+				
 			}
 			//city validation 
 			if(!(isset($_POST['city'])))
 			{
-				echo "";
+	
 			}
 			else{
 				$city=$_POST['city'];
@@ -48,6 +59,7 @@ error_reporting(E_ALL); ini_set('display_errors', 1);
 			}
 			else{
 				$gender=$_POST['gender'];
+				$count++;
 			}
 			//work status 
 			
@@ -57,6 +69,7 @@ error_reporting(E_ALL); ini_set('display_errors', 1);
 			}
 			else{
 				$work_status=$_POST['work_status'];
+				$count++;
 			}
 			
 			$conn ->set_charset("utf8");
@@ -196,7 +209,7 @@ error_reporting(E_ALL); ini_set('display_errors', 1);
 			
 			echo $count;
 			
-			if($count>4){
+			if($count>9){
 				$sql ="INSERT INTO `parenuser` (pid, workout, work_status, gender, education, motivation, flat, num, street, district, city, firstname, lastname, tel, pass, email, status) VALUES ('$pid','$workout','$work_status','$gender','$edication', '$motivation', '$flat', '$num', '$street', '$district', '$selected_val', '$firstname', '$lastname', '$tel', '$password', '$email', 'nanny')";
 				$result=mysqli_query($conn ,$sql)or die("Error in the consult.." . mysqli_error($conn));
 
