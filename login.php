@@ -27,6 +27,7 @@
 					<li><a href="#">Granny profile</a></li>
 					<li><a href="#">Search</a></li>
 					<li><a href="#"></a></li>
+					<li><a href="nanny_reg.php">Nanny registration</a></li>
 				</ul>
 			</div>
 		</div>

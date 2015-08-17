@@ -8,6 +8,7 @@ $pageTitle = ' Profile page';
 echo "Hello ".($_SESSION["name"])." welcome to your profile page!";
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
