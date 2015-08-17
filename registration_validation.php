@@ -119,7 +119,7 @@ error_reporting(E_ALL); ini_set('display_errors', 1);
 			}
 			// f this pass validation 
 			if(!empty($password) && !empty($password2)){
-				if(preg_match("/^(?=(.*\d))(?=.*[a-zA-Z])(?=.*[!@#$%])[0-9a-zA-Z!@#$%]{5,16}/",$password)){
+				if(preg_match("/^(?=.*[\d])(?=.*[\W]).{5,16}$/",$password)){
 					if($password==$password2){
 						$count++;
 					}

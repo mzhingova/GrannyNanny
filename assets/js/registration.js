@@ -24,7 +24,7 @@ function validateForm(){
     if (district === null || district === "") {
         
 	}
-	else if (!(district.match(/^[a-zA-Z\u0400-\u04FF\0-9]{2,20}$/i))){
+	else if (!(district.match(/^[a-zA-Z\u0400-\u04FF\0-9\s]{2,20}$/i))){
 		alert("Моля въведете валиден квартал.");
 		return false;
 	}
@@ -83,7 +83,7 @@ function validateForm(){
         alert("Моля въведете парола.");
         return false;
 	}
-	else if (!(pass.match(/^(?=(.*\d))(?=.*[a-zA-Z])(?=.*[!@#$%])[0-9a-zA-Z!@#$%]{5,16}/))){
+	else if (!(pass.match(/^(?=.*[\d])(?=.*[\W]).{6,16}$/))){
 		alert("Моля въведете валидена парола.");
 		return false;
 	}
