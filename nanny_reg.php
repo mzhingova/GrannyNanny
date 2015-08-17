@@ -95,7 +95,7 @@
 						<input type="password" name="pass"></input>
 						<label>Повтори  парола*</label>
 						<input type="password" name="pass2"></input>
-						<input type="submit" name="submit" class="btn"></input>
+						<input type="submit" name="submit" class="btn">Регистрирай</input>
 					</form>
 				</div>
 			</div>

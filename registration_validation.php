@@ -75,7 +75,7 @@ error_reporting(E_ALL); ini_set('display_errors', 1);
 			//street validation 
 			
 			if(!empty($street)){
-				if(preg_match("/^[a-zA-Z\p{Cyrillic}\s]{2,20}$/iu",$street)){
+				if(preg_match("/^[a-zA-Z\p{Cyrillic}0-9\s]{2,20}$/iu",$street)){
 					
 				}
 				else{
@@ -116,7 +116,7 @@ error_reporting(E_ALL); ini_set('display_errors', 1);
 			//email validation
 			
 			if(!empty($email)){
-				if(preg_match("/^[a-zA-Z0-9_.+-]+@[a-zA-Z]+\.[a-zA-Z0-9-.]+$/",$email)){
+				if(preg_match("/^[a-zA-Z]{1}[a-zA-Z0-9_.]+@[a-zA-Z-]+\.[a-zA-Z0-9-.]+$/",$email)){
 					$count++;
 				}
 				else{

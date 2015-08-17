@@ -74,7 +74,7 @@ function validateForm(){
 		return false;
 	}
 	//pid validation
-	var pid=document.form['regform']['pid'].value;
+	var pid=document.forms['regform']['pid'].value;
 	if(pid==null || pid===""){
 		alert("Моля въведете ЕГН");
 		return false;
@@ -118,7 +118,7 @@ function validateForm(){
         alert("Моля въведете email");
         return false;
 	}
-	else if (!(email.match(/^[a-zA-Z0-9_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/))){
+	else if (!(email.match(/^[a-zA-Z]{1}[a-zA-Z0-9_.]+@[a-zA-Z-]+\.[a-zA-Z0-9-.]+$/))){
 		alert("Моля въведете валиден email.");
 		return false;
 	}
