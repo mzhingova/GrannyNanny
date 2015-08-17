@@ -26,6 +26,15 @@ error_reporting(E_ALL); ini_set('display_errors', 1);
 			
 			
 			//form validation.
+			//city validation 
+			if(empty($_POST['city']))
+			{
+				echo "Моля изберете град.";
+			}
+			else{
+				$city=$_POST['city'];
+				$count++;
+			}
 			//frst name validation
 			if(!empty($firstname)){
 				if(preg_match("/^[a-zA-Z\p{Cyrillic}]{2,16}$/iu",$firstname)){
@@ -56,7 +65,7 @@ error_reporting(E_ALL); ini_set('display_errors', 1);
 			
 			//district validation 
 			if(!empty($district)){
-				if(preg_match("/^[a-zA-Z\p{Cyrillic}0-9]{2,20}$/iu",$district)){
+				if(preg_match("/^[a-zA-Z\p{Cyrillic}0-9]\s{2,20}$/iu",$district)){
 					
 				}
 				else{
@@ -66,7 +75,7 @@ error_reporting(E_ALL); ini_set('display_errors', 1);
 			//street validation 
 			
 			if(!empty($street)){
-				if(preg_match("/^[a-zA-Z\p{Cyrillic}]{2,20}$/iu",$street)){
+				if(preg_match("/^[a-zA-Z\p{Cyrillic}\s]{2,20}$/iu",$street)){
 					
 				}
 				else{
@@ -85,7 +94,7 @@ error_reporting(E_ALL); ini_set('display_errors', 1);
 			}
 			//flat validation 
 			if(!empty($flat)){
-				if(preg_match("/^[a-zA-Z\p{Cyrillic}0-9\'{0,6}$/iu",$flat)){
+				if(preg_match("^[a-zA-Z\p{Cyrillic}0-9\s]{0,6}$",$flat)){
 					
 				}
 				else{
@@ -107,7 +116,7 @@ error_reporting(E_ALL); ini_set('display_errors', 1);
 			//email validation
 			
 			if(!empty($email)){
-				if(preg_match("/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/",$email)){
+				if(preg_match("/^[a-zA-Z0-9_.+-]+@[a-zA-Z]+\.[a-zA-Z0-9-.]+$/",$email)){
 					$count++;
 				}
 				else{
@@ -117,6 +126,7 @@ error_reporting(E_ALL); ini_set('display_errors', 1);
 			else{
 				 echo "Моля въведете email.";
 			}
+
 			// f this pass validation 
 			if(!empty($password) && !empty($password2)){
 				if(preg_match("/^(?=.*[\d])(?=.*[\W]).{5,16}$/",$password)){

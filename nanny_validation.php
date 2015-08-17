@@ -27,7 +27,7 @@ error_reporting(E_ALL); ini_set('display_errors', 1);
 			
 			
 			//education validation
-				if(!(isset($_POST['education'])))
+				if(empty($_POST['education']))
 			{
 				echo "Изберете образование.";
 			}
@@ -45,9 +45,9 @@ error_reporting(E_ALL); ini_set('display_errors', 1);
 				
 			}
 			//city validation 
-			if(!(isset($_POST['city'])))
+			if(empty($_POST['city']))
 			{
-				
+				echo "Моля изберете град.";
 			}
 			else{
 				$city=$_POST['city'];
@@ -64,7 +64,7 @@ error_reporting(E_ALL); ini_set('display_errors', 1);
 			}
 			//work status 
 			
-			if(!(isset($_POST['work_status'])))
+			if(empty($_POST['work_status']))
 			{
 				echo "Моля изберете работен статус";
 			}
@@ -107,17 +107,18 @@ error_reporting(E_ALL); ini_set('display_errors', 1);
 			
 			//district validation 
 			if(!empty($district)){
-				if(preg_match("/^[a-zA-Z\p{Cyrillic}0-9]{2,20}$/iu",$district)){
+				if(preg_match("/^[a-zA-Z\p{Cyrillic}0-9\s]{2,20}$/iu",$district)){
 					
 				}
 				else{
 					echo "Моля въведете валиден квартал.";
 				}
+			
 			}
 			//street validation 
 			
 			if(!empty($street)){
-				if(preg_match("/^[a-zA-Z\p{Cyrillic}]{2,20}$/iu",$street)){
+				if(preg_match("/^[a-zA-Z\p{Cyrillic}\s]{2,20}$/iu",$street)){
 					
 				}
 				else{
@@ -136,7 +137,7 @@ error_reporting(E_ALL); ini_set('display_errors', 1);
 			}
 			//flat validation 
 			if(!empty($flat)){
-				if(preg_match("/^[a-zA-Z\p{Cyrillic}0-9\'{0,6}$/iu",$flat)){
+				if(preg_match("/^[a-zA-Z\p{Cyrillic}0-9\']{0,6}$/",$flat)){
 					
 				}
 				else{
@@ -158,7 +159,7 @@ error_reporting(E_ALL); ini_set('display_errors', 1);
 			//email validation
 			
 			if(!empty($email)){
-				if(preg_match("/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/",$email)){
+				if(preg_match("/^[a-zA-Z0-9_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/",$email)){
 					$count++;
 				}
 				else{
@@ -170,7 +171,7 @@ error_reporting(E_ALL); ini_set('display_errors', 1);
 			}
 			// f this pass validation 
 			if(!empty($password) && !empty($password2)){
-				if(preg_match("/^(?=(.*\d))(?=.*[a-zA-Z])(?=.*[!@#$%.*?,`~+-_=^\"\;:></()|])[0-9a-zA-Z!@#$%.*?,`!+-_=^\"\;:></()|]{5,16}/",$password)){
+				if(preg_match("/^(?=.*[\d])(?=.*[\W]).{5,16}$/",$password)){
 					if($password==$password2){
 						$count++;
 					}
@@ -184,7 +185,7 @@ error_reporting(E_ALL); ini_set('display_errors', 1);
 			}
 						//pid validation 
 			if(!empty($pid)){
-				if(preg_match("/^[0-9]{10,}$/i",$pid)){
+				if(preg_match("/^[0-9]{10}$/i",$pid)){
 					$count++;
 				}
 				else{
@@ -198,7 +199,7 @@ error_reporting(E_ALL); ini_set('display_errors', 1);
 			//motivation validation  
 			
 			if(!empty($motivatin)){
-				if(preg_match("/^{255,}$/i",$motivation)){
+				if(preg_match("/^{0,255}$/i",$motivation)){
 					$count++;
 				}
 				else{

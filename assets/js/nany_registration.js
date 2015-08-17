@@ -21,7 +21,7 @@ function validateForm(){
 	}
 	//city validation
 	var city = document.forms['regform']['city'].value;
-		  if(street === null ||city == ""){
+		  if(city === null ||city == ""){
    
       alert("Моля изберете град."); 
       return false;
@@ -59,7 +59,7 @@ function validateForm(){
     if (num === null || num === "") {
         
 	}
-	else if (!(/^[a-zA-Z\u0400-\u04FF\0-9\s]{0,6}$/)){
+	else if (!(flat.match(/^[a-zA-Z\u0400-\u04FF\0-9\s]{0,6}$/))){
 		alert("Моля въведете валиденен номер на блок.");
 		return false;
 	}
@@ -73,6 +73,45 @@ function validateForm(){
 		alert("Моля въведете валиден телефон.");
 		return false;
 	}
+	//pid validation
+	var pid=document.form['regform']['pid'].value;
+	if(pid==null || pid===""){
+		alert("Моля въведете ЕГН");
+		return false;
+	}
+	else if(!(pid.match(/^[0-9]{10,10}$/i))){
+		alert("Моля въведете валидно ЕГН.");
+		return false;
+	}
+		//education validation
+	var education = document.forms['regform']['education'].value;
+		  if(education === null ||education == ""){
+   
+      alert("Моля изберете град."); 
+      return false;
+   }
+		//raboten status validation
+	var work_status = document.forms['regform']['work_status'].value;
+		  if(work_status === null || work_status== ""){
+   
+      alert("Моля изберете град."); 
+      return false;
+   }//gender validation
+	var gender = document.forms['regform']['gender'].cheked;
+	if(gender==false){
+		alert("Моля изберете пол.");
+		return false;
+	}
+	//motivation validation
+	var motivation=document.forms['regform']['motivation'].value;
+	if(motivation== NULL || motivation===""){
+		alert("Моля  напишете мотивация.");
+		return false;
+	}
+	else if(motivation>255){
+		alert ("Не може да въведете повече от 255 символа.");
+		return false;
+	}
 	//email
 	var email = document.forms['regform']['email'].value;
     if (email === null || email === "") {
@@ -81,6 +120,12 @@ function validateForm(){
 	}
 	else if (!(email.match(/^[a-zA-Z0-9_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/))){
 		alert("Моля въведете валиден email.");
+		return false;
+	}
+	//gender validation
+	var gender = document.forms['regform']['gender'].cheked;
+	if(gender==false){
+		alert("Моля изберете пол.");
 		return false;
 	}
 	//pass
