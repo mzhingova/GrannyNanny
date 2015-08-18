@@ -55,6 +55,14 @@
 						<input id ="flat" type="text" name="flat"></input>
 						<label>Телефонен номер*</label>
 						<input id="tel" type="tel" name="tel" ></input>
+						<?php 
+							session_start();
+							?>
+							<?php
+							if (isset($_SESSION["email"])){
+								echo "QQ" ;
+							} else{}
+							?>
 						<label>Email*</label>
 						<input id="email" type="email" name="email"></input>
 						<label>Парола*</label>
@@ -62,7 +70,7 @@
 						<input id="pass" type="password" name="pass"></input>
 						<label>Повтори  парола*</label>
 						<input id="pass2" type="password" name="pass2"></input>
-						<input id="btn" type="submit" name="submit" class="btn">Регистрирай</input>
+						<button id="btn" type="submit" name="submit" class="btn">Регистрирай</button>
 					</form>
 				</div>
 			</div>

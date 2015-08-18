@@ -126,13 +126,33 @@ error_reporting(E_ALL); ini_set('display_errors', 1);
 			else{
 				 echo "Моля въведете email.";
 			}
+			
+			
+					$check="SELECT * FROM parenuser WHERE email = '$email'";
+					$rs = mysqli_query($conn,$check)or die("Error in the consult.." . mysqli_error());
+					$data = mysqli_fetch_array($rs, MYSQLI_NUM);
+					if($data[0] > 1) {
+						session_start();
+						$_SESSION["email"]=$email;
+						header("Location: registration.php");
+						
+					}
+					else{
+						$count++;
+					}
 
+			
+			
+			
+			
+			
 			// f this pass validation 
 			if(!empty($password) && !empty($password2)){
 				if(preg_match("/^(?=.*[\d])(?=.*[\W]).{5,16}$/",$password)){
 					if($password==$password2){
 						$count++;
 					}
+					else "Паролите ви не съвпадат";
 				}
 				else{
 					echo "Моля въведете валидена парола.";
@@ -143,13 +163,11 @@ error_reporting(E_ALL); ini_set('display_errors', 1);
 			}
 			
 			
-			if($count>4){
+			if($count>6){
 				$sql ="INSERT INTO `parenuser` (flat, num, street, district, city, firstname, lastname, tel, pass, email, status) VALUES ('$flat', '$num', '$street', '$district', '$selected_val', '$firstname', '$lastname', '$tel', '$password', '$email','user')";
 				$result=mysqli_query($conn ,$sql)or die("Error in the consult.." . mysqli_error($conn));
-
 				if($result){
 				header("Location: success.html");
-
 				}
 			}
 			else{
