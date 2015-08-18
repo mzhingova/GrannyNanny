@@ -10,24 +10,10 @@
 		<link rel="stylesheet" href="assets/css/nany_registration_style.css">
 	</head>
 	<body>
-		<div class="header">
-			<div class="container">
-				<h1 class="header-heading">GrannyNanny</h1>
-			</div>
-		</div>
-		<div class="nav-bar">
-			<div class="container">
-				<ul class="nav">
-					<li><a href="registration.php">Регистрирайте се.</a></li>
-					<li><a href="#">Granny profile</a></li>
-					<li><a href="#">Search</a></li>
-					<li><a href="nanny_reg.php">Nanny registration</a></li>
-				</ul>
-			</div>
-		</div>
+		<?php include 'includes/header.php';?>
 		<div class="container">
 				<div >
-				   
+
 						<form name="regform" method="POST" action="nanny_validation.php" class="regForm" onsubmit="return validateForm()">
 						 <h1>Регистрация</h1>
 						<label class="wtf">Име*</label>
@@ -58,7 +44,7 @@
 						<input type="tel" name="tel" ></input>
 						<label>ЕГН*</label>
 						<input type="number" name="pid" ></input>
-						
+
 						<label>Образование*</label>
 						<select name="education">
 						<option value=""></option>
@@ -84,10 +70,10 @@
 						<label>Възможност за работа извън града</label>
 						<input type="checkbox" name="workout" value="да" ></input>
 						</div>
-						
+
 						<label>Мотивационно поле*</label>
 						<input type="text" name="motivation" ></input>
-						
+
 						<label>Email*</label>
 						<input type="email" name="email"></input>
 						<label>Парола*</label>
@@ -99,11 +85,7 @@
 					</form>
 				</div>
 			</div>
-	<div class="footer">
-			<div class="container">
-			</div>
-		</div>
-		
+		<?php include 'includes/footer.php';?>
 		<script type="text/javascript" src="assets/js/nany_registration.js"></script>
 	</body>
 </html>
