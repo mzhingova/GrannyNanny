@@ -5,6 +5,6 @@ session_start();
 
 $pageTitle = ' Profile page';
 
-echo "Hello ".($_SESSION["name"])." welcome to your profile page!";
+echo "Hello ".($_SESSION["name"])." ".($_SESSION["lastname"])." welcome to your profile page!";
 
 ?>

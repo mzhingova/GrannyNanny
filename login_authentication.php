@@ -32,6 +32,7 @@ if (isset($_POST['email']) and isset($_POST['pass']))
 		while($row = $query->fetch_assoc())
 		{
 			$_SESSION["name"] = $row['firstname'];
+			$_SESSION["lastname"] = $row['lastname'];
 			//$_SESSION["pass"] = $row['pass'];
 			header('Location: user_profile.php');
 		}	
