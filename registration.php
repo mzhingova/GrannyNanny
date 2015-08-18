@@ -10,23 +10,10 @@
 		<link rel="stylesheet" href="assets/css/registration_style.css">
 	</head>
 	<body>
-		<div class="header">
-			<div class="container">
-				<h1 class="header-heading">GrannyNanny</h1>
-			</div>
-		</div>
-		<div class="nav-bar">
-			<div class="container">
-				<ul class="nav">
-					<li><a href="#">Granny profile</a></li>
-					<li><a href="#">Search</a></li>
-					<li><a href="#"></a></li>
-				</ul>
-			</div>
-		</div>
+<?php include 'includes/header.php';?>
 		<div class="container">
 				<div >
-				   
+
 						<form name="regform" method="POST" action="registration_validation.php" class="regForm" onsubmit="return validateForm()">
 						 <h1>Регистрация</h1>
 						<label class="wtf">Име*</label>
@@ -66,10 +53,7 @@
 					</form>
 				</div>
 			</div>
-	<div class="footer">
-			<div class="container">
-			</div>
-		</div>
+		<?php include 'includes/footer.php';?>
 		<script type="text/javascript" src="assets/js/registration.js"></script>
 	</body>
 </html>
