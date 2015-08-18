@@ -37,11 +37,12 @@ if (isset($_POST['email']) and isset($_POST['pass']))
 		}	
 
 	}
-} 
+
 else
 {
 	echo "Invalid Login Credentials.";
 }
+} 
  		
 ?>
 
