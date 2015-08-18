@@ -87,29 +87,32 @@ function validateForm(){
 	var education = document.forms['regform']['education'].value;
 		  if(education === null ||education == ""){
    
-      alert("Моля изберете град."); 
+      alert("Моля изберете образование."); 
       return false;
    }
 		//raboten status validation
 	var work_status = document.forms['regform']['work_status'].value;
 		  if(work_status === null || work_status== ""){
    
-      alert("Моля изберете град."); 
+      alert("Моля изберете работен статус."); 
       return false;
    }//gender validation
-	var gender = document.forms['regform']['gender'].cheked;
-	if(gender==false){
+	 var genderf = document.forms['regform']['genderf'];
+	  var genderm = document.forms['regform']['genderm'];
+	if(genderf.checked === false && genderm.checked === false ){
 		alert("Моля изберете пол.");
 		return false;
-	}
+	} 
+	
+	
 	//motivation validation
 	var motivation=document.forms['regform']['motivation'].value;
-	if(motivation== NULL || motivation===""){
+	if(motivation===null || motivation==""){
 		alert("Моля  напишете мотивация.");
 		return false;
 	}
-	else if(motivation>255){
-		alert ("Не може да въведете повече от 255 символа.");
+	else if(!(motivation.match(/^.{20,255}$/))){
+		alert ("Не може да въведете повече от 255 символа  и не по малко от 20 символа.");
 		return false;
 	}
 	//email
@@ -136,7 +139,7 @@ function validateForm(){
         alert("Моля въведете парола.");
         return false;
 	}
-	else if (!(pass.match(/^(?=.*[\d])(?=.*[\W]).{6,16}$/))){
+	else if (!(pass.match(/^(?=.*[\d])(?=.*[\W_]).{6,16}$/))){
 		alert("Моля въведете валидена парола.");
 		return false;
 	}

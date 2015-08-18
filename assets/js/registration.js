@@ -91,7 +91,7 @@ function validateForm(){
         alert("Моля въведете парола.");
         return false;
 	}
-	else if (!(pass.match(/^(?=.*[\d])(?=.*[\W]).{6,16}$/))){
+	else if (!(pass.match(/^(?=.*[\d])(?=.*[\W_]).{6,16}$/))){
 		alert("Моля въведете валидена парола.");
 		return false;
 	}

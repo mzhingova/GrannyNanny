@@ -137,7 +137,7 @@ error_reporting(E_ALL); ini_set('display_errors', 1);
 			}
 			//flat validation 
 			if(!empty($flat)){
-				if(preg_match("/^[a-zA-Z\p{Cyrillic}0-9\']{0,6}$/",$flat)){
+				if(preg_match("/^[a-zA-Z\p{Cyrillic}0-9]{0,6}$/",$flat)){
 					
 				}
 				else{
@@ -171,7 +171,7 @@ error_reporting(E_ALL); ini_set('display_errors', 1);
 			}
 			// f this pass validation 
 			if(!empty($password) && !empty($password2)){
-				if(preg_match("/^(?=.*[\d])(?=.*[\W]).{5,16}$/",$password)){
+				if(preg_match("/^(?=.*[\d])(?=.*[\W_]).{6,16}$/",$password)){
 					if($password==$password2){
 						$count++;
 					}
@@ -199,11 +199,11 @@ error_reporting(E_ALL); ini_set('display_errors', 1);
 			//motivation validation  
 			
 			if(!empty($motivatin)){
-				if(preg_match("/^{0,255}$/i",$motivation)){
+				if(preg_match("/^.{20,255}$/i",$motivation)){
 					$count++;
 				}
 				else{
-					echo "Моля въведете валидено ЕГН.";
+					echo "	Мотивационното писмо не може да съдържа повече от 255 символа и по малко от 20.";
 				}
 			}
 			

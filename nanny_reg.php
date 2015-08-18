@@ -77,8 +77,8 @@
 						</div>
 						<div id="gender">
 						<label>Пол*</label><br>
-						Жена<input type="radio" name="gender" value="fmale" ></input>
-						Мъж <input type="radio" name="gender" value="male" ></input>
+						Жена<input type="radio" name="genderf" value="fmale" ></input>
+						Мъж <input type="radio" name="genderm" value="male" ></input>
 						</div>
 						<div id="workout">
 						<label>Възможност за работа извън града</label>
@@ -95,7 +95,7 @@
 						<input type="password" name="pass"></input>
 						<label>Повтори  парола*</label>
 						<input type="password" name="pass2"></input>
-						<input type="submit" name="submit" class="btn">Регистрирай</input>
+						<button type="submit" name="submit" class="btn">Регистрирай</button>
 					</form>
 				</div>
 			</div>

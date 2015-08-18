@@ -13,7 +13,7 @@
 		<link rel="shortcut icon" href="favicon.ico">
 
 		<!-- Override CSS file - add your own CSS rules -->
-		<link rel="stylesheet" href="assets\css\login_style.css">
+		<link rel="stylesheet" href="assets/css/login_style.css">
 	</head>
 	<body>
 		<div class="header">
