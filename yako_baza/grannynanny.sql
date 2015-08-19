@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 14, 2015 at 09:22 AM
+-- Generation Time: Aug 19, 2015 at 10:20 AM
 -- Server version: 5.6.25
 -- PHP Version: 5.6.11
 
@@ -32,10 +32,7 @@ CREATE TABLE IF NOT EXISTS `parenuser` (
   `lastname` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `city` varchar(255) NOT NULL,
-  `district` varchar(255) NOT NULL,
-  `street` varchar(255) NOT NULL,
-  `num` varchar(255) NOT NULL,
-  `flat` varchar(255) NOT NULL,
+  `address` varchar(255) NOT NULL,
   `pass` varchar(200) NOT NULL,
   `gender` varchar(255) NOT NULL,
   `pid` varchar(255) NOT NULL,
@@ -44,17 +41,14 @@ CREATE TABLE IF NOT EXISTS `parenuser` (
   `education` varchar(255) NOT NULL,
   `motivation` varchar(255) NOT NULL,
   `status` varchar(255) NOT NULL,
-  `tel` int(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+  `tel` varchar(255) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `parenuser`
 --
 
-INSERT INTO `parenuser` (`userID`, `firstname`, `lastname`, `email`, `city`, `district`, `street`, `num`, `flat`, `pass`, `gender`, `pid`, `workout`, `work_status`, `education`, `motivation`, `status`, `tel`) VALUES
-(10, 'dasd', 'dasdas', 'mimeto_love_you@abv.bg', '', '', '', '', '', 'qwe123@', 'full', '1111111111', '', 'full', '', '', 'nanny', 2147483647);
 
---
 -- Indexes for dumped tables
 --
 
@@ -72,7 +66,7 @@ ALTER TABLE `parenuser`
 -- AUTO_INCREMENT for table `parenuser`
 --
 ALTER TABLE `parenuser`
-  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
