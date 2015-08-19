@@ -21,32 +21,34 @@
 					<div class="container">
 						<div class="col2">
 							<h3>As a User you can:</h3><br>
-							Search for Nanny to hire
-							See full profile of Nannies
-							Comment and rate Nannies you worked with
-						 <br><a href="registration.php">Registration</a>
+							Search for Nanny to hire<br>
+							See full profile of Nannies<br>
+							Comment and rate Nannies you worked with<br>
+							<br><a href="registration.php">Registration</a>
 						</div>
 						<div class="col3">
 							<h3>As a Nanny you can:</h3><br>
-							   Recieve job offers from users<br>
-							   Manage your availability from personal calendar<br>
-							   Be visible in our Nanny Profiles page<br>
-							  <br><a href="nanny_reg.php">Apply for Nanny</a>
+							Recieve job offers from users<br>
+							Manage your availability from personal calendar<br>
+							Be visible in our Nanny Profiles page<br><br>
+							
+							<a href="#">Apply for Nanny</a>
 						</div>
 					</div>
-					<img src="nanny1.jpg" alt="nanny">
+					<img src="assets/img/nanny1.jpg" alt="nanny">
 				</div>
 				<div class="content">
-					
-					
-					
-					
 					<div class="container">
-						<div class="nav-bar">
-							<style:"color=white"><?php include 'includes/footer.php';?>
+						<div class="footer">
+							<a href="https://twitter.com/">
+							<img id="social_media" title="Twitter" alt="Twitter" src="assets/img/twitter.png"/></a>
+							<a href="https://facebook.com">
+							<img id="social_media" title="Facebook" alt="Facebook" src="assets/img/facebook.png"/></a>
+							<style:"color=white"><?php include 'includes/footer.php';?></style>
 						</div>
 					</div>
 				</div>
 			</div>
-		</body>
-	</html>
+		</div>
+	</body>
+</html>
