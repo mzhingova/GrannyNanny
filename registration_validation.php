@@ -61,11 +61,16 @@ error_reporting(E_ALL); ini_set('display_errors', 1);
 				echo"Моля въведете фамилия.";
 			}
 			
+
 		/*	//address validation 
 			if(!empty($address)){
+
+			//district validation 
+			if(empty($address)){
+
 				
 				
-				echo "Моля въведете валиден адрес.";
+				echo "Моля въведете валиден квартал.";
 					
 				
 			}*/
@@ -118,9 +123,7 @@ error_reporting(E_ALL); ini_set('display_errors', 1);
 					if($password==$password2){
 						$count++;
 					}
-					else{
-						echo "Паролите ви не съвпадат";
-					}
+					else "Паролите ви не съвпадат";
 				}
 				else{
 					echo "Моля въведете валидена парола.";
@@ -135,7 +138,7 @@ error_reporting(E_ALL); ini_set('display_errors', 1);
 				$sql ="INSERT INTO `parenuser` (address, city, firstname, lastname, tel, pass, email, status) VALUES ('$address', '$selected_val', '$firstname', '$lastname', '$tel', '$password', '$email','user')";
 				$result=mysqli_query($conn ,$sql)or die("Error in the consult.." . mysqli_error($conn));
 				if($result){
-				header("Location: success.html");
+				header("Location: success.php");
 				}
 			}
 			else{
