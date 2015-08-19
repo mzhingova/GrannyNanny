@@ -61,14 +61,14 @@ error_reporting(E_ALL); ini_set('display_errors', 1);
 				echo"Моля въведете фамилия.";
 			}
 			
-			//district validation 
+		/*	//address validation 
 			if(!empty($address)){
 				
 				
 				echo "Моля въведете валиден адрес.";
 					
 				
-			}
+			}*/
 			
 			//telephone validation 
 			if(!empty($tel)){
