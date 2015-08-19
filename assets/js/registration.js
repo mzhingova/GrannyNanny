@@ -21,48 +21,11 @@ function validateForm(){
 	}
 	//city validation
 	var city = document.forms['regform']['city'].value;
-		  if(street === null ||city == ""){
+		  if(city === null ||city == ""){
    
       alert("Моля изберете град."); 
       return false;
    }
-
-	//district validation
-	var district = document.forms['regform']['district'].value;
-    if (district === null || district === "") {
-        
-	}
-	else if (!(district.match(/^[a-zA-Z0-9\u0400-\u04FF\s]{2,20}$/i))){
-		alert("Моля въведете валиден квартал.");
-		return false;
-	}
-	//street
-		var street = document.forms['regform']['street'].value;
-    if (street === null || street === "") {
-        
-	}
-	else if (!(street.match(/^[a-zA-Z0-9\u0400-\u04FF\s]{2,20}$/i))){
-		alert("Моля въведете валидена улица.");
-		return false;
-	}
-	//street num 
-		var num = document.forms['regform']['num'].value;
-    if (num === null || num === "") {
-        
-	}
-	else if (!(num.match(/^[0-9]{0,3}$/i))){
-		alert("Моля въведете валиденен номер.");
-		return false;
-	}
-	//flat
-		var flat = document.forms['regform']['flat'].value;
-    if (flat === null || flat === "") {
-        
-	}
-	else if (!(flat.match(/^[a-zA-Z0-9\u0400-\u04FF\s]{0,6}$/i))){
-		alert("Моля въведете валиденен номер на блок.");
-		return false;
-	}
 	//telephone 
 		var tel = document.forms['regform']['tel'].value;
     if (tel === null || tel === "") {
