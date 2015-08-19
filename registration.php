@@ -10,43 +10,42 @@
 		<link rel="stylesheet" href="assets/css/registration_style.css">
 	</head>
 	<body>
-<?php include 'includes/header.php';?>
-		<div class="container">
-				<div >
-
+		<?php include 'includes/header.php';?>
+			<div class="container">
+					<div >
 						<form name="regform" method="POST" action="registration_validation.php" class="regForm" onsubmit="return validateForm()">
-						 <h1>Регистрация</h1>
-						<label class="wtf">Име*</label>
-						<div class="patt">Mоже да съдържа само букви и да има дължина 2-16 символа.</div>
-						<input  id="fname"type="text" name="firstname"></input>
-						<label>Фамилия*</label>
-						<div class="patt">Mоже да съдържа само букви и да има дължина 2-16 символа.</div>
-						<input id="lname" type="text" name="lastname">
-						<label>Град*</label>
-						<select id="city" name="city">
-						<option value="">Град</option>
-						<option value="София">София</option>
-						<option value="Перник">Перник</option>
-						<option value="Ямбол">Ямбол</option>
-						<option value="Русе">Русе</option>
-						<option value="Бургас">Бургас</option>
-						<option value="Варна">Варна</option>
-						</select>
-						<label>Адрес</label>
-						<input id="address" type="text" name="address"></input>
-						<label>Телефонен номер*</label>
-						<input id="tel" type="tel" name="tel" ></input>
-						
-						<label>Email*</label>
-						<input id="email" type="email" name="email"></input>
-						<label>Парола*</label>
-						<div class="patt">Tрябва да съдържа поне една цифра ,един специален символ , да е с дължина 5-16 символа.</div>
-						<input id="pass" type="password" name="pass"></input>
-						<label>Повтори  парола*</label>
-						<input id="pass2" type="password" name="pass2"></input>
-						<button id="btn" type="submit" name="submit" class="btn">Регистрирай</button>
-					</form>
-				</div>
+							 <h1>Регистрация</h1>
+							<label class="wtf">Име*</label>
+							<div class="patt">Mоже да съдържа само букви и да има дължина 2-16 символа.</div>
+							<input  id="fname"type="text" name="firstname"></input>
+							<label>Фамилия*</label>
+							<div class="patt">Mоже да съдържа само букви и да има дължина 2-16 символа.</div>
+							<input id="lname" type="text" name="lastname">
+							<label>Град*</label>
+							<select id="city" name="city">
+							<option value="">Град</option>
+							<option value="София">София</option>
+							<option value="Перник">Перник</option>
+							<option value="Ямбол">Ямбол</option>
+							<option value="Русе">Русе</option>
+							<option value="Бургас">Бургас</option>
+							<option value="Варна">Варна</option>
+							</select>
+							<label>Адрес</label>
+							<input id="address" type="text" name="address"></input>
+							<label>Телефонен номер*</label>
+							<input id="tel" type="tel" name="tel" ></input>
+
+							<label>Email*</label>
+							<input id="email" type="email" name="email"></input>
+							<label>Парола*</label>
+							<div class="patt">Tрябва да съдържа поне една цифра ,един специален символ , да е с дължина 5-16 символа.</div>
+							<input id="pass" type="password" name="pass"></input>
+							<label>Повтори  парола*</label>
+							<input id="pass2" type="password" name="pass2"></input>
+							<button id="btn" type="submit" name="submit" class="btn">Регистрирай</button>
+						</form>
+					</div>
 			</div>
 		<?php include 'includes/footer.php';?>
 		<script type="text/javascript" src="assets/js/registration.js"></script>

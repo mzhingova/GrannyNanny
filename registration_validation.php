@@ -62,10 +62,10 @@ error_reporting(E_ALL); ini_set('display_errors', 1);
 			}
 			
 			//district validation 
-			if(!empty($address)){
+			if(empty($address)){
 				
 				
-				echo "Моля въведете валиден адрес.";
+				echo "Моля въведете валиден квартал.";
 					
 				
 			}
@@ -118,9 +118,7 @@ error_reporting(E_ALL); ini_set('display_errors', 1);
 					if($password==$password2){
 						$count++;
 					}
-					else{
-						echo "Паролите ви не съвпадат";
-					}
+					else "Паролите ви не съвпадат";
 				}
 				else{
 					echo "Моля въведете валидена парола.";
