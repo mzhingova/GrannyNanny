@@ -21,22 +21,25 @@
 					<div class="container">
 						<div class="col2">
 							<h3>As a User you can:</h3><br>
-							<p>Search for Nanny to hite<br>
-								See full profile of Nannies<br>
-							Comment and rate Nannies you worked with<br></p>
+							Search for Nanny to hire
+							See full profile of Nannies
+							Comment and rate Nannies you worked with
+						 <br><a href="registration.php">Registration</a>
 						</div>
 						<div class="col3">
 							<h3>As a Nanny you can:</h3><br>
-							<p>Recieve job offers from users<br>
-								Manage your availability from personal calendar<br>
-							Be visible in our Nanny Profiles page<br></p>
+							   Recieve job offers from users<br>
+							   Manage your availability from personal calendar<br>
+							   Be visible in our Nanny Profiles page<br>
+							  <br><a href="nanny_reg.php">Apply for Nanny</a>
 						</div>
 					</div>
-					<img src="nanny1.jpg" alt="nanny" style="width:52%;height:70%;">
+					<img src="nanny1.jpg" alt="nanny">
 				</div>
 				<div class="content">
-					<a href="registration.php">Registration</a>
-					<qwerty><a href="nanny_reg.php">Apply for Nanny</a>
+					
+					
+					
 					
 					<div class="container">
 						<div class="nav-bar">
@@ -44,6 +47,6 @@
 						</div>
 					</div>
 				</div>
-				</div>
-			</body>
-		</html>
+			</div>
+		</body>
+	</html>

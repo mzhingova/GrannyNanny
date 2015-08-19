@@ -92,7 +92,6 @@ a:active { color: red; }
 /* -----------------------
 Layout styles
 ------------------------*/
-
 .container
 {
 	max-width: 70em;
@@ -130,7 +129,9 @@ Layout styles
 /* -----------------------
 Nav
 ------------------------*/
-
+q {
+    text-align: right;
+}
 .nav
 {
 	margin: 0;
@@ -179,7 +180,10 @@ Single styles
 ------------------------*/
 
 .img-responsive { max-width: 100%; }
-
+img{
+	width:52%;
+	height:70%;
+}
 .btn
 {
 	color: #fff !important;
@@ -250,7 +254,9 @@ color:red
 font-size:10px;
 width:25.5%;
 }
-
+p {
+  text-align: center;
+}
 /* -----------------------
 Wide styles
 ------------------------*/
@@ -276,7 +282,9 @@ Wide styles
 		margin-bottom: 1em;
 	}
 
-	.footer { padding: 2em 3em; }
+	.footer { padding: 2em 3em;
+			 color: white;
+	 }
 	
 	.nav li
 	{
@@ -291,7 +299,27 @@ Wide styles
 		border-bottom: 0;
 	}
 }
+	.col1
+	{
+		float: left;
+		width: 48%;
+		margin-right: 4%;
+	}
+
+	.col2
+	{
+		float: left;
+		width: 22%;
+		margin-right: 4%;
+	}
+
+	.col3
+	{
+		float: left;
+		width: 22%;
+	}
 
 footer {
 	text-align: center;
+	color:white;
 }
