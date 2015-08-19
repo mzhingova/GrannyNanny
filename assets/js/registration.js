@@ -32,7 +32,7 @@ function validateForm(){
     if (district === null || district === "") {
         
 	}
-	else if (!(district.match(/^[a-zA-Z\u0400-\u04FF\0-9\s]{2,20}$/i))){
+	else if (!(district.match(/^[a-zA-Z0-9\u0400-\u04FF\s]{2,20}$/i))){
 		alert("Моля въведете валиден квартал.");
 		return false;
 	}
@@ -41,7 +41,7 @@ function validateForm(){
     if (street === null || street === "") {
         
 	}
-	else if (!(/^[a-zA-Z\u0400-\u04FF\0-9\s]{2,20}$/i)){
+	else if (!(street.match(/^[a-zA-Z0-9\u0400-\u04FF\s]{2,20}$/i))){
 		alert("Моля въведете валидена улица.");
 		return false;
 	}
@@ -56,10 +56,10 @@ function validateForm(){
 	}
 	//flat
 		var flat = document.forms['regform']['flat'].value;
-    if (num === null || num === "") {
+    if (flat === null || flat === "") {
         
 	}
-	else if (!(/^[a-zA-Z\u0400-\u04FF\0-9\s]{0,6}$/)){
+	else if (!(flat.match(/^[a-zA-Z0-9\u0400-\u04FF\s]{0,6}$/i))){
 		alert("Моля въведете валиденен номер на блок.");
 		return false;
 	}
@@ -91,7 +91,7 @@ function validateForm(){
         alert("Моля въведете парола.");
         return false;
 	}
-	else if (!(pass.match(/^(?=.*[\d])(?=.*[\W_]).{6,16}$/))){
+	else if (!(pass.match(/^(?=.*[a-zA-Z])(?=.*[\d])(?=.*[\W_]).{5,16}$/))){
 		alert("Моля въведете валидена парола.");
 		return false;
 	}

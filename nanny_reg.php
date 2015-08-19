@@ -32,14 +32,9 @@
 						<option value="Бургас">Бургас</option>
 						<option value="Варна">Варна</option>
 						</select>
-						<label>Кавартал</label>
-						<input type="text" name="district"></input>
-						<label>Улица</label>
-						<input type="text" name="street"></input>
-						<label>Номер на улица</label>
-						<input type="number" name="num"></input>
-						<label>Блок(номер/вход)</label>
-						<input type="text" name="flat"></input>
+						<label>Адрес</label>
+						<input type="text" name="address"></input>
+						
 						<label>Телефонен номер*</label>
 						<input type="tel" name="tel" ></input>
 						<label>ЕГН*</label>
@@ -49,7 +44,7 @@
 						<select name="education">
 						<option value=""></option>
 						<option value="Средно">Средно</option>
-						<option value="Средно специално">Средно специално"</option>
+						<option value="Средно специално">Средно специално</option>
 						<option value="Висше">Висше</option>
 						</select>
 						<div>
@@ -63,8 +58,8 @@
 						</div>
 						<div id="gender">
 						<label>Пол*</label><br>
-						Жена<input type="radio" name="genderf" value="fmale" ></input>
-						Мъж <input type="radio" name="genderm" value="male" ></input>
+						Жена<input type="radio" name="gender" value="fmale" ></input>
+						Мъж <input type="radio" name="gender" value="male" ></input>
 						</div>
 						<div id="workout">
 						<label>Възможност за работа извън града</label>

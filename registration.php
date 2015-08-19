@@ -32,24 +32,11 @@
 						<option value="Бургас">Бургас</option>
 						<option value="Варна">Варна</option>
 						</select>
-						<label>Кавартал</label>
-						<input id="district" type="text" name="district"></input>
-						<label>Улица</label>
-						<input id="street" type="text" name="street"></input>
-						<label>Номер на улица</label>
-						<input id="num" type="number" name="num"></input>
-						<label>Блок(номер/вход)</label>
-						<input id ="flat" type="text" name="flat"></input>
+						<label>Адрес</label>
+						<input id="address" type="text" name="address"></input>
 						<label>Телефонен номер*</label>
 						<input id="tel" type="tel" name="tel" ></input>
-						<?php 
-							session_start();
-							?>
-							<?php
-							if (isset($_SESSION["email"])){
-								echo "QQ" ;
-							} else{}
-							?>
+						
 						<label>Email*</label>
 						<input id="email" type="email" name="email"></input>
 						<label>Парола*</label>

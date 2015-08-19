@@ -17,10 +17,8 @@ error_reporting(E_ALL); ini_set('display_errors', 1);
 			$tel = $_POST['tel'];
 	        $password = $_POST['pass'];
 			$password2 = $_POST['pass2'];
-			$flat = $_POST['flat'];
-			$num = $_POST['num'];
-			$street = $_POST['street'];
-			$district = $_POST['district'];
+			
+			$address = $_POST['address'];
 			$selected_val = $_POST['city'];
 			$conn ->set_charset("utf8");
 			
@@ -64,43 +62,14 @@ error_reporting(E_ALL); ini_set('display_errors', 1);
 			}
 			
 			//district validation 
-			if(!empty($district)){
-				if(preg_match("/^[a-zA-Z\p{Cyrillic}0-9]\s{2,20}$/iu",$district)){
+			if(empty($address)){
+				
+				
+				echo "Моля въведете валиден квартал.";
 					
-				}
-				else{
-					echo "Моля въведете валиден квартал.";
-				}
+				
 			}
-			//street validation 
 			
-			if(!empty($street)){
-				if(preg_match("/^[a-zA-Z\p{Cyrillic}0-9\s]{2,20}$/iu",$street)){
-					
-				}
-				else{
-					echo "Моля въведете валидена улица.";
-				}
-			}
-			//street num validation 
-			
-			if(!empty($num)){
-				if(preg_match("/^[0-9]{0,3}$/iu",$num)){
-					
-				}
-				else{
-					echo "Моля въведете валиден номер.";
-				}
-			}
-			//flat validation 
-			if(!empty($flat)){
-				if(preg_match("^[a-zA-Z\p{Cyrillic}0-9\s]{0,6}$",$flat)){
-					
-				}
-				else{
-					echo "Моля въведете валиден номер на блок.";
-				}
-			}
 			//telephone validation 
 			if(!empty($tel)){
 				if(preg_match("/^[0-9]{5,10}$/i",$tel)){
@@ -127,15 +96,12 @@ error_reporting(E_ALL); ini_set('display_errors', 1);
 				 echo "Моля въведете email.";
 			}
 			
-			
+					
 					$check="SELECT * FROM parenuser WHERE email = '$email'";
 					$rs = mysqli_query($conn,$check)or die("Error in the consult.." . mysqli_error());
 					$data = mysqli_fetch_array($rs, MYSQLI_NUM);
 					if($data[0] > 1) {
-						session_start();
-						$_SESSION["email"]=$email;
-						header("Location: registration.php");
-						
+						header("Location: QQ.php");
 					}
 					else{
 						$count++;
@@ -148,7 +114,7 @@ error_reporting(E_ALL); ini_set('display_errors', 1);
 			
 			// f this pass validation 
 			if(!empty($password) && !empty($password2)){
-				if(preg_match("/^(?=.*[\d])(?=.*[\W]).{5,16}$/",$password)){
+				if(preg_match("/^(?=.*[a-zA-Z])(?=.*[\d])(?=.*[\W_]).{5,16}$/",$password)){
 					if($password==$password2){
 						$count++;
 					}
@@ -164,7 +130,7 @@ error_reporting(E_ALL); ini_set('display_errors', 1);
 			
 			
 			if($count>6){
-				$sql ="INSERT INTO `parenuser` (flat, num, street, district, city, firstname, lastname, tel, pass, email, status) VALUES ('$flat', '$num', '$street', '$district', '$selected_val', '$firstname', '$lastname', '$tel', '$password', '$email','user')";
+				$sql ="INSERT INTO `parenuser` (address, city, firstname, lastname, tel, pass, email, status) VALUES ('$address', '$selected_val', '$firstname', '$lastname', '$tel', '$password', '$email','user')";
 				$result=mysqli_query($conn ,$sql)or die("Error in the consult.." . mysqli_error($conn));
 				if($result){
 				header("Location: success.html");

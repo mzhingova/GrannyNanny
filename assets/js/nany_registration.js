@@ -27,42 +27,14 @@ function validateForm(){
       return false;
    }
 
-	//district validation
+	//address validation
 	var district = document.forms['regform']['district'].value;
     if (district === null || district === "") {
-        
-	}
-	else if (!(district.match(/^[a-zA-Z\u0400-\u04FF\0-9\s]{2,20}$/i))){
-		alert("Моля въведете валиден квартал.");
+        alert("Моля въведете валиден квартал.");
 		return false;
 	}
-	//street
-		var street = document.forms['regform']['street'].value;
-    if (street === null || street === "") {
-        
-	}
-	else if (!(/^[a-zA-Z\u0400-\u04FF\0-9\s]{2,20}$/i)){
-		alert("Моля въведете валидена улица.");
-		return false;
-	}
-	//street num 
-		var num = document.forms['regform']['num'].value;
-    if (num === null || num === "") {
-        
-	}
-	else if (!(num.match(/^[0-9]{0,3}$/i))){
-		alert("Моля въведете валиденен номер.");
-		return false;
-	}
-	//flat
-		var flat = document.forms['regform']['flat'].value;
-    if (num === null || num === "") {
-        
-	}
-	else if (!(flat.match(/^[a-zA-Z\u0400-\u04FF\0-9\s]{0,6}$/))){
-		alert("Моля въведете валиденен номер на блок.");
-		return false;
-	}
+	
+	
 	//telephone 
 		var tel = document.forms['regform']['tel'].value;
     if (tel === null || tel === "") {
@@ -97,9 +69,9 @@ function validateForm(){
       alert("Моля изберете работен статус."); 
       return false;
    }//gender validation
-	 var genderf = document.forms['regform']['genderf'];
-	  var genderm = document.forms['regform']['genderm'];
-	if(genderf.checked === false && genderm.checked === false ){
+	 var gender = document.forms['regform']['gender'];
+	  
+	if(gender[0].checked === false || gender[1].checked === false ){
 		alert("Моля изберете пол.");
 		return false;
 	} 
@@ -139,7 +111,7 @@ function validateForm(){
         alert("Моля въведете парола.");
         return false;
 	}
-	else if (!(pass.match(/^(?=.*[\d])(?=.*[\W_]).{6,16}$/))){
+	else if (!(pass.match(/^(?=.*[a-zA-Z])(?=.*[\d])(?=.*[\W_]).{5,16}$/))){
 		alert("Моля въведете валидена парола.");
 		return false;
 	}

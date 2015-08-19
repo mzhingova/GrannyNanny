@@ -17,10 +17,8 @@ error_reporting(E_ALL); ini_set('display_errors', 1);
 			$tel = $_POST['tel'];
 	        $password = $_POST['pass'];
 			$password2 = $_POST['pass2'];
-			$flat = $_POST['flat'];
-			$num = $_POST['num'];
-			$street = $_POST['street'];
-			$district = $_POST['district'];
+			$motivation =$_POST['motivation'];
+			$address = $_POST['address'];
 			$pid=$_POST['pid'];
 			
 			
@@ -38,10 +36,11 @@ error_reporting(E_ALL); ini_set('display_errors', 1);
 			}
 			if(!(isset($_POST['workout'])))
 			{
-			
+				
 			}
 			else{
 				$workout=$_POST['workout'];
+				
 				
 			}
 			//city validation 
@@ -106,44 +105,13 @@ error_reporting(E_ALL); ini_set('display_errors', 1);
 			}
 			
 			//district validation 
-			if(!empty($district)){
-				if(preg_match("/^[a-zA-Z\p{Cyrillic}0-9\s]{2,20}$/iu",$district)){
-					
-				}
+			if(!empty($address)){
+			}
+				
 				else{
-					echo "Моля въведете валиден квартал.";
+					echo "Моля въведете адрес.";
 				}
 			
-			}
-			//street validation 
-			
-			if(!empty($street)){
-				if(preg_match("/^[a-zA-Z\p{Cyrillic}0-9\s]{2,20}$/iu",$street)){
-					
-				}
-				else{
-					echo "Моля въведете валидена улица.";
-				}
-			}
-			//street num validation 
-			
-			if(!empty($num)){
-				if(preg_match("/^[0-9]{0,3}$/iu",$num)){
-					
-				}
-				else{
-					echo "Моля въведете валиден номер.";
-				}
-			}
-			//flat validation 
-			if(!empty($flat)){
-				if(preg_match("/^[a-zA-Z\p{Cyrillic}0-9]{0,6}$/",$flat)){
-					
-				}
-				else{
-					echo "Моля въведете валиден номер на блок.";
-				}
-			}
 			//telephone validation 
 			if(!empty($tel)){
 				if(preg_match("/^[0-9]{5,10}$/i",$tel)){
@@ -169,9 +137,20 @@ error_reporting(E_ALL); ini_set('display_errors', 1);
 			else{
 				 echo "Моля въведете email.";
 			}
+					$check="SELECT * FROM parenuser WHERE email = '$email'";
+					$rs = mysqli_query($conn,$check)or die("Error in the consult.." . mysqli_error());
+					$data = mysqli_fetch_array($rs, MYSQLI_NUM);
+					if($data[0] > 1) {
+						header("Location: QQ.php");
+					}
+					else{
+						$count++;
+					}
+
+			
 			// f this pass validation 
 			if(!empty($password) && !empty($password2)){
-				if(preg_match("/^(?=.*[\d])(?=.*[\W_]).{6,16}$/",$password)){
+				if(preg_match("/^(?=.*[a-zA-Z])(?=.*[\d])(?=.*[\W_]).{5,16}$/",$password)){
 					if($password==$password2){
 						$count++;
 					}
@@ -212,7 +191,7 @@ error_reporting(E_ALL); ini_set('display_errors', 1);
 			echo $count;
 			
 			if($count>9){
-				$sql ="INSERT INTO `parenuser` (pid, workout, work_status, gender, education, motivation, flat, num, street, district, city, firstname, lastname, tel, pass, email, status) VALUES ('$pid','$workout','$work_status','$gender','$edication', '$motivation', '$flat', '$num', '$street', '$district', '$selected_val', '$firstname', '$lastname', '$tel', '$password', '$email', 'nanny')";
+				$sql ="INSERT INTO `parenuser` (pid, workout, work_status, gender, education, motivation, address, city, firstname, lastname, tel, pass, email, status) VALUES ('$pid','$workout','$work_status','$gender','$education', '$motivation', '$address', '$city', '$firstname', '$lastname', '$tel', '$password', '$email', 'nanny')";
 				$result=mysqli_query($conn ,$sql)or die("Error in the consult.." . mysqli_error($conn));
 
 				if($result){
