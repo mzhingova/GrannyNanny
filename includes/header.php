@@ -9,13 +9,31 @@
 <div class="nav-bar">
 	<div class="container">
 		<ul class="nav">
-			<li><a href="index.php">Home</a></li>
-		    <li><a href="#">Apply for Nanny</a></li>
-		    <li><a href="#">Search for Nannies</a></li>
-		    <li><a href="#">Help</a></li>
-			<li><a href="#">About Us</a></li>
-			<li><a href="login.php">Login</a></li>
-			<li><a href="registration.php">Registration</a></li>
+<<<<<<< HEAD
+			<?php 
+			error_reporting(E_ALL);
+			ini_set('display_errors', 1);
+			session_start();
+
+			?>
+			<li><a href="index.php">Начало</a></li>
+		    <li><?php if(isset($_SESSION['status']) && ($_SESSION['status']=="nanny" || $_SESSION['status']=="user")){?><a  href='loginout.php' value="izhof" >Профил</a><?php
+		} else {?><a  href='login.php'  >Кандидатствай за Nanny</a><?php } ?></li>
+		    <li><?php if(isset($_SESSION['status']) && ($_SESSION['status']=="nanny" )){?><a  href='#'  >Календар</a><?php
+		} else {?><a href="#">Търси Nanny</a><?php } ?></li>
+		
+		<?php if(isset($_SESSION['status']) && ($_SESSION['status']=="nanny" )){?><li><a  href='loginout.php' value="izhof" >Съобщения</a></li><?php
+		} else {?><?php } ?>
+			<li><li><a href="#">Помощ</a></li>
+			<li><a href="#">За нас</a></li>
+		
+			<li><?php if(isset($_SESSION['status']) && ($_SESSION['status']=="nanny" || $_SESSION['status']=="user")){?> <?php
+		} else {?><li><a href="registration.php">Регистрираи се</a></li><?php } ?></li>
+			
+			
+			<li role="menuitem" class="menu"><?php if(isset($_SESSION["name"])) {?> <a  href='logout.php' value="izhof" >Изход</a><?php
+		} else {?><a  href='login.php' value="Вход" >Вход</a><?php } ?></li>
+
 			
 		</ul>
 	</div>
