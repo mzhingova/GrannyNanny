@@ -80,6 +80,7 @@
 					</form>
 				</div>
 			</div>
+			
 		<?php include 'includes/footer.php';?>
 		<script type="text/javascript" src="assets/js/nany_registration.js"></script>
 	</body>

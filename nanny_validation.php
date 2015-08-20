@@ -200,7 +200,7 @@ error_reporting(E_ALL); ini_set('display_errors', 1);
 				$result=mysqli_query($conn ,$sql)or die("Error in the consult.." . mysqli_error($conn));
 
 				if($result){
-				header("Location: success.html");
+				header("Location: success.php");
 
 				}
 			}

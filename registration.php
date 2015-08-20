@@ -50,9 +50,8 @@
 					</div>
 			</div>
 		</div>
-			<div class="content">
-					<div class="container">
-						<div class="nav-bar">
+				<div class="container">
+				<div class="nav-bar">
 		<?php include 'includes/footer.php';?>
 	</div>
 </div>

@@ -2,9 +2,9 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>Home Page</title>
+		<title>Начална страница</title>
 		<!-- Override CSS file - add your own CSS rules -->
-		<link rel="stylesheet" href="assets/css/main_style.css">
+		<link rel="stylesheet" href="assets/css/index_style.css">
 	</head>
 	<body>
 		<p class="main">
@@ -20,19 +20,19 @@
 				<div class="content">
 					<div class="container">
 						<div class="col2">
-							<h3>As a User you can:</h3><br>
-							Search for Nanny to hire<br>
-							See full profile of Nannies<br>
-							Comment and rate Nannies you worked with<br>
-							<br><a href="registration.php">Registration</a>
+							<h3>Като потребител ще можете да:</h3><br>
+							Търсите бавачки който да наемете<br>
+							Разглеждате профилите на бавачките<br>
+						    Коментирате и оценявате представянето на бавачките с който сте работили<br><br>
+							<a href="registration.php">Регистратия</a>
 						</div>
 						<div class="col3">
-							<h3>As a Nanny you can:</h3><br>
-							Recieve job offers from users<br>
-							Manage your availability from personal calendar<br>
-							Be visible in our Nanny Profiles page<br><br>
+							<h3>Като Nanny ще можете да:</h3><br>
+							Получавате предложения за работа от нашите потребители<br>
+							Управлявате своя собствен работен календар<br>
+							Бъдете най-доброто Nanny <br><br>
 							
-							<a href="#">Apply for Nanny</a>
+							<a href="#">Кандидатствай за Детегледачка</a>
 						</div>
 					</div>
 					<img src="assets/img/nanny1.jpg" alt="nanny">
@@ -44,7 +44,7 @@
 							<img id="social_media" title="Twitter" alt="Twitter" src="assets/img/twitter.png"/></a>
 							<a href="https://facebook.com">
 							<img id="social_media" title="Facebook" alt="Facebook" src="assets/img/facebook.png"/></a>
-							<div class="copyright"><?php include 'includes/footer.php';?></div>
+							<?php include 'includes/footer.php';?>
 						</div>
 					</div>
 				</div>
