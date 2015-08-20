@@ -13,7 +13,19 @@
 		<div class="content">
 			<div class="container">
 				<?php echo "Hello " . ($_SESSION["name"]) . " " . ($_SESSION["lastname"]) . " welcome to your Home page!";?>
-				<a href="logout.php">Click here to log out</a>
+				
+<br><br><br>
+
+<?php if(isset($_SESSION['status']) && ($_SESSION['status']=="admin")) {?>
+<div><img src="assets/img/chart.jpg" alt="chart"></div>
+<?php } ?>
+
+
+
+
+
+
+
 			</div>
 		</div>
 		<div class="container">
