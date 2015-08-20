@@ -13,9 +13,10 @@
 			<div class="content">
 						<div class="container">
 						<?php echo "The page you are looking for is under construction" ?>
-						<div class="content">
-					<?php include 'includes/footer.php';?>
-				</div>
+					
+			</div>
+			<div class="container">
+				<?php include 'includes/footer.php';?>
 			</div>
 		</body>
 	</html>

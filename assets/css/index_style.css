@@ -256,10 +256,7 @@ color:red
 font-size:10px;
 width:25.5%;
 }
-p 
-{
-  text-align: center;
-}
+
 /* -----------------------
 Wide styles
 ------------------------*/
@@ -318,16 +315,7 @@ Wide styles
 		width: 22%;
 	}
 
-footer {
-	text-align: center;
-	padding: 1em 3em;
-	background: #000;
-	color: white;
-}
 
-.right{
-position:static;
-right:-20%;}
 
 
 

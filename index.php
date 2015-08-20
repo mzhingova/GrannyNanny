@@ -39,10 +39,7 @@
 				</div>
 				
 					<div class="container">
-						<footer>
-							
-							<?php include 'includes/footer.php';?>
-						<footer>
+						<?php include 'includes/footer.php';?>
 					</div>
 				
 			</div>

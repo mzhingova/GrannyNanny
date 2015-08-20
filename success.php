@@ -20,11 +20,9 @@
 					</div>
 				</div>
 		</div>
-			<div class="container">
+		<div class="container">
 				<?php include 'includes/footer.php';?>
 			</div>
-			
-		</div>
 		
 	</body>
 </html>

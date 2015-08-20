@@ -81,7 +81,9 @@
 				</div>
 			</div>
 			
-		<?php include 'includes/footer.php';?>
+		<div class="container">
+				<?php include 'includes/footer.php';?>
+			</div>
 		<script type="text/javascript" src="assets/js/nany_registration.js"></script>
 	</body>
 </html>
