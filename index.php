@@ -50,5 +50,7 @@
 				</div>
 			</div>
 		</div>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.js"></script>
+		<script src="assets/js/main.js">
 	</body>
 </html>

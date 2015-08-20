@@ -24,7 +24,7 @@
 						<input type="text" name="lastname">
 						<label>Град*</label>
 						<select name="city">
-						<option value="">Град</option>
+						<option value=""></option>
 						<option value="София">София</option>
 						<option value="Перник">Перник</option>
 						<option value="Ямбол">Ямбол</option>
@@ -32,7 +32,7 @@
 						<option value="Бургас">Бургас</option>
 						<option value="Варна">Варна</option>
 						</select>
-						<label>Адрес</label>
+						<label>Адрес*</label>
 						<input type="text" name="address"></input>
 						
 						<label>Телефонен номер*</label>
@@ -52,22 +52,22 @@
 						<select name="work_status">
 						<option value=""></option>
 						<option value="Пълен">Пълен работен ден </option>
-						<option value="Половин">половин работен ден </option>
+						<option value="Половин">Половин работен ден </option>
 						<option value="Безработен">Безработен </option>
 						</select>
 						</div>
 						<div id="gender">
 						<label>Пол*</label><br>
-						Жена<input type="radio" name="gender" value="fmale" ></input>
-						Мъж <input type="radio" name="gender" value="male" ></input>
+						Жена<input type="radio" name="gender" checked = true value="жена" ></input>
+						Мъж <input type="radio" name="gender" value="мъж" ></input>
 						</div>
 						<div id="workout">
 						<label>Възможност за работа извън града</label>
 						<input type="checkbox" name="workout" value="да" ></input>
 						</div>
 
-						<label>Мотивационно поле*</label>
-						<input type="text" name="motivation" ></input>
+						<label>Мотивационно поле*</label><br>
+						<textarea id="motivation" type="text" name="motivation" ></textarea><br>
 
 						<label>Email*</label>
 						<input type="email" name="email"></input>

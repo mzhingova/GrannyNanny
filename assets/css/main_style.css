@@ -328,6 +328,12 @@ footer {
 	padding: 1em 3em;
 	background: #000;
 }
+<<<<<<< HEAD
+.right{
+position:static;
+right:-20%;}
+=======
 .copyright{
 	color: white;
 }
+>>>>>>> 01f9e4a97c9b5a0e1d2afc409c6c55b3331f1e2e

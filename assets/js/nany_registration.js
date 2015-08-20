@@ -28,9 +28,9 @@ function validateForm(){
    }
 
 	//address validation
-	var district = document.forms['regform']['district'].value;
-    if (district === null || district === "") {
-        alert("Моля въведете валиден квартал.");
+	var address = document.forms['regform']['address'].value;
+    if (address === null || address === "") {
+        alert("Моля въведете адрес.");
 		return false;
 	}
 	
@@ -68,15 +68,8 @@ function validateForm(){
    
       alert("Моля изберете работен статус."); 
       return false;
-   }//gender validation
-	 var gender = document.forms['regform']['gender'];
-	  
-	if(gender[0].checked === false || gender[1].checked === false ){
-		alert("Моля изберете пол.");
-		return false;
-	} 
-	
-	
+   }
+   
 	//motivation validation
 	var motivation=document.forms['regform']['motivation'].value;
 	if(motivation===null || motivation==""){
