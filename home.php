@@ -12,7 +12,7 @@
 
 		<div class="content">
 			<div class="container">
-				<?php echo "Hello " . ($_SESSION["name"]) . " " . ($_SESSION["lastname"]) . " welcome to your profile page!";?>
+				<?php echo "Hello " . ($_SESSION["name"]) . " " . ($_SESSION["lastname"]) . " welcome to your Home page!";?>
 				<a href="logout.php">Click here to log out</a>
 			</div>
 		</div>
