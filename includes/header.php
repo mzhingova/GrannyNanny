@@ -14,8 +14,9 @@
 		    <li><a href="#">Search for Nannies</a></li>
 		    <li><a href="#">Help</a></li>
 			<li><a href="#">About Us</a></li>
-			<li class="right"><a href="login.php">Login</a></li>
+			<li class="right" id="customize_login"><a href="login.php">Login</a></li>
 			<li class="right"><a href="registration.php">Registration</a></li>
+			<li class="right" id="customize_logout"><a href="logout.php">Logout</a></li>
 			
 		</ul>
 	</div>
