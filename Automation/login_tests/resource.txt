@@ -10,8 +10,8 @@ Library           Selenium2Library
 ${SERVER}         localhost:8080/GrannyNanny/
 ${BROWSER}        Firefox
 ${DELAY}          0
-${VALID USER}     mimeto_love_you@abv.bg
-${VALID PASSWORD}    12345
+${VALID USER}     test1@abv.bg
+${VALID PASSWORD}    pass11~
 ${LOGIN URL}      http://${SERVER}/login.php
 ${WELCOME URL}    http://${SERVER}/user_profile.php
 ${ERROR URL}      http://${SERVER}/error.php
@@ -24,7 +24,7 @@ Open Browser To Login Page
     Login Page Should Be Open
 
 Login Page Should Be Open
-    Title Should Be    Login page
+    Title Should Be    Login Page
 
 Go To Login Page
     Go To    ${LOGIN URL}
@@ -43,4 +43,4 @@ Submit Credentials
 
 Welcome Page Should Be Open
     Location Should Be    ${WELCOME URL}
-    Title Should Be    Welcome Page
+    Title Should Be    Profile Page
