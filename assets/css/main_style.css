@@ -152,18 +152,14 @@ Nav
 	background-color: gray;
 }
 
-.nav a:active
-{
-	color: white;
-	background-color: red;
-}
+
 
 a {
 	color: blue;
 }
-a:link { color: red; }
+
 a:hover { color: gray; }
-a:active { color: red; }
+
 a { text-decoration: none; }
 
 /* -----------------------
@@ -281,6 +277,10 @@ Wide styles
 		border-bottom: 0;
 	}
 }
+.social_media{
+	width:4%;
+	height:4%;
+}
 
 footer {
 	text-align: center;
@@ -291,6 +291,7 @@ footer {
 
 
 .copyright{
+	text-align: center;
 	color: white;
 }
 

@@ -6,4 +6,8 @@
 
 echo "<footer><h3>Copyright &copy; 1910-" . date("Y") . " GrannyNanny.com</h3></footer>";
 ?>
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> d3921513aace6062c062e3b52da339cbff31e0ae

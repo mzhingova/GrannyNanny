@@ -37,17 +37,14 @@
 					</div>
 					<img src="assets/img/nanny1.jpg" alt="nanny">
 				</div>
-				<div class="content">
+				
 					<div class="container">
-						<div class="footer">
-							<a href="https://twitter.com/">
-							<img id="social_media" title="Twitter" alt="Twitter" src="assets/img/twitter.png"/></a>
-							<a href="https://facebook.com">
-							<img id="social_media" title="Facebook" alt="Facebook" src="assets/img/facebook.png"/></a>
+						<footer>
+							
 							<?php include 'includes/footer.php';?>
-						</div>
+						<footer>
 					</div>
-				</div>
+				
 			</div>
 		</div>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.js"></script>
