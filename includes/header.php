@@ -9,7 +9,6 @@
 <div class="nav-bar">
 	<div class="container">
 		<ul class="nav">
-
 			<?php 
 			error_reporting(E_ALL);
 			ini_set('display_errors', 1);
