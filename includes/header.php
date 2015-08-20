@@ -9,6 +9,7 @@
 <div class="nav-bar">
 	<div class="container">
 		<ul class="nav">
+<<<<<<< HEAD
 			<?php 
 			error_reporting(E_ALL);
 			ini_set('display_errors', 1);
@@ -32,6 +33,7 @@
 			
 			<li role="menuitem" class="menu"><?php if(isset($_SESSION["name"])) {?> <a  href='logout.php' value="izhof" >Изход</a><?php
 		} else {?><a  href='login.php' value="Вход" >Вход</a><?php } ?></li>
+
 			
 		</ul>
 	</div>

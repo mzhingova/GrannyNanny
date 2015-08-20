@@ -123,7 +123,9 @@ error_reporting(E_ALL); ini_set('display_errors', 1);
 					if($password==$password2){
 						$count++;
 					}
-					else "Паролите ви не съвпадат";
+					else {
+						echo "Паролите ви не съвпадат";
+					}
 				}
 				else{
 					echo "Моля въведете валидена парола.";
