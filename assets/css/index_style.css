@@ -181,15 +181,6 @@ a:link {
 /* -----------------------
 Single styles
 ------------------------*/
-
-#logo {
-	width: 15%;
-	height: 15%;
-}
-#social_media {
-	width:4%;
-	height:4%;
-}
 .img-responsive { max-width: 100%; }
 img{
 	width:52%;
