@@ -18,7 +18,7 @@ h1,h2,h3,h4,h5,h6
 	line-height: 1.1;
 }
 
-input ,select{
+input ,select,textarea{
 display:block;
 border:1px solid olive;
 border-radius:5px;
@@ -256,6 +256,7 @@ width:2%;}
 input[type="checkbox"]{
 display:inline;
 width:2%;}
+
 
 /* -----------------------
 Wide styles

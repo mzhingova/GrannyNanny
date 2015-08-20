@@ -323,3 +323,6 @@ footer {
 	text-align: center;
 	color:white;
 }
+.right{
+position:static;
+right:-20%;}
