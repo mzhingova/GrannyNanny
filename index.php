@@ -44,7 +44,7 @@
 							<img id="social_media" title="Twitter" alt="Twitter" src="assets/img/twitter.png"/></a>
 							<a href="https://facebook.com">
 							<img id="social_media" title="Facebook" alt="Facebook" src="assets/img/facebook.png"/></a>
-							<style:"color=white"><?php include 'includes/footer.php';?></style>
+							<div class="copyright"><?php include 'includes/footer.php';?></div>
 						</div>
 					</div>
 				</div>
