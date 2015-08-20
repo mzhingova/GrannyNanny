@@ -13,6 +13,8 @@
 				<h2>Невалиден e-mail или парола!</h2>
 			</div>
 		</div>
-		<?php include 'includes/footer.php';?>
+		<div class="container">
+				<?php include 'includes/footer.php';?>
+			</div>
 	</body>
 </html

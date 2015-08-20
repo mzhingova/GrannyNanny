@@ -15,8 +15,8 @@ if (isset($_POST['submit'])) {
 	$lastname = htmlentities($_POST['lastname']);
 	$email = htmlentities($_POST['email']);
 	$tel = htmlentities($_POST['tel']);
-	$password = addslashes($_POST['pass']);
-	$password2 = addslashes($_POST['pass2']);
+	$password = htmlentities($_POST['pass']);
+	$password2 = htmlentities($_POST['pass2']);
 
 	$address = htmlentities($_POST['address']);
 	$selected_val = htmlentities($_POST['city']);
@@ -85,6 +85,7 @@ if (isset($_POST['submit'])) {
 	} else {
 		echo "Моля въведете email.";
 	}
+
 	$check = "SELECT * FROM parenuser WHERE email = '$email'";
 	$rs = mysqli_query($conn, $check) or die("Error in the consult.." . mysqli_error());
 	$data = mysqli_fetch_array($rs, MYSQLI_NUM);
@@ -110,7 +111,16 @@ if (isset($_POST['submit'])) {
 	}
 
 	if ($count > 6) {
-		$sql = "INSERT INTO `parenuser` (address, city, firstname, lastname, tel, pass, email, status) VALUES ('$address', '$selected_val', '$firstname', '$lastname', '$tel', '$password', '$email','user')";
+		$escapedAddress = mysqli_real_escape_string($conn, $address);
+		$escapedSelectedCity = mysqli_real_escape_string($conn, $selected_val);
+		$escapedFirstName = mysqli_real_escape_string($conn, $firstname);
+		$escapedLastName = mysqli_real_escape_string($conn, $lastname);
+		$escapedATelephone = mysqli_real_escape_string($conn, $tel);
+		$escapedPassword = mysqli_real_escape_string($conn, $password);
+		$escapedEmail = mysqli_real_escape_string($conn, $email);
+
+		$sql = "INSERT INTO `parenuser` (address, city, firstname, lastname, tel, pass, email, status) VALUES ('$escapedAddress', '$escapedSelectedCity', '$escapedFirstName', '$escapedLastName', '$escapedATelephone', '$escapedPassword', '$escapedEmail','user')";
+
 		$result = mysqli_query($conn, $sql) or die("Error in the consult.." . mysqli_error($conn));
 		if ($result) {
 			header("Location: success.php");

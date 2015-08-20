@@ -7,12 +7,17 @@
 		<link rel="stylesheet" href="assets/css/main_style.css">
 	</head>
 	<body>
-		<?php include 'includes/header.php';?>
 		<div class="content">
 			<div class="container">
+		<?php include 'includes/header.php';?>
+		
 				<h2>Този email вече е регистриран!</h2>
+		
+		<?php include 'includes/footer.php';?>
 			</div>
 		</div>
-		<?php include 'includes/footer.php';?>
+		<div class="container">
+				<?php include 'includes/footer.php';?>
+			</div>
 	</body>
 </html>

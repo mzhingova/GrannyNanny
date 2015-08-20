@@ -50,11 +50,9 @@
 					</div>
 			</div>
 		</div>
-				<div class="container">
-					<div class="content">
+	<div class="container">
 				<?php include 'includes/footer.php';?>
-	</div>
-</div>
+			</div>
 		<script type="text/javascript" src="assets/js/registration.js"></script>
 	</body>
 </html>

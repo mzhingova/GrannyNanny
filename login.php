@@ -25,9 +25,7 @@
 				</div>
 			</div>
 			<div class="container">
-				<div class="content">
-					<?php include 'includes/footer.php';?>
-				</div>
+				<?php include 'includes/footer.php';?>
 			</div>
 		</body>
 	</html>
