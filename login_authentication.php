@@ -28,15 +28,15 @@ if (isset($_POST['email']) and isset($_POST['pass'])) {
 			$_SESSION["name"] = $row['firstname'];
 			$_SESSION["lastname"] = $row['lastname'];
 			$_SESSION["status"] = $row['status'];
-			if ($_SESSION["status"]=="nanny"){
-			/*header('Location: user_profile.php');
+			/*if ($_SESSION["status"]=="nanny"){
+			header('Location: user_profile.php');
 			}
 			else if ($_SESSION["status"]=="user"){
 			header('Location: user_profile.php');
 			}
 			else if ($_SESSION["status"]=="admin"){*/
 			header('Location: profile.php');
-			}
+			// }
 		}
 
 	} else {

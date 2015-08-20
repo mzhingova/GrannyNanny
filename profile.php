@@ -49,42 +49,7 @@ if(isset($_SESSION['status']) && ($_SESSION['status']=="nanny")){
 	</body>
 </html>
 
-
-
-
-
-
-
 <!-- 
-					<li>+ -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <?php
 session_start();
@@ -95,4 +60,4 @@ $pageTitle = ' Profile page';
 
 echo "Hello ".($_SESSION["name"])." ".($_SESSION["lastname"])." welcome to your profile page!";
 
-?>
+?> -->
