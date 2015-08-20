@@ -286,4 +286,7 @@ Wide styles
 
 footer {
 	text-align: center;
+	padding: 1em 3em;
+	background: #000;
+	color: white;
 }
