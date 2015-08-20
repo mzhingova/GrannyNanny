@@ -11,29 +11,29 @@ Suite Teardown 	  Disconnect From Database
 Valid Registration with filling all fields
 	Clean DB
 	Doesn't exist in DB	select * from parenuser where email = 'abv@abv.bg'
-    Input Firstname   gancho
-    Input Lastname    gancho
-    Select City		София
-    Input Address 	Banishora RullZ
-    Input Telephone 	0882123123
-    Input Email		abv@abv.bg
-    Input Password 	abv@12
-    Confirm Password 	abv@12
-    Submit Registration Form
-    Exist in DB 	select * from parenuser where email = 'abv@abv.bg'
-    
+   Input Firstname   gancho
+   Input Lastname    gancho
+   Select City		София
+   Input Address 	Banishora RullZ
+   Input Telephone 	0882123123
+   Input Email		abv@abv.bg
+   Input Password 	abv@12
+   Confirm Password 	abv@12
+   Submit Registration Form
+   Exist in DB 	select * from parenuser where email = 'abv@abv.bg'
+   
 Trying to register with already registered user's data
 	Exist in DB 	select * from parenuser where email = 'abv@abv.bg'
-    Input Firstname   gancho
-    Input Lastname    gancho
-    Select City		София
-    Input Address 	Banishora RullZ
-    Input Telephone 	0882123123
-    Input Email		abv@abv.bg
-    Input Password 	abv@12
-    Confirm Password 	abv@12
-    Submit Registration Form
-    Email already registered page should be opened
+   Input Firstname   gancho
+   Input Lastname    gancho
+   Select City		София
+   Input Address 	Banishora RullZ
+   Input Telephone 	0882123123
+   Input Email		abv@abv.bg
+   Input Password 	abv@12
+   Confirm Password 	abv@12
+   Submit Registration Form
+   Email already registered page should be opened
 
 Valid Registration with filling only the required fields
 	Clean DB
