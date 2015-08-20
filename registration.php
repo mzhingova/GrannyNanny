@@ -14,7 +14,7 @@
 		<?php include 'includes/header.php';?>
 			<div class="content">
 					<div class="container">
-					<div >
+					<div>
 						<form name="regform" method="POST" action="registration_validation.php" class="regForm" onsubmit="return validateForm()">
 							 <h1>Регистрация</h1>
 							<label class="wtf">Име*</label>
@@ -51,8 +51,8 @@
 			</div>
 		</div>
 				<div class="container">
-				<div class="nav-bar">
-		<?php include 'includes/footer.php';?>
+					<div class="content">
+				<?php include 'includes/footer.php';?>
 	</div>
 </div>
 		<script type="text/javascript" src="assets/js/registration.js"></script>

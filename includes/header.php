@@ -1,8 +1,7 @@
 <div class="header">
 	<div class="container">
 		<h1 class="header-heading">
-			<img id="logo" src="assets/img/Logo.png" alt="Logo">
-			<a href="index.php">GrannyNanny</a>
+			<a href="index.php"><img id="logo" src="assets/img/Logo.png" alt="Logo"></a>
 	</div>
 </div>
 <link rel="stylesheet" href="assets/css/main_style.css">
@@ -33,6 +32,15 @@
 			<li role="menuitem" class="menu"><?php if(isset($_SESSION["name"])) {?> <a  href='logout.php' value="izhof" >Изход</a><?php
 		} else {?><a  href='login.php' value="Вход" >Вход</a><?php } ?></li>
 
+			<li><a href="home_page.php">Home</a></li>
+			<li><a href="nanny_profil.php">Nanny</a></li>
+			<li><a href="apply_for_nanny.php">Apply for Nanny</a></li>
+			<li><a href="calendar.php">Calendar</a></li>
+			<li><a href="nanny_search.php">Nanny search</a></li>
+			<li><a href="messages.php">Messages</a></li>
+			<li><a href="help.php">Help</a></li>
+			<li><a href="about_us.php">About US</a></li>
+			<li><a href="profile.php">Profil</a></li>
 			
 		</ul>
 	</div>
