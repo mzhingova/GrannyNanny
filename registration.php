@@ -10,8 +10,10 @@
 		<link rel="stylesheet" href="assets/css/registration_style.css">
 	</head>
 	<body>
+		<div class="container">
 		<?php include 'includes/header.php';?>
-			<div class="container">
+			<div class="content">
+					<div class="container">
 					<div >
 						<form name="regform" method="POST" action="registration_validation.php" class="regForm" onsubmit="return validateForm()">
 							 <h1>Регистрация</h1>
@@ -47,7 +49,13 @@
 						</form>
 					</div>
 			</div>
+		</div>
+			<div class="content">
+					<div class="container">
+						<div class="nav-bar">
 		<?php include 'includes/footer.php';?>
+	</div>
+</div>
 		<script type="text/javascript" src="assets/js/registration.js"></script>
 	</body>
 </html>

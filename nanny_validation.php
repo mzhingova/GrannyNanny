@@ -12,12 +12,12 @@ error_reporting(E_ALL); ini_set('display_errors', 1);
 			$errors = array();
 	    if(isset($_POST['submit'])){
 	        $firstname = $_POST['firstname'];
-			$lastname =$_POST['lastname'];
+			$lastname = $_POST['lastname'];
 	        $email = $_POST['email'];
 			$tel = $_POST['tel'];
 	        $password = $_POST['pass'];
 			$password2 = $_POST['pass2'];
-			$motivation =$_POST['motivation'];
+			$motivation = $_POST['motivation'];
 			$address = $_POST['address'];
 			$pid=$_POST['pid'];
 			
@@ -71,7 +71,7 @@ error_reporting(E_ALL); ini_set('display_errors', 1);
 				$work_status=$_POST['work_status'];
 				$count++;
 			}
-			
+			echo $count;
 			$conn ->set_charset("utf8");
 			
 			
@@ -103,15 +103,16 @@ error_reporting(E_ALL); ini_set('display_errors', 1);
 			else{
 				echo"Моля въведете фамилия.";
 			}
-			
+			echo $count;
 			//district validation 
-			if(!empty($address)){
-			}
-				
-				else{
-					echo "Моля въведете адрес.";
-				}
+			if(empty($address)){
 			
+			echo "Моля въведете адрес.";
+			}
+				else{
+					$count++;
+				}
+			echo $count;
 			//telephone validation 
 			if(!empty($tel)){
 				if(preg_match("/^[0-9]{5,10}$/i",$tel)){
@@ -125,7 +126,7 @@ error_reporting(E_ALL); ini_set('display_errors', 1);
 				 echo "Моля въведете телефонен номер.";
 			}
 			//email validation
-			
+			echo $count;
 			if(!empty($email)){
 				if(preg_match("/^[a-zA-Z]{1}[a-zA-Z0-9_.]+@[a-zA-Z-]+\.[a-zA-Z0-9-.]+$/",$email)){
 					$count++;
@@ -177,20 +178,24 @@ error_reporting(E_ALL); ini_set('display_errors', 1);
 			
 			//motivation validation  
 			
-			if(!empty($motivatin)){
+			if(!empty($motivation)){
 				if(preg_match("/^.{20,255}$/i",$motivation)){
 					$count++;
 				}
 				else{
-					echo "	Мотивационното писмо не може да съдържа повече от 255 символа и по малко от 20.";
+					echo "Мотивационното писмо не може да съдържа повече от 255 и по малко от 20 символа.";
 				}
 			}
+			else{
+				 echo "Моля попълнете полето за мотивация.";
+			}
+			
 			
 			
 			
 			echo $count;
 			
-			if($count>9){
+			if($count>12){
 				$sql ="INSERT INTO `parenuser` (pid, workout, work_status, gender, education, motivation, address, city, firstname, lastname, tel, pass, email, status) VALUES ('$pid','$workout','$work_status','$gender','$education', '$motivation', '$address', '$city', '$firstname', '$lastname', '$tel', '$password', '$email', 'nanny')";
 				$result=mysqli_query($conn ,$sql)or die("Error in the consult.." . mysqli_error($conn));
 

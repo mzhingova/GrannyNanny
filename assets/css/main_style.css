@@ -83,12 +83,6 @@ th, td
 	border-bottom: 1px solid #ddd;
 }
 
-a:link { color: royalblue; }
-a:visited { color: purple; }
-a:focus { color: black; }
-a:hover { color: green; }
-a:active { color: red; }
-
 /* -----------------------
 Layout styles
 ------------------------*/
@@ -129,9 +123,6 @@ Layout styles
 /* -----------------------
 Nav
 ------------------------*/
-q {
-    text-align: right;
-}
 .nav
 {
 	margin: 0;
@@ -166,7 +157,7 @@ q {
 .nav a:hover
 {
 	color: white;
-	background-color: green;
+	background-color: gray;
 }
 
 .nav a:active
@@ -175,10 +166,26 @@ q {
 	background-color: red;
 }
 
+a {
+	color: blue;
+}
+a:link { color: red; }
+a:hover { color: gray; }
+a:active { color: red; }
+a { text-decoration: none; }
+
 /* -----------------------
 Single styles
 ------------------------*/
 
+#logo {
+	width: 15%;
+	height: 15%;
+}
+#social_media {
+	width:4%;
+	height:4%;
+}
 .img-responsive { max-width: 100%; }
 img{
 	width:52%;
@@ -282,9 +289,7 @@ Wide styles
 		margin-bottom: 1em;
 	}
 
-	.footer { padding: 2em 3em;
-			 color: white;
-	 }
+
 	
 	.nav li
 	{
@@ -320,9 +325,18 @@ Wide styles
 	}
 
 footer {
-	text-align: center;
-	color:white;
+	padding: 1em 3em;
+	background: #000;
 }
+
+.right{
+position:static;
+right:-20%;}
+
+.copyright{
+	color: white;
+}
+
 
 #customize_header{
 	width: 450px;
