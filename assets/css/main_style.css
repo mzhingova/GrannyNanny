@@ -178,9 +178,6 @@ a { text-decoration: none; }
 Single styles
 ------------------------*/
 
-
-
-
 .btn
 {
 	color: #fff !important;
@@ -253,6 +250,37 @@ color:red
 	position:relative;
 	left: 50%;
 	
+}
+
+.btnA
+{
+	color: #fff !important;
+	background-color: olive;;
+	border-color: #222;
+	padding: .5em 1em;
+	margin: 1%;
+	margin-bottom: 0;
+	font-weight: 400;
+	line-height: 1.2;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	cursor: pointer;
+	border: 1px solid transparent;
+	border-radius: .2em;
+	text-decoration: none;
+	width: 150px;
+	display:inline-block;
+}
+.btnA:hover
+{
+	color: #fff !important;
+	background-color: gray;
+}
+.btnA:active
+{
+	color: #fff !important;
+	background-color: gray;
 }
 /* -----------------------
 Wide styles
