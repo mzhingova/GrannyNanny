@@ -11,10 +11,10 @@
 			<?php include 'includes/header.php';?>
 			<div class="content">
 				<h1>Топ 5 Nanny</h1>
-					<table>
+				<table>
 					<tbody>
 						<tr>
-							<td rowspan="5">
+							<td rowspan="6">
 								pic
 							</td>
 							<td>
@@ -29,6 +29,12 @@
 						</tr>
 						<tr>
 							<td>
+								Пол:
+							</td>
+						</tr>
+						
+						<tr>
+							<td>
 								Град:
 							</td>
 						</tr>
@@ -38,10 +44,9 @@
 							</td>
 						</tr>
 						<tr>
-							
 							<?php if(isset($_SESSION['status']) && ($_SESSION['status']=="user")){?>
-			<td>
-							<button class="btn">Ангажирай</button>
+							<td>
+								<button class="btn">Ангажирай</button>
 							</td>
 							<?php } ?>
 						</tr>
