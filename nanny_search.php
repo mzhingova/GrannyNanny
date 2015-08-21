@@ -35,7 +35,7 @@ $conn ->set_charset("utf8");
 					<table>
 					<tbody>
 						<tr>
-							<td rowspan="5">
+							<td rowspan="6">
 								pic
 							</td>
 							<td>
@@ -69,10 +69,11 @@ $conn ->set_charset("utf8");
 							</td>
 						</tr>
 						<tr>
-							
-							<?php if(isset($_SESSION['status']) && ($_SESSION['status']=="user")){ ?>
-			<td>
-							<button class="btn">Ангажирай</button>
+
+							<?php if(isset($_SESSION['status']) && ($_SESSION['status']=="user")){?>
+							<td>
+								<button class="btn">Ангажирай</button>
+
 							</td>
 							<?php } ?>
 						</tr>

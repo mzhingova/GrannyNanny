@@ -18,8 +18,8 @@
 					<button id="btn" type="submit" name="submit" class="btn">Вход</button><br><br>
 					
 					<a href="forgotten_password.php">Забравена Парола</a><br><br>
-					Нямате акаунт?<a href="registration.php" style="color: black">
-						<span class="glyphicon glyphicon-user"> Регистрирайте се! </span></a>
+					Нямате акаунт?<a href="registration.php" >
+						 Регистрирайте се!</a>
 						</font>
 					</form>
 				</div>
