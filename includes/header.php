@@ -8,7 +8,7 @@
 	<div class="container">
 			<a href="index.php"><img id="logo" src="assets/img/Logo.png" alt="Logo"></a>
 			<?php if(isset($_SESSION['status']) && ($_SESSION['status']=="nanny" || $_SESSION['status']=="user" || $_SESSION['status']=="admin")){ ?>
-			<p id='welcomeNote'>Hello <?php echo ($_SESSION["name"])." ".($_SESSION["lastname"]) ?>, welcome to your profile page!"</p>
+			<p id='welcomeNote'>Здравей, <?php echo ($_SESSION["name"])." ".($_SESSION["lastname"]) ?>!</p>
 			<?php } ?>
 	</div>
 </div>

@@ -17,23 +17,22 @@ if (!$conn) {
 	<head>
 		<meta charset="utf-8">
 		<title>Profile Page</title>
-		<link rel="stylesheet" href="assets/css/main_style.css">
 		<link rel="stylesheet" href="assets/css/home_style.css">
 	</head>
 	<body>
-		<?php include 'includes/header.php';?>
-
-		<div class="content">
+		
+	
 			<div class="container">
-				<?php echo "Hello " . ($_SESSION["name"]) . " " . ($_SESSION["lastname"]) . " welcome to your Home page!";?>
+			<?php include 'includes/header.php';?>
+			<div class="welcome">	<?php echo "Hello " . ($_SESSION["name"]) . " " . ($_SESSION["lastname"]) . " welcome to your Home page!";?> </div>
 				
-<br><br><br>
+
 
 <?php if(isset($_SESSION['status']) && ($_SESSION['status']=="admin")) {
 
 
 ?>
-<div> <?php
+<div class="count"> <?php
 $queryUser = $conn->prepare("SELECT status COUNT FROM parenuser WHERE status='user'");
 
 if (!$queryUser) {
@@ -47,7 +46,7 @@ $rows = $queryUser->num_rows;
 echo "Общ брой регистрирани потребители: ". $rows;
 
 ?> </div>
-<div> <?php
+<div class="count"> <?php
 $queryNanny = $conn->prepare("SELECT status COUNT FROM parenuser WHERE status='nanny'");
 if (!$queryNanny) {
 		echo mysqli_error($conn);
