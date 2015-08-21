@@ -10,10 +10,11 @@
 		<link rel="stylesheet" href="assets/css/nany_registration_style.css">
 	</head>
 	<body>
-		<?php include 'includes/header.php';?>
 		<div class="container">
-				<div >
-
+		<?php include 'includes/header.php';?>
+		
+				
+						<div class="content">
 						<form name="regform" method="POST" action="nanny_validation.php" class="regForm" onsubmit="return validateForm()">
 						 <h1>Регистрация</h1>
 						<label class="wtf">Име*</label>
@@ -76,10 +77,11 @@
 						<input type="password" name="pass"></input>
 						<label>Повтори  парола*</label>
 						<input type="password" name="pass2"></input>
-						<button type="submit" name="submit" class="btn">Регистрирай</button>
+						<button type="submit" name="submit" class="btn">Регистрирай</button><br><br><br>
 					</form>
 				</div>
 			</div>
+			
 			
 		<div class="container">
 				<?php include 'includes/footer.php';?>

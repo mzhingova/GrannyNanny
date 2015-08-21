@@ -259,7 +259,7 @@ Wide styles
 		margin-bottom: 1em;
 	}
 
-
+.footer { padding: 2em 3em; }
 
 	
 	.nav li
@@ -282,9 +282,8 @@ Wide styles
 }
 
 footer {
-	
 	padding: 0.5em 3em;
-	
+	text-align: center;
 	background: #000 none repeat scroll 0% 0%;
 	color: white;
 }

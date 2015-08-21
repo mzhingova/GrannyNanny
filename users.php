@@ -10,11 +10,11 @@
 		<div class="container">
 			<?php include 'includes/header.php';?>
 			<div class="content">
-			<?php echo "Страницата \"Преглед на всички потребители\" е все още under construction"; ?>
-						<div class="container">
-				<div class="container">
-					<?php include 'includes/footer.php';?>
-				</div>
+				<?php echo "Страницата \"Преглед на всички потребители\" е все още under construction"; ?>
+			</div></div>
+			<div class="container">
+				<?php include 'includes/footer.php';?>
+				
 			</div>
 		</body>
 	</html>
