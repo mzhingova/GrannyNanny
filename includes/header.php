@@ -4,15 +4,17 @@
 			session_start();
 
 		?>
+		<link rel="stylesheet" href="assets/css/main_style.css">
 			<div class="header">
-	<div class="container">
+			<div class="container">
+	
 			<a href="index.php"><img id="logo" src="assets/img/Logo.png" alt="Logo"></a>
 			<?php if(isset($_SESSION['status']) && ($_SESSION['status']=="nanny" || $_SESSION['status']=="user" || $_SESSION['status']=="admin")){ ?>
 			<p id='welcomeNote'>Здравей, <?php echo ($_SESSION["name"])." ".($_SESSION["lastname"]) ?>!</p>
 			<?php } ?>
 	</div>
-</div>
-<link rel="stylesheet" href="assets/css/main_style.css">
+
+
 <div class="nav-bar">
 	<div class="container">
 		<ul class="nav">
@@ -49,5 +51,6 @@
 
 		
 		</ul>
+	</div>
 	</div>
 </div>
