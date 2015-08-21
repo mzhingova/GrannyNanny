@@ -18,11 +18,23 @@ h1,h2,h3,h4,h5,h6
 	line-height: 1.1;
 }
 
-input ,select{
+input {
 display:block;
 border:1px solid olive;
 border-radius:5px;
 width:25.5%;
+padding:10px;
+margin-top:8px;
+margin-bottom:20px;
+padding-left:5px;
+font-size:16px;
+font-family:raleway
+}
+select {
+display:block;
+border:1px solid olive;
+border-radius:5px;
+width:27.1%;
 padding:10px;
 margin-top:8px;
 margin-bottom:20px;
@@ -283,13 +295,14 @@ Wide styles
 
 footer {
 	padding: 0.5em 3em;
-	text-align: center;
+	
 	background: #000 none repeat scroll 0% 0%;
 	color: white;
 }
 
 
 .copyright{
+text-align:center;
 	color: white;
 	display: inline;
 	
