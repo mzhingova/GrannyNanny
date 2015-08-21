@@ -255,9 +255,9 @@ color:red
 	}
 	#welcomeNote{
 	display:inline;
-	position:absolute;
-	right: 23%;
-	top:18%;
+	position:relative;
+	left: 50%;
+	
 }
 /* -----------------------
 Wide styles
