@@ -13,22 +13,34 @@ $errors = array();
 
 if (isset($_REQUEST['search-button'])) {
 	$firstname = htmlentities($_GET['firstname']);
+	$city = htmlentities($_GET['city']);
+	$age = htmlentities($_GET['age']);
+	$sex = htmlentities($_GET['gender']);
+
+	$splittedAge = explode("-", $age);
+
+	if ($splittedAge) {
+		$minAge = $splittedAge[0];
+		$maxAge = $splittedAge[1];
+	}
 
 	$escapedFirstName = mysqli_real_escape_string($conn, $firstname);
+	$escapedCity = mysqli_real_escape_string($conn, $city);
 
-	$check = "SELECT firstname, lastname FROM parenuser WHERE firstname = '$escapedFirstName' AND status = 'nanny' LIMIT 5";
-	$rs = mysqli_query($conn, $check) or die("Error in the consult.." . mysqli_error());
-	$data = mysqli_fetch_array($rs, MYSQLI_ASSOC);
+	// TODO: Amend the SQL query and include the parameters
+	$check = "SELECT firstname, lastname, city, email FROM parenuser WHERE firstname = '$escapedFirstName' AND city = '$escapedCity' AND status = 'nanny' LIMIT 5";
 
-	var_dump($data);
-
-	if (!$data) {
-		header("Location: QQ.php");
-	} else {
-		foreach ($data as $key => $value) {
+	if ($result = mysqli_query($conn, $check)) {
+		while ($row = mysqli_fetch_assoc($result)) {
 			echo "<h2>";
-			echo strtoupper($key) . ' -> ' . $value;
+			echo $row['firstname'] . ' ' . $row['lastname'];
+			echo "</br>";
+			echo $row['city'] . ' ' . $row['email'];
 			echo "</h2>";
 		}
+
+	} else {
+		// TODO: Redirect to No Results Page
+		header("Location: QQ.php");
 	}
 }
