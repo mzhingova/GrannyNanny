@@ -17,6 +17,7 @@
 						<div class="content">
 						<form name="regform" method="POST" action="nanny_validation.php" class="regForm" onsubmit="return validateForm()">
 						 <h1>Регистрация</h1>
+						  <img class="filler" alt="nanny image" src="assets/img/nanny-parent.jpg"/>
 						<label class="wtf">Име*</label>
 						<div class="patt">Mоже да съдържа само букви и да има дължина 2-16 символа.</div>
 						<input type="text" name="firstname"></input>

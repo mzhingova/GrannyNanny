@@ -3,4 +3,7 @@
 font-size:10px;
 width:25.5%;
 }
-
+.filler{
+    float: right;
+	margin-top:10%;
+}

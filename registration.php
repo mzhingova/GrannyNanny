@@ -12,11 +12,15 @@
 	<body>
 		<div class="container">
 		<?php include 'includes/header.php';?>
+		
 			<div class="content">
+			
 					<div class="container">
 					<div>
+					
 						<form name="regform" method="POST" action="registration_validation.php" class="regForm" onsubmit="return validateForm()">
 							 <h1>Регистрация</h1>
+							 <img class="filler" alt="user image" src="assets/img/user.png"/>
 							<label class="wtf">Име*</label>
 							<div class="patt">Mоже да съдържа само букви и да има дължина 2-16 символа.</div>
 							<input  id="fname"type="text" name="firstname"></input>
