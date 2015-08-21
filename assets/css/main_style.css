@@ -209,11 +209,6 @@ span {
 color:red
 }
 
-.btn:focus
-{
-	color: #fff !important;
-	background-color: black;
-}
 
 .btn:active
 {
