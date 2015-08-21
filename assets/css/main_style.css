@@ -5,9 +5,9 @@ Base styles
 body
 {
 	margin: 0;
-	padding: 0;
+	padding-bottom: 1em;
 	color: #333;
-	background-color: #eee;
+	background-color: #eee ;
 	font: 1em/1.2 "Helvetica Neue", Helvetica, Arial, Geneva, sans-serif;
 }
 
@@ -96,7 +96,7 @@ Layout styles
 	margin: 0 auto;
 }
 
-.header
+header
 {
 	color: #fff;
 	background: #555;
@@ -249,9 +249,15 @@ color:red
 }
 
 
-#logo{
-width: 30%;
-
+	#logo{
+	display:inline;
+	width: 30%;
+	}
+	#welcomeNote{
+	display:inline;
+	position:absolute;
+	right: 23%;
+	top:18%;
 }
 /* -----------------------
 Wide styles
@@ -261,8 +267,9 @@ Wide styles
 {
 	.header { padding: 1.5em 3em; }
 	.nav-bar { padding: 1em 3em; }
+	
 	.content { padding: 2em 3em; }
-
+	
 	.main
 	{
 		float: left;

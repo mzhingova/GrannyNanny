@@ -1,7 +1,11 @@
-#customize_logout{
-	visibility: visible !important
+.welcome{
+margin:1em;
 }
+.count{
+margin-left:3em;
+display:inline;
+}
+.chart {
+margin-top:10%;
 
-#customize_login{
-	visibility: hidden !important
 }
