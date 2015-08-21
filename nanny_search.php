@@ -19,6 +19,7 @@
 							</td>
 							<td>
 								Име:
+								<?php> <?>
 							</td>
 						</tr>
 						<tr>
@@ -37,9 +38,12 @@
 							</td>
 						</tr>
 						<tr>
-							<td>
-								<button class="btn">Ангажирай</button>
+							
+							<?php if(isset($_SESSION['status']) && ($_SESSION['status']=="user")){?>
+			<td>
+							<button class="btn">Ангажирай</button>
 							</td>
+							<?php } ?>
 						</tr>
 					</tbody>
 				</table>

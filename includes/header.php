@@ -4,7 +4,7 @@
 			session_start();
 
 		?>
-		<link rel="stylesheet" href="assets/css/main_style.css">
+		
 			<div class="header">
 			<div class="container">
 	
@@ -18,7 +18,7 @@
 <div class="nav-bar">
 	<div class="container">
 		<ul class="nav">
-			
+			<link rel="stylesheet" href="assets/css/main_style.css">
 			<li><a href="index.php">Начало</a></li>
 
 			<li><?php if(isset($_SESSION['status']) && ($_SESSION['status']=="nanny" || $_SESSION['status']=="user" || $_SESSION['status']=="admin")){?> 
