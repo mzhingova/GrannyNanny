@@ -314,7 +314,13 @@ Wide styles
 		float: left;
 		width: 22%;
 	}
-
+footer 
+{
+	text-align: center;
+	padding: 1em 3em;
+	background: #000;
+	color: white;
+}
 
 
 

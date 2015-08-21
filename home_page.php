@@ -9,7 +9,12 @@
 	<body>
 		<div class="container">
 			<?php include 'includes/header.php';?>
-			<div class="container">
+			
+
+			<div class="content">
+									<?php echo "The page you are looking for is under construction" ?>
+									</div>
+
 				<?php include 'includes/footer.php';?>
 			</div>
 		</body>
