@@ -47,8 +47,10 @@
 				</div>
 				<button class="btn" name="search-button">Търси</button>
 			</form>
-			<div class="container"><br>
+		</div>
+			<div class="container">
 				<?php include 'includes/footer.php';?>
 			</div>
+		</div>
 		</body>
 		</html>
