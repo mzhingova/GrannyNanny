@@ -14,12 +14,8 @@
 		<?php include 'includes/header.php';?>
 		
 				
-			<?php 
-			$query = select * from parenuser;
-			echo $query; ?>
-
 						<div class="content">
-						<form name="regform" method="POST" action="nanny_validation.php" class="regForm" onsubmit="return validateForm()">
+						<form name="regForm" method="POST" action="nanny_validation.php" class="regForm" onsubmit="return validateForm()">
 						 <h1>Регистрация</h1>
 						  <img class="filler" alt="nanny image" src="assets/img/nanny-parent.jpg"/>
 						<label class="wtf">Име*</label>
