@@ -14,6 +14,10 @@
 		<?php include 'includes/header.php';?>
 		
 				
+			<?php 
+			$query = select * from parenuser;
+			echo $query; ?>
+
 						<div class="content">
 						<form name="regform" method="POST" action="nanny_validation.php" class="regForm" onsubmit="return validateForm()">
 						 <h1>Регистрация</h1>
