@@ -338,6 +338,15 @@ footer {
 	font-size:100%;
 	
 }
-
+.wordwrap{
+	width: 105%;     
+    word-wrap: break-word;
+}
+.wrapper {
+	text-align: right;
+    position: top-right;
+    top: 50%;
+    
+}
 
 
