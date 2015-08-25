@@ -11,7 +11,11 @@
 		<?php include 'includes/header.php';?>
 		<div class="content">
 		<div id="search-result">
-			<?php require_once "nanny-search-result.php";?>
+			<table>
+				<tbody>
+					<?php require_once "nanny-search-result.php";?>
+				</tbody>
+			</table>
 		</div>
 			<h1>Търси по:</h1><br>
 			Име
@@ -38,8 +42,8 @@
 				<label>Пол</label>
 				<select name="gender">
 					<option value=""></option>
-					<option value="Мъж">Мъж</option>
-					<option value="Жена">Жена</option>
+					<option value="male">Мъж</option>
+					<option value="female">Жена</option>
 				</select>
 				<div id="rating">
 					<label>Рейтинг</label>
