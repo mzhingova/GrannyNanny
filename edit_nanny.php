@@ -1,4 +1,8 @@
 <?php
+session_start();
+?>
+
+<?php
 $pageTitle = 'Log-in';
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -156,7 +160,12 @@ $conn ->set_charset("utf8");
 					<input type="submit" id="submit" name="update" value="update" class="btn" />
 				</div>
 
-				<input type="hidden" name="id" value="<?php echo $id; ?>" />
+<?php
+$_SESSION["$id"] = "id";
+
+				 
+				?>
+				<input type="show" name="id" value="<?php echo $userID; ?>">
 </form>
 			</div>
 		</div>

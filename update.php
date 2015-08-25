@@ -15,7 +15,7 @@ $conn ->set_charset("utf8");
 
 $id = $_SESSION['id'];
 if ($_POST['city']) {
-    $country = $_POST['city'];
+    $city = $_POST['city'];
     $firstname = $_POST['firstname'];
     $lastname = $_POST['lastname'];
     $address = $_POST['address'];
@@ -25,7 +25,7 @@ if ($_POST['city']) {
     $work_status = $_POST['work_status'];
     $motivation = $_POST['motivation'];
    
-    $sql = mysql_query("UPDATE parenuser SET country='$city', firstname='$firstname', lastname='$lastname', address='$address', workout='$workout', education='$education', tel='tel', work_status='work_status', motivation='motivation' WHERE id='$id'");
+    $sql = mysql_query("UPDATE parenuser SET city='$city', firstname='$firstname', lastname='$lastname', address='$address', workout='$workout', education='$education', tel='tel', work_status='work_status', motivation='motivation' WHERE id='$id'");
 
 
 
