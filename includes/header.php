@@ -30,7 +30,7 @@
 									}else if($_SESSION['status']=="user"){?><a  href='user.php' >Профил</a><?php
 									}
 								} 
-								else if (isset($_SESSION['status']) && ($_SESSION['status']=="admin")) {?> <a  href='nannies.php'> Nannies</a><?php
+								else if (isset($_SESSION['status']) && ($_SESSION['status']=="admin")) {?> <a  href='nannies_admin_edit.php'> Nannies</a><?php
 							} else {?><a  href='apply_for_nanny.php'>Кандидатствай за Nanny</a><?php } ?></li>
 
 							
