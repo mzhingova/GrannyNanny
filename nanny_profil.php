@@ -27,16 +27,13 @@ $conn ->set_charset("utf8");
 				$tableQuery = mysqli_query($conn, "SELECT * FROM parenuser where status='nanny' AND firstname='$name'")or die("Стана грешкка " . mysql_error());;
 				while($row = mysqli_fetch_array($tableQuery)) { ?>
 				<br><br>
+
+				<b>Personal Information:</b><br><br>
 				
 				
+				<img id="logo" src="assets/img/9f5048566507999f33aefb975a6ead9d.jpg" alt="Logo">
 				
-					
-						<b>Personal Information:</b><br><br>
-					
-							
-								<img id="logo" src="assets/img/9f5048566507999f33aefb975a6ead9d.jpg" alt="Logo">
-							
-					<table width=800px border=0 cellspacing=10><tr>
+				<table width=800px border=0 cellspacing=10><tr>
 					<td valign=top>
 						<table  border=0>
 							
@@ -95,82 +92,83 @@ $conn ->set_charset("utf8");
 								<td>
 									<?php echo $row['workout']; ?>
 								</td>
-							</tr>		
-
+							</tr>
 						</table>
-					
-					<td valign=top>
-						<table border=0>
-							
-							<tr>
-								<td>
-									<b>City:</b>
-								</td>
-								<td>
-									<?php echo $row['city']; ?>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<b>Address:</b>
-								</td>
-								<td>
-									<?php
-									echo $row['address']; ?>
-								</tr>
-							</td>
-							<tr>
-								<td>
-									<b>Education:</b>
-								</td>
-								<td>
-									<?php echo $row['education']; ?>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<b>Tel:</b>
-								</td>
-								<td>
-									<?php echo $row['tel']; ?>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<b>Work status:</b>
-								</td>
-								<td>
-									<?php echo $row['work_status']; ?>
-								</td>
-							</tr>
-							<tr>
-								<td valign=top>
-									<b>Motivation:</b>
-								</td>
-								<td>
-									<div class="wordwrap"> <?php echo $row['motivation']; ?></div>
-								</td>
-							</tr>
-							
-							<?php if(isset($_SESSION['status']) && ($_SESSION['status']=="user")){?>
-							<td>
-								<button class="btn">Ангажирай</button>
-							</td>
-							<?php } ?>
-						</table>
-					</td>
-				</tr>
-			</table>
-			<?php } ?>
 						
-					
+						<td valign=top>
+							<table border=0>
+								
+								<tr>
+									<td>
+										<b>City:</b>
+									</td>
+									<td>
+										<?php echo $row['city']; ?>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<b>Address:</b>
+									</td>
+									<td>
+										<?php
+										echo $row['address']; ?>
+									</tr>
+								</td>
+								<tr>
+									<td>
+										<b>Education:</b>
+									</td>
+									<td>
+										<?php echo $row['education']; ?>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<b>Tel:</b>
+									</td>
+									<td>
+										<?php echo $row['tel']; ?>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<b>Work status:</b>
+									</td>
+									<td>
+										<?php echo $row['work_status']; ?>
+									</td>
+								</tr>
+								<tr>
+									<td valign=top>
+										<b>Motivation:</b>
+									</td>
+									<td>
+										<div class="wordwrap"> <?php echo $row['motivation']; ?></div>
+									</td>
+								</tr>
+								
+								
+							</table>
+						</td>
+					</tr>
+				</table><br>
+				<td>
+					<button class="btn">Ангажирай</button>
+				</td>
+				<?php } ?>
 				
+				<?php
+				$userID = $_SESSION["userID"]
+				
+				?>
+				
+			</div>
+			<input type="hidden" name="id" value="<?php echo $userID; ?>" />
 		</div>
-		<input type="hidden" name="id" value="<?php echo $id; ?>" />
 	</div>
-</div>
-<div class="container">
-	<?php include 'includes/footer.php';?>
-</div>
+	<div class="container">
+		<?php include 'includes/footer.php';?>
+	</div>
 </body>
 </html>

@@ -1,8 +1,4 @@
 <?php
-session_start();
-?>
-
-<?php
 $pageTitle = 'Log-in';
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -35,7 +31,7 @@ $conn ->set_charset("utf8");
 							<b>First name:</b>
 						</td>
 						<td>
-							<input type="text" name="firstname" style="width: 80%" autocomplate="off">
+							<input type="text" name="firstname" style="width: 80%">
 						</td>
 					</tr>
 					<tr>
@@ -46,15 +42,7 @@ $conn ->set_charset("utf8");
 							<input type="text" name="lastname" style="width: 80%">
 						</td>
 					</tr>
-					<tr>
-						<td>
-							<b>Email Address:</b>
-						</td>
-						<td>
-							<input type="text" name="email" style="width: 80%">
-						</td>
-					</tr>
-					<tr>
+						<tr>
 						<td>
 							<b>Workout:</b>
 						</td>
@@ -151,21 +139,16 @@ $conn ->set_charset("utf8");
 						</tr>
 					</table>
 					
-					<td valign=top>
-						<table border=0>
-							
-						</table>
-					</td>
 					
 					<input type="submit" id="submit" name="update" value="update" class="btn" />
 				</div>
 
 <?php
-$_SESSION["$id"] = "id";
+$userID = $_SESSION["userID"]
 
 				 
 				?>
-				<input type="show" name="id" value="<?php echo $userID; ?>">
+				<input type="hidden" name="id" value="<?php echo $userID; ?>">
 </form>
 			</div>
 		</div>
