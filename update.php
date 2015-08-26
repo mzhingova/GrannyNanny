@@ -30,6 +30,12 @@ $workout = $_POST['workout'];
 $city = $_POST['city'];
 $education = $_POST['education'];
 $work_status = $_POST['work_status'];
+$pass=$_POST['pass'];
+
+
+
+
+
 
 
 
@@ -79,8 +85,18 @@ if(!empty($work_status))
     mysqli_query($conn, "UPDATE parenuser SET `work_status`='$work_status' WHERE userID='$userID'") or die(mysql_error());
                 echo("You have successfully updated your Work stauts");
 } 
+if(!empty($pass))
+{
+    mysqli_query($conn, "UPDATE parenuser SET `pass`='$pass' WHERE userID='$userID'") or die(mysql_error());
+                
+ echo("You have successfully updated your Password");
+}
 
 
+
+
+
+
+//header("location: ../GrannyNanny/nanny_profil.php");
 
 ?>
-

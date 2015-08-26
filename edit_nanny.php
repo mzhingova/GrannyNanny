@@ -28,7 +28,7 @@ $conn ->set_charset("utf8");
 					
 					<tr>
 						<td>
-							<b>First name:</b>
+							<b>Име:</b>
 						</td>
 						<td>
 							<input type="text" name="firstname" style="width: 80%">
@@ -36,7 +36,7 @@ $conn ->set_charset("utf8");
 					</tr>
 					<tr>
 						<td>
-							<b>Last name:</b>
+							<b>Фамилия:</b>
 						</td>
 						<td>
 							<input type="text" name="lastname" style="width: 80%">
@@ -44,7 +44,7 @@ $conn ->set_charset("utf8");
 					</tr>
 						<tr>
 						<td>
-							<b>Workout:</b>
+							<b>Възможност за работа<br> извън града:</b>
 						</td>
 						<td>
 							<select name="workout" style="width: 90%">
@@ -72,7 +72,7 @@ $conn ->set_charset("utf8");
 					</tr>
 					<tr>
 						<td>
-							<b>Address:</b>
+							<b>Адрес:</b>
 						</td>
 						<td>
 							<input type="text" name="address" style="width: 80%">
@@ -80,7 +80,7 @@ $conn ->set_charset("utf8");
 					</td>
 					<tr>
 						<td>
-							<b>Education:</b>
+							<b>Образование:</b>
 						</td>
 						<td>
 							<select name="education" style="width:90%">
@@ -93,7 +93,7 @@ $conn ->set_charset("utf8");
 					</tr>
 					<tr>
 						<td>
-							<b>Tel:</b>
+							<b>Телефонен номер:</b>
 						</td>
 						<td>
 							<input type="text" name="tel" style="width: 80%">
@@ -101,7 +101,7 @@ $conn ->set_charset("utf8");
 					</tr>
 					<tr>
 						<td>
-							<b>Work status:</b>
+							<b>Работен статус:</b>
 						</td>
 						<td>
 							<select name="work_status" style="width: 90%">
@@ -114,33 +114,41 @@ $conn ->set_charset("utf8");
 					</tr>
 					<tr>
 						<td valign=top>
-							<b>Motivation:</b>
+							<b>Мотивационно поле:</b>
 						</td>
 						<td>
 							<div class="wordwrap">
 								<textarea id="motivation" type="text" name="motivation" style="width:80%"></textarea>
 							</td>
 						</tr>
-						<tr>
+						<!--<tr>
 							<td>
-								<b>New Password:</b>
+								<b>Настояща парола:</b>
 							</td>
 							<td>
-								<input type="password" name="new_password" style="width: 80%">
+								<input type="password" name="currentPass" style="width: 80%">
+							</td>
+						</tr> -->
+						<tr>
+							<td>
+								<b>Нова парола:</b>
+							</td>
+							<td>
+								<input type="password" name="pass" style="width: 80%">
 							</td>
 						</tr>
 						<tr>
 							<td>
-								<b>Repeat <br>New Password:</b>
+							<!--	<b>Повтори  парола:</b>
 							</td>
 							<td>
-								<input type="password" name="new_password" style="width: 80%">
+								<input type="password" name="repeatPass" style="width: 80%">
 							</td>
-						</tr>
+						</tr> -->
 					</table>
 					
 					
-					<input type="submit" id="submit" name="update" value="update" class="btn" />
+					<input type="submit" id="submit" name="update" value="З А П И С" class="btn" />
 				</div>
 
 <?php
