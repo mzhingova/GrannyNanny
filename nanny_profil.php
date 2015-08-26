@@ -21,17 +21,17 @@ $conn ->set_charset("utf8");
 		<div class="container">
 			<?php include 'includes/header.php';?>
 			<div class="content">
-				<b>Edit your Profile</b> &nbsp;&nbsp;&nbsp;&nbsp;<a href="edit_nanny.php"><button id="btn" type="submit" name="submit" class="btn">Edit</button></a><br>
 				<?php
 				$name = $_SESSION['name'];
 				$tableQuery = mysqli_query($conn, "SELECT * FROM parenuser where status='nanny' AND firstname='$name'")or die("Стана грешкка " . mysql_error());;
 				while($row = mysqli_fetch_array($tableQuery)) { ?>
 				<br><br>
 
-				<b>Personal Information:</b><br><br>
+				
+				<b>Лични Данни:</b><br><br>
 				
 				
-				<img id="logo" src="assets/img/9f5048566507999f33aefb975a6ead9d.jpg" alt="Logo">
+				<img id="logo" src="assets/img/9f5048566507999f33aefb975a6ead9d.jpg" alt="Logo"><br>
 				
 				<table width=800px border=0 cellspacing=10><tr>
 					<td valign=top>
@@ -39,7 +39,7 @@ $conn ->set_charset("utf8");
 							
 							<tr>
 								<td>
-									<b>First name:</b>
+									<b>Име:</b>
 								</td>
 								<td>
 									<?php
@@ -48,7 +48,7 @@ $conn ->set_charset("utf8");
 							</tr>
 							<tr>
 								<td>
-									<b>Last name:</b>
+									<b>Фамилия:</b>
 								</td>
 								<td>
 									<?php
@@ -57,7 +57,7 @@ $conn ->set_charset("utf8");
 							</tr>
 							<tr>
 								<td>
-									<b>Age:</b>
+									<b>Възраст:</b>
 								</td>
 								<td>
 									<?php if($row['pid'] != '') {
@@ -70,7 +70,7 @@ $conn ->set_charset("utf8");
 							</tr>
 							<tr>
 								<td>
-									<b>Email Address:</b>
+									<b>Email:</b>
 								</td>
 								<td>
 									<?php
@@ -79,7 +79,7 @@ $conn ->set_charset("utf8");
 							</tr>
 							<tr>
 								<td>
-									<b>Sex:</b>
+									<b>Пол:</b>
 								</td>
 								<td>
 									<?php echo $row['gender']; ?>
@@ -87,7 +87,7 @@ $conn ->set_charset("utf8");
 							</tr>
 							<tr>
 								<td>
-									<b>Workout:</b>
+									<b>Възможност за работа извън града:</b>
 								</td>
 								<td>
 									<?php echo $row['workout']; ?>
@@ -100,7 +100,7 @@ $conn ->set_charset("utf8");
 								
 								<tr>
 									<td>
-										<b>City:</b>
+										<b>Град:</b>
 									</td>
 									<td>
 										<?php echo $row['city']; ?>
@@ -108,7 +108,7 @@ $conn ->set_charset("utf8");
 								</tr>
 								<tr>
 									<td>
-										<b>Address:</b>
+										<b>Адрес:</b>
 									</td>
 									<td>
 										<?php
@@ -117,7 +117,7 @@ $conn ->set_charset("utf8");
 								</td>
 								<tr>
 									<td>
-										<b>Education:</b>
+										<b>Образование:</b>
 									</td>
 									<td>
 										<?php echo $row['education']; ?>
@@ -125,7 +125,7 @@ $conn ->set_charset("utf8");
 								</tr>
 								<tr>
 									<td>
-										<b>Tel:</b>
+										<b>Телефонен номер:</b>
 									</td>
 									<td>
 										<?php echo $row['tel']; ?>
@@ -133,7 +133,7 @@ $conn ->set_charset("utf8");
 								</tr>
 								<tr>
 									<td>
-										<b>Work status:</b>
+										<b>Работен статус:</b>
 									</td>
 									<td>
 										<?php echo $row['work_status']; ?>
@@ -141,7 +141,7 @@ $conn ->set_charset("utf8");
 								</tr>
 								<tr>
 									<td valign=top>
-										<b>Motivation:</b>
+										<b>Мотивационно поле:</b>
 									</td>
 									<td>
 										<div class="wordwrap"> <?php echo $row['motivation']; ?></div>
@@ -160,7 +160,7 @@ $conn ->set_charset("utf8");
 				$userID = $_SESSION["userID"]
 				
 				?>
-				
+				<a href="edit_nanny.php"><button id="btn" type="submit" name="submit" class="btn">Редактиране на профила</button></a><br>
 			</div>
 			<input type="hidden" name="id" value="<?php echo $userID; ?>" />
 		</div>

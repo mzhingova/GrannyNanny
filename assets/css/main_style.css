@@ -319,5 +319,6 @@ footer {
     top: 50%;
     
 }
-
-
+.buttonsRight {
+	float: right;
+}

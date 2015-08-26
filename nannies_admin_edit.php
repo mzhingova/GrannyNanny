@@ -21,7 +21,7 @@
 				die('Could not connect: ' . mysql_error());
 			}
  
- $displayfirstname = $conn->query("SELECT * FROM parenuser WHERE status='user'");
+ $displayfirstname = $conn->query("SELECT * FROM parenuser WHERE status='nanny'");
 $rows = $displayfirstname->fetch_all(MYSQLI_ASSOC);
 foreach ($rows as $row) {
 

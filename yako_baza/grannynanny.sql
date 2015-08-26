@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 19, 2015 at 10:20 AM
+-- Generation Time: Aug 26, 2015 at 04:12 PM
 -- Server version: 5.6.25
 -- PHP Version: 5.6.11
 
@@ -41,14 +41,23 @@ CREATE TABLE IF NOT EXISTS `parenuser` (
   `education` varchar(255) NOT NULL,
   `motivation` varchar(255) NOT NULL,
   `status` varchar(255) NOT NULL,
+  `photoname` varchar(255) NOT NULL,
+  `photo` blob NOT NULL,
   `tel` varchar(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `parenuser`
 --
 
+INSERT INTO `parenuser` (`userID`, `firstname`, `lastname`, `email`, `city`, `address`, `pass`, `gender`, `pid`, `workout`, `work_status`, `education`, `motivation`, `status`, `photoname`, `photo`, `tel`) VALUES
+(1, 'gosho', 'goshev', 'goshko@qq.gg', 'София', '', 'qwe123@', '', '', '', '', '', '', 'admin', '', '', '12487465'),
+(2, 'ewqe', 'gdfg', 'qq@qq.gg', 'Перник', 'eqweqw', 'qwe123@', 'жена', '1234567890', '', 'Половин', 'Средно специално', 'ssssssssssssewfgddddddddddddddddddddddddddddddddddddddddddddddddddddddd', 'nanny', '', '', '215452315'),
+(3, 'ewqe', 'ewqe', 'rrr@dd.dd', 'Русе', 'rwerwe', 'qwe123@', 'жена', '1234567890', '', 'Половин', 'Средно специално', 'rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr                           rrrrrrrrrrrrrrrrrrr', 'nanny', '', '', '215452315'),
+(4, 'wqewq', 'eqwe', 'goshko@qq.ggf', 'София', 'ewqe', 'qwe123@', 'жена', '1234567890', '', 'Половин', 'Средно', 'fdsffffffffffffffffffff         dssssssssssssssssssssssssssssssss', 'nanny', '', '', '231312'),
+(5, 'ewqe', 'ewqe', 'goshko@qq.ggy', 'Ямбол', 'weqwe', 'qwe123@', 'жена', '123456789', '', 'Половин', 'Средно', 'hbrtyujnuikyuniuy        yunimuymniun              ', 'nanny', '', 0x746f746f7269616c2e706e67, '0896222819');
 
+--
 -- Indexes for dumped tables
 --
 
@@ -66,7 +75,7 @@ ALTER TABLE `parenuser`
 -- AUTO_INCREMENT for table `parenuser`
 --
 ALTER TABLE `parenuser`
-  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20;
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
