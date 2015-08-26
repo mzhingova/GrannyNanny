@@ -47,7 +47,7 @@ $conn ->set_charset("utf8");
 							<b>Workout:</b>
 						</td>
 						<td>
-							<select name="city" style="width: 90%">
+							<select name="workout" style="width: 90%">
 								<option value=""></option>
 								<option value="Да">Да</option>
 								<option value="Не">Не</option>

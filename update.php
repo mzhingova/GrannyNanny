@@ -34,10 +34,6 @@ $work_status = $_POST['work_status'];
 
 
 
-
-
-
-
 if(!empty($firstname))
 {
     mysqli_query($conn, "UPDATE parenuser SET `firstname`='$firstname' WHERE userID='$userID'") or die(mysql_error());
@@ -50,7 +46,7 @@ if(!empty($lastname))
 } 
 if(!empty($address))
 {
-    mysqli_query($conn, "UPDATE parenuser SET `address`='$addre' WHERE userID='$userID'") or die(mysql_error());
+    mysqli_query($conn, "UPDATE parenuser SET `address`='$address' WHERE userID='$userID'") or die(mysql_error());
                 echo("You have successfully updated your Address");
 } 
 if(!empty($tel))
@@ -66,7 +62,7 @@ if(!empty($motivation))
 if(!empty($workout))
 {
     mysqli_query($conn, "UPDATE parenuser SET `workout`='$workout' WHERE userID='$userID'") or die(mysql_error());
-                echo("You have successfully updated your workout");
+                echo("You have successfully updated your Workout");
 } 
 if(!empty($city))
 {

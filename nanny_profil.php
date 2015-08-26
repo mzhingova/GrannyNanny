@@ -153,9 +153,7 @@ $conn ->set_charset("utf8");
 						</td>
 					</tr>
 				</table><br>
-				<td>
-					<button class="btn">Ангажирай</button>
-				</td>
+				
 				<?php } ?>
 				
 				<?php
