@@ -1,40 +1,38 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
 
-$conn = new mysqli("localhost", "root", "", "grannynanny");
-if (!$conn) {
-	die('Could not connect: ' . mysql_error());
-}
+require_once 'lib/database.php';
+require_once 'config/config.php';
 
-$conn->set_charset("utf8");
-$count = 0;
-$errors = array();
+$db = new DB();
+
+// $username = htmlspecialchars($_POST['username']);
+// $password = htmlspecialchars($_POST['password']);
+
+// $sql = "SELECT * FROM users WHERE user_name='" . $db->escape($username) . "' AND password='" . md5($password) . "'";
+// $result = $db->get_results($sql);
 
 if (isset($_REQUEST['search-button'])) {
-	$firstname = htmlentities($_GET['firstname']);
-	$city = htmlentities($_GET['city']);
-	$age = htmlentities($_GET['age']);
-	$sex = htmlentities($_GET['gender']);
+	$firstname = htmlspecialchars($_GET['firstname']);
+	$city = htmlspecialchars($_GET['city']);
+	$age = htmlspecialchars($_GET['age']);
+	$sex = htmlspecialchars($_GET['gender']);
 
 	$splittedAge = explode("-", $age);
-	$minAge = 18;
-	$maxAge = 125;
 
 	if (count($splittedAge) != 1) {
 		$minAge = $splittedAge[0];
 		$maxAge = $splittedAge[1];
+	} else {
+		$minAge = $splittedAge[0];
+		$maxAge = 100;
 	}
 
-	$escapedFirstName = mysqli_real_escape_string($conn, $firstname);
-	$escapedCity = mysqli_real_escape_string($conn, $city);
-
 	if ($firstname) {
-		$check = "SELECT firstname, lastname, city, email, pid, motivation, gender FROM parenuser WHERE firstname = '$escapedFirstName' AND status = 'nanny' LIMIT 5";
+		$check = "SELECT firstname, lastname, city, email, pid, motivation, gender FROM parenuser WHERE firstname = '" . $db->escape($firstname) . "' AND status = 'nanny' LIMIT 5";
 	}
 
 	if ($city) {
-		$check = "SELECT firstname, lastname, city, email, pid, motivation, gender FROM parenuser WHERE city = '$escapedCity' AND status = 'nanny' LIMIT 5";
+		$check = "SELECT firstname, lastname, city, email, pid, motivation, gender FROM parenuser WHERE city = '$city' AND status = 'nanny' LIMIT 5";
 	}
 
 	if ($age) {
@@ -46,15 +44,15 @@ if (isset($_REQUEST['search-button'])) {
 	}
 
 	if ($firstname && $city) {
-		$check = "SELECT firstname, lastname, city, email, pid, motivation, gender FROM parenuser WHERE firstname = '$escapedFirstName' AND city = '$escapedCity' AND status = 'nanny' LIMIT 5";
+		$check = "SELECT firstname, lastname, city, email, pid, motivation, gender FROM parenuser WHERE firstname = '" . $db->escape($firstname) . "' AND city = '$city' AND status = 'nanny' LIMIT 5";
 	}
 
 	if ($firstname && $age) {
-		$check = "SELECT firstname, lastname, city, email, pid, motivation, gender FROM parenuser WHERE firstname = '$escapedFirstName' AND status = 'nanny'";
+		$check = "SELECT firstname, lastname, city, email, pid, motivation, gender FROM parenuser WHERE firstname = '" . $db->escape($firstname) . "' AND status = 'nanny'";
 	}
 
 	if ($firstname && $sex) {
-		$check = "SELECT firstname, lastname, city, email, pid, motivation, gender FROM parenuser WHERE firstname = '$escapedFirstName' AND gender = '$sex' AND status = 'nanny'";
+		$check = "SELECT firstname, lastname, city, email, pid, motivation, gender FROM parenuser WHERE firstname = '" . $db->escape($firstname) . "' AND gender = '$sex' AND status = 'nanny'";
 	}
 
 	if ($city && $age) {
@@ -69,67 +67,65 @@ if (isset($_REQUEST['search-button'])) {
 		$check = "SELECT firstname, lastname, city, email, pid, motivation, gender FROM parenuser WHERE gender = '$sex' AND status = 'nanny'";
 	}
 
+	var_dump($age);
+
 	if (!isset($check)) {
 		echo "<h1>Моля въведете ИМЕ, ГРАД, ВЪЗРАСТ ИЛИ ПОЛ</h1>";
 	} else {
-		if ($result = mysqli_query($conn, $check)) {
-			$count = 1;
-			while ($row = mysqli_fetch_assoc($result)) {
-				if ($row != null) {
-					$age = date('Y') - (intval($row['pid'] / 100000000) + 1900);
+		if ($result = $db->get_results($check)) {
+			$counter = 1;
 
-					if ($age >= $minAge && $age <= $maxAge && $count <= 5) {
-						echo "<table>";
-						echo "<tbody>";
-						echo "<tr>";
-						echo "<td rowspan='6'>";
-						echo 'Pic';
-						echo "</td>";
+			foreach ($result as $key) {
+				$age = date('Y') - (intval($key->pid / 100000000) + 1900);
 
+				if ($age >= $minAge && $age <= $maxAge && $counter <= 5) {
+					echo "<table>";
+					echo "<tbody>";
+					echo "<tr>";
+					echo "<td rowspan='6'>";
+					echo 'Pic';
+					echo "</td>";
+
+					echo "<td>";
+					echo 'Име: ' . $key->firstname . ' ' . $key->lastname;
+					echo "</td>";
+					echo "</tr>";
+
+					echo "<tr>";
+					echo "<td>";
+					echo 'Години: ' . $age;
+					echo "</td>";
+					echo "</tr>";
+
+					echo "<tr>";
+					echo "<td>";
+					echo 'Град: ' . $key->city;
+					echo "</td>";
+					echo "</tr>";
+
+					echo "<tr>";
+					echo "<td>";
+					echo 'Описание: ' . $key->motivation;
+					echo "</td>";
+					echo "</tr>";
+
+					echo "<tr>";
+
+					if (isset($_SESSION['status']) && ($_SESSION['status'] == "user")) {
 						echo "<td>";
-						echo 'Име: ' . $row['firstname'] . ' ' . $row['lastname'];
+						echo "<button class='btn'>Ангажирай</button>";
 						echo "</td>";
-						echo "</tr>";
-
-						echo "<tr>";
-						echo "<td>";
-						echo 'Години: ' . $age;
-						echo "</td>";
-						echo "</tr>";
-
-						echo "<tr>";
-						echo "<td>";
-						echo 'Град: ' . $row['city'];
-						echo "</td>";
-						echo "</tr>";
-
-						echo "<tr>";
-						echo "<td>";
-						echo 'Описание: ' . $row['motivation'];
-						echo "</td>";
-						echo "</tr>";
-
-						echo "<tr>";
-
-						if (isset($_SESSION['status']) && ($_SESSION['status'] == "user")) {
-							echo "<td>";
-							echo "<button class='btn'>Ангажирай</button>";
-							echo "</td>";
-						}
-
-						echo "</tr>";
-
-						echo "</table>";
-						echo "</tbody>";
-
-						$count++;
-
 					}
-				} else {
-					// TODO: Redirect to No Results Page
-					echo "<h1>No Results Found</h1>";
+
+					echo "</tr>";
+
+					echo "</table>";
+					echo "</tbody>";
+
+					$counter++;
 				}
 			}
+
 		}
 	}
 }
