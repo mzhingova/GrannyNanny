@@ -60,7 +60,7 @@ if (!$conn) {
 
 
 
-			<div><img class="chart"" src="assets/img/chart.jpg" alt="chart"></div>
+			<div><img class="chart" src="assets/img/chart.jpg" alt="chart"></div>
 			<?php } ?>
 
 					</div>

@@ -22,16 +22,14 @@ $conn ->set_charset("utf8");
 			<?php include 'includes/header.php';?>
 			<div class="content">
 				<?php
-				$name = $_SESSION['name'];
-				$tableQuery = mysqli_query($conn, "SELECT * FROM parenuser where status='nanny' AND firstname='$name'")or die("Стана грешкка " . mysql_error());;
+				$userID = $_SESSION['userID'];
+				$tableQuery = mysqli_query($conn, "SELECT * FROM parenuser where status='nanny' AND userID='$userID'")or die("Стана грешкка " . mysql_error());;
 				while($row = mysqli_fetch_array($tableQuery)) { ?>
 				<br><br>
 
 				
 				<b>Лични Данни:</b><br><br>
 				
-				
-				<img id="logo" src="assets/img/9f5048566507999f33aefb975a6ead9d.jpg" alt="Logo"><br>
 				
 				<table width=800px border=0 cellspacing=10><tr>
 					<td valign=top>

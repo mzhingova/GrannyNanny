@@ -92,11 +92,9 @@ if(!empty($pass))
  echo("You have successfully updated your Password");
 }
 
+header("Refresh: 1; url=nanny_profil.php");
 
 
 
-
-
-//header("location: ../GrannyNanny/nanny_profil.php");
 
 ?>
