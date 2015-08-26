@@ -42,7 +42,9 @@
 							<li><a href="nanny_reg.php">Регистрирай Nanny</a></li><?php
 							
 						} ?>
-
+							<?php if(isset($_SESSION['status']) && ($_SESSION['status']=="nanny" || $_SESSION['status']=="user" || $_SESSION['status']=="admin")){?> 
+								<?php
+							} else {?><li><a href="registration.php">Регистрирай се</a></li><?php } ?>
 						
 						
 								<li role="menuitem" class="menu"><?php if(isset($_SESSION["name"])) {?> <a  href='logout.php' value="izhof" >Изход</a><?php
