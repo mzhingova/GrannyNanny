@@ -25,7 +25,7 @@ $(document).ready(function(){
 	</head>
 	<body>
 		<div class="container">
-			<?php include 'includes/header.php';?>
+			<?php include 'includes/header.php'; ?>
 			<div class="content">
 
 <table>
@@ -35,11 +35,13 @@ $(document).ready(function(){
 	<br>
 
 <?php
+
 	$conn  = new mysqli("localhost", "root", "", "grannynanny");
 			if(! $conn )
 			{
 				die('Could not connect: ' . mysql_error());
 			}
+ 
  $displayfirstname = $conn->query("SELECT * FROM parenuser");
 $rows = $displayfirstname->fetch_all(MYSQLI_ASSOC);
 foreach ($rows as $row) {
@@ -54,15 +56,18 @@ foreach ($rows as $row) {
 	'<tr>Email : ','<div class="editableFields" contenteditable="false">', $row['email'],'</tr>','<br>',
 	//prints user Phone number
 '<tr>Phone Number : ','<div class="editableFields" contenteditable="false">',$row['tel'],'</tr>','<br>' , '<br>'	;
-
 }
+
+
  ?>
+
 </table>
 
-			</div></div>
-			<div class="container">
-				<?php include 'includes/footer.php';?>
+
+
+			<div class="container">			</div>
+
+				<?php include 'includes/footer.php'; ?>
 				
-			</div>
 		</body>
 	</html>
