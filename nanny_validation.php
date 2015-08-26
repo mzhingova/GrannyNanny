@@ -1,4 +1,5 @@
 <?php
+session_start();
 error_reporting(E_ALL); ini_set('display_errors', 1);
 	
 	$conn  = new mysqli("localhost", "root", "", "grannynanny");
@@ -20,10 +21,36 @@ error_reporting(E_ALL); ini_set('display_errors', 1);
 			$motivation = $_POST['motivation'];
 			$address = $_POST['address'];
 			$pid=$_POST['pid'];
+			$folder="uploads/";
 			
+			$file = $_FILES['image']['name'];
+			if(isset($file)){
+			$file_loc = $_FILES['image']['tmp_name'];
+			$file_size = $_FILES['image']['size'];
+			$file_type = $_FILES['image']['type'];
+					
+				// new file size in KB
+			$new_size = $file_size/1024;  
+			// new file size in KB
 			
+			// make file name in lower case
+			$new_file_name = strtolower($file);
+			// make file name in lower case
 			
+			$final_file=str_replace(' ','-',$new_file_name);
 			
+			if(move_uploaded_file($file_loc,$folder.$final_file))
+			{
+				
+				$count++;
+			}
+			else
+			{
+				echo "Изберете снимка.";
+			}
+		
+}
+		
 			//education validation
 				if(empty($_POST['education']))
 			{
@@ -193,10 +220,10 @@ error_reporting(E_ALL); ini_set('display_errors', 1);
 			
 			
 			
-			echo $count;
+			
 			
 			if($count>12){
-				$sql ="INSERT INTO `parenuser` (pid, workout, work_status, gender, education, motivation, address, city, firstname, lastname, tel, pass, email, status) VALUES ('$pid','$workout','$work_status','$gender','$education', '$motivation', '$address', '$city', '$firstname', '$lastname', '$tel', '$password', '$email', 'nanny')";
+				$sql ="INSERT INTO `parenuser` (pid, workout, work_status, gender, education, motivation, address, city, firstname, lastname, tel, pass, email, status, photo) VALUES ('$pid','$workout','$work_status','$gender','$education', '$motivation', '$address', '$city', '$firstname', '$lastname', '$tel', '$password', '$email', 'nanny','$final_file')";
 				$result=mysqli_query($conn ,$sql)or die("Error in the consult.." . mysqli_error($conn));
 
 				if($result){
@@ -204,8 +231,6 @@ error_reporting(E_ALL); ini_set('display_errors', 1);
 
 				}
 			}
-			else{
-				echo "QQ";
-			}
+			
 		}
 	    ?>
