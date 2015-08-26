@@ -22,10 +22,19 @@
 								<li><a href="home.php">Начало</a></li><?php
 							} else {?><li><a href="index.php">Начало</a></li><?php } ?>
 							
-								<li><?php if(isset($_SESSION['status']) && ($_SESSION['status']=="nanny" || $_SESSION['status']=="user")){?><a  href='profile.php' value="izhof" >Профил</a><?php
-								} else if (isset($_SESSION['status']) && ($_SESSION['status']=="admin")) {?> <a  href='nannies.php'> Nannies</a><?php
+							
+							
+							
+								<li><?php if(isset($_SESSION['status']) && ($_SESSION['status']=="nanny" || $_SESSION['status']=="user")){
+									if($_SESSION['status']=="nanny"){?><a  href='nanny_profil.php' >Профил</a><?php
+									}else if($_SESSION['status']=="user"){?><a  href='user.php' >Профил</a><?php
+									}
+								} 
+								else if (isset($_SESSION['status']) && ($_SESSION['status']=="admin")) {?> <a  href='nannies.php'> Nannies</a><?php
 							} else {?><a  href='apply_for_nanny.php'>Кандидатствай за Nanny</a><?php } ?></li>
 
+							
+							
 								<li><?php if(isset($_SESSION['status']) && ($_SESSION['status']=="nanny" )){?><a  href='calendar.php'>Календар</a><?php
 							} else if (isset($_SESSION['status']) && ($_SESSION['status']=="admin")) {?> <a  href='users.php'> Потребители</a><?php
 							} else {?><a href="nanny_search.php">Търси Nanny</a><?php } ?></li>
