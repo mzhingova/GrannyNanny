@@ -1,1 +1,8 @@
-uploads/*
+uploads/*.png
+uploads/*.jpeg
+uploads/*.gif
+uploads/*.bmp
+uploads/*.tiff
+uploads/*.bgm
+uploads/*.ppm
+uploads/*.pbm
