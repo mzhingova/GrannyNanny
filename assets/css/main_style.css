@@ -178,9 +178,6 @@ a { text-decoration: none; }
 Single styles
 ------------------------*/
 
-
-
-
 .btn
 {
 	color: #fff !important;
@@ -208,7 +205,6 @@ Single styles
 span {
 color:red
 }
-
 
 
 .btn:active
@@ -255,6 +251,8 @@ color:red
 	left: 50%;
 	
 }
+
+
 /* -----------------------
 Wide styles
 ------------------------*/
@@ -311,6 +309,15 @@ footer {
 	font-size:100%;
 	
 }
-
+.wordwrap{
+	width: 105%;     
+    word-wrap: break-word;
+}
+.wrapper {
+	text-align: right;
+    position: top-right;
+    top: 50%;
+    
+}
 
 

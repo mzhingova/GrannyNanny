@@ -8,3 +8,9 @@ select[class="city"]{
 .aside {
 	
 }
+
+#search-result {
+	float: right;
+	margin-right: 100px;
+}
+

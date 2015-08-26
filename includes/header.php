@@ -40,6 +40,7 @@
 							<?php } ?>
 						<?php if(isset($_SESSION['status']) && ($_SESSION['status']=="admin")){?>
 							<li><a href="nanny_reg.php">Регистрирай Nanny</a></li><?php
+							
 						} ?>
 
 						
