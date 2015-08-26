@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,7 +16,7 @@
 		
 				
 						<div class="content">
-						<form name="regForm" method="POST" action="nanny_validation.php" class="regForm" onsubmit="return validateForm()">
+						<form name="regForm" method="POST"  enctype="multipart/form-data" action="nanny_validation.php" class="regForm" onsubmit="return validateForm()">
 						 <h1>Регистрация</h1>
 						  <img class="filler" alt="nanny image" src="assets/img/nanny-parent.jpg"/>
 						<label class="wtf">Име*</label>
@@ -24,6 +25,9 @@
 						<label>Фамилия*</label>
 						<div class="patt">Mоже да съдържа само букви и да има дължина 2-16 символа.</div>
 						<input type="text" name="lastname">
+						<label >Ваша снимка</label>
+						<input type="file" name="image" >
+						
 						<label>Град*</label>
 						<select name="city">
 						<option value=""></option>
