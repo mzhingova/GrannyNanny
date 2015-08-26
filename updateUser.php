@@ -25,7 +25,8 @@ $firstname = $_POST['firstname'];
 $lastname = $_POST['lastname'];
 $address = $_POST['address'];
 $tel = $_POST['tel'];
-$city = $_POST['city'];
+$address = $_POST['address'];
+
 
 
 
@@ -40,11 +41,6 @@ if(!empty($lastname))
     mysqli_query($conn, "UPDATE parenuser SET `lastname`='$lastname' WHERE userID='$userID'") or die(mysql_error());
                 echo("You have successfully updated your Last name");
 } 
-if(!empty($address))
-{
-    mysqli_query($conn, "UPDATE parenuser SET `address`='$address' WHERE userID='$userID'") or die(mysql_error());
-                echo("You have successfully updated your Address");
-} 
 if(!empty($tel))
 {
     mysqli_query($conn, "UPDATE parenuser SET `tel`='$tel' WHERE userID='$userID'") or die(mysql_error());
@@ -57,7 +53,11 @@ if(!empty($city))
                 echo("You have successfully updated your City");
 } 
 
-
+if(!empty($address))
+{
+    mysqli_query($conn, "UPDATE parenuser SET `address`='$address' WHERE userID='$userID'") or die(mysql_error());
+                echo("You have successfully updated your Address");
+} 
 
 
 ?>
