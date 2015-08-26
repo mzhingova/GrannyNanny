@@ -1,0 +1,41 @@
+*** Settings ***
+Documentation     A test suite with a single test for valid registration.
+
+Resource          resource.txt
+Suite Setup		  Suite Setup	
+Test Setup		  Open Browser To Registration Page
+Test Teardown     Close Browser 
+Suite Teardown 	  Disconnect From Database
+
+Test Template     Register With Invalid Credentials Should Not Succeed				  
+
+*** Test Cases *** 		FirstName   LastName    City    Address(optional)              Telephone   Email                Password        Confirm Password
+# Negative Tests
+#Negative Test 1         John        Digweed     Варна   ул. 1-ва                       0988123321  test36@yahoo.com     test11          test11
+#Negative Test 2         Георги      Георгиев    Русе    bul. Tsarigradsko Shose 155    0877123321  test52@yahoo.com     парола123.      парола123.
+#Negative Test 3         Carl        Cox         Бургас  ${EMPTY}                       1234567890  test53@abv.bg        пас123@         пас123@
+	
+*** Keywords ***
+#Register With Invalid Credentials Should Not Succeed
+    [Arguments]    ${firstName}    ${lastName}      ${city}   ${address}    ${telephone}      ${email}    ${password}		${confirmPassword}
+    Doesn't exist in DB	select * from parenuser where email = '${email}'
+    Input Firstname         ${firstName}
+    Input Lastname          ${lastName}
+    Select City		        ${city}
+    Input Address           ${address}
+    Input Telephone 	    ${telephone} 
+    Input Email             ${email}
+    Input Password          ${password}
+    Confirm Password 	    ${confirmPassword}
+    Submit Registration Form
+    Register Should Have Not Succeed
+    Doesn't exist in DB 	   select * from parenuser where email = '${email}'
+
+#Register Should Have Not Succeed
+    Alert Should Be Present
+    Location Should Be    ${REGISTRATION_URL} 
+    Title Should Be    Registration
+    
+#Suite Setup
+	Connect To DB
+	Clean DB

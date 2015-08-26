@@ -12,8 +12,8 @@
 	<body>
 		<div class="container">
 		<?php include 'includes/header.php';?>
-		
-				
+
+
 						<div class="content">
 						<form name="regForm" method="POST" action="nanny_validation.php" class="regForm" onsubmit="return validateForm()">
 						 <h1>Регистрация</h1>
@@ -36,7 +36,7 @@
 						</select>
 						<label>Адрес*</label>
 						<input type="text" name="address"></input>
-						
+
 						<label>Телефонен номер*</label>
 						<input type="tel" name="tel" ></input>
 						<label>ЕГН*</label>
@@ -53,9 +53,9 @@
 						<label>Работен статус*</label><br>
 						<select name="work_status">
 						<option value=""></option>
-						<option value="Пълен">Пълен работен ден </option>
-						<option value="Половин">Половин работен ден </option>
-						<option value="Безработен">Безработен </option>
+						<option value="Пълен">Пълен работен ден</option>
+						<option value="Половин">Половин работен ден</option>
+						<option value="Безработен">Безработен</option>
 						</select>
 						</div>
 						<div id="gender">
@@ -82,8 +82,8 @@
 					</form>
 				</div>
 			</div>
-			
-			
+
+
 		<div class="container">
 				<?php include 'includes/footer.php';?>
 			</div>

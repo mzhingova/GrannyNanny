@@ -1,0 +1,136 @@
+*** Settings ***
+Documentation     A resource file with reusable keywords and variables.
+
+Library           Selenium2Library
+Library           DatabaseLibrary
+
+*** Variables ***
+${BASE_URL}                        http://localhost:8080/GrannyNanny
+${BROWSER}                         Chrome
+${DELAY}                           0.05 seconds
+${LOGIN_URL}                       ${BASE_URL}/login.php
+${WELCOME_URL}                     ${BASE_URL}/user_profile.php
+${ERROR_URL}                       ${BASE_URL}/error.php
+${REGISTRATION_URL}                ${BASE_URL}/registration.php
+${SUCCESSFUL_REGISTRATION_URL}     ${BASE_URL}/success.php
+
+${ADMIN_USER}                      test29@abv.bg
+${ADMIN_PASS}                      test:1
+
+*** Keywords ***
+# Login as admin
+Login as Admin
+    Open Browser    ${BASE_URL}      ${BROWSER}
+    Maximize Browser Window
+    Set Selenium Speed    ${DELAY}
+    Click Link  login.php
+    Login Page Should Be Open
+    Input Email     ${ADMIN_USER}
+    Input Password     ${ADMIN_PASS}
+    Click Button    submit
+    Logged Admin Profile Page Should Be Open
+
+Login Page Should Be Open
+    Title Should Be    Login Page
+
+Logged Admin Profile Page Should Be Open
+    Title Should Be    Profile Page    
+
+# Register
+Open Browser To Registration Page
+    Login as Admin
+    Click Link      nanny_reg.php
+
+Registration Page Should Be Open
+    Title Should Be    Registration
+
+Input Firstname
+    [Arguments]    ${firstname}
+    Input Text    firstname    ${firstname}
+
+Input Lastname
+    [Arguments]    ${lastname}
+    Input Text    lastname   ${lastname}
+
+Select City
+    [Arguments]    ${city}
+    Select From List By Value   city   ${city}
+
+Input Address
+    [Arguments]    ${address}
+    Input Text    address   ${address}
+
+Input Telephone
+    [Arguments]    ${tel}
+    Input Text    tel   ${tel}
+
+Input PID
+    [Arguments]    ${pid}
+    Input Text    pid   ${pid}
+
+Select Education
+    [Arguments]    ${education}
+    Select From List By Value   education   ${education}
+
+Select Workstatus
+    [Arguments]    ${work_status}
+    Select From List By Value   work_status   ${work_status}
+
+Select Gender
+    [Arguments]    ${gender}
+    Select Radio Button   gender   ${gender}
+
+Input Motivation
+    [Arguments]    ${motivation}
+    Input Text    motivation    ${motivation}
+
+Input Email
+    [Arguments]    ${email}
+    Input Text    email    ${email}
+
+Input Password
+    [Arguments]    ${pass}
+    Input Text    pass    ${pass}
+
+Confirm Password
+    [Arguments]    ${pass2}
+    Input Text    pass2    ${pass2}
+
+Submit Registration Form
+    Click Button    submit
+
+Email already registered page should be opened
+    Location Should Be    ${BASE_URL}/QQ.php
+    Title Should Be    Home Page
+    Page Should Contain     Този email вече е регистриран!
+
+Success Page Should Be Open
+    Location Should Be    ${BASE_URL}/success.php
+    Title Should Be    Successful Registration
+    Page Should Contain     Успешна регистрация
+
+# Database Setup
+Connect To DB
+    Connect To Database Using Custom Params     MySQLdb     db='grannynanny', user='root', host='localhost', port=3306
+
+Clean DB
+    Execute Sql String      DELETE FROM parenuser WHERE email = '${ADMIN_USER}'
+
+Exist in DB
+    [Arguments]    ${statement}
+    Check If Exists In Database     ${statement}
+
+Doesn't exist in DB
+    [Arguments]    ${statement}
+    Check If Not Exists In Database     ${statement}
+
+Insert Admin User in the DB
+    Execute Sql String      INSERT INTO parenuser (userID, firstname, lastname, email, city, address, pass, gender, pid, workout, work_status, education, motivation, status, tel) VALUES (NULL, 'Carl', 'Cx', 'test29@abv.bg', '', '', 'test:1', '', '6010203010', '', '', '', '', 'admin', '1234567890')
+
+Prepare DB
+    Connect To DB
+    Insert Admin User in the DB
+
+Clean DB and Close Connection
+    Clean DB
+    Disconnect From Database

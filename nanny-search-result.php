@@ -1,15 +1,8 @@
 <?php
-
 require_once 'lib/database.php';
 require_once 'config/config.php';
 
 $db = new DB();
-
-// $username = htmlspecialchars($_POST['username']);
-// $password = htmlspecialchars($_POST['password']);
-
-// $sql = "SELECT * FROM users WHERE user_name='" . $db->escape($username) . "' AND password='" . md5($password) . "'";
-// $result = $db->get_results($sql);
 
 if (isset($_REQUEST['search-button'])) {
 	$firstname = htmlspecialchars($_GET['firstname']);
@@ -66,8 +59,6 @@ if (isset($_REQUEST['search-button'])) {
 	if ($age && $sex) {
 		$check = "SELECT firstname, lastname, city, email, pid, motivation, gender FROM parenuser WHERE gender = '$sex' AND status = 'nanny'";
 	}
-
-	var_dump($age);
 
 	if (!isset($check)) {
 		echo "<h1>Моля въведете ИМЕ, ГРАД, ВЪЗРАСТ ИЛИ ПОЛ</h1>";
