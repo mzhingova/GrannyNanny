@@ -20,7 +20,6 @@ $conn ->set_charset("utf8");
 
 
 <?php
-$userID=$_SESSION['userID'];
 $firstname = $_POST['firstname'];
 $lastname = $_POST['lastname'];
 $address = $_POST['address'];
@@ -31,7 +30,12 @@ $city = $_POST['city'];
 $education = $_POST['education'];
 $work_status = $_POST['work_status'];
 $pass=$_POST['pass'];
-
+$isAdmin = $_SESSION['status'];
+if ($isAdmin=='admin') {
+    $userID= $_POST['userID'];
+}else {
+    $userID=$_SESSION['userID'];
+}
 
 
 

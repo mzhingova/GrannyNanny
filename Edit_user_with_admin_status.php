@@ -22,11 +22,7 @@ $conn ->set_charset("utf8");
 		<div class="container">
 			<?php include 'includes/header.php';?>
 			<div class="content">
-			<?php 
-$currentID = htmlspecialchars($_GET["id"]);
-				?>
-			<div class="content">
-				<form action="update.php" method="POST">
+				<form action="updateUser.php" method="POST">
 
 				<table  border=0 >
 					
@@ -44,22 +40,9 @@ $currentID = htmlspecialchars($_GET["id"]);
 						</td>
 						<td>
 							<input type="text" name="lastname" style="width: 80%">
-							<input type="hidden" name="userID" value="<?php echo $currentID ?>">
-
 						</td>
 					</tr>
-						<tr>
-						<td>
-							<b>Възможност за работа<br> извън града:</b>
-						</td>
-						<td>
-							<select name="workout" style="width: 90%">
-								<option value=""></option>
-								<option value="Да">Да</option>
-								<option value="Не">Не</option>
-							</select>
-						</td>
-					</tr>
+						
 					<tr>
 						<td>
 							<b>Град:</b>
@@ -84,19 +67,7 @@ $currentID = htmlspecialchars($_GET["id"]);
 							<input type="text" name="address" style="width: 80%">
 						</tr>
 					</td>
-					<tr>
-						<td>
-							<b>Образование:</b>
-						</td>
-						<td>
-							<select name="education" style="width:90%">
-								<option value=""></option>
-								<option value="Средно">Средно</option>
-								<option value="Средно специално">Средно специално</option>
-								<option value="Висше">Висше</option>
-							</select>
-						</td>
-					</tr>
+					
 					<tr>
 						<td>
 							<b>Телефонен номер:</b>
@@ -105,52 +76,23 @@ $currentID = htmlspecialchars($_GET["id"]);
 							<input type="text" name="tel" style="width: 80%">
 						</td>
 					</tr>
-					<tr>
-						<td>
-							<b>Работен статус:</b>
-						</td>
-						<td>
-							<select name="work_status" style="width: 90%">
-								<option value=""></option>
-								<option value="Пълен">Пълен работен ден </option>
-								<option value="Половин">Половин работен ден </option>
-								<option value="Безработен">Безработен </option>
-							</select>
-						</td>
-					</tr>
-					<tr>
-						<td valign=top>
-							<b>Мотивационно поле:</b>
-						</td>
-						<td>
-							<div class="wordwrap">
-								<textarea id="motivation" type="text" name="motivation" style="width:80%"></textarea>
-							</td>
-						</tr>
-						<!--<tr>
-							<td>
-								<b>Настояща парола:</b>
-							</td>
-							<td>
-								<input type="password" name="currentPass" style="width: 80%">
-							</td>
-						</tr> -->
+				
 						<tr>
 							<td>
-								<b>Нова парола:</b>
+								<b>New Password:</b>
 							</td>
 							<td>
-								<input type="password" name="pass" style="width: 80%">
+								<input type="password" name="new_password" style="width: 80%">
 							</td>
 						</tr>
 						<tr>
 							<td>
-							<!--	<b>Повтори  парола:</b>
+								<b>Repeat <br>New Password:</b>
 							</td>
 							<td>
-								<input type="password" name="repeatPass" style="width: 80%">
+								<input type="password" name="new_password" style="width: 80%">
 							</td>
-						</tr> -->
+						</tr>
 					</table>
 					
 					

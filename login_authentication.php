@@ -28,6 +28,7 @@ if (isset($_POST['email']) and isset($_POST['pass'])) {
 			$_SESSION["lastname"] = $row['lastname'];
 			$_SESSION["status"] = $row['status'];
 			$_SESSION["userID"] = $row['userID'];
+			
 			/*if ($_SESSION["status"] == "nanny") {
 				header('Location: user_profile.php');
 			} else if ($_SESSION["status"] == "user") {
