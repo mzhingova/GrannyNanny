@@ -12,6 +12,7 @@ Valid Registration with filling all fields
     Exist in DB	select * from parenuser where email = '${ADMIN_USER}'
     Input Firstname   Gancho
     Input Lastname    Gancho
+    Upload Picture  D:\\xampp\\htdocs\\GrannyNanny\\Automation\\resources\\nanny.jpg
     Select City		София
     Input Address 	Banishora RullZ
     Input Telephone 	0882123123
@@ -19,10 +20,73 @@ Valid Registration with filling all fields
     Select Education   Средно специално
     Select Workstatus  Половин
     Input Motivation   I am the most amazing nanny in the world!!!
-    Input Email		abvabv12@abv.bg
-    Input Password 	abv@12
-    Confirm Password 	abv@12
+    Input Email		${USERNAME}
+    Input Password 	${USER_PASS} 
+    Confirm Password 	${USER_PASS}
     Submit Registration Form
     Success Page Should Be Open
-    Exist in DB 	select * from parenuser where email = 'abvabv12@abv.bg'
+    Exist in DB 	select * from parenuser where email = '${USERNAME}'
    
+Trying to register with already registered user's data
+    Exist in DB     select * from parenuser where email = '${ADMIN_USER}'
+    Exist in DB     select * from parenuser where email = '${USERNAME}'
+    Input Firstname   Gancho
+    Input Lastname    Gancho
+    Upload Picture  D:\\xampp\\htdocs\\GrannyNanny\\Automation\\resources\\nanny.jpg
+    Select City     София
+    Input Address   Banishora RullZ
+    Input Telephone     0882123123
+    Input PID    1020304050
+    Select Education   Средно специално
+    Select Workstatus  Половин
+    Input Motivation   I am the most amazing nanny in the world!!!
+    Input Email     ${USERNAME}
+    Input Password  ${USER_PASS} 
+    Confirm Password    ${USER_PASS} 
+    Submit Registration Form
+    Email already registered page should be opened
+    Exist in DB     select * from parenuser where email = '${USERNAME}'
+
+Trying to register with photo size > 1 mb with already registered email
+    Exist in DB     select * from parenuser where email = '${ADMIN_USER}'
+    Exist in DB     select * from parenuser where email = '${USERNAME}'
+    Input Firstname   Gancho
+    Input Lastname    Gancho
+    Upload Picture  D:\\xampp\\htdocs\\GrannyNanny\\Automation\\resources\\more-than-1mb-file.jpg
+    Select City     София
+    Input Address   Banishora RullZ
+    Input Telephone     0882123123
+    Input PID    1020304050
+    Select Education   Средно специално
+    Select Workstatus  Половин
+    Input Motivation   I am the most amazing nanny in the world!!!
+    Input Email     ${USERNAME}
+    Input Password  ${USER_PASS} 
+    Confirm Password    ${USER_PASS} 
+    Submit Registration Form
+    Email already registered page should be opened
+    Exist in DB     select * from parenuser where email = '${USERNAME}'
+
+
+Trying to register with photo size > 1 mb with non-registered email
+    Exist in DB     select * from parenuser where email = '${ADMIN_USER}'
+    Doesn't exist in DB     select * from parenuser where email = '${USERNAME1}'
+    Input Firstname   Gancho
+    Input Lastname    Gancho
+    Upload Picture  D:\\xampp\\htdocs\\GrannyNanny\\Automation\\resources\\more-than-1mb-file.jpg
+    Select City     София
+    Input Address   Banishora RullZ
+    Input Telephone     0882123123
+    Input PID    1020304050
+    Select Education   Средно специално
+    Select Workstatus  Половин
+    Input Motivation   I am the most amazing nanny in the world!!!
+    Input Email     ${USERNAME1}
+    Input Password  ${USER_PASS} 
+    Confirm Password    ${USER_PASS} 
+    Submit Registration Form
+    Email already registered page should be opened
+    Doesn't exist in DB     select * from parenuser where email = '${USERNAME1}'
+
+
+
