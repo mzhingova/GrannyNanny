@@ -23,8 +23,6 @@ if (isset($_POST['submit'])) {
 	$pid = $_POST['pid'];
 	$folder = "uploads/";
 
-	
-	
 	$file = $_FILES['image']['name'];
 	if (isset($file)) {
 		$file_loc = $_FILES['image']['tmp_name'];
@@ -40,26 +38,25 @@ if (isset($_POST['submit'])) {
 		// make file name in lower case
 
 		$final_file = str_replace(' ', '-', $new_file_name);
-		$allowed =  array('gif','png' ,'jpg','jpeg');
+		$allowed = array('gif', 'png', 'jpg', 'jpeg');
 		$ext = pathinfo($file, PATHINFO_EXTENSION);
-		if(in_array($ext,$allowed) ) {
-			if($_FILES['image']['size']> 1024){
+
+		if (in_array($ext, $allowed)) {
+			if ($new_size < 1024) {
 				$count++;
-			}else{
+			} else {
 				echo "Прекалено голяма снимка.";
 			}
-			
-		}else {
+
+		} else {
 			echo "Непозволен формат на снимка.";
 		}
-		
-		
-		}
-		else {
-				echo "Изберете подходяща снимка  снимка.";
-			
-		}
-		echo $count;
+
+	} else {
+		echo "Изберете подходяща снимка  снимка.";
+
+	}
+	echo $count;
 
 	//education validation
 	if (empty($_POST['education'])) {
@@ -97,8 +94,6 @@ if (isset($_POST['submit'])) {
 		$work_status = $_POST['work_status'];
 		$count++;
 	}
-	
-	
 
 	//form validation.
 	//frst name validation
@@ -132,7 +127,7 @@ if (isset($_POST['submit'])) {
 	} else {
 		$count++;
 	}
-	
+
 	//telephone validation
 	if (!empty($tel)) {
 		if (preg_match("/^[0-9]{5,10}$/i", $tel)) {
@@ -202,15 +197,15 @@ if (isset($_POST['submit'])) {
 	if ($count > 13) {
 		if (move_uploaded_file($file_loc, $folder . $final_file)) {
 
-		$sql = "INSERT INTO `parenuser` (pid, workout, work_status, gender, education, motivation, address, city, firstname, lastname, tel, pass, email, status, photo) VALUES ('$pid','$workout','$work_status','$gender','$education', '$motivation', '$address', '$city', '$firstname', '$lastname', '$tel', '$password', '$email', 'nanny','$final_file')";
-		$result = mysqli_query($conn, $sql) or die("Error in the consult.." . mysqli_error($conn));
+			$sql = "INSERT INTO `parenuser` (pid, workout, work_status, gender, education, motivation, address, city, firstname, lastname, tel, pass, email, status, photo) VALUES ('$pid','$workout','$work_status','$gender','$education', '$motivation', '$address', '$city', '$firstname', '$lastname', '$tel', '$password', '$email', 'nanny','$final_file')";
+			$result = mysqli_query($conn, $sql) or die("Error in the consult.." . mysqli_error($conn));
 
-		if ($result) {
-			header("Location: success.php");
+			if ($result) {
+				header("Location: success.php");
 
-		}
 			}
-		
+		}
+
 	}
 
 }

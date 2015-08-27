@@ -13,6 +13,8 @@ ${WELCOME_URL}                     ${BASE_URL}/user_profile.php
 ${ERROR_URL}                       ${BASE_URL}/error.php
 ${REGISTRATION_URL}                ${BASE_URL}/registration.php
 ${SUCCESSFUL_REGISTRATION_URL}     ${BASE_URL}/success.php
+${NANNY_REGISTER_ERROR_PAGE}       ${BASE_URL}/nanny_validation.php
+
 
 ${ADMIN_USER}                      test30@abv.bg
 ${ADMIN_PASS}                      test:1
@@ -113,9 +115,13 @@ Email already registered page should be opened
     Page Should Contain     Този email вече е регистриран!
 
 Success Page Should Be Open
-    Location Should Be    ${BASE_URL}/success.php
-    Title Should Be    Successful Registration
+    Location Should Be      ${SUCCESSFUL_REGISTRATION_URL}
+    Title Should Be         Successful Registration
     Page Should Contain     Успешна регистрация
+
+Image Bigger Than 1 MB Page Error Message
+    Location Should Be      ${NANNY_REGISTER_ERROR_PAGE}
+    Page Should Contain     Прекалено голяма снимка.
 
 # Database Setup
 Connect To DB

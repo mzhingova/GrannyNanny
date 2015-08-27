@@ -85,7 +85,7 @@ Trying to register with photo size > 1 mb with non-registered email
     Input Password  ${USER_PASS} 
     Confirm Password    ${USER_PASS} 
     Submit Registration Form
-    Email already registered page should be opened
+    Image Bigger Than 1 MB Page Error Message
     Doesn't exist in DB     select * from parenuser where email = '${USERNAME1}'
 
 
