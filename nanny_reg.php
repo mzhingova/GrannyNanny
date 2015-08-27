@@ -16,7 +16,7 @@
 
 
 						<div class="content">
-						<form name="regForm" method="POST"  enctype="multipart/form-data" action="nanny_validation.php" class="regForm" onsubmit="return validateForm()">
+						<form name="regform"   action="nanny_validation.php"  method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
 						 <h1>Регистрация</h1>
 						  <img class="filler" alt="nanny image" src="assets/img/nanny-parent.jpg"/>
 						<label class="wtf">Име*</label>

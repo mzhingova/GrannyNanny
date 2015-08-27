@@ -1,4 +1,4 @@
-function validateForm(){
+function validateForm() {
 	//first name
      var fname = document.forms['regform']['firstname'].value;
     if (fname === null || fname === "") {
