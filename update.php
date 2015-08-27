@@ -29,6 +29,7 @@ $work_status = $_POST['work_status'];
 $password = $_POST['password'];
 $pass2 = $_POST['pass2'];
 $pass=$_POST['pass'];
+
 $isAdmin = $_SESSION['status'];
 if ($isAdmin=='admin') {
     $userID= $_POST['userID'];
@@ -63,20 +64,32 @@ if (!empty($firstname)) {
             echo "Моля въведете валидно фамилия.";
         }
     } 
+
+    if (!empty($tel)) {
+        if (preg_match("/^[0-9]{5,10}$/i", $tel)) {
+         $query=mysqli_query($conn, "UPDATE parenuser SET `tel`='$tel' WHERE userID='$userID'") or die(mysql_error());
+            if ($query) {
+            header("Refresh: 0; url=nanny_profil.php");
+                }
+        }else {
+            echo "Моля въведете валиден телефонен номер.";
+    }
+         }
+
+if (!empty($motivation)) {
+        if (preg_match("/^.{20,255}$/i", $motivation)) {
+           $query=mysqli_query($conn, "UPDATE parenuser SET `motivation`='$motivation' WHERE userID='$userID'") or die(mysql_error());
+            if ($query) {
+            header("Refresh: 0; url=nanny_profil.php");
+                }
+        } else {
+            echo "Мотивационното писмо не може да съдържа повече от 255 и по-малко от 20 символа.";
+        }
+    }
 if(!empty($address))
 {
     mysqli_query($conn, "UPDATE parenuser SET `address`='$address' WHERE userID='$userID'") or die(mysql_error());
                 echo("You have successfully updated your Address");
-} 
-if(!empty($tel))
-{
-    mysqli_query($conn, "UPDATE parenuser SET `tel`='$tel' WHERE userID='$userID'") or die(mysql_error());
-                echo("You have successfully updated your Telephone");
-} 
-if(!empty($motivation))
-{
-    mysqli_query($conn, "UPDATE parenuser SET `motivation`='$motivation' WHERE userID='$userID'") or die(mysql_error());
-                echo("You have successfully updated your Motivation");
 } 
 if(!empty($workout))
 {
@@ -108,6 +121,17 @@ if(!empty($pass))
 
 
 
+if (!empty($password) && !empty($pass) && !empty($pass2)) {
+        if (preg_match("/^(?=.*[a-zA-Z])(?=.*[\d])(?=.*[\W_]).{5,16}$/", $password)) {
+            if ($password == $password2) {
+                $count++;
+            }
+        } else {
+            echo "Моля въведете валидена парола.";
+        }
+    } else {
+        echo "Моля въведете парола.";
+    }
 
 // if(!empty($folder))
 // {
