@@ -21,21 +21,16 @@ $conn ->set_charset("utf8");
 		<div class="container">
 			<?php include 'includes/header.php';?>
 			<div class="content">
-				<b>Edit your Profile</b> &nbsp;&nbsp;&nbsp;&nbsp;<a href="edit_user.php"><button id="btn" type="submit" name="submit" class="btn">Edit</button></a><br>
 				<?php
-				$name = $_SESSION['name'];
-				$tableQuery = mysqli_query($conn, "SELECT * FROM parenuser where status='user' AND firstname='$name'")or die("Стана грешкка " . mysql_error());;
+				$userID = $_SESSION['userID'];
+				$tableQuery = mysqli_query($conn, "SELECT * FROM parenuser where status='user' AND userID='$userID'")or die("Стана грешкка " . mysql_error());;
 				while($row = mysqli_fetch_array($tableQuery)) { ?>
 				<br><br>
 
-				<b>Personal Information:</b><br><br>
 				
+				<b>Лични Данни:</b><br><br>
 				
-				<img id="logo" src="assets/img/9f5048566507999f33aefb975a6ead9d.jpg" alt="Logo">
-				
-				<table width=800px border=0 cellspacing=10><tr>
-					<td valign=top>
-						<table  border=0>
+<table  border=0>
 							
 							<tr>
 								<td>
@@ -88,10 +83,7 @@ $conn ->set_charset("utf8");
 								</td>
 							
 								
-							</table>
-						</td>
-					</tr>
-				</table><br>
+							</table><br>
 				
 				<?php } ?>
 				
@@ -99,7 +91,7 @@ $conn ->set_charset("utf8");
 				$userID = $_SESSION["userID"]
 				
 				?>
-				
+				<a href="edit_user.php"><button id="btn" type="submit" name="submit" class="btn">Редактиране на профила</button></a><br>
 			</div>
 			<input type="hidden" name="id" value="<?php echo $userID; ?>" />
 		</div>
@@ -109,3 +101,12 @@ $conn ->set_charset("utf8");
 	</div>
 </body>
 </html>
+
+
+
+
+
+
+
+
+

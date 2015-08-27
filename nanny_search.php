@@ -27,7 +27,7 @@ $conn ->set_charset("utf8");
 			<div class="content">
 				<h1>Топ 5 Nannies</h1>
 					<?php 
-					$tableQuery = mysqli_query($conn, "SELECT * FROM parenuser where status='nanny' LIMIT 5")or die("Стана грешкка " . mysql_error());; 
+					$tableQuery = mysqli_query($conn, "SELECT * FROM parenuser where status='nanny' LIMIT 5")or die("Стана грешкка " . mysql_error()); 
 					$query = mysqli_query($conn, "SELECT * FROM parenuser WHERE status='nanny'") or die("Стана грешкка " . mysql_error());
 					
 					while($row = mysqli_fetch_array($tableQuery)) { ?>					

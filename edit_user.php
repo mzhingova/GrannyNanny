@@ -28,7 +28,7 @@ $conn ->set_charset("utf8");
 					
 					<tr>
 						<td>
-							<b>First name:</b>
+							<b>Име:</b>
 						</td>
 						<td>
 							<input type="text" name="firstname" style="width: 80%">
@@ -36,7 +36,7 @@ $conn ->set_charset("utf8");
 					</tr>
 					<tr>
 						<td>
-							<b>Last name:</b>
+							<b>Фамилия:</b>
 						</td>
 						<td>
 							<input type="text" name="lastname" style="width: 80%">
@@ -61,7 +61,7 @@ $conn ->set_charset("utf8");
 					</tr>
 					<tr>
 						<td>
-							<b>Address:</b>
+							<b>Адрес:</b>
 						</td>
 						<td>
 							<input type="text" name="address" style="width: 80%">
@@ -70,7 +70,7 @@ $conn ->set_charset("utf8");
 					
 					<tr>
 						<td>
-							<b>Tel:</b>
+							<b>Телефонен номер:</b>
 						</td>
 						<td>
 							<input type="text" name="tel" style="width: 80%">
@@ -96,7 +96,7 @@ $conn ->set_charset("utf8");
 					</table>
 					
 					
-					<input type="submit" id="submit" name="update" value="update" class="btn" />
+					<input type="submit" id="submit" name="update" value="З А П И С" class="btn" />
 				</div>
 
 <?php
