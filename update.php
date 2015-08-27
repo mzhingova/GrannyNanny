@@ -16,11 +16,7 @@ if (!$conn) {
 $conn ->set_charset("utf8");
 ?>
 
-
-
-
 <?php
-$userID=$_SESSION['userID'];
 $firstname = $_POST['firstname'];
 $lastname = $_POST['lastname'];
 $address = $_POST['address'];
@@ -31,8 +27,14 @@ $city = $_POST['city'];
 $education = $_POST['education'];
 $work_status = $_POST['work_status'];
 $password = $_POST['password'];
-$pass = $_POST['pass'];
 $pass2 = $_POST['pass2'];
+$pass=$_POST['pass'];
+$isAdmin = $_SESSION['status'];
+if ($isAdmin=='admin') {
+    $userID= $_POST['userID'];
+}else {
+    $userID=$_SESSION['userID'];
+}
 
 
 
@@ -61,7 +63,6 @@ if (!empty($firstname)) {
             echo "Моля въведете валидно фамилия.";
         }
     } 
-
 if(!empty($address))
 {
     mysqli_query($conn, "UPDATE parenuser SET `address`='$address' WHERE userID='$userID'") or die(mysql_error());

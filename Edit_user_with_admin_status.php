@@ -22,10 +22,7 @@ $conn ->set_charset("utf8");
 		<div class="container">
 			<?php include 'includes/header.php';?>
 			<div class="content">
-				<?php 
-$currentID = htmlspecialchars($_GET["id"]);
-				?>
-				<form method="POST" action="updateUser.php">
+				<form action="updateUser.php" method="POST">
 
 				<table  border=0 >
 					
@@ -35,7 +32,6 @@ $currentID = htmlspecialchars($_GET["id"]);
 						</td>
 						<td>
 							<input type="text" name="firstname" style="width: 80%">
-							<input type="hidden" name="userID" value="<?php echo $currentID ?>">
 						</td>
 					</tr>
 					<tr>
@@ -103,9 +99,9 @@ $currentID = htmlspecialchars($_GET["id"]);
 					<input type="submit" id="submit" name="update" value="З А П И С" class="btn" />
 				</div>
 
-
 <?php
-echo htmlspecialchars($_GET["id"]);
+$userID = $_SESSION["userID"]
+
 				 
 				?>
 				<input type="hidden" name="id" value="<?php echo $userID; ?>">
