@@ -19,7 +19,7 @@
 		</div>
 			<h1>Търси по:</h1><br>
 			Име
-			<form method="GET">
+			<form method="GET" id="search-nanny-form">
 				<input type="text" name="firstname"></input>
 				<label>Град</label>
 				<select class="city" name="city">
