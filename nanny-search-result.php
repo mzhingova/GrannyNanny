@@ -87,6 +87,10 @@ if (isset($_REQUEST['search-button'])) {
 				echo "</div>";
 
 				echo "<div>";
+				echo 'Пол: ' . $key->gender;
+				echo "</div>";
+
+				echo "<div>";
 
 				if (isset($_SESSION['status']) && ($_SESSION['status'] == "user")) {
 					echo "<div>";
@@ -121,6 +125,10 @@ if (isset($_REQUEST['search-button'])) {
 
 					echo "<div>";
 					echo 'Град: ' . $key->city;
+					echo "</div>";
+
+					echo "<div>";
+					echo 'Пол: ' . $key->gender;
 					echo "</div>";
 
 					echo "<div class='motivation'>";
