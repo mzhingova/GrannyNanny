@@ -17,7 +17,6 @@ if (isset($_POST['submit'])) {
 	$tel = htmlentities($_POST['tel']);
 	$password = htmlentities($_POST['pass']);
 	$password2 = htmlentities($_POST['pass2']);
-
 	$address = htmlentities($_POST['address']);
 	$selected_val = htmlentities($_POST['city']);
 	$conn->set_charset("utf8");
