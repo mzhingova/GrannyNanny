@@ -1,4 +1,5 @@
 <?php
+require_once 'config/config.php';
 
 class DB {
 	static $conn;

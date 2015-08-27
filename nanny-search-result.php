@@ -1,6 +1,5 @@
 <?php
 require_once 'lib/database.php';
-require_once 'config/config.php';
 
 $db = new DB();
 
@@ -13,19 +12,19 @@ if (isset($_REQUEST['search-button'])) {
 	$splittedAge = explode("-", $age);
 
 	if (count($splittedAge) != 1) {
-		$minAge = $splittedAge[0];
-		$maxAge = $splittedAge[1];
+		$minAge = intval($splittedAge[0]);
+		$maxAge = intval($splittedAge[1]);
 	} else {
-		$minAge = $splittedAge[0];
+		$minAge = intval($splittedAge[0]);
 		$maxAge = 100;
 	}
 
 	if ($firstname) {
-		$check = "SELECT firstname, lastname, city, email, pid, motivation, gender FROM parenuser WHERE firstname = '" . $db->escape($firstname) . "' AND status = 'nanny' LIMIT 5";
+		$check = "SELECT firstname, lastname, city, email, pid, motivation, gender FROM parenuser WHERE firstname = '" . $db->escape($firstname) . "' AND status = 'nanny'";
 	}
 
 	if ($city) {
-		$check = "SELECT firstname, lastname, city, email, pid, motivation, gender FROM parenuser WHERE city = '$city' AND status = 'nanny' LIMIT 5";
+		$check = "SELECT firstname, lastname, city, email, pid, motivation, gender FROM parenuser WHERE city = '$city' AND status = 'nanny'";
 	}
 
 	if ($age) {
@@ -33,11 +32,11 @@ if (isset($_REQUEST['search-button'])) {
 	}
 
 	if ($sex) {
-		$check = "SELECT firstname, lastname, city, email, pid, motivation, gender FROM parenuser WHERE gender = '$sex' AND status = 'nanny'  LIMIT 5";
+		$check = "SELECT firstname, lastname, city, email, pid, motivation, gender FROM parenuser WHERE gender = '$sex' AND status = 'nanny'";
 	}
 
 	if ($firstname && $city) {
-		$check = "SELECT firstname, lastname, city, email, pid, motivation, gender FROM parenuser WHERE firstname = '" . $db->escape($firstname) . "' AND city = '$city' AND status = 'nanny' LIMIT 5";
+		$check = "SELECT firstname, lastname, city, email, pid, motivation, gender FROM parenuser WHERE firstname = '" . $db->escape($firstname) . "' AND city = '$city' AND status = 'nanny'";
 	}
 
 	if ($firstname && $age) {
@@ -67,6 +66,7 @@ if (isset($_REQUEST['search-button'])) {
 			$counter = 1;
 
 			foreach ($result as $key) {
+
 				$age = date('Y') - (intval($key->pid / 100000000) + 1900);
 
 				if ($age >= $minAge && $age <= $maxAge && $counter <= 5) {
@@ -114,9 +114,9 @@ if (isset($_REQUEST['search-button'])) {
 					echo "</tbody>";
 
 					$counter++;
+
 				}
 			}
-
 		}
 	}
 }
