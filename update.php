@@ -30,32 +30,38 @@ $workout = $_POST['workout'];
 $city = $_POST['city'];
 $education = $_POST['education'];
 $work_status = $_POST['work_status'];
-$pass = $_GET['password'];
+$password = $_POST['password'];
 $pass = $_POST['pass'];
-$pass = $_POST['pass2'] 
-
-
-
-// $folder="uploads/";
+$pass2 = $_POST['pass2'];
 
 
 
 
 
+if (!empty($firstname)) {
+        if (preg_match("/^[a-zA-Z\p{Cyrillic}]{2,16}$/iu", $firstname)) { 
+        $query=mysqli_query($conn, "UPDATE parenuser SET `firstname`='$firstname' WHERE userID='$userID'") or die(mysql_error());
+        if ($query) {
+            header("Refresh: 0; url=nanny_profil.php");
+        }
+        } 
+        else {
+            echo "Моля въведете валидно име.";
+        }
+    } 
 
+    if (!empty($lastname)) {
+        if (preg_match("/^[a-zA-Z\p{Cyrillic}]{2,16}$/iu", $lastname)) { 
+        $query=mysqli_query($conn, "UPDATE parenuser SET `lastname`='$lastname' WHERE userID='$userID'") or die(mysql_error());
+        if ($query) {
+            header("Refresh: 0; url=nanny_profil.php");
+        }
+        } 
+        else {
+            echo "Моля въведете валидно фамилия.";
+        }
+    } 
 
-
-if(!empty($firstname))
-{
-    
-    mysqli_query($conn, "UPDATE parenuser SET `firstname`='$firstname' WHERE userID='$userID'") or die(mysql_error());
-                echo("You have successfully updated your First name");
-} 
-if(!empty($lastname))
-{
-    mysqli_query($conn, "UPDATE parenuser SET `lastname`='$lastname' WHERE userID='$userID'") or die(mysql_error());
-                echo("You have successfully updated your Last name");
-} 
 if(!empty($address))
 {
     mysqli_query($conn, "UPDATE parenuser SET `address`='$address' WHERE userID='$userID'") or die(mysql_error());
@@ -91,6 +97,7 @@ if(!empty($work_status))
     mysqli_query($conn, "UPDATE parenuser SET `work_status`='$work_status' WHERE userID='$userID'") or die(mysql_error());
                 echo("You have successfully updated your Work stauts");
 } 
+
 if(!empty($pass))
 {
     mysqli_query($conn, "UPDATE parenuser SET `pass`='$pass' WHERE userID='$userID'") or die(mysql_error());
@@ -98,7 +105,6 @@ if(!empty($pass))
                 echo("You have successfully updated your Password");       
 }
 
-header("Refresh: 1; url=nanny_profil.php");
 
 
 
