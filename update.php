@@ -30,8 +30,13 @@ $workout = $_POST['workout'];
 $city = $_POST['city'];
 $education = $_POST['education'];
 $work_status = $_POST['work_status'];
-$pass=$_POST['pass'];
-$folder="uploads/";
+$pass = $_GET['password'];
+$pass = $_POST['pass'];
+$pass = $_POST['pass2'] 
+
+
+
+// $folder="uploads/";
 
 
 

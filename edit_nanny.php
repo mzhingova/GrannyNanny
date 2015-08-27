@@ -16,7 +16,7 @@ $conn ->set_charset("utf8");
 		<meta charset="utf-8">
 		<title>Edit Nanny</title>
 		<!-- Override CSS file - add your own CSS rules -->
-		<link rel="stylesheet" href="assets/css/###.css">
+		<link rel="stylesheet" href="assets/css/edit_nanny.css">
 	</head>
 	<body>
 		<div class="container">
@@ -78,8 +78,10 @@ $conn ->set_charset("utf8");
 						<b><label>Мотивационно поле</label></b><br>
 						<textarea id="motivation" type="text" name="motivation" ></textarea><br>
 
+						<b><label>Настояща парола</label></b>
+						<input type="password" name="password"></input>
 						
-						<b><label>Парола</label></b>
+						<b><label>Нова парола</label></b>
 						<div class="patt">Tрябва да съдържа поне една цифра ,един специален символ , да е с дължина 5-16 символа.</div>
 						<input type="password" name="pass"></input>
 						<b><label>Повтори  парола</label></b>

@@ -1,0 +1,36 @@
+textarea{
+display:block;
+border:1px solid olive;
+border-radius:5px;
+width:25.5%;
+padding:10px;
+margin-top:8px;
+margin-bottom:20px;
+padding-left:5px;
+font-size:16px;
+font-family:raleway
+}
+
+
+.patt{
+font-size:10px;
+width:25.5%;
+}
+input[type="radio"]{
+display:inline;
+width:2%;}
+input[type="checkbox"]{
+display:inline;
+width:2%;}
+
+.filler{
+    float: right;
+	margin-top:10%;
+}
+
+input[type="file"]{
+    
+    
+
+    
+}

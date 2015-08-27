@@ -27,6 +27,9 @@ $conn ->set_charset("utf8");
 				while($row = mysqli_fetch_array($tableQuery)) { ?>
 				<br><br>
 			
+								<div class="avatar">
+									<img src="uploads/<?php echo $row['photo'] ?>" target="_blank">
+									</div>
 				<b>Лични Данни:</b><br><br>
 				
 				
