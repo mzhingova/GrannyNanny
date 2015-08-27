@@ -86,7 +86,7 @@ $conn ->set_charset("utf8");
 						<input type="password" name="pass"></input>
 						<b><label>Повтори  парола</label></b>
 						<input type="password" name="pass2"></input>
-						<button type="submit" name="submit" class="btn">Регистрирай</button><br><br><br>
+						<button type="submit" name="submit" class="btn">Запиши промените</button><br><br><br>
 				</div>
 
 <?php

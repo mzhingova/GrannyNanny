@@ -47,6 +47,7 @@ $pass = $_POST['pass2']
 
 if(!empty($firstname))
 {
+    
     mysqli_query($conn, "UPDATE parenuser SET `firstname`='$firstname' WHERE userID='$userID'") or die(mysql_error());
                 echo("You have successfully updated your First name");
 } 

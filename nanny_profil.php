@@ -15,7 +15,7 @@ $conn ->set_charset("utf8");
 		<meta charset="utf-8">
 		<title>Nanny Profil</title>
 		<!-- Override CSS file - add your own CSS rules -->
-		<link rel="stylesheet" href="assets/css/###.css">
+		<link rel="stylesheet" href="assets/css/nanny_profil.css">
 	</head>
 	<body>
 		<div class="container">
@@ -25,11 +25,12 @@ $conn ->set_charset("utf8");
 				$userID = $_SESSION['userID'];
 				$tableQuery = mysqli_query($conn, "SELECT * FROM parenuser where status='nanny' AND userID='$userID'")or die("Стана грешкка " . mysql_error());;
 				while($row = mysqli_fetch_array($tableQuery)) { ?>
-				<br><br>
+				
 			
-								<div class="avatar">
-									<img src="uploads/<?php echo $row['photo'] ?>" target="_blank">
-									</div>
+								<div>
+									<img src="uploads/<?php echo $row['photo'] ?>" target="_blank" alt="avatar" />
+									</div><br><br>
+
 				<b>Лични Данни:</b><br><br>
 				
 				
