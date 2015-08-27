@@ -25,25 +25,25 @@
 $rows = $displayfirstname->fetch_all(MYSQLI_ASSOC);
 foreach ($rows as $row) {
 
-//prints user id
-	echo '<b>','<tr>ID : ','<b class="editableFields" contenteditable="false">',$row['userID'],'</tr>','<br>',
+
+	echo 
 	//prints user First Name
-	'<tr>First Name : ','<b class="editableFields" contenteditable="false">',$row['firstname'],'</tr>' ,'<br>', 
+	'<tr>First Name : ',$row['firstname'],'</tr>' ,'<br>', 
 	//Prints user Last Name
-	'<tr>Last Name : ','<b class="editableFields" contenteditable="false">',$row['lastname'],'</tr>','<button class="buttonsRight">','Edit Profile','</button>','<br>' ,
+	'<tr>Last Name : ',$row['lastname'],'</tr>','<button class="buttonsRight">','Edit Profile','</button>','<br>' ,
 	//prints user Email
-	'<tr>Email : ','<b class="editableFields" contenteditable="false">', $row['email'],'</tr>','<br>',
+	'<tr>Email : ', $row['email'],'</tr>','<br>',
 	//prints user Phone number
-'<tr>Phone Number : ','<b class="editableFields" contenteditable="false">',$row['tel'],'</tr>','<br>' , '<br>'	;
+    '<tr>Phone Number : ',$row['tel'],'</tr>','<br>' , '<br>'	;
 }
 
 
  ?>
 
 </table>
-			<div class="container">			</div>
+			<div class="container">			
 
 				<?php include 'includes/footer.php'; ?>
-				
+				</div>
 		</body>
 	</html>
