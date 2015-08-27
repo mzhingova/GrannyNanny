@@ -31,7 +31,7 @@ $city = $_POST['city'];
 $education = $_POST['education'];
 $work_status = $_POST['work_status'];
 $pass=$_POST['pass'];
-
+$folder="uploads/";
 
 
 
@@ -89,11 +89,19 @@ if(!empty($pass))
 {
     mysqli_query($conn, "UPDATE parenuser SET `pass`='$pass' WHERE userID='$userID'") or die(mysql_error());
                 
- echo("You have successfully updated your Password");
+                echo("You have successfully updated your Password");       
 }
 
 header("Refresh: 1; url=nanny_profil.php");
 
+
+
+// if(!empty($folder))
+// {
+ //   mysqli_query($conn, "UPDATE parenuser SET `uploads`='$folder' WHERE userID='$userID'") or die(mysql_error());
+                
+ //               echo("You have successfully updated your picture");
+// }
 
 
 

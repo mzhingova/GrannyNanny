@@ -42,8 +42,8 @@
 				<label>Пол</label>
 				<select name="gender">
 					<option value=""></option>
-					<option value="male">Мъж</option>
-					<option value="female">Жена</option>
+					<option value="Мъж">Мъж</option>
+					<option value="Жена">Жена</option>
 				</select>
 				<div id="rating">
 					<label>Рейтинг</label>

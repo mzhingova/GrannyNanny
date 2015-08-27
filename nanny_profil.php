@@ -26,8 +26,7 @@ $conn ->set_charset("utf8");
 				$tableQuery = mysqli_query($conn, "SELECT * FROM parenuser where status='nanny' AND userID='$userID'")or die("Стана грешкка " . mysql_error());;
 				while($row = mysqli_fetch_array($tableQuery)) { ?>
 				<br><br>
-
-				
+			
 				<b>Лични Данни:</b><br><br>
 				
 				
