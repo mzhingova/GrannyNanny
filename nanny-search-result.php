@@ -60,7 +60,47 @@ if (isset($_REQUEST['search-button'])) {
 	}
 
 	if (!isset($check)) {
-		echo "<h1>Моля въведете ИМЕ, ГРАД, ВЪЗРАСТ ИЛИ ПОЛ</h1>";
+		if ($result = $db->get_results("SELECT * FROM parenuser where status = 'nanny'")) {
+			$counter = 1;
+			foreach ($result as $key) {
+
+				$age = date('Y') - (intval($key->pid / 100000000) + 1900);
+				echo "<div class='table'>";
+				echo "<div>";
+				echo 'Pic';
+				echo "</div>";
+
+				echo "<div>";
+				echo 'Име: ' . $key->firstname . ' ' . $key->lastname;
+				echo "</div>";
+
+				echo "<div>";
+				echo 'Години: ' . $age;
+				echo "</div>";
+
+				echo "<div>";
+				echo 'Град: ' . $key->city;
+				echo "</div>";
+
+				echo "<div class='motivation'>";
+				echo 'Описание: ' . $key->motivation;
+				echo "</div>";
+
+				echo "<div>";
+				echo 'Пол: ' . $key->gender;
+				echo "</div>";
+
+				echo "<div>";
+
+				if (isset($_SESSION['status']) && ($_SESSION['status'] == "user")) {
+					echo "<div>";
+					echo "<button class='btn'>Ангажирай</button>";
+					echo "</div>";
+				}
+				echo "</div>";
+				echo "</br>";
+			}
+		}
 	} else {
 		if ($result = $db->get_results($check)) {
 			$counter = 1;
@@ -70,48 +110,40 @@ if (isset($_REQUEST['search-button'])) {
 				$age = date('Y') - (intval($key->pid / 100000000) + 1900);
 
 				if ($age >= $minAge && $age <= $maxAge && $counter <= 5) {
-					echo "<table>";
-					echo "<tbody>";
-					echo "<tr>";
-					echo "<td rowspan='6'>";
+					echo "<div class='table'>";
+					echo "<div>";
 					echo 'Pic';
-					echo "</td>";
+					echo "</div>";
 
-					echo "<td>";
+					echo "<div>";
 					echo 'Име: ' . $key->firstname . ' ' . $key->lastname;
-					echo "</td>";
-					echo "</tr>";
+					echo "</div>";
 
-					echo "<tr>";
-					echo "<td>";
+					echo "<div>";
 					echo 'Години: ' . $age;
-					echo "</td>";
-					echo "</tr>";
+					echo "</div>";
 
-					echo "<tr>";
-					echo "<td>";
+					echo "<div>";
 					echo 'Град: ' . $key->city;
-					echo "</td>";
-					echo "</tr>";
+					echo "</div>";
 
-					echo "<tr>";
-					echo "<td>";
+					echo "<div>";
+					echo 'Пол: ' . $key->gender;
+					echo "</div>";
+
+					echo "<div class='motivation'>";
 					echo 'Описание: ' . $key->motivation;
-					echo "</td>";
-					echo "</tr>";
+					echo "</div>";
 
-					echo "<tr>";
+					echo "<div>";
 
 					if (isset($_SESSION['status']) && ($_SESSION['status'] == "user")) {
-						echo "<td>";
+						echo "<div>";
 						echo "<button class='btn'>Ангажирай</button>";
-						echo "</td>";
+						echo "</div>";
 					}
-
-					echo "</tr>";
-
-					echo "</table>";
-					echo "</tbody>";
+					echo "</div>";
+					echo "</br>";
 
 					$counter++;
 

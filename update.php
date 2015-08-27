@@ -16,9 +16,6 @@ if (!$conn) {
 $conn ->set_charset("utf8");
 ?>
 
-
-
-
 <?php
 $firstname = $_POST['firstname'];
 $lastname = $_POST['lastname'];
@@ -37,15 +34,12 @@ if ($isAdmin=='admin') {
     $userID=$_SESSION['userID'];
 }
 
-
-
-
-
-
+// $folder="uploads/";
 
 
 if(!empty($firstname))
 {
+    
     mysqli_query($conn, "UPDATE parenuser SET `firstname`='$firstname' WHERE userID='$userID'") or die(mysql_error());
                 echo("You have successfully updated your First name");
 } 
@@ -93,11 +87,19 @@ if(!empty($pass))
 {
     mysqli_query($conn, "UPDATE parenuser SET `pass`='$pass' WHERE userID='$userID'") or die(mysql_error());
                 
- echo("You have successfully updated your Password");
+                echo("You have successfully updated your Password");       
 }
 
 header("Refresh: 1; url=nanny_profil.php");
 
+
+
+// if(!empty($folder))
+// {
+ //   mysqli_query($conn, "UPDATE parenuser SET `uploads`='$folder' WHERE userID='$userID'") or die(mysql_error());
+                
+ //               echo("You have successfully updated your picture");
+// }
 
 
 

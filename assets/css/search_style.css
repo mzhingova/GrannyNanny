@@ -11,6 +11,10 @@ select[class="city"]{
 
 #search-result {
 	float: right;
-	margin-right: 100px;
+	width: 600px;
+}
+
+.motivation {
+	word-wrap: break-word;
 }
 

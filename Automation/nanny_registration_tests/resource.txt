@@ -13,9 +13,15 @@ ${WELCOME_URL}                     ${BASE_URL}/user_profile.php
 ${ERROR_URL}                       ${BASE_URL}/error.php
 ${REGISTRATION_URL}                ${BASE_URL}/registration.php
 ${SUCCESSFUL_REGISTRATION_URL}     ${BASE_URL}/success.php
+${NANNY_REGISTER_ERROR_PAGE}       ${BASE_URL}/nanny_validation.php
 
-${ADMIN_USER}                      test29@abv.bg
+
+${ADMIN_USER}                      test30@abv.bg
 ${ADMIN_PASS}                      test:1
+${USERNAME}                        testvaliduser@abv.bg
+${USERNAME1}                       testvaliduser1@abv.bg
+${USER_PASS}                       test:11
+
 
 *** Keywords ***
 # Login as admin
@@ -51,6 +57,10 @@ Input Firstname
 Input Lastname
     [Arguments]    ${lastname}
     Input Text    lastname   ${lastname}
+
+Upload Picture
+    [Arguments]    ${path}
+    Choose File    image   ${path}
 
 Select City
     [Arguments]    ${city}
@@ -105,16 +115,20 @@ Email already registered page should be opened
     Page Should Contain     Този email вече е регистриран!
 
 Success Page Should Be Open
-    Location Should Be    ${BASE_URL}/success.php
-    Title Should Be    Successful Registration
+    Location Should Be      ${SUCCESSFUL_REGISTRATION_URL}
+    Title Should Be         Successful Registration
     Page Should Contain     Успешна регистрация
+
+Image Bigger Than 1 MB Page Error Message
+    Location Should Be      ${NANNY_REGISTER_ERROR_PAGE}
+    Page Should Contain     Прекалено голяма снимка.
 
 # Database Setup
 Connect To DB
     Connect To Database Using Custom Params     MySQLdb     db='grannynanny', user='root', host='localhost', port=3306
 
 Clean DB
-    Execute Sql String      DELETE FROM parenuser WHERE email = '${ADMIN_USER}'
+    Execute Sql String      DELETE FROM parenuser WHERE email IN ('${ADMIN_USER}', '${USERNAME}', '${USERNAME1}')
 
 Exist in DB
     [Arguments]    ${statement}
@@ -125,7 +139,7 @@ Doesn't exist in DB
     Check If Not Exists In Database     ${statement}
 
 Insert Admin User in the DB
-    Execute Sql String      INSERT INTO parenuser (userID, firstname, lastname, email, city, address, pass, gender, pid, workout, work_status, education, motivation, status, tel) VALUES (NULL, 'Carl', 'Cx', 'test29@abv.bg', '', '', 'test:1', '', '6010203010', '', '', '', '', 'admin', '1234567890')
+    Execute Sql String      INSERT INTO parenuser (userID, firstname, lastname, email, city, address, pass, gender, pid, workout, work_status, education, motivation, status, photoname, photo, tel) VALUES (NULL, 'Carl', 'Cx', '${ADMIN_USER}', '', '', '${ADMIN_PASS}', '', '6010203010', '', '', '', '', 'admin', '', '', '1234567890')
 
 Prepare DB
     Connect To DB
