@@ -121,7 +121,7 @@ if(!empty($pass))
 
 
 
-if (!empty($password) && !empty($pass) && !empty($pass2)) {
+/* if (!empty($password) && !empty($pass) && !empty($pass2)) {
         if (preg_match("/^(?=.*[a-zA-Z])(?=.*[\d])(?=.*[\W_]).{5,16}$/", $password)) {
             if ($password == $password2) {
                 $count++;
@@ -139,7 +139,7 @@ if (!empty($password) && !empty($pass) && !empty($pass2)) {
                 
  //               echo("You have successfully updated your picture");
 // }
-
+*/
 
 
 ?>
