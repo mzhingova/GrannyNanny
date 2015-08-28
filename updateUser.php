@@ -23,7 +23,7 @@ $conn ->set_charset("utf8");
 
 $firstname = $_POST['firstname'];
 $lastname = $_POST['lastname'];
-$address = $_POST['address'];
+$city = $_POST['city'];
 $tel = $_POST['tel'];
 $address = $_POST['address'];
 $isAdmin = $_SESSION['status'];
