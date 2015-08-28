@@ -10,7 +10,7 @@
 		<div class="container">
 			<?php include 'includes/header.php';?>
 			<div class="content">
-				<?php echo "The page you are looking for is under construction" ?>
+				<?php echo "Help us learn PHP, by Granny Nanny team" ?>
 				</div>
 			</div>
 			<div class="container">
