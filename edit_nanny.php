@@ -22,7 +22,16 @@ $conn ->set_charset("utf8");
 	<div class="container">
 		<?php include 'includes/header.php';?>
 		<div class="content">
-			<?php $currentID = htmlspecialchars($_GET["id"]); ?>
+			<?php 
+			$isAdmin = $_SESSION['status'];
+if ($isAdmin=='admin') {
+	 $currentID = htmlspecialchars($_GET["id"]);
+    $userID= $_POST['userID'];
+}else {
+    $userID=$_SESSION['userID'];
+}
+?>
+			
 			<form action="update.php" method="POST" onsubmit="return validateForm()">
 				<b><label class="wtf">Име</label></b>
 				<div class="patt">Mоже да съдържа само букви и да има дължина 2-16 символа.</div>

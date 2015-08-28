@@ -11,13 +11,6 @@ function validateForm() {
 		alert("Моля въведете валидна фамилия.");
 		return false;
 	}
-	
-	//address validation
-	var address = document.forms['regform']['address'].value;
-    if (address === null || address === "") {
-        alert("Моля въведете адрес.");
-		return false;
-	}
 		
 	//telephone 
 		var tel = document.forms['regform']['tel'].value;
@@ -34,10 +27,10 @@ function validateForm() {
 		return false;
 	}
 	//pass
-	
+	var password = document.forms['regform']['password'].value;
 	var pass = document.forms['regform']['pass'].value;
 	var pass2 = document.forms['regform']['pass2'].value;
-    if ((pass === null || pass === "")&&(pass2 === null || pass2 === "")) {
+    if ((password === null || pass === "")(pass === null || pass === "")&&(pass2 === null || pass2 === "")) {
         alert("Моля въведете парола.");
         return false;
 	}
