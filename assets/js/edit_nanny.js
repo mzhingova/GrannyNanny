@@ -30,7 +30,7 @@ function validateForm() {
 	var password = document.forms['regform']['password'].value;
 	var pass = document.forms['regform']['pass'].value;
 	var pass2 = document.forms['regform']['pass2'].value;
-    if ((password === null || pass === "")(pass === null || pass === "")&&(pass2 === null || pass2 === "")) {
+    if ((password === null || password === "")(pass === null || pass === "")&&(pass2 === null || pass2 === "")) {
         alert("Моля въведете парола.");
         return false;
 	}
@@ -38,7 +38,7 @@ function validateForm() {
 		alert("Моля въведете валидена парола.");
 		return false;
 	}
-	else if (!(pass===pass2)){
+	else if (!(pass === pass2)){
 		alert("Въведената парола не съпада.");
 		return false;
 	}

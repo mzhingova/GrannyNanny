@@ -4,7 +4,9 @@
 	<meta charset="utf-8">
 	<title>Search</title>
 	<!-- Override CSS file - add your own CSS rules -->
-	<link rel="stylesheet" href="assets/css/search_style.css">
+	
+	 <link rel="stylesheet" href="assets/css/site.css">
+	 <link rel="stylesheet" href="assets/css/pikaday.css">
 </head>
 <body>
 	<div class="container">
@@ -29,13 +31,31 @@
 				<textarea name="informafion">
 				</textarea><br>
 				<label>Дата</label>
-				От<input type="date" name="fromdate"></input>
-				До<input type="date" name="тоmdate"></input>
+				<!--- calendar-->
+				 <div class="daterange">
+					<label for="start">Start:</label>
+					<br>
+					<input type="text" id="start">
+				</div>
+
+				<div class="daterange">
+					<label for="end">End:</label>
+					<br>
+					<input type="text" id="end">
+				</div>
+
 				<button type="submit">QQ</button>
+				
 				</form>
 				
 				
-		</div>
+			</div>
+			 <script src="assets/js/pikaday.js"></script>
+			 <script src="assets/js/date_range.js"></script>
+			 <script>
+    
+    </script>
+	
 			<div class="container">
 				<?php include 'includes/footer.php';?>
 			</div>
