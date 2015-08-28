@@ -1,4 +1,11 @@
 <?php
+
+if((!isset($_SESSION['status'])) || ((isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")))) {
+					session_destroy(); // does not log out the nanny!!!
+					header('Location: login.php');
+
+}
+
 require_once 'lib/database.php';
 
 $db = new DB();
@@ -92,14 +99,14 @@ if (isset($_REQUEST['search-button'])) {
 				echo "<div>";
 
 				if (isset($_SESSION['status']) && ($_SESSION['status'] == "user")) {
-					echo "<div>";
-					echo "<button class='btn'>Ангажирай</button>";
+					echo "<div class='btn'>";
+					echo "<a class='btn' href='book_nanny_form.php'>Ангажирай</a>";
 					echo "</div>";
-				} else {
+				} else if(isset($_SESSION['status']) && ($_SESSION['status'] == "admin")){
 					echo "<div class='btn'>";
 					echo "<a class='btn' href='edit_nanny.php?id=$key->userID'>Редактирай</a>";
 					echo "</div>";
-				}
+				} 
 
 				echo "</div>";
 				echo "</br>";

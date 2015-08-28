@@ -23,6 +23,13 @@ $conn->set_charset("utf8");
 		<?php include 'includes/header.php';?>
 		<div class="content">
 			<?php
+		if (!isset($_SESSION['status'])){
+			header('Location: login.php');
+		} else if (isset($_SESSION['status']) && ($_SESSION['status'] != "admin")) {
+			session_destroy();
+			header('Location: login.php');
+		}
+
 $isAdmin = $_SESSION['status'];
 if ($isAdmin == 'admin') {
 	$currentID = htmlspecialchars($_GET["id"]);
