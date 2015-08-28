@@ -13,7 +13,7 @@
 		<?php include 'includes/header.php';?>
 		<div class="content">
 		<label>Град</label>
-		<form method="" id="">
+		<form name="booking"   action="book_nanny.php"  method="POST">
 				<select class="city" name="city">
 					<option value=""></option>
 					<option value="София">София</option>
@@ -44,7 +44,7 @@
 					<input type="text" id="end">
 				</div>
 
-				<button type="submit">QQ</button>
+				<button type="submit" name="submit" class="btn">Изпрати заявка</button>
 				
 				</form>
 				
