@@ -99,37 +99,36 @@ if(!empty($work_status))
     echo("You have successfully updated your Work stauts");
 }
 
-if (!empty($password)) 
-{
- $check = "SELECT * FROM parenuser WHERE pass = '$password'";
- $rs = mysqli_query($conn, $check) or die("Error in the consult.." . mysqli_error());
- $data = mysqli_fetch_array($rs, MYSQLI_NUM);
- if ($data[0] > 1) 
- {
-   Echo 'Error';
-   {
-    if ($password == $pass) 
-    {
+		if (!empty($password) && !empty($pass) && !empty($pass2)) {
+		 $check = "SELECT * FROM parenuser WHERE pass = '$password'";
+		 $rs = mysqli_query($conn, $check) or die("Error in the consult.." . mysqli_error());
+		 $data = mysqli_fetch_array($rs, MYSQLI_NUM);
+		 if ($data[0] > 1) {
+		   Echo 'Error';
+		 }
+		   
+		   else if ($password == $pass) {
 
-        echo "Моля въведете парола различна от настоящата.";
-    }
-    if (!empty($pass) && !empty($pass2)) {
+				echo "Моля въведете парола различна от настоящата.";
+			}
+			
 
-     if (preg_match("/^(?=.*[a-zA-Z])(?=.*[\d])(?=.*[\W_]).{5,16}$/", $pass))
-     {
-        if ($pass == $pass2) {
-        }
+			 else if (preg_match("/^(?=.*[a-zA-Z])(?=.*[\d])(?=.*[\W_]).{5,16}$/", $pass))
+			 {
+					if ($pass == $pass2) {
+						
+					}
 
-        else
-        {
-            echo "Паролите ви не съвпадат";
-        }
-    }
+					else
+					{
+						echo "Паролите ви не съвпадат";
+					}
+				}
 
-}   
-}
-}
-}
+					  
+				
+	}
+
 
 
 
