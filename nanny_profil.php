@@ -35,7 +35,7 @@ $conn ->set_charset("utf8");
 				
 				
 				<table width=800px border=0 cellspacing=10><tr>
-					<td valign=top>
+					<td >
 						<table  border=0>
 							
 							<tr>
@@ -141,7 +141,7 @@ $conn ->set_charset("utf8");
 									</td>
 								</tr>
 								<tr>
-									<td valign=top>
+									<td >
 										<b>Мотивационно поле:</b>
 									</td>
 									<td>
@@ -157,10 +157,7 @@ $conn ->set_charset("utf8");
 				
 				<?php } ?>
 				
-				<?php
-				$userID = $_SESSION["userID"]
-				
-				?>
+			
 				<a href="edit_nanny.php"><button id="btn" type="submit" name="submit" class="btn">Редактиране на профила</button></a><br>
 			</div>
 			<input type="hidden" name="id" value="<?php echo $userID; ?>" />

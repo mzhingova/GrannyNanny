@@ -152,7 +152,7 @@ if (isset($_REQUEST['search-button'])) {
 						echo "<button class='btn'>Ангажирай</button>";
 						echo "</div>";
 					} else {
-						echo "<div class='btn'>";
+						echo "<div >";
 						echo "<a class='btn' href='edit_nanny.php?id=$key->userID'>Редактирай</a>";
 						echo "</div>";
 					}
