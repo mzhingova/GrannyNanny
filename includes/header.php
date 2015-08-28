@@ -38,13 +38,10 @@ session_start();
 
 
 								<li><?php if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")) {?><a  href='calendar.php'>Календар</a><?php
-<<<<<<< HEAD
+
 } else if (isset($_SESSION['status']) && ($_SESSION['status'] == "admin")) {?> <a  href='search_one.php'> Потребители</a><?php
 } else {?><a href="nanny_search.php">Търси Nanny</a><?php }
-=======
-} else if (isset($_SESSION['status']) && ($_SESSION['status'] == "admin")) {?> <a  href='users.php'> Потребители</a><?php
-} else {?><a href="search.php">Търси Nanny</a><?php }
->>>>>>> 3f2574550002b7f2bb78004c3ccdd9fdbe0b7b7b
+
 ?></li>
 
 							<?php if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")) {?><li><a  href='messages.php' value="izhof" >Съобщения</a></li><?php }
