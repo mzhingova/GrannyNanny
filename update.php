@@ -116,7 +116,8 @@ if(!empty($work_status))
 			 else if (preg_match("/^(?=.*[a-zA-Z])(?=.*[\d])(?=.*[\W_]).{5,16}$/", $pass))
 			 {
 					if ($pass == $pass2) {
-						
+						mysqli_query($conn, "UPDATE parenuser SET `pass`='$pass' WHERE userID='$userID'") or die(mysql_error());
+                                echo("You have successfully updated your Password"); 
 					}
 
 					else
@@ -124,9 +125,6 @@ if(!empty($work_status))
 						echo "Паролите ви не съвпадат";
 					}
 				}
-
-					  
-				
 	}
 
 
