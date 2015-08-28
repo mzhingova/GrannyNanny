@@ -97,7 +97,7 @@ if (isset($_REQUEST['search-button'])) {
 					echo "</div>";
 				} else {
 					echo "<div class='btn'>";
-					echo "<a class='btn' href='edit_nanny.php?id=$key->userID'>Редактирай</a>";
+					echo "<a class='btn' href='edit_user.php?id=$key->userID'>Редактирай</a>";
 					echo "</div>";
 				}
 
@@ -146,7 +146,7 @@ if (isset($_REQUEST['search-button'])) {
 						echo "</div>";
 					} else {
 						echo "<div class='btn'>";
-						echo "<a class='btn' href='edit_nanny.php?id=$key->userID'>Редактирай</a>";
+						echo "<a class='btn' href='edit_user.php?id=$key->userID'>Редактирай</a>";
 						echo "</div>";
 					}
 
