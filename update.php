@@ -59,7 +59,8 @@ if (!empty($tel)) {
         if ($query) {
             header("Refresh: 0; url=nanny_profil.php");
         }
-    }else {
+    }
+    else {
         echo "Моля въведете валиден телефонен номер.";
     }
 }
@@ -75,75 +76,73 @@ if (!empty($motivation)) {
 }
 if(!empty($address))
 {
-    mysqli_query($conn, "UPDATE parenuser SET `address`='$address' WHERE userID='$userID'") or die(mysql_error());
-    echo("You have successfully updated your Address");
+   $query=mysqli_query($conn, "UPDATE parenuser SET `address`='$address' WHERE userID='$userID'") or die(mysql_error());
+      if ($query) {
+            header("Refresh: 0; url=nanny_profil.php");
+        }
+   // echo("You have successfully updated your Address");
 }
 if(!empty($workout))
 {
-    mysqli_query($conn, "UPDATE parenuser SET `workout`='$workout' WHERE userID='$userID'") or die(mysql_error());
-    echo("You have successfully updated your Workout");
+    $query=mysqli_query($conn, "UPDATE parenuser SET `workout`='$workout' WHERE userID='$userID'") or die(mysql_error());
+      if ($query) {
+            header("Refresh: 0; url=nanny_profil.php");
+        }
+    // echo("You have successfully updated your Workout");
 }
 if(!empty($city))
 {
-    mysqli_query($conn, "UPDATE parenuser SET `city`='$city' WHERE userID='$userID'") or die(mysql_error());
-    echo("You have successfully updated your City");
+   $query=mysqli_query($conn, "UPDATE parenuser SET `city`='$city' WHERE userID='$userID'") or die(mysql_error());
+      if ($query) {
+            header("Refresh: 0; url=nanny_profil.php");
+        }
+   // echo("You have successfully updated your City");
 }
 if(!empty($education))
 {
-    mysqli_query($conn, "UPDATE parenuser SET `education`='$education' WHERE userID='$userID'") or die(mysql_error());
-    echo("You have successfully updated your Education");
+   $query=mysqli_query($conn, "UPDATE parenuser SET `education`='$education' WHERE userID='$userID'") or die(mysql_error());
+     if ($query) {
+            header("Refresh: 0; url=nanny_profil.php");
+        }
+   // echo("You have successfully updated your Education");
 }
 if(!empty($work_status))
 {
-    mysqli_query($conn, "UPDATE parenuser SET `work_status`='$work_status' WHERE userID='$userID'") or die(mysql_error());
-    echo("You have successfully updated your Work stauts");
+   $query=mysqli_query($conn, "UPDATE parenuser SET `work_status`='$work_status' WHERE userID='$userID'") or die(mysql_error());
+     if ($query) {
+            header("Refresh: 0; url=nanny_profil.php");
+        }
+   // echo("You have successfully updated your Work stauts");
 }
+if (!empty($password) && !empty($pass) && !empty($pass2)) {
+    $check = "SELECT * FROM parenuser WHERE pass = '$password'";
+    $rs = mysqli_query($conn, $check) or die("Error in the consult.." . mysqli_error());
+    $data = mysqli_fetch_array($rs, MYSQLI_NUM);
+    if ($data[0] > 1) {
 
-		if (!empty($password) && !empty($pass) && !empty($pass2)) {
-		 $check = "SELECT * FROM parenuser WHERE pass = '$password'";
-		 $rs = mysqli_query($conn, $check) or die("Error in the consult.." . mysqli_error());
-		 $data = mysqli_fetch_array($rs, MYSQLI_NUM);
-		 if ($data[0] > 1) {
-		   Echo 'Error';
-		 }
-		   
-		   else if ($password == $pass) {
+        if ($password == $pass) {
+            echo ("Моля въведете парола различна от настоящата.");
+        }
 
-				echo "Моля въведете парола различна от настоящата.";
-			}
-			
-
-			 else if (preg_match("/^(?=.*[a-zA-Z])(?=.*[\d])(?=.*[\W_]).{5,16}$/", $pass))
-			 {
-					if ($pass == $pass2) {
-						mysqli_query($conn, "UPDATE parenuser SET `pass`='$pass' WHERE userID='$userID'") or die(mysql_error());
-                                echo("You have successfully updated your Password"); 
-					}
-
-					else
-					{
-						echo "Паролите ви не съвпадат";
-					}
-				}
-	}
-
-
-
-
-
-/* if(!empty($pass))
-{
-    mysqli_query($conn, "UPDATE parenuser SET `pass`='$pass' WHERE userID='$userID'") or die(mysql_error());
-
-    echo("You have successfully updated your Password"); 
-} */
-
-
+        else if (preg_match("/^(?=.*[a-zA-Z])(?=.*[\d])(?=.*[\W_]).{5,16}$/", $pass))
+        {
+            if ($pass == $pass2) {
+                $query=mysqli_query($conn, "UPDATE parenuser SET `pass`='$pass' WHERE userID='$userID'") or die(mysql_error());
+                if ($query) {
+            header("Refresh: 0; url=nanny_profil.php");
+        }
+          }
+            else
+            {
+                echo ("Паролите ви не съвпадат");
+            }
+        }
+    }
+}
 
 /* if(!empty($folder))
 {
 mysqli_query($conn, "UPDATE parenuser SET `uploads`='$folder' WHERE userID='$userID'") or die(mysql_error());
-
 echo("You have successfully updated your picture");
 } */
 ?>
