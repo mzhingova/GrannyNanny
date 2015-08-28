@@ -25,12 +25,15 @@ $work_status = $_POST['work_status'];
 $password = $_POST['password'];
 $pass2 = $_POST['pass2'];
 $pass=$_POST['pass'];
+$image=$_POST['image'];
 $isAdmin = $_SESSION['status'];
 if ($isAdmin=='admin') {
     $userID= $_POST['userID'];
 }else {
     $userID=$_SESSION['userID'];
 }
+
+
 if (!empty($firstname)) {
     if (preg_match("/^[a-zA-Z\p{Cyrillic}]{2,16}$/iu", $firstname)) {
         $query=mysqli_query($conn, "UPDATE parenuser SET `firstname`='$firstname' WHERE userID='$userID'") or die(mysql_error());
@@ -140,9 +143,10 @@ if (!empty($password) && !empty($pass) && !empty($pass2)) {
     }
 }
 
-/* if(!empty($folder))
+/* if(!empty($image))
 {
-mysqli_query($conn, "UPDATE parenuser SET `uploads`='$folder' WHERE userID='$userID'") or die(mysql_error());
+mysqli_query($conn, "UPDATE parenuser SET `image`='$image' WHERE userID='$userID'") or die(mysql_error());
 echo("You have successfully updated your picture");
 } */
+
 ?>
