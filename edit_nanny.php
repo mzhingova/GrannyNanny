@@ -7,7 +7,7 @@ if (!$conn) {
 	die('Could not connect: ' . mysql_error());
 	exit;
 }
-$conn ->set_charset("utf8");
+$conn->set_charset("utf8");
 ?>
 
 <!DOCTYPE html>
@@ -22,16 +22,16 @@ $conn ->set_charset("utf8");
 	<div class="container">
 		<?php include 'includes/header.php';?>
 		<div class="content">
-			<?php 
-			$isAdmin = $_SESSION['status'];
-if ($isAdmin=='admin') {
-	 $currentID = htmlspecialchars($_GET["id"]);
-    $userID= $_POST['userID'];
-}else {
-    $userID=$_SESSION['userID'];
+			<?php
+$isAdmin = $_SESSION['status'];
+if ($isAdmin == 'admin') {
+	$currentID = htmlspecialchars($_GET["id"]);
+
+} else {
+	$userID = $_SESSION['userID'];
 }
 ?>
-			
+
 			<form action="update.php" method="POST" onsubmit="return validateForm()">
 				<b><label class="wtf">Име</label></b>
 				<div class="patt">Mоже да съдържа само букви и да има дължина 2-16 символа.</div>
@@ -94,12 +94,12 @@ if ($isAdmin=='admin') {
 				<input type="password" name="pass"></input>
 				<b><label>Повтори  парола</label></b>
 				<input type="password" name="pass2"></input>
-				<input type="hidden" name="userID" value="<?php echo $currentID ?>">
+				<input type="hidden" name="userID" value="<?php echo $currentID?>">
 				<button type="submit" name="submit" class="btn">Запиши промените</button><br><br><br>
 			</div>
 
-			<?php $userID = $_SESSION["userID"] ?>
-			<input type="hidden" name="id" value="<?php echo $userID; ?>">
+			<?php $userID = $_SESSION["userID"]?>
+			<input type="hidden" name="id" value="<?php echo $userID;?>">
 		</form>
 	</div>
 </div>
