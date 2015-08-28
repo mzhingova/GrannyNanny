@@ -40,7 +40,7 @@ session_start();
 								<li><?php if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")) {?><a  href='calendar.php'>Календар</a><?php
 
 } else if (isset($_SESSION['status']) && ($_SESSION['status'] == "admin")) {?> <a  href='search_one.php'> Потребители</a><?php
-} else {?><a href="nanny_search.php">Търси Nanny</a><?php }
+} else {?><a href="search.php">Търси Nanny</a><?php }
 
 ?></li>
 

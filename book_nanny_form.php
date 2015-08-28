@@ -23,8 +23,10 @@
 	<div class="container">
 		<?php include 'includes/header.php';?>
 		<div class="content">
-		<label>Град*</label>
-		<form method="" id="">
+
+		<label>Град</label>
+		<form name="booking"   action="book_nanny.php"  method="POST">
+
 				<select class="city" name="city">
 					<option value=""></option>
 					<option value="София">София</option>
@@ -54,6 +56,7 @@
 					<input class="daterange" type="text" id="end">
 				</div><br>
 
+
 					<?php 
 					
 					$userID = $_SESSION['userID'];
@@ -70,7 +73,8 @@
 					
 					<?php } 
 					?>
-				   <button type="submit" class="btn">Ангажирай</button>
+				   <button type="submit" name="submit" class="btn">Ангажирай</button>
+
 				
 				</form>
 			</div>

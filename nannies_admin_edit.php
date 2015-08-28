@@ -14,6 +14,14 @@
 <table>
 
 <?php
+
+if (!isset($_SESSION['status'])){
+			header('Location: login.php');
+		} else if (isset($_SESSION['status']) && ($_SESSION['status'] != "admin")) {
+			session_destroy();
+			header('Location: login.php');
+		}
+
 	$conn  = new mysqli("localhost", "root", "", "grannynanny");
 			if(! $conn )
 			{
