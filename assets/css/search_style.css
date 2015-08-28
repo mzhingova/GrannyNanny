@@ -18,3 +18,8 @@ select[class="city"]{
 	word-wrap: break-word;
 }
 
+img {
+	width: 40%;
+	height: auto;
+}	
+

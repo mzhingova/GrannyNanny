@@ -20,43 +20,43 @@ if (isset($_REQUEST['search-button'])) {
 	}
 
 	if ($firstname) {
-		$check = "SELECT userID, firstname, lastname, city, email, pid, motivation, gender FROM parenuser WHERE firstname = '" . $db->escape($firstname) . "' AND status = 'nanny'";
+		$check = "SELECT * FROM parenuser WHERE firstname = '" . $db->escape($firstname) . "' AND status = 'nanny'";
 	}
 
 	if ($city) {
-		$check = "SELECT userID, firstname, lastname, city, email, pid, motivation, gender FROM parenuser WHERE city = '$city' AND status = 'nanny'";
+		$check = "SELECT * FROM parenuser WHERE city = '$city' AND status = 'nanny'";
 	}
 
 	if ($age) {
-		$check = "SELECT userID, firstname, lastname, city, email, pid, motivation, gender FROM parenuser WHERE status = 'nanny'";
+		$check = "SELECT * FROM parenuser WHERE status = 'nanny'";
 	}
 
 	if ($sex) {
-		$check = "SELECT userID, firstname, lastname, city, email, pid, motivation, gender FROM parenuser WHERE gender = '$sex' AND status = 'nanny'";
+		$check = "SELECT * FROM parenuser WHERE gender = '$sex' AND status = 'nanny'";
 	}
 
 	if ($firstname && $city) {
-		$check = "SELECT userID, firstname, lastname, city, email, pid, motivation, gender FROM parenuser WHERE firstname = '" . $db->escape($firstname) . "' AND city = '$city' AND status = 'nanny'";
+		$check = "SELECT * FROM parenuser WHERE firstname = '" . $db->escape($firstname) . "' AND city = '$city' AND status = 'nanny'";
 	}
 
 	if ($firstname && $age) {
-		$check = "SELECT userID, firstname, lastname, city, email, pid, motivation, gender FROM parenuser WHERE firstname = '" . $db->escape($firstname) . "' AND status = 'nanny'";
+		$check = "SELECT * FROM parenuser WHERE firstname = '" . $db->escape($firstname) . "' AND status = 'nanny'";
 	}
 
 	if ($firstname && $sex) {
-		$check = "SELECT userID, firstname, lastname, city, email, pid, motivation, gender FROM parenuser WHERE firstname = '" . $db->escape($firstname) . "' AND gender = '$sex' AND status = 'nanny'";
+		$check = "SELECT * FROM parenuser WHERE firstname = '" . $db->escape($firstname) . "' AND gender = '$sex' AND status = 'nanny'";
 	}
 
 	if ($city && $age) {
-		$check = "SELECT userID, firstname, lastname, city, email, pid, motivation, gender FROM parenuser WHERE city = '$city' AND status = 'nanny'";
+		$check = "SELECT * FROM parenuser WHERE city = '$city' AND status = 'nanny'";
 	}
 
 	if ($city && $sex) {
-		$check = "SELECT userID, firstname, lastname, city, email, pid, motivation, gender FROM parenuser WHERE city = '$city' AND gender = '$sex' AND status = 'nanny'";
+		$check = "SELECT * FROM parenuser WHERE city = '$city' AND gender = '$sex' AND status = 'nanny'";
 	}
 
 	if ($age && $sex) {
-		$check = "SELECT userID, firstname, lastname, city, email, pid, motivation, gender FROM parenuser WHERE gender = '$sex' AND status = 'nanny'";
+		$check = "SELECT * FROM parenuser WHERE gender = '$sex' AND status = 'nanny'";
 	}
 
 	if (!isset($check)) {
@@ -65,9 +65,8 @@ if (isset($_REQUEST['search-button'])) {
 			foreach ($result as $key) {
 
 				$age = date('Y') - (intval($key->pid / 100000000) + 1900);
-				echo "<div class='table'>";
 				echo "<div>";
-				echo 'Pic';
+				echo "<img src='uploads/$key->photo' target='_blank' alt='avatar' />";
 				echo "</div>";
 
 				echo "<div>";
@@ -115,9 +114,8 @@ if (isset($_REQUEST['search-button'])) {
 				$age = date('Y') - (intval($key->pid / 100000000) + 1900);
 
 				if ($age >= $minAge && $age <= $maxAge && $counter <= 5) {
-					echo "<div class='table'>";
 					echo "<div>";
-					echo 'Pic';
+					echo "<img src='uploads/$key->photo' target='_blank' alt='avatar' />";
 					echo "</div>";
 
 					echo "<div>";
