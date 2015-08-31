@@ -128,9 +128,9 @@ if (isset($_REQUEST['search-button'])) {
 
 				echo "</div>";
 				echo "</br>";
-					//Now select all from table
 
 }
+//Now select all from table
 $result1= $db->get_results ($check);
 
 
@@ -151,5 +151,5 @@ echo "<a href='search.php?page=".$i."'>".$i."</a> ";
 echo "<a href='search.php?page=$total_pages'>".'Last Page'."</a> ";
 			}
 		}
-	 
+	 ?>
 
