@@ -81,8 +81,9 @@ if (isset($_REQUEST['search-button'])) {
 					echo "<button class='btn'>Ангажирай</button>";
 					echo "</div>";
 				} else {
+
 					echo "<div >";
-					echo "<a class='btn' href='edit_user.php?id=$key->userID'>Редактирай</a>";
+					echo "<a class='btn' href='edit_user_with_admin_status.php?id=$key->userID'>Редактирай</a>";
 					echo "</div>";
 				}
 
@@ -96,19 +97,10 @@ if (isset($_REQUEST['search-button'])) {
 
 			foreach ($result as $key) {
 
-				$age = date('Y') - (intval($key->pid / 100000000) + 1900);
-
-				if ($age >= $minAge && $age <= $maxAge && $counter <= 5) {
-					echo "<div>";
-					echo "<img src='uploads/$key->photo' target='_blank' alt='avatar' />";
-					echo "</div>";
+				
 
 					echo "<div>";
 					echo 'Име: ' . $key->firstname . ' ' . $key->lastname;
-					echo "</div>";
-
-					echo "<div>";
-					echo 'Години: ' . $age;
 					echo "</div>";
 
 					echo "<div>";
@@ -116,11 +108,11 @@ if (isset($_REQUEST['search-button'])) {
 					echo "</div>";
 
 					echo "<div>";
-					echo 'Пол: ' . $key->gender;
+					echo 'Адрес: ' . $key->address;
 					echo "</div>";
 
 					echo "<div class='motivation'>";
-					echo 'Описание: ' . $key->motivation;
+					echo 'Email: ' . $key->email;
 					echo "</div>";
 
 					echo "<div>";
@@ -130,8 +122,9 @@ if (isset($_REQUEST['search-button'])) {
 						echo "<button class='btn'>Ангажирай</button>";
 						echo "</div>";
 					} else {
-						echo "<div >";
-						echo "<a class='btn' href='edit_user.php?id=$key->userID'>Редактирай</a>";
+						echo "<div>";
+						echo "<a class='btn' href='edit_user_with_admin_status.php?id=$key->userID'>Редактирай</a>";
+						
 						echo "</div>";
 					}
 
@@ -143,4 +136,4 @@ if (isset($_REQUEST['search-button'])) {
 			}
 		}
 	}
-}
+
