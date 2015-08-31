@@ -35,19 +35,19 @@ if (isset($_REQUEST['search-button'])) {
 	}
 
 	if ($firstname && $email) {
-		$check = "SELECT * FROM parenuser WHERE firstname = '" . $db->escape($firstname) . "' AND gender = '$email' AND status = 'user'";
+		$check = "SELECT * FROM parenuser WHERE firstname = '" . $db->escape($firstname) . "' AND email = '$email' AND status = 'user'";
 	}
 
 	if ($city && $address) {
-		$check = "SELECT * FROM parenuser WHERE city = '$city' AND status = 'user'";
+		$check = "SELECT * FROM parenuser WHERE city = '$city' AND address = '$address' AND status = 'user'";
 	}
 
 	if ($city && $email) {
-		$check = "SELECT * FROM parenuser WHERE city = '$city' AND gender = '$email' AND status = 'user'";
+		$check = "SELECT * FROM parenuser WHERE city = '$city' AND email = '$email' AND status = 'user'";
 	}
 
 	if ($address && $email) {
-		$check = "SELECT * FROM parenuser WHERE gender = '$email' AND status = 'user'";
+		$check = "SELECT * FROM parenuser WHERE email = '$email' AND address='$address' AND status = 'user'";
 	}
 
 	if (!isset($check)) {

@@ -42,7 +42,7 @@ if (isset($_REQUEST['search-button'])) {
 					
 
 	if ($firstname) {
-		$check = "SELECT * FROM parenuser WHERE firstname = '" . $db->escape($firstname) . "' AND status = 'nanny' LIMIT $start_from, $per_page";
+		$check = "SELECT * FROM parenuser WHERE firstname = '" . $db->escape($firstname) . "' AND status = 'nanny'";
 	}
 
 	if ($city) {
@@ -127,29 +127,27 @@ if (isset($_REQUEST['search-button'])) {
 				} 
 
 				echo "</div>";
-				echo "</br>";
-
-}
-//Now select all from table
-$result1= $db->get_results ($check);
+					echo "</br>";
+					$counter++;
+				}
 
 
+			}
+
+				//Now select all from table
 // Count the total records
-$total_records = count($result1);
-
+$total_records = count($check);;
 //Using ceil function to divide the total records on per page
 $total_pages = ceil($total_records / $per_page);
-
 //Going to first page
 echo "<a href='search.php?page=1'>".'First Page'."</a> ";
-
 for ($i=1; $i<=$total_pages; $i++) {
-
 echo "<a href='search.php?page=".$i."'>".$i."</a> ";
 };
 // Going to last page
 echo "<a href='search.php?page=$total_pages'>".'Last Page'."</a> ";
-			}
 		}
-	 ?>
+	
 
+
+?> 
