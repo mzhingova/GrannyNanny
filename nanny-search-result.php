@@ -11,10 +11,10 @@ require_once 'lib/database.php';
 $db = new DB();
 
 if (isset($_REQUEST['search-button'])) {
-	$firstname = htmlspecialchars($_GET['firstname']);
-	$city = htmlspecialchars($_GET['city']);
-	$age = htmlspecialchars($_GET['age']);
-	$sex = htmlspecialchars($_GET['gender']);
+	$firstname = htmlspecialchars($_POST['firstname']);
+	$city = htmlspecialchars($_POST['city']);
+	$age = htmlspecialchars($_POST['age']);
+	$sex = htmlspecialchars($_POST['gender']);
 
 	$splittedAge = explode("-", $age);
 
@@ -25,9 +25,24 @@ if (isset($_REQUEST['search-button'])) {
 		$minAge = intval($splittedAge[0]);
 		$maxAge = 100;
 	}
+					$per_page=4;
+
+						if (isset($_GET['page'])) {
+
+						$page = $_GET['page'];
+						}
+						else {
+						$page=1;
+						}
+						$start_from = ($page-1) * $per_page;					
+					
+					
+					
+					
+					
 
 	if ($firstname) {
-		$check = "SELECT * FROM parenuser WHERE firstname = '" . $db->escape($firstname) . "' AND status = 'nanny'";
+		$check = "SELECT * FROM parenuser WHERE firstname = '" . $db->escape($firstname) . "' AND status = 'nanny' LIMIT $start_from, $per_page";
 	}
 
 	if ($city) {
@@ -67,7 +82,7 @@ if (isset($_REQUEST['search-button'])) {
 	}
 
 	if (!isset($check)) {
-		if ($result = $db->get_results("SELECT * FROM parenuser where status = 'nanny'")) {
+		if ($result = $db->get_results("SELECT * FROM parenuser where status = 'nanny' LIMIT $start_from, $per_page")) {
 			$counter = 1;
 			foreach ($result as $key) {
 
@@ -99,11 +114,11 @@ if (isset($_REQUEST['search-button'])) {
 				echo "<div>";
 
 				if (isset($_SESSION['status']) && ($_SESSION['status'] == "user")) {
-					echo "<div class='btn'>";
+					echo "<div >";
 					echo "<a class='btn' href='book_nanny_form.php'>Ангажирай</a>";
 					echo "</div>";
 				} else if(isset($_SESSION['status']) && ($_SESSION['status'] == "admin")){
-					echo "<div class='btn'>";
+					echo "<div >";
 					echo "<a class='btn' href='edit_nanny.php?id=$key->userID'>Редактирай</a>";
 					echo "</div>";
 				} 
@@ -165,4 +180,23 @@ if (isset($_REQUEST['search-button'])) {
 			}
 		}
 	}
+	//Now select all from table
+$result1= $db->get_results ("SELECT * FROM parenuser WHERE status='nanny'");
+
+
+// Count the total records
+$total_records = count($result1);;
+
+//Using ceil function to divide the total records on per page
+$total_pages = ceil($total_records / $per_page);
+
+//Going to first page
+echo "<a href='search.php?page=1'>".'First Page'."</a> ";
+
+for ($i=1; $i<=$total_pages; $i++) {
+
+echo "<a href='search.php?page=".$i."'>".$i."</a> ";
+};
+// Going to last page
+echo "<a href='search.php?page=$total_pages'>".'Last Page'."</a> ";
 }

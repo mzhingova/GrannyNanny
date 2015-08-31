@@ -81,8 +81,13 @@ if (isset($_REQUEST['search-button'])) {
 					echo "<button class='btn'>Ангажирай</button>";
 					echo "</div>";
 				} else {
+<<<<<<< HEAD
 					echo "<div class='btn'>";
 					echo "<a class='btn' href='edit_user_with_admin_status.php?id=$key->userID'>Редактирай</a>";
+=======
+					echo "<div >";
+					echo "<a class='btn' href='edit_user.php?id=$key->userID'>Редактирай</a>";
+>>>>>>> 5b64a8d8395cd58b213ba20686bc4c613166a7cc
 					echo "</div>";
 				}
 
@@ -121,8 +126,13 @@ if (isset($_REQUEST['search-button'])) {
 						echo "<button class='btn'>Ангажирай</button>";
 						echo "</div>";
 					} else {
+<<<<<<< HEAD
 						echo "<div class='btn'>";
 						echo "<a class='btn' href='edit_user_with_admin_status.php?id=$key->userID'>Редактирай</a>";
+=======
+						echo "<div >";
+						echo "<a class='btn' href='edit_user.php?id=$key->userID'>Редактирай</a>";
+>>>>>>> 5b64a8d8395cd58b213ba20686bc4c613166a7cc
 						echo "</div>";
 					}
 
