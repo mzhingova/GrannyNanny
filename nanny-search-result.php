@@ -81,8 +81,10 @@ if (isset($_REQUEST['search-button'])) {
 		$check = "SELECT * FROM parenuser WHERE gender = '$sex' AND status = 'nanny'";
 	}
 
-	if (!isset($check)) {
-		if ($result = $db->get_results("SELECT * FROM parenuser where status = 'nanny' LIMIT $start_from, $per_page")) {
+	if (!$age && !$sex && !$city && !$firstname ) {
+		$check="SELECT * FROM parenuser WHERE status = 'nanny'" ;
+	}
+		/* if ($result = $db->get_results($check)) {
 			$counter = 1;
 			foreach ($result as $key) {
 
@@ -127,7 +129,7 @@ if (isset($_REQUEST['search-button'])) {
 				echo "</br>";
 			}
 		}
-	} else {
+	} else { */
 		if ($result = $db->get_results($check)) {
 			$counter = 1;
 
@@ -179,9 +181,10 @@ if (isset($_REQUEST['search-button'])) {
 				}
 			}
 		}
-	}
+	
+	
 	//Now select all from table
-$result1= $db->get_results ("SELECT * FROM parenuser WHERE status='nanny'");
+$result1= $db->get_results ($check);
 
 
 // Count the total records
