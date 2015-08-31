@@ -25,31 +25,31 @@ $conn->set_charset("utf8");
 			<?php
 		if (!isset($_SESSION['status'])){
 			header('Location: login.php');
-		} else if (isset($_SESSION['status']) && ($_SESSION['status'] != "nanny")) {
+		} else if (isset($_SESSION['status']) && ($_SESSION['status'] == "user")) {
 			session_destroy();
 			header('Location: login.php');
 		}
 
-$isAdmin = $_SESSION['status'];
-if ($isAdmin == 'admin') {
-	$currentID = htmlspecialchars($_GET["id"]);
+			$isAdmin = $_SESSION['status'];
+			if ($isAdmin == 'admin') {
+				$currentID = htmlspecialchars($_GET["id"]);
 
-} else {
-	$userID = $_SESSION['userID'];
-}
-?>
+			} else {
+				$userID = $_SESSION['userID'];
+			}
+			?>
 
-			<form action="update.php" method="POST" onsubmit="return validateForm()">
-				<b><label class="wtf">Име</label></b>
+			<form action="update.php" method="POST" onsubmit="return validateForm()" enctype='multipart/form-data'>
+				<label class="wtf">Име</label>
 				<div class="patt">Mоже да съдържа само букви и да има дължина 2-16 символа.</div>
 				<input type="text" name="firstname"></input>
-				<b><label>Фамилия</label></b>
+				<label>Фамилия</label>
 				<div class="patt">Mоже да съдържа само букви и да има дължина 2-16 символа.</div>
 				<input type="text" name="lastname">
-				<b><label >Ваша снимка</label></b>
+				<label >Снимка</label>
 				<input type="file" name="image" >
 
-				<b><label>Град</label></b>
+				<label>Град</label>
 				<select name="city">
 					<option value=""></option>
 					<option value="София">София</option>
@@ -59,13 +59,13 @@ if ($isAdmin == 'admin') {
 					<option value="Бургас">Бургас</option>
 					<option value="Варна">Варна</option>
 				</select>
-				<b><label>Адрес</label></b>
+				<label>Адрес</label>
 				<input type="text" name="address"></input>
 
-				<b><label>Телефонен номер</label></b>
+				<label>Телефонен номер</label>
 				<input type="tel" name="tel" ></input>
 
-				<b><label>Образование</label></b>
+				<label>Образование</label>
 				<select name="education">
 					<option value=""></option>
 					<option value="Средно">Средно</option>
@@ -73,7 +73,7 @@ if ($isAdmin == 'admin') {
 					<option value="Висше">Висше</option>
 				</select>
 				<div>
-					<b><label>Работен статус</label></b><br>
+					<label>Работен статус</label><br>
 					<select name="work_status">
 						<option value=""></option>
 						<option value="Пълен">Пълен работен ден</option>
@@ -82,7 +82,7 @@ if ($isAdmin == 'admin') {
 					</select>
 				</div>
 				<div id="workout">
-					<b><label>Възможност за работа извън града</label></b>
+					<label>Възможност за работа извън града</label>
 					<select name="workout">
 						<option value=""></option>
 						<option value="Да">Да</option>
@@ -90,16 +90,16 @@ if ($isAdmin == 'admin') {
 					</select>
 				</div><br>
 
-				<b><label>Мотивационно поле</label></b><br>
+				<label>Мотивационно поле</label><br>
 				<textarea id="motivation" type="text" name="motivation" ></textarea><br>
 
-				<b><label>Настояща парола</label></b>
+				<label>Настояща парола</label>
 				<input type="password" name="password"></input>
 
-				<b><label>Нова парола</label></b>
+				<label>Нова парола</label>
 				<div class="patt">Tрябва да съдържа поне една цифра ,един специален символ , да е с дължина 5-16 символа.</div>
 				<input type="password" name="pass"></input>
-				<b><label>Повтори  парола</label></b>
+				<label>Повтори  парола</label>
 				<input type="password" name="pass2"></input>
 				<input type="hidden" name="userID" value="<?php echo $currentID?>">
 				<button type="submit" name="submit" class="btn">Запиши промените</button><br><br><br>

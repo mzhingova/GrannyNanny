@@ -83,6 +83,22 @@ $conn ->set_charset("utf8");
 								</td>
 							
 								
+							</table>
+							</table>
+						
+						<td valign=top>
+							<table border=0>
+								
+								<tr>
+									<td>
+										<b>Телефонен Номер:</b>
+									</td>
+									<td>
+										<?php echo $row['tel']; ?>
+									</td>
+								</tr>
+								<tr>
+								
 							</table><br>
 				
 				<?php } ?>

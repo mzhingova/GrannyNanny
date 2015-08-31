@@ -13,6 +13,8 @@ if (!$conn) {
 $conn ->set_charset("utf8");
 ?>
 <?php
+
+
 $firstname = $_POST['firstname'];
 $lastname = $_POST['lastname'];
 $address = $_POST['address'];
@@ -26,11 +28,57 @@ $password = $_POST['password'];
 $pass2 = $_POST['pass2'];
 $pass=$_POST['pass'];
 $isAdmin = $_SESSION['status'];
-if ($isAdmin=='admin') {
-    $userID= $_POST['userID'];
-}else {
-    $userID=$_SESSION['userID'];
-}
+
+	if (isset($_POST['submit'])) {
+		if ($isAdmin=='admin') {
+		$userID= $_POST['userID'];
+	}
+	else{
+		$userID=$_SESSION['userID'];
+		}
+	}
+		$file=$_FILES['image']['name'];
+		$folder = "uploads/";
+if (isset($file)) {
+		$file_loc = $_FILES['image']['tmp_name'];
+		$file_size = $_FILES['image']['size'];
+		$file_type = $_FILES['image']['type'];
+
+		// new file size in KB
+		$new_size = $file_size / 1024;
+		// new file size in KB
+
+		// make file name in lower case
+		$new_file_name = strtolower($file);
+		// make file name in lower case
+
+		$final_file = str_replace(' ', '-', $new_file_name);
+		$allowed = array('gif', 'png', 'jpg', 'jpeg');
+		$ext = pathinfo($file, PATHINFO_EXTENSION);
+
+		if (in_array($ext, $allowed)) {
+			if ($new_size < 1024) {
+				if (move_uploaded_file($file_loc, $folder . $final_file)) {
+				$query=mysqli_query($conn, "UPDATE parenuser SET `photo`='$final_file' WHERE userID='$userID'") or die(mysql_error());
+					  if ($query) {
+							header("Refresh: 0; url=nanny_profil.php");
+						}
+				}
+			}
+			else {
+				echo "Прекалено голяма снимка.";
+			}
+
+		} 
+		
+
+	}
+	
+
+
+
+
+
 if (!empty($firstname)) {
     if (preg_match("/^[a-zA-Z\p{Cyrillic}]{2,16}$/iu", $firstname)) {
         $query=mysqli_query($conn, "UPDATE parenuser SET `firstname`='$firstname' WHERE userID='$userID'") or die(mysql_error());
@@ -130,19 +178,25 @@ if (!empty($password) && !empty($pass) && !empty($pass2)) {
                 $query=mysqli_query($conn, "UPDATE parenuser SET `pass`='$pass' WHERE userID='$userID'") or die(mysql_error());
                 if ($query) {
             header("Refresh: 0; url=nanny_profil.php");
-        }
-          }
-            else
-            {
-                echo ("Паролите ви не съвпадат");
-            }
-        }
-    }
-}
+			}
+			  }
+				else
+				{
+					echo ("Паролите ви не съвпадат");
+				}
+			}
+		}
+	}
 
-/* if(!empty($folder))
+
+
+ 
+
+
+/* if(!empty($image))
 {
-mysqli_query($conn, "UPDATE parenuser SET `uploads`='$folder' WHERE userID='$userID'") or die(mysql_error());
+mysqli_query($conn, "UPDATE parenuser SET `image`='$image' WHERE userID='$userID'") or die(mysql_error());
 echo("You have successfully updated your picture");
 } */
+
 ?>
