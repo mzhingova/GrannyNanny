@@ -53,41 +53,41 @@
 </div>	
 
 <p>
-<a href="javascript:toggleElement('a3')">3.Не мога да си вляза в пощата.</a>
+<a href="javascript:toggleElement('a3')">3.Не мога да си вляза в профила.</a>
 </p>
 <div id="a3" style="display:none">
 Проверете дали Вашите затруднения на са породени от следното:
 <li>Превключили сте на кирилица или на друга локална кодова таблица – въведете паролата си на латиница.</li>
 <li>Имате неработещи или потънали (постоянно включени) клавиши, които Ви пречат да въведете правилно паролата си.</li>
-<li>Потребителското Ви име може да съдържа малки и големи букви на латиница, числа, специални символите, но трябва задължително да започва с буква.</li>
+<li>Потребителското Ви име може да съдържа малки и големи букви на латиница, числа, специални символите, но трябва задължително да започва с буква.<br><br></li>
 </div>
 
 <p>
 <a href="javascript:toggleElement('a4')">4.Question?</a>
 </p>
 <div id="a4" style="display:none">
-This is an answer.
+This is an answer.<br><br>
 </div>
 
 <p>
 <a href="javascript:toggleElement('a5')">5.Question?</a>
 </p>
 <div id="a5" style="display:none">
-This is an answer.
+This is an answer.<br><br>
 </div>
 
 <p>
 <a href="javascript:toggleElement('a6')">6.Question?</a>
 </p>
 <div id="a6" style="display:none">
-This is an answer.
+This is an answer.<br><br>
 </div>	
 
 <p>
 <a href="javascript:toggleElement('a7')">7.Question?</a>
 </p>
 <div id="a7" style="display:none">
-This is an answer.
+This is an answer.<br><br>
 </div>			
 
 </div></div>
