@@ -9,9 +9,8 @@ if (isset($_REQUEST['search-button'])) {
 	$address = htmlspecialchars($_GET['address']);
 	$email = htmlspecialchars($_GET['email']);
 
-
 	if ($firstname) {
-		$check = "SELECT * FROM parenuser WHERE firstname = '" . $db->escape($firstname) . "' AND status = 'user'";
+		$check = "SELECT * FROM parenuser WHERE firstname LIKE '%$firstname%' AND status = 'user'";
 	}
 
 	if ($city) {
@@ -19,11 +18,11 @@ if (isset($_REQUEST['search-button'])) {
 	}
 
 	if ($address) {
-		$check = "SELECT * FROM parenuser WHERE address = '" . $db->escape($address) . "' AND status = 'user'";
+		$check = "SELECT * FROM parenuser WHERE address LIKE '%$address%' AND status = 'user'";
 	}
 
 	if ($email) {
-		$check = "SELECT * FROM parenuser WHERE email = '" . $db->escape($email) . "' AND status = 'user'";
+		$check = "SELECT * FROM parenuser WHERE email LIKE '%$email%' AND status = 'user'";
 	}
 
 	if ($firstname && $city) {

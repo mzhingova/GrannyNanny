@@ -84,7 +84,7 @@ if (isset($_REQUEST['search-button'])) {
 	if (!$age && !$sex && !$city && !$firstname ) {
 		$check="SELECT * FROM parenuser WHERE status = 'nanny'" ;
 	}
-		if ($result = $db->get_results($check)) {
+		/* if ($result = $db->get_results($check)) {
 			$counter = 1;
 			foreach ($result as $key) {
 
@@ -129,7 +129,7 @@ if (isset($_REQUEST['search-button'])) {
 				echo "</br>";
 			}
 		}
-	} else { 
+	} else { */
 		if ($result = $db->get_results($check)) {
 			$counter = 1;
 
