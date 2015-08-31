@@ -6,7 +6,7 @@
 	<title>Book Nanny</title>
 	<!-- Override CSS file - add your own CSS rules -->
 		<?php
-			$pageTitle = 'Log-in';
+			$pageTitle = 'Book-Nanny-Form';
 			error_reporting(E_ALL);
 			ini_set('display_errors', 1);
 			$conn = new mysqli('localhost', 'root', '', 'grannynanny');
@@ -25,7 +25,7 @@
 		<div class="content">
 
 		<label>Град</label>
-		<form name="booking"   action="book_nanny.php"  method="POST">
+		<form name="book_nanny"   action='book_nanny.php'  method="POST">
 
 				<select class="city" name="city">
 					<option value=""></option>
@@ -39,21 +39,21 @@
 				<label>Адрес*</label>
 				<input type="text" name="address"></input>
 				<label>Брой деца*</label>
-				<input type="number" name="childnum"></input>
+				<input type="number" name="children"></input>
 				<label>Допълнителна информация</label>
-				<textarea name="informafion"></textarea>
+				<textarea name="info"></textarea>
 				<label>Дата*</label><br>
 				<!--- calendar-->
 				 <div >
 					<label class="daterange" for="start">От:</label>
 					
-					<input class="daterange" type="text" id="start">
+					<input class="daterange" type="text" id="start" name="startDate">
 				</div>
 
 				<div >
 					<label class="daterange" for="end">До:</label>
 					
-					<input class="daterange" type="text" id="end">
+					<input class="daterange" type="text" id="end" name="endDate">
 				</div><br>
 
 
@@ -71,11 +71,24 @@
 					<label>Телефон</label>
 					<input value="<?php echo $row['tel']; ?>" type="text"  readonly>
 					
-					<?php } 
+
+					<?php 
+									} 
 					?>
 				   <button type="submit" name="submit" class="btn">Ангажирай</button>
 
-				
+				<?php
+				//$userID = $_SESSION["userID"];
+				$_SESSION['nannyID'] = $_GET["id"];
+	
+				//var_dump($_GET["id"]);
+				var_dump($_SESSION['nannyID']);
+
+				//var_dump($nannyId);
+				 
+				?>
+				<input type="hidden" name="id" value="<?php echo $nannyID; ?>">
+
 				</form>
 			</div>
 			 <script src="assets/js/pikaday.js"></script>

@@ -30,16 +30,16 @@ $conn->set_charset("utf8");
 			header('Location: login.php');
 		}
 
-$isAdmin = $_SESSION['status'];
-if ($isAdmin == 'admin') {
-	$currentID = htmlspecialchars($_GET["id"]);
+			$isAdmin = $_SESSION['status'];
+			if ($isAdmin == 'admin') {
+				$currentID = htmlspecialchars($_GET["id"]);
 
-} else {
-	$userID = $_SESSION['userID'];
-}
-?>
+			} else {
+				$userID = $_SESSION['userID'];
+			}
+			?>
 
-			<form action="update.php" method="POST" onsubmit="return validateForm()">
+			<form action="update.php" method="POST" onsubmit="return validateForm()" enctype='multipart/form-data'>
 				<label class="wtf">Име</label>
 				<div class="patt">Mоже да съдържа само букви и да има дължина 2-16 символа.</div>
 				<input type="text" name="firstname"></input>

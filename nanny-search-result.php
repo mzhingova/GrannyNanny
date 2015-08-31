@@ -1,10 +1,10 @@
 <?php
 
-if((!isset($_SESSION['status'])) || ((isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")))) {
+/*if((!isset($_SESSION['status'])) || ((isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")))) {
 					session_destroy(); // does not log out the nanny!!!
 					header('Location: login.php');
 
-}
+}*/
 
 require_once 'lib/database.php';
 
@@ -103,7 +103,7 @@ if (isset($_REQUEST['search-button'])) {
 
 				echo "<div>";
 				echo 'Град: ' . $key->city;
-				echo "</div>";
+				echo "</div>"; 
 
 				echo "<div class='motivation'>";
 				echo 'Описание: ' . $key->motivation;
@@ -116,8 +116,9 @@ if (isset($_REQUEST['search-button'])) {
 				echo "<div>";
 
 				if (isset($_SESSION['status']) && ($_SESSION['status'] == "user")) {
+
 					echo "<div >";
-					echo "<a class='btn' href='book_nanny_form.php'>Ангажирай</a>";
+					echo "<a class='btn' href='book_nanny_form.php?id=$key->userID'>Ангажирай</a>";
 					echo "</div>";
 				} else if(isset($_SESSION['status']) && ($_SESSION['status'] == "admin")){
 					echo "<div >";
@@ -166,7 +167,7 @@ if (isset($_REQUEST['search-button'])) {
 
 					if (isset($_SESSION['status']) && ($_SESSION['status'] == "user")) {
 						echo "<div>";
-						echo "<button class='btn'>Ангажирай</button>";
+						echo "<a class='btn' href='book_nanny_form.php?id=$key->userID'>Ангажирай</a>";
 						echo "</div>";
 					} else {
 						echo "<div >";
