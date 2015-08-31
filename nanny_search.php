@@ -101,7 +101,7 @@ $conn ->set_charset("utf8");
 
 //Now select all from table
 $query = "SELECT * FROM parenuser WHERE status='nanny'";
-$result = mysqli_query($conn, $query);
+$result = mysqli_query($db, $query);
 
 // Count the total records
 $total_records = mysqli_num_rows($result);
