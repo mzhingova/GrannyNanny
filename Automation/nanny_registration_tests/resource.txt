@@ -15,7 +15,6 @@ ${REGISTRATION_URL}                ${BASE_URL}/registration.php
 ${SUCCESSFUL_REGISTRATION_URL}     ${BASE_URL}/success.php
 ${NANNY_REGISTER_ERROR_PAGE}       ${BASE_URL}/nanny_validation.php
 
-
 ${ADMIN_USER}                      test30@abv.bg
 ${ADMIN_PASS}                      test:1
 ${USERNAME}                        testvaliduser@abv.bg
@@ -40,7 +39,7 @@ Login Page Should Be Open
     Title Should Be    Login Page
 
 Logged Admin Profile Page Should Be Open
-    Title Should Be    Profile Page    
+    Title Should Be    Profile Page
 
 # Register
 Open Browser To Registration Page
@@ -148,3 +147,4 @@ Prepare DB
 Clean DB and Close Connection
     Clean DB
     Disconnect From Database
+

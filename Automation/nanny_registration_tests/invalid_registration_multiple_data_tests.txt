@@ -2,40 +2,60 @@
 Documentation     A test suite with a single test for valid registration.
 
 Resource          resource.txt
-Suite Setup		  Suite Setup	
-Test Setup		  Open Browser To Registration Page
-Test Teardown     Close Browser 
-Suite Teardown 	  Disconnect From Database
+Suite Setup       Prepare DB
+Test Setup        Open Browser To Registration Page
+Test Teardown     Close Browser
+Suite Teardown    Clean DB and Close Connection
 
-Test Template     Register With Invalid Credentials Should Not Succeed				  
+Test Template     Invalid Registration without filling all fields
 
-*** Test Cases *** 		FirstName   LastName    City    Address(optional)              Telephone   Email                Password        Confirm Password
-# Negative Tests
-#Negative Test 1         John        Digweed     Варна   ул. 1-ва                       0988123321  test36@yahoo.com     test11          test11
-#Negative Test 2         Георги      Георгиев    Русе    bul. Tsarigradsko Shose 155    0877123321  test52@yahoo.com     парола123.      парола123.
-#Negative Test 3         Carl        Cox         Бургас  ${EMPTY}                       1234567890  test53@abv.bg        пас123@         пас123@
-	
+*** Test Cases ***               FirstName   LastName    Picture                                                                          City        Address                                                                                                     Telephone      PID            Education         WorkStatus     Motivation                                       Email                  Password   ConfirmPassword
+# Negative Cases
+Without First Name               ${EMPTY}    Ivanov      D:\\xampp\\htdocs\\GrannyNanny\\Automation\\resources\\nanny.jpg                 София       ж.к.Банишора,бл.1,София                                                                                     0888123123     0605296279     Средно            Пълен          Аз съм най-добрият R'n'B изпълнител              test1@abv.bg           qwe123@    qwe123@
+Without Last Name                Petyr       ${EMPTY}    D:\\xampp\\htdocs\\GrannyNanny\\Automation\\resources\\nanny.jpg                 Перник      ж.к.Банишора,бл.1,София                                                                                     123123         2111024887     Средно специално  Половин        Аз съм най-добрият R'n'B изпълнител              test2@dir.bg           test123.   test123.
+Without Picture                  Петър       Иванов      ${EMPTY}                                                                         Ямбол       ул.Балша1,София                                                                                             029821212      2201201968     Висше             Безработен     West Side Is The Best Side                       test3@gmail.com        qqq123!    qqq123!
+Without City                     Георги      Георгиев    D:\\xampp\\htdocs\\GrannyNanny\\Automation\\resources\\nanny.jpg                 ${EMPTY}    bul.TsarigradskoShose155                                                                                    0877123321     4202228606     Средно специално  Пълен          Аз съм най-добрият R'n'B изпълнител              test4@yahoo.com        qqq123.    qqq123.
+Without Address                  Carl        Cox         D:\\xampp\\htdocs\\GrannyNanny\\Automation\\resources\\nanny.jpg                 Бургас      ${EMPTY}                                                                                                    1234567890     5403296986     Висше             Половин        Аз съм най-добрият R'n'B изпълнител              test5@abv.bg           test123@   test123@
+Without Telephone                John        Digweed     D:\\xampp\\htdocs\\GrannyNanny\\Automation\\resources\\nanny.jpg                 Варна       ул.1-ва                                                                                                     ${EMPTY}       6601171206     Средно            Безработен     West Side Is The Best Side                       test6@dir.bg           test@123   test@123
+Without PID                      Ivan        Ivanov      D:\\xampp\\htdocs\\GrannyNanny\\Automation\\resources\\nanny.jpg                 София       bul.TsarigradskoShose155                                                                                    0888123123     ${EMPTY}       Средно специално  Пълен          Аз съм най-добрият R'n'B изпълнител              test7@gmail.com        test123!   test123!
+Without Education                Petyr       Petrov      D:\\xampp\\htdocs\\GrannyNanny\\Automation\\resources\\nanny.jpg                 Перник      ж.к.Банишора,бл.1,София                                                                                     123123         8402248206     ${EMPTY}          Половин        West Side Is The Best Side                       test8@yahoo.com        pass2#     pass2#
+Without Work Status              Петър       Иванов      D:\\xampp\\htdocs\\GrannyNanny\\Automation\\resources\\nanny.jpg                 Ямбол       ул.Балша1,София                                                                                             029821212      8507216226     Средно специално  ${EMPTY}       West Side Is The Best Side                       test9@abv.bg           test1!     test1!
+Without Motivation               Георги      Георгиев    D:\\xampp\\htdocs\\GrannyNanny\\Automation\\resources\\nanny.jpg                 Русе        bul.TsarigradskoShose155                                                                                    0877123321     8904178786     Висше             Безработен     ${EMPTY}                                         test10@dir.bg          qq11!      qq11!
+Without Email                    Carl        Cox         D:\\xampp\\htdocs\\GrannyNanny\\Automation\\resources\\nanny.jpg                 Бургас      bul.TsarigradskoShose155                                                                                    1234567890     0547252552     Средно специално  Пълен          Nanny Number 1 in the whole planet! Here me :)   ${EMPTY}               pass11~    pass11~
+Without Password                 John        Digweed     D:\\xampp\\htdocs\\GrannyNanny\\Automation\\resources\\nanny.jpg                 Варна       ул.1-ва                                                                                                     0988123321     2206074193     Висше             Половин        West Side Is The Best Side                       test12@yahoo.com       ${EMPTY}   pas11@@
+Without Confirm Password         Ivan        Ivanov      D:\\xampp\\htdocs\\GrannyNanny\\Automation\\resources\\nanny.jpg                 София       bul.TsarigradskoShose155                                                                                    0888123123     3008064537     Средно            Безработен     Аз съм най-добрият R'n'B изпълнител              test13@abv.bg          pass11#    ${EMPTY}
+Invalid First Name Length        G           Petrov      D:\\xampp\\htdocs\\GrannyNanny\\Automation\\resources\\nanny.jpg                 Перник      ж.к.Банишора,бл.1,София                                                                                     123123         3403095102     Средно специално  Пълен          Духайте го куки                                  test14@dir.bg          pass11$    pass11$
+Invalid First Name Format        Gos1        Petrov      D:\\xampp\\htdocs\\GrannyNanny\\Automation\\resources\\nanny.jpg                 Перник      ж.к.Банишора,бл.1,София                                                                                     123123         3403095102     Средно специално  Пълен          Духайте го куки                                  test14@dir.bg          pass11$    pass11$
+Invalid Last Name Length         П           Иванов      D:\\xampp\\htdocs\\GrannyNanny\\Automation\\resources\\nanny.jpg                 Ямбол       ул.Балша1,София                                                                                             029821212      3504135008     Средно            Пълен          West Side Is The Best Side                       test15@gmail.com       pass11%%   pass11%%
+Invalid Last Name Format         Gos1        Petrov      D:\\xampp\\htdocs\\GrannyNanny\\Automation\\resources\\nanny.jpg                 Перник      ж.к.Банишора,бл.1,София                                                                                     123123         3403095102     Средно специално  Пълен          Духайте го куки                                  test14@dir.bg          pass11$    pass11$
+Invalid Picture Size             Георги      Георгиев    D:\\xampp\\htdocs\\GrannyNanny\\Automation\\resources\\more-than-1mb-file.jpg    Русе        bul.TsarigradskoShose155                                                                                    0877123321     4208055112     Средно специално  Половин        Nanny Number 1 in the whole planet! Here me :)   test16@yahoo.com       pass^^1    pass^^1
+Too Long Address                 Carl        Cox         D:\\xampp\\htdocs\\GrannyNanny\\Automation\\resources\\nanny.jpg                 Бургас      bul.TsarigradskoShose155, намира се след хотел Плиска в посока изхода за Пловдив и малко преди Ц'рна маца   1234567890     6006022184     Средно            Безработен     Духайте го куки                                  test17@abv.bg          pass11&&   pass11&&
+Invalid Telephone Length         John        Digweed     D:\\xampp\\htdocs\\GrannyNanny\\Automation\\resources\\nanny.jpg                 Варна       ул.1-ва                                                                                                     1234           6403167126     Средно специално  Пълен          West Side Is The Best Side                       test18@dir.bg          pass**11   pass**11
+Invalid PID length               Ivan        Ivanov      D:\\xampp\\htdocs\\GrannyNanny\\Automation\\resources\\nanny.jpg                 София       bul.TsarigradskoShose155                                                                                    0888123123     1015132        Висше             Половин        Аз съм най-добрият R'n'B изпълнител              test19@gmail.com       pass11(    pass11(
+Invalid Motivation Length        Petyr       Petrov      D:\\xampp\\htdocs\\GrannyNanny\\Automation\\resources\\nanny.jpg                 Перник      ж.к.Банишора,бл.1,София                                                                                     123123         7901039300     Средно специално  Безработен     Духайте го куки                                  test20@yahoo.com       pass11((   pass11((
+Invalid Email Format             Petyr       Petrov      D:\\xampp\\htdocs\\GrannyNanny\\Automation\\resources\\nanny.jpg                 Перник      ж.к.Банишора,бл.1,София                                                                                     123123         7901039300     Средно специално  Безработен     Аз съм най-добрият R'n'B изпълнител              test21yahoo.com        pass11((   pass11((
+Password without digit           Петър       Иванов      D:\\xampp\\htdocs\\GrannyNanny\\Automation\\resources\\nanny.jpg                 Ямбол       ул.Балша1,София                                                                                             029821212      0605296279     Висше             Пълен          West Side Is The Best Side                       invalidemail@abv.bg    pass))}{   pass))}{
+Password without special symbol  Георги      Георгиев    D:\\xampp\\htdocs\\GrannyNanny\\Automation\\resources\\nanny.jpg                 Русе        bul.TsarigradskoShose155                                                                                    0877123321     2111024887     Средно            Половин        Nanny Number 1 in the whole planet! Here me :)   test22@dir.bg          test1111   test1111
+Password email length            Carl  Cox               D:\\xampp\\htdocs\\GrannyNanny\\Automation\\resources\\nanny.jpg                 Бургас      bul.TsarigradskoShose155                                                                                    1234567890     2201201968     Средно специално  Безработен     Nanny Number 1 in the whole planet! Here me :)   test23@gmail.com       te1+       te1+
+
+
 *** Keywords ***
-#Register With Invalid Credentials Should Not Succeed
-    [Arguments]    ${firstName}    ${lastName}      ${city}   ${address}    ${telephone}      ${email}    ${password}		${confirmPassword}
-    Doesn't exist in DB	select * from parenuser where email = '${email}'
-    Input Firstname         ${firstName}
-    Input Lastname          ${lastName}
-    Select City		        ${city}
-    Input Address           ${address}
-    Input Telephone 	    ${telephone} 
-    Input Email             ${email}
-    Input Password          ${password}
-    Confirm Password 	    ${confirmPassword}
-    Submit Registration Form
-    Register Should Have Not Succeed
-    Doesn't exist in DB 	   select * from parenuser where email = '${email}'
-
-#Register Should Have Not Succeed
-    Alert Should Be Present
-    Location Should Be    ${REGISTRATION_URL} 
-    Title Should Be    Registration
-    
-#Suite Setup
-	Connect To DB
-	Clean DB
+Invalid Registration without filling all fields
+   [Arguments]    ${firstName}   ${lastName}   ${picture}   ${city}   ${address}    ${telephone}   ${pid}  ${education}  ${work_status}  ${motivation}   ${email}    ${password}     ${confirmPassword}
+   Exist in DB          select * from parenuser where email = '${ADMIN_USER}'
+   Input Firstname                                             ${firstName}
+   Input Lastname                                              ${lastName}
+   Upload Picture                                              ${picture}
+   Select City                                                 ${city}
+   Input Address                                               ${address}
+   Input Telephone                                             ${telephone}
+   Input PID                                                   ${pid}
+   Select Education                                            ${education}
+   Select Workstatus                                           ${work_status}
+   Input Motivation                                            ${motivation}
+   Input Email                                                 ${email}
+   Input Password                                              ${password}
+   Confirm Password                                            ${confirmPassword}
+   Submit Registration Form
+   Alert Should Be Present
+   Doesn't exist in DB  select * from parenuser where email = '${email}'
