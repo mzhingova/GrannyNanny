@@ -185,7 +185,7 @@ $result1= $db->get_results ("SELECT * FROM parenuser WHERE status='nanny'");
 
 
 // Count the total records
-$total_records = count($result1);;
+$total_records = count($result1);
 
 //Using ceil function to divide the total records on per page
 $total_pages = ceil($total_records / $per_page);
