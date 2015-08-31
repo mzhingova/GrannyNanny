@@ -19,11 +19,11 @@ if (isset($_REQUEST['search-button'])) {
 	}
 
 	if ($address) {
-		$check = "SELECT * FROM parenuser WHERE status = 'user'";
+		$check = "SELECT * FROM parenuser WHERE address = '" . $db->escape($address) . "' AND status = 'user'";
 	}
 
 	if ($email) {
-		$check = "SELECT * FROM parenuser WHERE status = 'user'";
+		$check = "SELECT * FROM parenuser WHERE email = '" . $db->escape($email) . "' AND status = 'user'";
 	}
 
 	if ($firstname && $city) {
@@ -60,7 +60,7 @@ if (isset($_REQUEST['search-button'])) {
 				echo "</div>";
 
 				echo "<div>";
-				echo 'Email: ' . $key->email;
+				echo 'Град: ' . $key->city;
 				echo "</div>";
 
 				echo "<div>";
@@ -68,7 +68,7 @@ if (isset($_REQUEST['search-button'])) {
 				echo "</div>";
 
 				echo "<div>";
-				echo 'Град: ' . $key->city;
+				echo 'Email: ' . $key->email;
 				echo "</div>";
 
 				
@@ -111,7 +111,7 @@ if (isset($_REQUEST['search-button'])) {
 					echo 'Адрес: ' . $key->address;
 					echo "</div>";
 
-					echo "<div class='motivation'>";
+					echo "<div>";
 					echo 'Email: ' . $key->email;
 					echo "</div>";
 
