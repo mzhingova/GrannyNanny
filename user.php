@@ -59,10 +59,9 @@ $conn ->set_charset("utf8");
 									<?php
 									echo $row['email']; ?>
 								</td>
-							
+							</tr>
 						
 						
-						<td valign=top>
 								
 								<tr>
 									<td>
@@ -72,6 +71,7 @@ $conn ->set_charset("utf8");
 										<?php echo $row['city']; ?>
 									</td>
 								</tr>
+
 								<tr>
 									<td>
 										<b>Адрес:</b>
@@ -79,12 +79,11 @@ $conn ->set_charset("utf8");
 									<td>
 										<?php
 										echo $row['address']; ?>
-								</td>
-							
+										</td>
+								</tr>
 								
-							
+				<td></td><td></td>
 						
-						<td valign=top>
 								
 								<tr>
 									<td>
@@ -94,7 +93,6 @@ $conn ->set_charset("utf8");
 										<?php echo $row['tel']; ?>
 									</td>
 								</tr>
-								<tr>
 								
 							</table><br>
 				

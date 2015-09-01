@@ -1,0 +1,93 @@
+*** Settings ***
+Documentation     A resource file with reusable keywords and variables.
+
+Library           Selenium2Library
+Library           DatabaseLibrary
+
+*** Variables ***
+${BASE_URL}                        http://localhost:8080/GrannyNanny
+${BROWSER}                         Chrome
+${DELAY}                           .05 seconds
+${LOGIN_URL}                       ${BASE_URL}/login.php
+${FORGOTTEN_PASS_URL}              ${BASE_URL}/forgotten_password.php
+
+${ADMIN_USER}                      adminuser@abv.bg
+${ADMIN_PASS}                      test@11
+${ADMIN_NEW_PASS}                  test@12
+
+${REGULAR_USER}                    regularuser@abv.bg
+${REGULAR_USER_PASS}               test@11
+${REGULAR_USER_NEW_PASS}           test@12
+
+${NANNY_USER}                      nannyuser@abv.bg
+${NANNY_USER_PASS}                 test@11
+${NANNY_USER_NEW_PASS}             test@12
+
+
+*** Keywords ***
+Login Page Should Be Open
+    Title Should Be    Login Page
+
+Forgotten Password Page Should Be Open
+    Title Should Be    Forgotten Password
+
+# Forgotten Password Page
+Open Browser To Forgotten Password Page
+    Open Browser    ${BASE_URL}      ${BROWSER}
+    Maximize Browser Window
+    Set Selenium Speed    ${DELAY}
+    Click Link  login.php
+    Login Page Should Be Open
+    Click Link  forgotten_password.php
+    Forgotten Password Page Should Be Open
+
+Input Email
+    [Arguments]    ${email}
+    Input Text    email    ${email}
+
+Input Password
+    [Arguments]    ${pass}
+    Input Text    pass    ${pass}
+
+Confirm Password
+    [Arguments]    ${pass2}
+    Input Text    pass2    ${pass2}
+
+Submit Forgotten Password Form
+    Click Button    submit
+
+# Database Setup
+Connect To DB
+    Connect To Database Using Custom Params     MySQLdb     db='grannynanny', user='root', host='localhost', port=3306
+
+Insert Admin User in the DB
+    Execute Sql String      INSERT INTO parenuser (userID, firstname, lastname, email, city, address, pass, gender, pid, workout, work_status, education, motivation, status, photoname, photo, tel) VALUES (NULL, 'Carl', 'Cx', '${ADMIN_USER}', '', '', '${ADMIN_PASS}', '', '6010203010', '', '', '', '', 'admin', '', '', '1234567890')
+
+Insert Regular User in the DB
+    Execute Sql String      INSERT INTO parenuser (userID, firstname, lastname, email, city, address, pass, gender, pid, workout, work_status, education, motivation, status, photoname, photo, tel) VALUES (NULL, 'Carl', 'Cx', '${REGULAR_USER}', '', '', '${REGULAR_USER_PASS}', '', '6010203010', '', '', '', '', 'user', '', '', '1234567890')
+
+Insert Nanny User in the DB
+    Execute Sql String      INSERT INTO parenuser (userID, firstname, lastname, email, city, address, pass, gender, pid, workout, work_status, education, motivation, status, photoname, photo, tel) VALUES (NULL, 'Carl', 'Cx', '${NANNY_USER}', '', '', '${NANNY_USER_PASS}', '', '6010203010', '', '', '', '', 'nanny', '', '', '1234567890')
+
+Clean DB
+    Execute Sql String      DELETE FROM parenuser WHERE email IN ('${ADMIN_USER}', '${REGULAR_USER}', '${NANNY_USER}')
+
+Prepare DB
+    Connect To DB
+    Insert Admin User in the DB
+    Insert Regular User in the DB
+    Insert Nanny User in the DB
+
+Clean DB and Close Connection
+    Clean DB
+    Disconnect From Database
+
+# Helper Methods
+Exist in DB
+    [Arguments]    ${statement}
+    Check If Exists In Database     ${statement}
+
+Doesn't exist in DB
+    [Arguments]    ${statement}
+    Check If Not Exists In Database     ${statement}
+
