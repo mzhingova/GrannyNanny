@@ -11,7 +11,7 @@ if (isset($_REQUEST['search-button'])) {
 
 	//checks for both first- and lastname
 	if ($firstname) {
-		$check = "SELECT * FROM parenuser WHERE firstname LIKE '%$firstname%' OR lastname LIKE '%$firstname%' AND status = 'user'";
+		$check = "SELECT * FROM parenuser WHERE firstname LIKE '%$firstname%' AND status = 'user'";
 	}
 
 	if ($city) {
@@ -50,8 +50,8 @@ if (isset($_REQUEST['search-button'])) {
 		$check = "SELECT * FROM parenuser WHERE email LIKE '%$email%' AND address LIKE '%$address%' AND status = 'user'";
 	}
 
-	if (!isset($check)) {
-		if ($result = $db->get_results("SELECT * FROM parenuser where status = 'user'")) {
+	
+	if ($result = $db->get_results($check)) {
 			$counter = 1;
 			foreach ($result as $key) {
 
@@ -76,22 +76,20 @@ if (isset($_REQUEST['search-button'])) {
 
 				echo "<div>";
 
-				if (isset($_SESSION['status']) && ($_SESSION['status'] == "user")) {
-					echo "<div>";
-					echo "<button class='btn'>Ангажирай</button>";
-					echo "</div>";
-				} else {
 
 					echo "<div >";
 					echo "<a class='btn' href='edit_user_with_admin_status.php?id=$key->userID'>Редактирай</a>";
 					echo "</div>";
-				}
+				
 
 				echo "</div>";
 				echo "</br>";
-			}
-		}
+				}}
+			
+		
 	} else {
+			$check = "SELECT * FROM parenuser WHERE status = 'user'";
+
 		if ($result = $db->get_results($check)) {
 			$counter = 1;
 
@@ -134,9 +132,7 @@ if (isset($_REQUEST['search-button'])) {
 					$counter++;
 				}
 			}
-			else {
-				echo "Няма намерени резултати";
-			}
+			
 		}
-	}
+	
 
