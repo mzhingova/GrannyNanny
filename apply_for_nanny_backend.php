@@ -17,15 +17,15 @@ $conn->set_charset("utf8");
 <?php
 
 
-$to      = 'm.gyurov@abv.bg';
+$to      = 'example@example.com';
 $subject = 'the subject';
 $message = 'hello';
 
 $headers = "From: example@example.com";
 
 $headers = "MIME-Version: 1.0" . "\r\n" .
-$headers .= "Content-type: text/html; charset=iso-8859-1" . "\r\n" .
-$headers .= "From: QQ@gmail.com" . "\r\n" .
+$headers = "Content-type: text/html; charset=iso-8859-1" . "\r\n" .
+$headers = "From: QQ@gmail.com" . "\r\n" .
 
 $success = mail($to,$subject,$message,$headers);
    if (!$success) {
