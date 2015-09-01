@@ -10,12 +10,16 @@
 		<div class="container">
 			<?php include 'includes/header.php';?>
 			<div class="content">
-			<?php echo "The page you are looking for is under construction" ?>
-				</div>
-				</div>		
-				
-			<div class="container">
-				<?php include 'includes/footer.php';?>
+				<form action="apply_for_nanny_backend.php" method="POST" >
+					<label >Ако искате да станете Nanny при нас моля изпратете ни SV</label>
+					<input type="file" name="file" >
+					<button type="submit" name="submit" class="btn">Изпрати</button><br><br><br>
+				</form>
 			</div>
-		</body>
-	</html>
+		</div>
+		
+		<div class="container">
+			<?php include 'includes/footer.php';?>
+		</div>
+	</body>
+</html>

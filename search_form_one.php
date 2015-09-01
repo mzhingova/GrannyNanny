@@ -23,5 +23,6 @@
 	<input type="text" name="address"></input>
 	<label>Email</label>
 	<input type="text" name="email"></input>
+	<input type="hidden" name="lastname"></input>
 	<button class="btn" name="search-button">Търси</button>
 </form>
