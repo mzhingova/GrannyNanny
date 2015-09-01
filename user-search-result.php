@@ -10,7 +10,8 @@ if (isset($_REQUEST['search-button'])) {
 	$email = htmlspecialchars($_POST['email']);
 	$lastname = htmlspecialchars($_POST['lastname']);
 
-	//checks for both first- and lastname
+	
+	
 	if ($firstname) {
 		$check = "SELECT * FROM parenuser WHERE status = 'user' AND firstname LIKE '%$firstname%'";
 	}
