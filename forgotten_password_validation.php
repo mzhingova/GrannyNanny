@@ -39,4 +39,5 @@ if (!empty($email)) {
                 echo("Моля въведете валидна парола");
         }
     }
+    header("Refresh: 0; url=login.php");
     ?>
