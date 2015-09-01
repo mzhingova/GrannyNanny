@@ -36,7 +36,7 @@ if (isset($_REQUEST['search-button'])) {
 	$start_from = ($page - 1) * $per_page;
 
 	if ($firstname) {
-		$check = "SELECT * FROM parenuser WHERE firstname = '" . $db->escape($firstname) . "' AND status = 'nanny'";
+		$check = "SELECT * FROM parenuser WHERE firstname LIKE '%$firstname%' AND status = 'nanny'";
 	}
 
 	if ($city) {
@@ -52,15 +52,15 @@ if (isset($_REQUEST['search-button'])) {
 	}
 
 	if ($firstname && $city) {
-		$check = "SELECT * FROM parenuser WHERE firstname = '" . $db->escape($firstname) . "' AND city = '$city' AND status = 'nanny'";
+		$check = "SELECT * FROM parenuser WHERE firstname LIKE '%$firstname%' AND city = '$city' AND status = 'nanny'";
 	}
 
 	if ($firstname && $age) {
-		$check = "SELECT * FROM parenuser WHERE firstname = '" . $db->escape($firstname) . "' AND status = 'nanny'";
+		$check = "SELECT * FROM parenuser WHERE firstname LIKE '%$firstname%' AND status = 'nanny'";
 	}
 
 	if ($firstname && $sex) {
-		$check = "SELECT * FROM parenuser WHERE firstname = '" . $db->escape($firstname) . "' AND gender = '$sex' AND status = 'nanny'";
+		$check = "SELECT * FROM parenuser WHERE firstname LIKE '%$firstname%' AND gender = '$sex' AND status = 'nanny'";
 	}
 
 	if ($city && $age) {
