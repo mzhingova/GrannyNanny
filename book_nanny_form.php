@@ -78,14 +78,7 @@
 				   <button type="submit" name="submit" class="btn">Ангажирай</button>
 
 				<?php
-				//$userID = $_SESSION["userID"];
-				$_SESSION['nannyID'] = $_GET["id"];
-	
-				//var_dump($_GET["id"]);
-				var_dump($_SESSION['nannyID']);
-
-				//var_dump($nannyId);
-				 
+				$_SESSION['nannyID'] = $_GET["id"];				 
 				?>
 				<input type="hidden" name="id" value="<?php echo $nannyID; ?>">
 
