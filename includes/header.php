@@ -44,7 +44,7 @@ session_start();
 
 ?></li>
 
-							<?php if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")) {?><li><a  href='messages.php' value="izhof" >Съобщения</a></li><?php }
+							<?php if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")) {?><li><a  href='book_nanny_message.php' value="izhof" >Съобщения</a></li><?php }
 ?>
 
 							<?php if (isset($_SESSION['status']) && ($_SESSION['status'] == "admin")) {?>

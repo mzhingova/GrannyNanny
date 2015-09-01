@@ -41,5 +41,5 @@ if (!empty($email)) {
 	}
 
 }
-header("Refresh: 0; url=login.php");
+header("Refresh: 3; url=login.php");
 ?>
