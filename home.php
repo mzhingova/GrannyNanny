@@ -11,7 +11,6 @@ if (!$conn) {
 	exit;
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -60,24 +59,15 @@ if (!$conn) {
 			 $nanny_row=$rows1;
 			echo "Общ брой регистрирани nannies: ". $rows1;
 			?></div>
-
-
-
-
-
-
-  
-
-			
 			<?php } ?>
+			<?php if(isset($_SESSION['status']) && ($_SESSION['status']=="admin")) {?>
 		<div id="center"></div>
-			<div id="container"></div>
-
+			<div id="container">
 			<input id="changeBtn" type="checkbox" onclick="changeBtn(this)" checked></input>
 			<label class="switch" for="changeBtn"><span>PIE</span><span>BAR</span></label>
 		</div>
-	
-	
+	</div>
+	<?php } ?>
 		
 <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>	
 <script >
@@ -611,6 +601,6 @@ function changeBtn(checkbox) {
 </div>
 <div class="container">
 			<?php include 'includes/footer.php';?>
-		</div>
-				</body>
-			</html>
+</div>
+		</body>
+</html>

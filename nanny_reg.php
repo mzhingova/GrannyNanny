@@ -26,7 +26,7 @@
 						<div class="patt">Mоже да съдържа само букви и да има дължина 2-16 символа.</div>
 						<input type="text" name="lastname">
 						<label >Ваша снимка</label>
-						<input type="file" name="image" >
+						<input id="fileUpload" type="file" name="image" >
 						
 						<label>Град*</label>
 						<select name="city">

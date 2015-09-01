@@ -19,6 +19,27 @@ function validateForm() {
 		alert("Моля въведете валидна фамилия.");
 		return false;
 	}
+	
+	 var allowedFiles = [".gif",".png", ".jpeg", ".jpg"];
+        var fileUpload = document.getElementById("fileUpload");
+     
+        var regex = new RegExp("([a-zA-Z0-9\s_\\.\-:])+(" + allowedFiles.join('|') + ")$");
+        if (regex.test(fileUpload.value.toLowerCase())) {
+			var size = parseFloat(fileUpload.files[0].size / 1024).toFixed(2);
+			if (size>1024) {
+            
+					alert("Непозволен размер.");
+					return false;
+				} 
+           
+			}else{
+			 alert ("Моля изберете подходящ формат снимка.");
+            return false;
+		}
+     
+  
+
+	
 	//city validation
 	var city = document.forms['regform']['city'].value;
 		  if(city === null ||city == ""){
@@ -77,7 +98,7 @@ function validateForm() {
 		return false;
 	}
 	else if(!(motivation.match(/^.{20,255}$/))){
-		alert ("Не може да въведете повече от 255 символа  и не по малко от 20 символа.");
+		alert ("Мотивационното поле не може да съдържа повече от 255 и  по малко от 20 символа .");
 		return false;
 	}
 	//email
