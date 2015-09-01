@@ -73,9 +73,9 @@ $nannyQuery = mysqli_query($conn, "SELECT * FROM booking where nannyID = '$nanny
 								<button class="btn">Откажи</button>
 
 
-	<a href="edit_user.php"><button id="btn" type="submit" name="submit" class="btn">Редактиране на профила</button></a><br>
+	<!--<a href="edit_user.php"><button id="btn" type="submit" name="submit" class="btn">Редактиране на профила</button></a><br>
 			</div>
-			<input type="hidden" name="id" value="<?php echo $userID; ?>" />
+			<input type="hidden" name="id" value="<?php echo $userID; ?>" /> -->
 
 								
 							</td>

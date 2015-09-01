@@ -19,8 +19,8 @@ $errors = array();
 $userID = $_SESSION['userID'];
 $nannyID = $_SESSION['nannyID'];
 
-var_dump($nannyID);
-var_dump($userID);
+//var_dump($nannyID);
+//var_dump($userID);
 var_dump($_SESSION['firstname']);
 
 if (isset($_POST['submit'])) {
