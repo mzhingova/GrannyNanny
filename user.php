@@ -30,11 +30,11 @@ $conn ->set_charset("utf8");
 				
 				<b>Лични Данни:</b><br><br>
 				
-<table  border=0>
+<table  width=800px border=0 cellspacing=10>
 							
 							<tr>
 								<td>
-									<b>First name:</b>
+									<b>Име:</b>
 								</td>
 								<td>
 									<?php
@@ -43,7 +43,7 @@ $conn ->set_charset("utf8");
 							</tr>
 							<tr>
 								<td>
-									<b>Last name:</b>
+									<b>Фамилия:</b>
 								</td>
 								<td>
 									<?php
@@ -53,21 +53,20 @@ $conn ->set_charset("utf8");
 							
 							<tr>
 								<td>
-									<b>Email Address:</b>
+									<b>Email:</b>
 								</td>
 								<td>
 									<?php
 									echo $row['email']; ?>
 								</td>
 							
-						</table>
+						
 						
 						<td valign=top>
-							<table border=0>
 								
 								<tr>
 									<td>
-										<b>City:</b>
+										<b>Град:</b>
 									</td>
 									<td>
 										<?php echo $row['city']; ?>
@@ -75,7 +74,7 @@ $conn ->set_charset("utf8");
 								</tr>
 								<tr>
 									<td>
-										<b>Address:</b>
+										<b>Адрес:</b>
 									</td>
 									<td>
 										<?php
@@ -83,15 +82,13 @@ $conn ->set_charset("utf8");
 								</td>
 							
 								
-							</table>
-							</table>
+							
 						
 						<td valign=top>
-							<table border=0>
 								
 								<tr>
 									<td>
-										<b>Телефонен Номер:</b>
+										<b>Телефонен номер:</b>
 									</td>
 									<td>
 										<?php echo $row['tel']; ?>
