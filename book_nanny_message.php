@@ -34,9 +34,11 @@ $nannyQuery = mysqli_query($conn, "SELECT * FROM booking where nannyID = '$nanny
 								<div>
 								Брой деца: 
 								<?php echo $row['children']; ?>
+
 								</div>
 								<div>Инфо
 								<?php if($row['info'] != '') {
+
 								echo $row['info'];
 								} else { echo '-';  } ?>
 								</div>
