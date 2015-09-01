@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 
-	<meta charset="utf-8">
+	<meta charset="utf-8" />
 	<title>Book Nanny</title>
 	<!-- Override CSS file - add your own CSS rules -->
 		<?php
@@ -66,13 +66,13 @@
 					$tableQuery = mysqli_query($conn, "SELECT * FROM parenuser where userID='$userID'")or die("Стана грешкка " . mysql_error());;
 					while($row = mysqli_fetch_array($tableQuery)) { ?>
 					<label>Име</label>
-					<input value="<?php echo $row['firstname']; ?>" type="text"  readonly>
+					<input name="firstname" value="<?php echo $row['firstname']; ?>" type="text"  >
 					<label>Фамиля</label>
-					<input value="<?php echo $row['lastname']; ?>" type="text"  readonly>
+					<input name="lastname"  value="<?php echo $row['lastname']; ?>" type="text"  >
 					<label>Email</label>
-					<input value="<?php echo $row['email']; ?>" type="text"  readonly>
+					<input name="email"value="<?php echo $row['email']; ?>" type="text">
 					<label>Телефон</label>
-					<input value="<?php echo $row['tel']; ?>" type="text"  readonly>
+					<input name="tel" value="<?php echo $row['tel']; ?>" type="text" >
 					
 
 					<?php 
@@ -87,13 +87,11 @@
 
 				</form>
 			</div>
+			<script src="assets/js/book_form.js" type="text/javascript" charset="utf-8"></script>
 			 <script src="assets/js/pikaday.js"></script>
 			 <script src="assets/js/date_range.js"></script>
-			 <script src="assets/js/book_form.js"></script>
-			 <script>
-    
-    </script>
-	
+			 
+		
 			<div class="container">
 				<?php include 'includes/footer.php';?>
 			</div>
