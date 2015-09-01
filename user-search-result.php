@@ -51,12 +51,12 @@ if (isset($_REQUEST['search-button'])) {
 	}
 
 	if (!$firstname && !$address && !$city && !$email) {
+
 		$check = "SELECT * FROM parenuser WHERE status = 'user'";
-	}
+	} 
 	if ($result = $db->get_results($check)) {
 			$counter = 1;
 			foreach ($result as $key) {
-
 				echo "<div>";
 				echo 'Име: ' . $key->firstname . ' ' . $key->lastname;
 				echo "</div>";
@@ -86,10 +86,17 @@ if (isset($_REQUEST['search-button'])) {
 
 				echo "</div>";
 				echo "</br>";
-				}}
+
+				}
 			
 		
-	} else {
+	} elseif (count($result==0)) {
+		echo "Няма намерени резултати, моля опитайте отново";
+	}
+
+}
+
+	else {
 			$check = "SELECT * FROM parenuser WHERE status = 'user'";
 
 		if ($result = $db->get_results($check)) {
