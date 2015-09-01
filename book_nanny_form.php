@@ -25,7 +25,7 @@
 		<div class="content">
 
 		<label>Град</label>
-		<form name="book_nanny"   action='book_nanny.php'  method="POST">
+		<form name="book_nanny"   action='book_nanny.php'  method="POST" onsubmit="return validateForm()">
 
 				<select class="city" name="city">
 					<option value=""></option>
@@ -86,6 +86,7 @@
 			</div>
 			 <script src="assets/js/pikaday.js"></script>
 			 <script src="assets/js/date_range.js"></script>
+			 <script src="assets/js/book_form.js"></script>
 			 <script>
     
     </script>
