@@ -93,7 +93,6 @@ if (isset($_REQUEST['search-button'])) {
 		}
 	} else {
 		if ($result = $db->get_results($check)) {
-
 			$counter = 1;
 
 			foreach ($result as $key) {
@@ -136,7 +135,7 @@ if (isset($_REQUEST['search-button'])) {
 				}
 			}
 			else {
-				echo "Няма намерени резултати, моля опитайте отново";
+				echo "Няма намерени резултати";
 			}
 		}
 	}
