@@ -196,8 +196,9 @@ if (isset($_POST['submit'])) {
 
 	if ($count > 13) {
 		if (move_uploaded_file($file_loc, $folder . $final_file)) {
+			$escapedPasword = mysql_real_escape_string($password);
 
-			$sql = "INSERT INTO `parenuser` (pid, workout, work_status, gender, education, motivation, address, city, firstname, lastname, tel, pass, email, status, photo) VALUES ('$pid','$workout','$work_status','$gender','$education', '$motivation', '$address', '$city', '$firstname', '$lastname', '$tel', '$password', '$email', 'nanny','$final_file')";
+			$sql = "INSERT INTO `parenuser` (pid, workout, work_status, gender, education, motivation, address, city, firstname, lastname, tel, pass, email, status, photo) VALUES ('$pid','$workout','$work_status','$gender','$education', '$motivation', '$address', '$city', '$firstname', '$lastname', '$tel', '$escapedPasword', '$email', 'nanny','$final_file')";
 			$result = mysqli_query($conn, $sql) or die("Error in the consult.." . mysqli_error($conn));
 
 			if ($result) {
