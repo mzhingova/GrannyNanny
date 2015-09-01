@@ -21,10 +21,11 @@
 </head>
 <body>
 	<div class="container">
-		<?php include 'includes/header.php';?>
+		<?php include 'includes/header.php';
+		require_once "book_nanny_form.php";?>
 		<div class="content">
 
-		<label>Град</label>
+		<label>Град*</label>
 		<form name="book_nanny"   action='book_nanny.php'  method="POST">
 
 				<select class="city" name="city">

@@ -10,6 +10,7 @@ if (!$conn) {
 	exit;
 }
 $conn->set_charset("utf8");
+
 include 'includes/header.php';
 
 $count = 0;
@@ -28,7 +29,21 @@ if (isset($_POST['submit'])) {
 	$startDate = $_POST['startDate'];
 	$endDate = $_POST['endDate'];
 	
-	
+	if (!empty($address)) {
+		$count++;
+	} else {
+		echo "Моля въведете адрес!";
+	}
+	if (!empty($children)) {
+		$count++;
+	}
+	if (!empty($startDate)) {
+		$count++;
+	}
+	if (!empty($endDate)) {
+		$count++;
+	}
+
 if (empty($_POST['city'])) {
 		echo "Моля изберете град.";
 	} else {
@@ -37,8 +52,9 @@ if (empty($_POST['city'])) {
 	}
 }
 
-	if ($count > 0) {
-		$status = 'booked';
+var_dump($count);
+	if ($count > 4) {
+		$status = 'request';
 		/*$escapedAddress = mysqli_real_escape_string($conn, $address);
 		$escapedSelectedCity = mysqli_real_escape_string($conn, $selected_val);
 		$escapedFirstName = mysqli_real_escape_string($conn, $firstname);
@@ -57,6 +73,6 @@ if (empty($_POST['city'])) {
  			header("Location: error_booking.php");
 	}
 	
-	include 'includes/footer.php';
+	//include 'includes/footer.php';
 
 	?>
