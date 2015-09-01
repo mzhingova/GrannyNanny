@@ -114,5 +114,6 @@ $conn->set_charset("utf8");
 <div class="container">
 	<?php include 'includes/footer.php';?>
 </div>
+<script type="text/javascript" src="assets/js/edit_nanny.js"></script>
 </body>
 </html>
