@@ -4,10 +4,10 @@ require_once 'lib/database.php';
 $db = new DB();
 
 if (isset($_REQUEST['search-button'])) {
-	$firstname = htmlspecialchars($_GET['firstname']);
-	$city = htmlspecialchars($_GET['city']);
-	$address = htmlspecialchars($_GET['address']);
-	$email = htmlspecialchars($_GET['email']);
+	$firstname = htmlspecialchars($_POST['firstname']);
+	$city = htmlspecialchars($_POST['city']);
+	$address = htmlspecialchars($_POST['address']);
+	$email = htmlspecialchars($_POST['email']);
 
 	//checks for both first- and lastname
 	if ($firstname) {
@@ -50,7 +50,9 @@ if (isset($_REQUEST['search-button'])) {
 		$check = "SELECT * FROM parenuser WHERE email LIKE '%$email%' AND address LIKE '%$address%' AND status = 'user'";
 	}
 
-	
+	if (!$firstname && !$address && !$city && !$email) {
+		$check = "SELECT * FROM parenuser WHERE status = 'user'";
+	}
 	if ($result = $db->get_results($check)) {
 			$counter = 1;
 			foreach ($result as $key) {

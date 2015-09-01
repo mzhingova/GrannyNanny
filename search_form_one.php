@@ -7,7 +7,7 @@
 </div>
 <h1>Търси по:</h1><br>
 Име
-<form method="GET" id="search-user-form">
+<form method="POST" id="search-user-form">
 	<input type="text" name="firstname"></input>
 	<label>Град</label>
 	<select class="city" name="city">
