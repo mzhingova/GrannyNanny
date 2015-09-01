@@ -46,6 +46,7 @@ $nannyQuery = mysqli_query($conn, "SELECT * FROM booking where nannyID = '$nanny
 						</tr>
 						<tr>
 							<td>
+							Допълнителна информация:
 							<?php if($row['info'] != '') {
 								echo $row['info'];
 								} else { echo '-';  } ?>
