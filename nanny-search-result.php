@@ -25,22 +25,23 @@ if (isset($_REQUEST['search-button'])) {
 		$minAge = intval($splittedAge[0]);
 		$maxAge = 100;
 	}
-	$per_page = 4;
+	$per_page=4;
 
 	if (isset($_GET['page'])) {
 
-		$page = $_GET['page'];
-	} else {
-		$page = 1;
+	$page = $_GET['page'];
 	}
-	$start_from = ($page - 1) * $per_page;
-
+	else {
+	$page=1;
+	}
+	$start_from = ($page-1) * $per_page;					
+					
 	if ($firstname) {
-		$check = "SELECT * FROM parenuser WHERE firstname LIKE '%$firstname%' AND status = 'nanny'";
+		$check = "SELECT * FROM parenuser WHERE firstname LIKE '%$firstname%' AND status = 'nanny' LIMIT $start_from, $per_page";
 	}
 
 	if ($city) {
-		$check = "SELECT * FROM parenuser WHERE city = '$city' AND status = 'nanny'";
+		$check = "SELECT * FROM parenuser WHERE city = '$city' AND status = 'nanny' LIMIT $start_from, $per_page";
 	}
 
 	if ($age) {
@@ -76,7 +77,7 @@ if (isset($_REQUEST['search-button'])) {
 	}
 
 	if (!$age && !$sex && !$city && !$firstname) {
-		$check = "SELECT * FROM parenuser WHERE status = 'nanny'";
+		$check = "SELECT * FROM parenuser WHERE status = 'nanny' LIMIT $start_from, $per_page";
 	}
 	if ($result = $db->get_results($check)) {
 		$counter = 1;
@@ -127,20 +128,28 @@ if (isset($_REQUEST['search-button'])) {
 
 	}
 
-	//Now select all from table
-	// Count the total records
-	$total_records = count($check);
+
+
+
+// Count the total records
+$total_records =count($check);
+
 //Using ceil function to divide the total records on per page
-	$total_pages = ceil($total_records / $per_page);
+$total_pages = ceil($total_records / $per_page);
+
 //Going to first page
-	echo "<a href='search.php?page=1'>" . 'First Page' . "</a> ";
-	for ($i = 1; $i <= $total_pages; $i++) {
-		echo "<a href='search.php?page=" . $i . "'>" . $i . "</a> ";
-	}
-	;
+echo "<a href='nanny_search.php?page=1'>".'First Page'."</a> ";
+
+for ($i=1; $i<=$total_pages; $i++) {
+
+echo "<a href='nanny_search.php?page=".$i."'>".$i."</a> ";
+};
 // Going to last page
-	echo "<a href='search.php?page=$total_pages'>" . 'Last Page' . "</a> ";
-} else {
+echo "<a href='nanny_search.php?page=$total_pages'>".'Last Page'."</a> ";
+} 
+
+
+/* else {
 	$check = "SELECT * FROM parenuser WHERE status = 'nanny'";
 
 	if ($result = $db->get_results($check)) {
@@ -189,4 +198,4 @@ if (isset($_REQUEST['search-button'])) {
 			echo "</br>";
 		}
 	}
-}
+} */
