@@ -73,11 +73,6 @@ if (isset($file)) {
 		
 
 	}
-	
-
-
-
-
 
 if (!empty($firstname)) {
     if (preg_match("/^[a-zA-Z\p{Cyrillic}]{2,16}$/iu", $firstname)) {
@@ -187,16 +182,4 @@ if (!empty($password) && !empty($pass) && !empty($pass2)) {
 			}
 		}
 	}
-
-
-
- 
-
-
-/* if(!empty($image))
-{
-mysqli_query($conn, "UPDATE parenuser SET `image`='$image' WHERE userID='$userID'") or die(mysql_error());
-echo("You have successfully updated your picture");
-} */
-
 ?>
