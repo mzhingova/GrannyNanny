@@ -11,77 +11,60 @@ if (!$conn) {
 }
 $conn->set_charset("utf8");
 
-include 'includes/header.php';
+/* include 'includes/header.php'; */
 
 if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")){
 
-var_dump($_SESSION['status']);
+
 $nannyID = $_SESSION["userID"]; 
-var_dump($nannyID);
+
 $nannyQuery = mysqli_query($conn, "SELECT * FROM booking where nannyID = '$nannyID'")or die("Стана грешкка " . mysql_error()); 
 				while($row = mysqli_fetch_array($nannyQuery)) { ?>				
-					<br>
-					<table>
-					<tbody>
-						<tr>
-							<td>
-								Град:
+						<section class="message">
+							<div class="inner">
+								<div>Град:
 								<?php 
 								echo $row['city']; ?>
-								
-							</td>
-						</tr>
-						<tr>
-							<td>
+								</div>
+								<div>
 								Адрес: 
 								<?php 
 								echo $row['address']; ?>
-							</td>
-						</tr>
-						<tr>
-							<td>
+								</div>
+								<div>
 								Брой деца: 
 								<?php echo $row['children']; ?>
-							</td>
-						</tr>
-						<tr>
-							<td>
-							<?php if($row['info'] != '') {
+								</div>
+								<div>Инфо
+								<?php if($row['info'] != '') {
 								echo $row['info'];
 								} else { echo '-';  } ?>
-						</td>
-						</tr>
-
-						<tr>
-							<td>
+								</div>
+								<div>
 								От:
 								<?php echo $row['startDate']; ?>
-							</td>
-						</tr>
-						<tr>
-							<td>
+								</div>
+								<div>
 								До:
 								<?php 
 								echo $row['endDate']; ?>
+								</div>
 								
-							</td>
-						</tr>
-						<tr>
-							<td>
+								<div calss="buttons">
 								<button class="btn">Приеми</button>
 								<button class="btn">Откажи</button>
+								</div>
+							</div>
+						</section>
 
-
-	<a href="edit_user.php"><button id="btn" type="submit" name="submit" class="btn">Редактиране на профила</button></a><br>
-			</div>
+	<!--<a href="edit_user.php"><button id="btn" type="submit" name="submit" class="btn">Редактиране на профила</button></a><br> -->
+			
 			<input type="hidden" name="id" value="<?php echo $userID; ?>" />
 
 								
-							</td>
+							
 							<?php } }?>
-						</tr>
-					</tbody>
-				</table>
+					
 
 
 
