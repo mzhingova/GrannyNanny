@@ -37,7 +37,10 @@ if (isset($_POST['submit'])) {
 }
 $file = $_FILES['image']['name'];
 $folder = "uploads/";
-if (isset($file)) {
+
+if (empty($file && $firstname && $lastname && $tel && $motivation && $workout && $address && $city && $education && $work_status && $password && $pass && $pass2 )) {
+	
+		if (isset($file)) {
 	$file_loc = $_FILES['image']['tmp_name'];
 	$file_size = $_FILES['image']['size'];
 	$file_type = $_FILES['image']['type'];
@@ -163,7 +166,8 @@ if (!empty($password) && !empty($pass) && !empty($pass2)) {
 			}
 		}
 	}
-	}
+		}
 }
-
+header("Refresh: 0; url=nanny_profil.php");
+}
 ?>
