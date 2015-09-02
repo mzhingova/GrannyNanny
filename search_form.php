@@ -1,13 +1,13 @@
 <div id="search-result">
 	<table>
 		<tbody>
-			<?php require_once "test.php";?>
+			<?php require_once "nanny-search-result.php";?>
 		</tbody>
 	</table>
 </div>
 <h1>Търси по:</h1><br>
 Име
-<form method="POST" id="search-nanny-form">
+<form method="GET" id="search-nanny-form">
 	<input type="text" name="firstname"></input>
 	<label>Град</label>
 	<select class="city" name="city">
