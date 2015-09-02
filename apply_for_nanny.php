@@ -15,7 +15,7 @@
 			
 
 				<form action="apply_for_nanny_backend.php" method="POST" ><br>
-					<label>Искате да станете Nanny при нас моля изпратете ни SV</label><br><br>
+					<label>Искате да станете Nanny при нас моля изпратете ни CV</label><br><br>
 						<input type="file" name="file">
 				<label>Допълнителна информация</label><br>
 					<textarea id="motivation" type="text" name="motivation" ></textarea>

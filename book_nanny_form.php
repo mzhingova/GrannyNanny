@@ -26,7 +26,7 @@
 		<div class="content">
 
 
-		<label>Град</label>
+		<label>Град*</label>
 		<form name="book_nanny"   action='book_nanny.php'  method="POST" onsubmit="return validateForm()">
 
 
