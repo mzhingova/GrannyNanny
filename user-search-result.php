@@ -11,7 +11,7 @@ if (isset($_REQUEST['search-button'])) {
 	$lastname = htmlspecialchars($_POST['lastname']);
 
 	
-	
+
 	if ($firstname) {
 		$check = "SELECT * FROM parenuser WHERE status = 'user' AND firstname LIKE '%$firstname%'";
 	}
@@ -27,29 +27,48 @@ if (isset($_REQUEST['search-button'])) {
 	if ($email) {
 		$check = "SELECT * FROM parenuser WHERE email LIKE '%$email%' AND status = 'user'";
 	}
-
 	if ($firstname && $city) {
-		$check = "SELECT * FROM parenuser WHERE firstname LIKE '%$firstname%' AND city = '" .$db->escape($city) . "' AND status = 'user'";
+		$check = "SELECT * FROM parenuser WHERE city = '$city' AND firstname LIKE '%$firstname%' AND status = 'user'";
 	}
 
 	if ($firstname && $address) {
-		$check = "SELECT * FROM parenuser WHERE firstname LIKE '%$firstname%' AND address LIKE '%$address%' AND status = 'user'";
+		$check = "SELECT * FROM parenuser WHERE address LIKE '%$address%' AND firstname LIKE '%$firstname%' AND status = 'user'";
 	}
 
 	if ($firstname && $email) {
-		$check = "SELECT * FROM parenuser WHERE firstname LIKE '%$firstname%' AND email LIKE '%$email%' AND status = 'user'";
+		$check = "SELECT * FROM parenuser WHERE email LIKE '%$email%' AND firstname LIKE '%$firstname%' AND status = 'user'";
 	}
 
 	if ($city && $address) {
-		$check = "SELECT * FROM parenuser WHERE city = '$city' AND address LIKE '%$address%' AND status = 'user'";
+		$check = "SELECT * FROM parenuser WHERE address LIKE '%$address%' AND city = '$city' AND status = 'user'";
 	}
 
 	if ($city && $email) {
-		$check = "SELECT * FROM parenuser WHERE city = '$city' AND email LIKE '%$email%' AND status = 'user'";
+		$check = "SELECT * FROM parenuser WHERE email LIKE '%$email%' AND city = '$city' AND status = 'user'";
 	}
 
 	if ($address && $email) {
-		$check = "SELECT * FROM parenuser WHERE email LIKE '%$email%' AND address LIKE '%$address%' AND status = 'user'";
+		$check = "SELECT * FROM parenuser WHERE address LIKE '%$address%' AND city = '$city' AND status = 'user'";
+	}
+
+	if ($firstname && $city && $address) {
+		$check = "SELECT * FROM parenuser WHERE firstname LIKE '%$firstname%' AND city = '$city' AND address LIKE '%$address%' AND status = 'user'";
+	}
+
+	if ($firstname && $city && $email) {
+		$check = "SELECT * FROM parenuser WHERE firstname LIKE '%$firstname%' AND city = '$city' AND email LIKE '%$email%' AND status = 'user'";
+	}
+
+	if ($address && $city && $email) {
+		$check = "SELECT * FROM parenuser WHERE address LIKE '%$address%' AND city = '$city' AND email LIKE '%$email%' AND status = 'user'";
+	}
+
+	if ($firstname && $address && $email) {
+		$check = "SELECT * FROM parenuser WHERE firstname LIKE '%$firstname%' AND address LIKE '%$address%' AND email LIKE '%$email%' AND status = 'user'";
+	}
+
+	if ($firstname && $city && $address && $email) {
+		$check = "SELECT * FROM parenuser WHERE email LIKE '%$email%' AND address LIKE '%$address%' AND city = '$city' AND status = 'user' AND firstname LIKE '%$firstname%'";
 	}
 
 	if (!$firstname && !$address && !$city && !$email) {
