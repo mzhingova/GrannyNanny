@@ -33,5 +33,13 @@ $success = mail($to,$subject,$message,$headers);
    }else {
   echo "Success : Mail was send to " . $to ;
    }
+
+   
+   if (!empty($motivation)) {
+		if (preg_match("/^.{20,255}$/i", $motivation)) {
+		} else {
+			echo "Мотивационното писмо не може да съдържа повече от 255 и по малко от 20 символа.";
+		}
+	}
  header("Refresh: 5; url=apply_for_nanny.php");
 ?>
