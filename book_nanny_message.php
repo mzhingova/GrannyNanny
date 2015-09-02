@@ -20,7 +20,7 @@ $nannyID = $_SESSION["userID"];
 
 $nannyQuery = mysqli_query($conn, "SELECT * FROM booking where nannyID = '$nannyID'")or die("Стана грешкка " . mysql_error()); 
 				while($row = mysqli_fetch_array($nannyQuery)) { ?>				
-						<section class="message">
+						
 							<div class="inner">
 								<div>Град:
 								<?php 
@@ -57,7 +57,7 @@ $nannyQuery = mysqli_query($conn, "SELECT * FROM booking where nannyID = '$nanny
 								<button class="btn">Откажи</button>
 								</div>
 							</div>
-						</section>
+						
 
 	<!--<a href="edit_user.php"><button id="btn" type="submit" name="submit" class="btn">Редактиране на профила</button></a><br>
 			</div>

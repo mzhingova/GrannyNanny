@@ -24,12 +24,36 @@
 		<?php include 'includes/header.php';
 		require_once "book_nanny_form.php";?>
 		<div class="content">
-
+		<h1>Форма за Nanny валидация</h1>
 
 		<label>Град</label>
-		<form name="book_nanny"   action='book_nanny.php'  method="POST" onsubmit="return validateForm()">
+		<form name="book_nanny" action='book_nanny.php'  method="POST" onsubmit="return validateForm()">
 
+				<?php 
+					
+					$userID = $_SESSION['userID'];
+					$tableQuery = mysqli_query($conn, "SELECT * FROM parenuser where userID='$userID'")or die("Стана грешкка " . mysql_error());;
+					while($row = mysqli_fetch_array($tableQuery)) { ?>
+					<label>Име</label>
+					<input name="firstname" value="<?php echo $row['firstname']; ?>" type="text"  >
+					<label>Фамиля</label>
+					<input name="lastname"  value="<?php echo $row['lastname']; ?>" type="text"  >
+					<label>Email</label>
+					<input name="email"value="<?php echo $row['email']; ?>" type="text">
+					<label>Телефон</label>
+					<input name="tel" value="<?php echo $row['tel']; ?>" type="text" >
+					
 
+					<?php 
+									} 
+					?>
+				   <button type="submit" name="submit" class="btn">Ангажирай</button>
+
+				<?php
+				$_SESSION['nannyID'] = $_GET["id"];				 
+				?>
+				
+				<input type="hidden" name="id" value="<?php echo $nannyID; ?>">
 				<select class="city" name="city">
 					<option value=""></option>
 					<option value="София">София</option>
@@ -60,30 +84,7 @@
 				</div><br>
 
 
-					<?php 
-					
-					$userID = $_SESSION['userID'];
-					$tableQuery = mysqli_query($conn, "SELECT * FROM parenuser where userID='$userID'")or die("Стана грешкка " . mysql_error());;
-					while($row = mysqli_fetch_array($tableQuery)) { ?>
-					<label>Име</label>
-					<input name="firstname" value="<?php echo $row['firstname']; ?>" type="text"  >
-					<label>Фамиля</label>
-					<input name="lastname"  value="<?php echo $row['lastname']; ?>" type="text"  >
-					<label>Email</label>
-					<input name="email"value="<?php echo $row['email']; ?>" type="text">
-					<label>Телефон</label>
-					<input name="tel" value="<?php echo $row['tel']; ?>" type="text" >
-					
-
-					<?php 
-									} 
-					?>
-				   <button type="submit" name="submit" class="btn">Ангажирай</button>
-
-				<?php
-				$_SESSION['nannyID'] = $_GET["id"];				 
-				?>
-				<input type="hidden" name="id" value="<?php echo $nannyID; ?>">
+				
 
 				</form>
 			</div>

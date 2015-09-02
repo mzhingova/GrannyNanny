@@ -1,7 +1,7 @@
 <div id="search-result">
 	<table>
 		<tbody>
-			<?php require_once "nanny-search-result.php";?>
+			<?php require_once "test.php";?>
 		</tbody>
 	</table>
 </div>
