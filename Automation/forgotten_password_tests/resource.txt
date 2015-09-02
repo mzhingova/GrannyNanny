@@ -90,4 +90,3 @@ Exist in DB
 Doesn't exist in DB
     [Arguments]    ${statement}
     Check If Not Exists In Database     ${statement}
-

@@ -119,8 +119,7 @@ Success Page Should Be Open
     Page Should Contain     Успешна регистрация
 
 Image Bigger Than 1 MB Page Error Message
-    Location Should Be      ${NANNY_REGISTER_ERROR_PAGE}
-    Page Should Contain     Прекалено голяма снимка.
+    Alert Should Be Present
 
 # Database Setup
 Connect To DB

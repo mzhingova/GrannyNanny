@@ -40,7 +40,7 @@ Test Template     Invalid Registration without filling all fields
 
 
 *** Keywords ***
-Invalid Registration without filling all fields
+#Invalid Registration without filling all fields
    [Arguments]    ${firstName}   ${lastName}   ${picture}   ${city}   ${address}    ${telephone}   ${pid}  ${education}  ${work_status}  ${motivation}   ${email}    ${password}     ${confirmPassword}
    Exist in DB          select * from parenuser where email = '${ADMIN_USER}'
    Input Firstname                                             ${firstName}
