@@ -39,7 +39,7 @@ $conn->set_charset("utf8");
 			}
 			?>
 
-			<form action="update.php" method="POST" onsubmit="return validateForm()" enctype='multipart/form-data'>
+			<form name="regform" action="update.php" method="POST" onsubmit="return validateForm()" enctype='multipart/form-data'>
 				<label class="wtf">Име</label>
 				<div class="patt">Mоже да съдържа само букви и да има дължина 2-16 символа.</div>
 				<input type="text" name="firstname"></input>

@@ -163,23 +163,7 @@ if (!empty($password) && !empty($pass) && !empty($pass2)) {
 			}
 		}
 	}
-<<<<<<< .mine
+	}
 }
 
-/* if(!empty($image))
-{
-mysqli_query($conn, "UPDATE parenuser SET `image`='$image' WHERE userID='$userID'") or die(mysql_error());
-echo("You have successfully updated your picture");
-} */
-
-=======
-
-
-
-
-
-
-
-
->>>>>>> .theirs
 ?>
