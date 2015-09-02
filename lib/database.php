@@ -14,6 +14,7 @@ class DB {
 	public function get_results($sql) {
 		$result = mysqli_query(self::$conn, $sql);
 		$return = array();
+		
 		while ($row = mysqli_fetch_object($result)) {
 			$return[] = $row;
 		}

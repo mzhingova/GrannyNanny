@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 31, 2015 at 03:12 PM
+-- Generation Time: Sep 01, 2015 at 05:55 PM
 -- Server version: 5.6.25
 -- PHP Version: 5.6.11
 
@@ -30,14 +30,14 @@ CREATE TABLE IF NOT EXISTS `booking` (
   `bookingID` int(11) NOT NULL,
   `nannyID` int(11) NOT NULL,
   `userID` int(11) NOT NULL,
-  `city` varchar(255) CHARACTER SET utf8 NOT NULL,
-  `address` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `city` varchar(255) NOT NULL,
+  `address` varchar(255) NOT NULL,
   `children` int(10) NOT NULL,
-  `info` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `info` varchar(255) NOT NULL,
   `startDate` varchar(255) NOT NULL,
   `endDate` varchar(255) NOT NULL,
   `status` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Indexes for dumped tables
