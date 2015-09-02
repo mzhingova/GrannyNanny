@@ -26,8 +26,8 @@
 		<div class="content">
 		<h1>Форма за Nanny валидация</h1>
 
-		<label>Град</label>
-		<form name="book_nanny" action='book_nanny.php'  method="POST" onsubmit="return validateForm()">
+		<label>Град*</label>
+		<form name="book_nanny"   action='book_nanny.php'  method="POST" onsubmit="return validateForm()">
 
 				<?php 
 					
