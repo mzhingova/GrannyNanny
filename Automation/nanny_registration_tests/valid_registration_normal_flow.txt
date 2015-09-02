@@ -68,7 +68,7 @@ Suite Teardown 	  Clean DB and Close Connection
    Exist in DB     select * from parenuser where email = '${USERNAME}'
 
 
-#Trying to register with photo size > 1 mb with non-registered email
+Trying to register with photo size > 1 mb with non-registered email
     Exist in DB     select * from parenuser where email = '${ADMIN_USER}'
     Doesn't exist in DB     select * from parenuser where email = '${USERNAME1}'
     Input Firstname   Gancho

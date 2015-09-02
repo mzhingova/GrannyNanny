@@ -48,7 +48,7 @@ Test Template     Valid Registration with filling all fields
 #Positive Test 35         Carl        Cox         Бургас  bul. Tsarigradsko Shose 155    1234567890         5410251020             test35@gmail.com     \\11test        \\11test
 #Positive Test 36         Ivan        Ivanov      София   bul. Tsarigradsko Shose 155    0888123123         5410251020             test37@abv.bg        test\1          test\1
 #Positive Test 37         Petyr       Petrov      Перник  ж.к. Банишора, бл. 1, София    123123             5410251020             test38@dir.bg        test""11        test""11
-Positive Test 38         Петър       Иванов      Ямбол   ул. Балша 1, София             029821212          5410251020             test39@gmail.com     test'11         test'11
+#Positive Test 38         Петър       Иванов      Ямбол   ул. Балша 1, София             029821212          5410251020             test39@gmail.com     test'11         test'11
 #Positive Test 39         Георги      Георгиев    Русе    bul. Tsarigradsko Shose 155    0877123321         5410251020             test40@yahoo.com     test,,11        test,,11
 #Positive Test 40         Carl        Cox         Бургас  bul. Tsarigradsko Shose 155    1234567890         5410251020             test41@abv.bg        test<<1         test<<1
 #Positive Test 41         John        Digweed     Варна   ул. 1-ва                       0988123321         5410251020             test42@dir.bg        test>>11        test>>11
@@ -71,7 +71,7 @@ Positive Test 38         Петър       Иванов      Ямбол   ул. �
 #Positive Test 58         Ivan        Ivanov      София   bul. Tsarigradsko Shose 155    0888123123         3501022030             test61@abv.bg        blok123.        blok123.
 
 *** Keywords ***
-Valid Registration with filling all fields
+#Valid Registration with filling all fields
    [Arguments]    ${firstName}    ${lastName}      ${city}   ${address}    ${telephone}   ${pid}   ${email}    ${password}       ${confirmPassword}
    Exist in DB  select * from parenuser where email = '${ADMIN_USER}'
    Input Firstname   ${firstName}

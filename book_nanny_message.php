@@ -17,59 +17,70 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")){
 
 
 $nannyID = $_SESSION["userID"]; 
-
+$parentID=0;
 $nannyQuery = mysqli_query($conn, "SELECT * FROM booking where nannyID = '$nannyID'")or die("Стана грешкка " . mysql_error()); 
 				while($row = mysqli_fetch_array($nannyQuery)) { ?>				
-						<section class="message">
-							<div class="inner">
-								<div>Град:
-								<?php 
-								echo $row['city']; ?>
-								</div>
-								<div>
-								Адрес: 
-								<?php 
-								echo $row['address']; ?>
-								</div>
-								<div>
-								Брой деца: 
-								<?php echo $row['children']; ?>
+						
+								<div class="inner">
+									<div>Град:
+									<?php 
+									echo $row['city']; ?>
+									</div>
+									<div>
+									Адрес: 
+									<?php 
+									echo $row['address']; ?>
+									</div>
+									<div>
+									Брой деца: 
+									<?php echo $row['children']; ?>
 
-								</div>
-								<div>Инфо
-								<?php if($row['info'] != '') {
+									</div>
+									<div>Инфо
+									<?php if($row['info'] != '') {
 
-								echo $row['info'];
-								} else { echo '-';  } ?>
+									echo $row['info'];
+									} else { echo '-';  } ?>
+									</div>
+									<div>
+									От:
+									<?php echo $row['startDate']; ?>
+									</div>
+									<div>
+									До:
+									<?php 
+									echo $row['endDate']; ?>
+									</div>
+
+									<div calss="buttons">
+									<button class="btn">Приеми</button>
+									<button class="btn">Откажи</button>
+									</div>
 								</div>
-								<div>
-								От:
-								<?php echo $row['startDate']; ?>
-								</div>
-								<div>
-								До:
-								<?php 
-								echo $row['endDate']; ?>
-								</div>
-								
-								<div calss="buttons">
-								<button class="btn">Приеми</button>
-								<button class="btn">Откажи</button>
-								</div>
-							</div>
-						</section>
+							
 
 	<!--<a href="edit_user.php"><button id="btn" type="submit" name="submit" class="btn">Редактиране на профила</button></a><br>
 			</div>
 			<input type="hidden" name="id" value="<?php echo $userID; ?>" /> -->
 
-								
+							<?php 
+								$parentID=$row['userID']; 	
+							echo $parentID;?>
+							<?php 
+							} 
+							}
 							
-							<?php } }?>
-					
+					$userQuery = mysqli_query($conn, "SELECT * FROM parenuser where userID = '$parentID'")or die("Стана грешкка " . mysql_error());
+					while($row = mysqli_fetch_array($userQuery)) {?>	
+					<div>Град:
+								<?php 
+								echo $row['city']; ?>
+								</div>
+						<?php
+						}
+						?>
 
-
-
+							
 <!-- 
 $tableQuery = mysqli_query($conn, "SELECT * FROM booking where status='nanny' LIMIT $start_from, $per_page")or die("Стана грешкка " . mysql_error()); 
 					$query = mysqli_query($conn, "SELECT * FROM parenuser WHERE status='nanny'") or die("Стана грешкка " . mysql_error()); -->
