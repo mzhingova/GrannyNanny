@@ -11,7 +11,7 @@
 			<?php include 'includes/header.php';?>
 			<div class="content">
 
-				<p><b>Често задавани въпроси</b></p>
+				<h2><p><b>Често задавани въпроси</b></p></h2>
 <form>
 <p>
 <a href="javascript:toggleElement('a1')">1.След въвеждане на потребителското име паролата ми се изписва автоматично. Как може да се изключи?</a>

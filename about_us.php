@@ -11,10 +11,10 @@
 			<?php include 'includes/header.php';?>
 			<div class="content">
 
-<h1>За GrannyNanny:</h1>
+<h2><p><b>За GrannyNanny:</b></p></h2>
 <form>
 <p>
-<a href="javascript:toggleElement('a1')">GrannyNanny</a>
+<a href="javascript:toggleElement('a1')">GrannyNanny.</a>
 </p>
 <div id="a1" style="display:none">
 GrannyNanny е лидер в предоставянето на детегледачески услуги,
@@ -30,13 +30,13 @@ GrannyNanny е лидер в предоставянето на детеглед�
 Нашата цел е да бъдем избор номер 1 на всеки родител. <br><br>
 </div>
 <p>
-<a href="javascript:toggleElement('a3')">Визия</a>
+<a href="javascript:toggleElement('a3')">Визия.</a>
 </p>
 <div id="a3" style="display:none">
 Създаваме полезна, лесна и вдъхновяваща услуга, отговаряща на нуждите на хората<br><br>
 </div>
 <p>
-<a href="javascript:toggleElement('a4')">Ценности</a>
+<a href="javascript:toggleElement('a4')">Ценности.</a>
 </p>
 <div id="a4" style="display:none">
 - Силно чувство за принадлежност в професионалното обкръжение<br>
