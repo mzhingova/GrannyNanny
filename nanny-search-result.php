@@ -18,8 +18,19 @@ $per_page=4;
 		$page=1;
 		}
 		
+<<<<<<< HEAD
 		
 if (isset($_REQUEST['search-button'])) {
+=======
+			$firstname = "";
+	$city = "";
+	$age = 0;
+	$sex = "";
+		
+if (isset($_REQUEST['search-button'])) {
+		$start_from = ($page-1) * $per_page;
+		$select_nanny = "SELECT * FROM parenuser WHERE status='nanny' ";
+>>>>>>> 272133ecc866eadff44d2f2d4a45c1573531729f
 
 	$firstname = htmlspecialchars($_GET['firstname']);
 	$city = htmlspecialchars($_GET['city']);
@@ -124,6 +135,7 @@ if (isset($_REQUEST['search-button'])) {
 		$total_pages = ceil($total_records / $per_page);
 
 		$url=$_SERVER['PHP_SELF']."?page=" ;
+
 		for ($i=1; $i<=$total_pages; $i++) {
 			
 			echo " <a href=".$url.$i.">".$i."</a> ";
