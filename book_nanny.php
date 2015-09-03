@@ -55,12 +55,41 @@ if (empty($_POST['city'])) {
 		$city = $_POST['city'];
 		$count++;
 	}
+
+if (!empty($_POST['book_firstname'])) {
+		if (preg_match("/^[a-zA-Z\p{Cyrillic}]{2,16}$/iu", $book_firstname)) {
+			$count++;
+	} else {
+		echo "Моля въведете валидно име.";
+	}
+}
+if (!empty($_POST['book_lastname'])) {
+		if (preg_match("/^[a-zA-Z\p{Cyrillic}]{2,16}$/iu", $book_lastname)) {
+			$count++;
+	} else {
+		echo "Моля въведете валидна фамилия.";
+	}
+}
+if (!empty($book_tel)) {
+		if (preg_match("/^[0-9]{5,10}$/i", $book_tel)) {
+			$count++;
+		} else {
+			echo "Моля въведете валиден телефонен номер.";
+		}
+}
+if (!empty($book_email)) {
+	if (preg_match("/^[a-zA-Z]{1}[a-zA-Z0-9_.]+@[a-zA-Z-]+\.[a-zA-Z0-9-.]+$/", $book_email)) {
+			$count++;
+		} else {
+			echo "Моля въведете валиден email.";
+		}
+}
 }
 
 
 
 var_dump($count);
-	if ($count > 4) {
+	if ($count > 8) {
 		$status = 'request';
 		/*$escapedAddress = mysqli_real_escape_string($conn, $address);
 		$escapedSelectedCity = mysqli_real_escape_string($conn, $selected_val);
