@@ -18,6 +18,10 @@ $per_page=4;
 		$page=1;
 		}
 		
+			$firstname = "";
+	$city = "";
+	$age = 0;
+	$sex = "";
 		
 if (isset($_REQUEST['search-button'])) {
 
@@ -123,7 +127,7 @@ if (isset($_REQUEST['search-button'])) {
 		//Using ceil function to divide the total records on per page
 		$total_pages = ceil($total_records / $per_page);
 
-		$url=$_SERVER['REQUEST_URI']."?page=" ;
+		$url=$_SERVER['PHP_SELF']."?page=" ;
 		for ($i=1; $i<=$total_pages; $i++) {
 			
 			echo " <a href=".$url.$i.">".$i."</a> ";
