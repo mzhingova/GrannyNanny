@@ -1,5 +1,5 @@
 <?php
-$pageTitle = 'Log-in';
+
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 $conn = new mysqli('localhost', 'root', '', 'grannynanny');
@@ -23,14 +23,21 @@ $conn->set_charset("utf8");
 		<?php include 'includes/header.php';?>
 		<div class="content">
 			<?php
-$isAdmin = $_SESSION['status'];
-if ($isAdmin == 'admin') {
-	$currentID = htmlspecialchars($_GET["id"]);
+		if (!isset($_SESSION['status'])){
+			header('Location: login.php');
+		} else if (isset($_SESSION['status']) && ($_SESSION['status'] == "user")) {
+			session_destroy();
+			header('Location: login.php');
+		}
 
-} else {
-	$userID = $_SESSION['userID'];
-}
-?>
+			$isAdmin = $_SESSION['status'];
+			if ($isAdmin == 'admin') {
+				$currentID = htmlspecialchars($_GET["id"]);
+
+			} else {
+				$userID = $_SESSION['userID'];
+			}
+			?>
 
 			<form action="updateUser.php" method="POST" onsubmit="return validateForm()">
 				<b><label class="wtf">Име</label></b>

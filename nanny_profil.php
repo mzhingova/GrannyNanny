@@ -1,5 +1,5 @@
 <?php
-$pageTitle = 'Log-in';
+
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 $conn = new mysqli('localhost', 'root', '', 'grannynanny');
