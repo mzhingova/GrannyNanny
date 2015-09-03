@@ -23,12 +23,12 @@ var city = document.forms['book_nanny']['city'].value;
 	}
 		var startDate = document.forms['book_nanny']['startDate'].value;
     if (startDate === null || startDate === "") {
-        alert("Моля въведете адрес.");
+        alert("Моля въведете начална дата.");
 		return false;
 	}
 		var endDate = document.forms['book_nanny']['endDate'].value;
     if (endDate === null || endDate === "") {
-        alert("Моля въведете адрес.");
+        alert("Моля въведете крайна дата.");
 		return false;
 	}
 	//first name
