@@ -25,7 +25,7 @@ $conn->set_charset("utf8");
 			<?php
 		if (!isset($_SESSION['status'])){
 			header('Location: login.php');
-		} else if (isset($_SESSION['status']) && ($_SESSION['status'] == "user")) {
+		} else if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")) {
 			session_destroy();
 			header('Location: login.php');
 		}

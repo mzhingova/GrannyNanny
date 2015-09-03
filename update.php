@@ -91,7 +91,8 @@ if (!empty($lastname)) {
 	}
 }
 if (!empty($tel)) {
-	if (preg_match("/^[0-9]{5,10}$/i", $tel)) {
+	if (preg_match("/^[0-9]{5,10}$/i", $tel)) 
+               {
 		$query = mysqli_query($conn, "UPDATE parenuser SET `tel`='$tel' WHERE userID='$userID'") or die(mysql_error());
 		if ($query) {
 			header("Refresh: 0; url=nanny_profil.php");

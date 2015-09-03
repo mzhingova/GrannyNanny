@@ -70,7 +70,7 @@ if(!empty($address))
                 echo("You have successfully updated your Address");
 } 
 
-header("Refresh: 1; url=user.php");
+header("Refresh: 1; url=user.php"."?id=".$userID);
 
 }
 ?>

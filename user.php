@@ -13,7 +13,7 @@ $conn ->set_charset("utf8");
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>Nanny Profil</title>
+		<title>User Profil</title>
 		<!-- Override CSS file - add your own CSS rules -->
 		<link rel="stylesheet" href="assets/css/###.css">
 	</head>
@@ -21,8 +21,18 @@ $conn ->set_charset("utf8");
 		<div class="container">
 			<?php include 'includes/header.php';?>
 			<div class="content">
+						<?php
+$isAdmin = $_SESSION['status'];
+if ($isAdmin == 'admin') {
+	$userID = htmlspecialchars($_GET["id"]);
+
+} else {
+	$userID = $_SESSION['userID'];
+}
+?>
+
 				<?php
-				$userID = $_SESSION['userID'];
+				
 				$tableQuery = mysqli_query($conn, "SELECT * FROM parenuser where status='user' AND userID='$userID'")or die("Стана грешкка " . mysql_error());;
 				while($row = mysqli_fetch_array($tableQuery)) { ?>
 				<br><br>
@@ -95,14 +105,14 @@ $conn ->set_charset("utf8");
 								</tr>
 								
 							</table><br>
-				
+				<a href="edit_user.php"><button id="btn" type="submit" name="submit" class="btn">Редактиране на профила</button></a><br>
 				<?php } ?>
 				
 				<?php
 				$userID = $_SESSION["userID"]
 				
 				?>
-				<a href="edit_user.php"><button id="btn" type="submit" name="submit" class="btn">Редактиране на профила</button></a><br>
+				
 			</div>
 			<input type="hidden" name="id" value="<?php echo $userID; ?>" />
 		</div>
