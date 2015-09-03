@@ -32,7 +32,7 @@ var city = document.forms['book_nanny']['city'].value;
 		return false;
 	}
 	//first name
-     var fname = document.forms['book_nanny']['firstname'].value;
+     var fname = document.forms['book_nanny']['book_firstname'].value;
     if (fname === null || fname === "") {
         alert("Моля полълнете име.");
         return false;
@@ -42,7 +42,7 @@ var city = document.forms['book_nanny']['city'].value;
 		return false;
 	}
 	//last name
-	var lname = document.forms['book_nanny']['lastname'].value;
+	var lname = document.forms['book_nanny']['book_lastname'].value;
     if (lname === null || lname === "") {
         alert("Моля въведете Фамилия");
         return false;
@@ -52,7 +52,7 @@ var city = document.forms['book_nanny']['city'].value;
 		return false;
 	}
 		//email
-	var email = document.forms['book_nanny']['email'].value;
+	var email = document.forms['book_nanny']['book_email'].value;
     if (email === null || email === "") {
         alert("Моля въведете email");
         return false;
@@ -62,7 +62,7 @@ var city = document.forms['book_nanny']['city'].value;
 		return false;
 	}
 	//telephone 
-		var tel = document.forms['book_nanny']['tel'].value;
+		var tel = document.forms['book_nanny']['book_tel'].value;
     if (tel === null || tel === "") {
         alert("Моля въведете телефон");
         return false;
