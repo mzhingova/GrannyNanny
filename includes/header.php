@@ -19,8 +19,10 @@ session_start();
 				<div class="container">
 					<div class="nav-bar">
 						<ul class="nav">
-							<?php if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny" || $_SESSION['status'] == "user" || $_SESSION['status'] == "admin")) {?>
+							<?php if (isset($_SESSION['status']) && ( $_SESSION['status'] == "admin")) {?>
 								<li><a href="home.php">Начало</a></li><?php
+}else if(isset($_SESSION['status']) && ($_SESSION['status'] == "nanny" || $_SESSION['status'] == "user" )){?>
+	<li><a href="home_page.php">Начало</a><?php
 } else {?><li><a href="index.php">Начало</a></li><?php }
 ?>
 
@@ -44,8 +46,7 @@ session_start();
 
 ?></li>
 
-							<?php if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")) {?><li><a  href='messages.php' value="izhof" >Съобщения</a></li><?php }
-?>
+							
 
 							<?php if (isset($_SESSION['status']) && ($_SESSION['status'] == "admin")) {?>
 							<li><a href="pages.php">Преглед на всички страници</a></li><?php
