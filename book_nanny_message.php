@@ -18,10 +18,40 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")){
 
 $nannyID = $_SESSION["userID"]; 
 $parentID=0;
+
+
+
+
 $nannyQuery = mysqli_query($conn, "SELECT * FROM booking where nannyID = '$nannyID'")or die("Стана грешкка " . mysql_error()); 
-				while($row = mysqli_fetch_array($nannyQuery)) { ?>				
+				while($row = mysqli_fetch_array($nannyQuery)) { ?>	
+
+	
+					
 						
 								<div class="inner">
+									<div>Запитване от:</div>
+									<div>
+									Име:
+									<?php 
+									echo $row['book_firstname']; ?>
+									</div>
+									<div>
+									Фамилия:
+									<?php 
+									echo $row['book_lastname']; ?>
+									</div>
+									<div>
+									Email:
+									<?php 
+									echo $row['book_email']; ?>
+									</div>
+									<div>
+									Телефон за контакт:
+									<?php 
+									echo $row['book_tel']; ?>
+									</div>
+									<br><br>
+									<div>Запитване за:</div>
 									<div>Град:
 									<?php 
 									echo $row['city']; ?>
@@ -63,24 +93,13 @@ $nannyQuery = mysqli_query($conn, "SELECT * FROM booking where nannyID = '$nanny
 			</div>
 			<input type="hidden" name="id" value="<?php echo $userID; ?>" /> -->
 
-							<?php 
-								$parentID=$row['userID']; 	
-							echo $parentID;?>
+							
 							<?php 
 							} 
 							}
 							
-					$userQuery = mysqli_query($conn, "SELECT * FROM parenuser where userID = '$parentID'")or die("Стана грешкка " . mysql_error());
-					while($row = mysqli_fetch_array($userQuery)) {?>	
-					<div>Град:
-								<?php 
-								echo $row['city']; ?>
-								</div>
-						<?php
-						}
-						?>
+					
 
-							
-<!-- 
-$tableQuery = mysqli_query($conn, "SELECT * FROM booking where status='nanny' LIMIT $start_from, $per_page")or die("Стана грешкка " . mysql_error()); 
-					$query = mysqli_query($conn, "SELECT * FROM parenuser WHERE status='nanny'") or die("Стана грешкка " . mysql_error()); -->
+/* $tableQuery = mysqli_query($conn, "SELECT * FROM booking where status='nanny' LIMIT $start_from, $per_page")or die("Стана грешкка " . mysql_error()); 
+					$query = mysqli_query($conn, "SELECT * FROM parenuser WHERE status='nanny'") or die("Стана грешкка " . mysql_error()); --> */
+					

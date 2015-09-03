@@ -29,6 +29,10 @@ if (isset($_POST['submit'])) {
 	$info = $_POST['info'];
 	$startDate = $_POST['startDate'];
 	$endDate = $_POST['endDate'];
+	$book_firstname = $_POST['book_firstname'];
+	$book_lastname = $_POST['book_lastname'];
+	$book_email = $_POST['book_email'];
+	$book_tel = $_POST['book_tel'];
 	
 	if (!empty($address)) {
 		$count++;
@@ -53,6 +57,8 @@ if (empty($_POST['city'])) {
 	}
 }
 
+
+
 var_dump($count);
 	if ($count > 4) {
 		$status = 'request';
@@ -64,7 +70,7 @@ var_dump($count);
 		$escapedPassword = mysqli_real_escape_string($conn, $password);
 		$escapedEmail = mysqli_real_escape_string($conn, $email);*/
 
-		$sql = "INSERT INTO `booking` (userID, nannyID, city, address, children, info, startDate, endDate, status) VALUES ('$userID', '$nannyID', '$city', '$address', '$children', '$info', '$startDate', '$endDate', '$status')";
+		$sql = "INSERT INTO `booking` (userID, nannyID, city, address, children, info, startDate, endDate, status, book_firstname, book_lastname, book_email, book_tel) VALUES ('$userID', '$nannyID', '$city', '$address', '$children', '$info', '$startDate', '$endDate', '$status', '$book_firstname', '$book_lastname', '$book_email', '$book_tel')";
 
 		$result = mysqli_query($conn, $sql) or die("Error in the consult.." . mysqli_error($conn));
 		if ($result) {
