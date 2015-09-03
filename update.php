@@ -155,11 +155,11 @@ if (!empty($password) && !empty($pass) && !empty($pass2)) {
 			echo ("Моля въведете парола различна от настоящата.");
 		} else if (preg_match("/^(?=.*[a-zA-Z])(?=.*[\d])(?=.*[\W_]).{5,16}$/", $pass)) {
 			if ($pass == $pass2) {
-				$escapedPass = mysql_real_escape_string($pass);
+				$escapedPass = mysqli_real_escape_string($conn, $pass);
 
 				$query = mysqli_query($conn, "UPDATE parenuser SET `pass`='$escapedPass' WHERE userID='$userID'") or die(mysql_error());
 				if ($query) {
-					header("Refresh: 0; url=nanny_profil.php");
+					
 				}
 			} else {
 				echo ("Паролите ви не съвпадат");
@@ -168,6 +168,6 @@ if (!empty($password) && !empty($pass) && !empty($pass2)) {
 	}
 		}
 }
-header("Refresh: 0; url=nanny_profil.php");
+
 }
 ?>
