@@ -35,7 +35,6 @@ if (isset($_POST['submit'])) {
 	}
 }
 
-
 $file = $_FILES['image']['name'];
 $folder = "uploads/";
 
@@ -60,7 +59,7 @@ if (isset($file)) {
 		if ($new_size < 1024) {
 			if (move_uploaded_file($file_loc, $folder . $final_file)) {
 				$query = mysqli_query($conn, "UPDATE parenuser SET `photo`='$final_file' WHERE userID='$userID'") or die(mysql_error());
-				
+
 			}
 		} else {
 			echo "Прекалено голяма снимка.";
@@ -71,7 +70,7 @@ if (isset($file)) {
 if (!empty($firstname)) {
 	if (preg_match("/^[a-zA-Z\p{Cyrillic}]{2,16}$/iu", $firstname)) {
 		$query = mysqli_query($conn, "UPDATE parenuser SET `firstname`='$firstname' WHERE userID='$userID'") or die(mysql_error());
-		
+
 	} else {
 		echo "Моля въведете валидно име.";
 	}
@@ -79,16 +78,15 @@ if (!empty($firstname)) {
 if (!empty($lastname)) {
 	if (preg_match("/^[a-zA-Z\p{Cyrillic}]{2,16}$/iu", $lastname)) {
 		$query = mysqli_query($conn, "UPDATE parenuser SET `lastname`='$lastname' WHERE userID='$userID'") or die(mysql_error());
-		
+
 	} else {
 		echo "Моля въведете валидно фамилия.";
 	}
 }
 if (!empty($tel)) {
-	if (preg_match("/^[0-9]{5,10}$/i", $tel)) 
-	{
+	if (preg_match("/^[0-9]{5,10}$/i", $tel)) {
 		$query = mysqli_query($conn, "UPDATE parenuser SET `tel`='$tel' WHERE userID='$userID'") or die(mysql_error());
-		
+
 	} else {
 		echo "Моля въведете валиден телефонен номер.";
 	}
@@ -103,53 +101,44 @@ if (!empty($motivation)) {
 }
 if (!empty($address)) {
 	$query = mysqli_query($conn, "UPDATE parenuser SET `address`='$address' WHERE userID='$userID'") or die(mysql_error());
-	
 
 }
 if (!empty($workout)) {
 	$query = mysqli_query($conn, "UPDATE parenuser SET `workout`='$workout' WHERE userID='$userID'") or die(mysql_error());
-	
 
 }
 if (!empty($city)) {
 	$query = mysqli_query($conn, "UPDATE parenuser SET `city`='$city' WHERE userID='$userID'") or die(mysql_error());
-	
-	
+
 }
 if (!empty($education)) {
 	$query = mysqli_query($conn, "UPDATE parenuser SET `education`='$education' WHERE userID='$userID'") or die(mysql_error());
-	
-	
+
 }
 if (!empty($work_status)) {
 	$query = mysqli_query($conn, "UPDATE parenuser SET `work_status`='$work_status' WHERE userID='$userID'") or die(mysql_error());
-	
-	
+
 }
 if (!empty($password) && !empty($pass) && !empty($pass2)) {
 	$check = "SELECT * FROM parenuser WHERE 'pass' = '$password'";
 	$rs = mysqli_query($conn, $check) or die("Error in the consult.." . mysqli_error());
 	$data = mysqli_fetch_array($rs, MYSQLI_NUM);
 	if ($data[0] = 1) {
-		
-			if ($password === $pass) {
-				echo ("Моля въведете парола различна от настоящата.");
-			} else if (preg_match("/^(?=.*[a-zA-Z])(?=.*[\d])(?=.*[\W_]).{5,16}$/", $pass)) {
-				if ($pass === $pass2) {
-					$escapedPass = mysqli_real_escape_string($conn, $pass);
 
-					$query = mysqli_query($conn, "UPDATE parenuser SET `pass`='$escapedPass' WHERE userID='$userID'") or die(mysql_error());
+		if ($password === $pass) {
+			echo ("Моля въведете парола различна от настоящата.");
+		} else if (preg_match("/^(?=.*[a-zA-Z])(?=.*[\d])(?=.*[\W_]).{5,16}$/", $pass)) {
+			if ($pass === $pass2) {
+				$escapedPass = mysqli_real_escape_string($conn, $pass);
 
-				} else {
-					echo ("Паролите ви не съвпадат");
-				}
+				$query = mysqli_query($conn, "UPDATE parenuser SET `pass`='$escapedPass' WHERE userID='$userID'") or die(mysql_error());
+
+			} else {
+				echo ("Паролите ви не съвпадат");
 			}
 		}
 	}
+}
 
-
-
-header("Refresh: 2; url=nanny_profil.php"."?id=".$userID);
-echo $userID;
-
+header("Refresh: 0; url=nanny_profil.php" . "?id=" . $userID);
 ?>
