@@ -17,8 +17,8 @@ var city = document.forms['book_nanny']['city'].value;
         alert("Моля въведете брой деца ");
         return false;
 	}
-	else if (!(children.match(/^[0-9]$/i))){
-		alert("Моля въведете валиден бой деца.");
+	else if (!(children.match(/^[1-9]$/i))){
+		alert("Моля въведете валиден брой деца.");
 		return false;
 	}
 		var startDate = document.forms['book_nanny']['startDate'].value;
