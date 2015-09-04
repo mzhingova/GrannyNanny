@@ -137,5 +137,5 @@ if (isset($_REQUEST['search-button'])) {
 			echo " <a href=".$url.$i.">".$i."</a> ";
 		} 
 
-
-
+}
+?>
