@@ -33,6 +33,8 @@
 		   
 		   <?php if (isset($_SESSION['status']) && ( $_SESSION['status'] == "nanny")) {
 			   require_once "book_nanny_message.php";
+			   
+			   
 			 }
 		   else{
 			   
