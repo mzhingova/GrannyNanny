@@ -77,7 +77,7 @@ if ($search){
 		$counter = 1;
 		foreach ($nannies as $key) {
 
-			$age = date('Y') - (intval($key->pid / 100000000) + 1900);
+		
 			echo "<div>";
 			
 			echo "<img src='uploads/$key->photo' target='_blank' alt='avatar' />";
