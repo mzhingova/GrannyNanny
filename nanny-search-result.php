@@ -17,8 +17,11 @@ $per_page=4;
 		}else {
 		$page=1;
 		}
+
 	$search=false;
 	$start_from = ($page-1) * $per_page;
+
+		
 if (isset($_REQUEST['search-button'])) {
 
 	$firstname = htmlspecialchars($_GET['firstname']);
@@ -122,6 +125,7 @@ if ($search){
 		//Using ceil function to divide the total records on per page
 		$total_pages = ceil($total_records / $per_page);
 
+
 		if(isset($_GET['search'])&& $_GET['search']=="true" ){
 			$url=$_SERVER['REQUEST_URI']."&page=" ;
 			for ($i=1; $i<=$total_pages; $i++) {
@@ -130,5 +134,8 @@ if ($search){
 		}
 		
 }
+
+?>
+
 	
 
