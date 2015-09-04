@@ -37,11 +37,8 @@ function validateForm() {
 	var password = document.forms['regform']['password'].value;
 	var pass = document.forms['regform']['pass'].value;
 	var pass2 = document.forms['regform']['pass2'].value;
-    if ((password === null || password === "")(pass === null || pass === "")&&(pass2 === null || pass2 === "")) {
-        alert("Моля въведете парола.");
-        return false;
-	}
-	else if (!(pass.match(/^(?=.*[a-zA-Z])(?=.*[\d])(?=.*[\W_]).{5,16}$/))){
+    if ((password === "")&&(pass === "")&&(pass2 === "")) {
+     if (!(pass.match(/^(?=.*[a-zA-Z])(?=.*[\d])(?=.*[\W_]).{5,16}$/))){
 		alert("Моля въведете валидена парола.");
 		return false;
 	}

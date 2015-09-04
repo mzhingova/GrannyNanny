@@ -10,7 +10,7 @@ require_once 'lib/database.php';
 
 $db = new DB();
 $total_records=0;
-$per_page=4;
+$per_page=10;
 		if (isset($_GET['page'])) {
 		$page = $_GET['page'];
 		echo "PAGE NUMBER " . $page;
@@ -56,7 +56,7 @@ if ($search){
 		}
 
 		if ($age) {
-			$select_nanny .= " AND age = '$age'";
+			$select_nanny .= " AND age between $minAge AND $maxAge";
 			
 		}
 
@@ -77,7 +77,7 @@ if ($search){
 		$counter = 1;
 		foreach ($nannies as $key) {
 
-			$age = date('Y') - (intval($key->pid / 100000000) + 1900);
+		
 			echo "<div>";
 			
 			echo "<img src='uploads/$key->photo' target='_blank' alt='avatar' />";

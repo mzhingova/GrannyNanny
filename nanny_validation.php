@@ -22,7 +22,7 @@ if (isset($_POST['submit'])) {
 	$address = $_POST['address'];
 	$pid = $_POST['pid'];
 	$folder = "uploads/";
-
+	$age="";
 	$file = $_FILES['image']['name'];
 	if (isset($file)) {
 		$file_loc = $_FILES['image']['tmp_name'];
@@ -173,6 +173,7 @@ if (isset($_POST['submit'])) {
 	//pid validation
 	if (!empty($pid)) {
 		if (preg_match("/^[0-9]{10}$/i", $pid)) {
+			$age=date('Y')-(intval($pid / 100000000) + 1900);
 			$count++;
 		} else {
 			echo "Моля въведете валидено ЕГН.";
@@ -198,7 +199,7 @@ if (isset($_POST['submit'])) {
 		if (move_uploaded_file($file_loc, $folder . $final_file)) {
 			$escapedPasword = mysql_real_escape_string($password);
 
-			$sql = "INSERT INTO `parenuser` (pid, workout, work_status, gender, education, motivation, address, city, firstname, lastname, tel, pass, email, status, photo) VALUES ('$pid','$workout','$work_status','$gender','$education', '$motivation', '$address', '$city', '$firstname', '$lastname', '$tel', '$escapedPasword', '$email', 'nanny','$final_file')";
+			$sql = "INSERT INTO `parenuser` (pid, workout, work_status, gender, education, motivation, address, city, firstname, lastname, tel, pass, email, status, photo, age) VALUES ('$pid','$workout','$work_status','$gender','$education', '$motivation', '$address', '$city', '$firstname', '$lastname', '$tel', '$escapedPasword', '$email', 'nanny', '$final_file', '$age')";
 			$result = mysqli_query($conn, $sql) or die("Error in the consult.." . mysqli_error($conn));
 
 			if ($result) {

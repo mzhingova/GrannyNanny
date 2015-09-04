@@ -1,83 +1,56 @@
 <?php
+
+
 require_once 'lib/database.php';
 
 $db = new DB();
+$total_records=0;
+$per_page=10;
+		if (isset($_GET['page'])) {
+		$page = $_GET['page'];
+		echo "PAGE NUMBER " . $page;
+		}else {
+		$page=1;
+		}
+
+	$search=false;
+	$start_from = ($page-1) * $per_page;
+
 
 if (isset($_REQUEST['search-button'])) {
-	$firstname = htmlspecialchars($_POST['firstname']);
-	$city = htmlspecialchars($_POST['city']);
-	$address = htmlspecialchars($_POST['address']);
-	$email = htmlspecialchars($_POST['email']);
-	$lastname = htmlspecialchars($_POST['lastname']);
-
+	$firstname = htmlspecialchars($_GET['firstname']);
+	$city = htmlspecialchars($_GET['city']);
+	$address = htmlspecialchars($_GET['address']);
+	$email = htmlspecialchars($_GET['email']);
+	$lastname = htmlspecialchars($_GET['lastname']);
+		$search=true;
+}
 	
-
+if ($search){
+	$select_user = "SELECT * FROM parenuser WHERE status='user' ";
 	if ($firstname) {
-		$check = "SELECT * FROM parenuser WHERE status = 'user' AND firstname LIKE '%$firstname%'";
+		$select_user .= "AND firstname LIKE '%$firstname%'";
 	}
 
 	if ($city) {
-		$check = "SELECT * FROM parenuser WHERE city = '$city' AND status = 'user'";
+		$select_user .= "AND city = '$city' AND status = 'user'";
 	}
 
 	if ($address) {
-		$check = "SELECT * FROM parenuser WHERE address LIKE '%$address%' AND status = 'user'";
+		$select_user .= "AND address LIKE '%$address%' AND status = 'user'";
 	}
 
 	if ($email) {
-		$check = "SELECT * FROM parenuser WHERE email LIKE '%$email%' AND status = 'user'";
+		$select_user .= "AND email LIKE '%$email%' AND status = 'user'";
 	}
-	if ($firstname && $city) {
-		$check = "SELECT * FROM parenuser WHERE city = '$city' AND firstname LIKE '%$firstname%' AND status = 'user'";
-	}
-
-	if ($firstname && $address) {
-		$check = "SELECT * FROM parenuser WHERE address LIKE '%$address%' AND firstname LIKE '%$firstname%' AND status = 'user'";
-	}
-
-	if ($firstname && $email) {
-		$check = "SELECT * FROM parenuser WHERE email LIKE '%$email%' AND firstname LIKE '%$firstname%' AND status = 'user'";
-	}
-
-	if ($city && $address) {
-		$check = "SELECT * FROM parenuser WHERE address LIKE '%$address%' AND city = '$city' AND status = 'user'";
-	}
-
-	if ($city && $email) {
-		$check = "SELECT * FROM parenuser WHERE email LIKE '%$email%' AND city = '$city' AND status = 'user'";
-	}
-
-	if ($address && $email) {
-		$check = "SELECT * FROM parenuser WHERE address LIKE '%$address%' AND city = '$city' AND status = 'user'";
-	}
-
-	if ($firstname && $city && $address) {
-		$check = "SELECT * FROM parenuser WHERE firstname LIKE '%$firstname%' AND city = '$city' AND address LIKE '%$address%' AND status = 'user'";
-	}
-
-	if ($firstname && $city && $email) {
-		$check = "SELECT * FROM parenuser WHERE firstname LIKE '%$firstname%' AND city = '$city' AND email LIKE '%$email%' AND status = 'user'";
-	}
-
-	if ($address && $city && $email) {
-		$check = "SELECT * FROM parenuser WHERE address LIKE '%$address%' AND city = '$city' AND email LIKE '%$email%' AND status = 'user'";
-	}
-
-	if ($firstname && $address && $email) {
-		$check = "SELECT * FROM parenuser WHERE firstname LIKE '%$firstname%' AND address LIKE '%$address%' AND email LIKE '%$email%' AND status = 'user'";
-	}
-
-	if ($firstname && $city && $address && $email) {
-		$check = "SELECT * FROM parenuser WHERE email LIKE '%$email%' AND address LIKE '%$address%' AND city = '$city' AND status = 'user' AND firstname LIKE '%$firstname%'";
-	}
-
-	if (!$firstname && !$address && !$city && !$email) {
-
-		$check = "SELECT * FROM parenuser WHERE status = 'user'";
-	} 
-	if ($result = $db->get_results($check)) {
+	
+		$users = $db->get_results($select_user);
+		$total_records = count($users);
+		$select_user .= " LIMIT $per_page offset $start_from";
+	
+	if ($users = $db->get_results($select_user)) {
 			$counter = 1;
-			foreach ($result as $key) {
+			foreach ($users as $key) {
 				echo "<div>";
 				echo 'Име: ' . $key->firstname . ' ' . $key->lastname;
 				echo "</div>";
@@ -94,12 +67,6 @@ if (isset($_REQUEST['search-button'])) {
 				echo 'Email: ' . $key->email;
 				echo "</div>";
 
-				
-				echo "</div>";
-
-				echo "<div>";
-
-
 					echo "<div >";
 					echo "<a class='btn' href='edit_user_with_admin_status.php?id=$key->userID'>Редактирай</a>";
 					echo "</div>";
@@ -107,62 +74,30 @@ if (isset($_REQUEST['search-button'])) {
 
 				echo "</div>";
 				echo "</br>";
+				$counter++;
 
 				}
-			
 		
-	} elseif (count($result==0)) {
-		echo "Няма намерени резултати, моля опитайте отново";
-	}
 
+		
+	}/*  else if (count($result==0)) {
+		echo "Няма намерени резултати, моля опитайте отново";
+	} */
+	
+		//Using ceil function to divide the total records on per page
+		$total_pages = ceil($total_records / $per_page);
+
+		if(isset($_GET['search'])&& $_GET['search']=="true"){
+			$url=$_SERVER['REQUEST_URI']."&page=" ;
+			for ($i=1; $i<=$total_pages; $i++) {
+				echo "<a href=".$url.$i.">".$i."</a> ";
+			} 
+		}
 }
 
-	else {
-			$check = "SELECT * FROM parenuser WHERE status = 'user'";
+	
+	
 
-		if ($result = $db->get_results($check)) {
-			$counter = 1;
-
-			foreach ($result as $key) {
-
-				
-
-					echo "<div>";
-					echo 'Име: ' . $key->firstname . ' ' . $key->lastname;
-					echo "</div>";
-
-					echo "<div>";
-					echo 'Град: ' . $key->city;
-					echo "</div>";
-
-					echo "<div>";
-					echo 'Адрес: ' . $key->address;
-					echo "</div>";
-
-					echo "<div>";
-					echo 'Email: ' . $key->email;
-					echo "</div>";
-
-					echo "<div>";
-
-					if (isset($_SESSION['status']) && ($_SESSION['status'] == "user")) {
-						echo "<div>";
-						echo "<button class='btn'>Ангажирай</button>";
-						echo "</div>";
-					} else {
-						echo "<div>";
-						echo "<a class='btn' href='edit_user_with_admin_status.php?id=$key->userID'>Редактирай</a>";
-						
-						echo "</div>";
-					}
-
-					echo "</div>";
-					echo "</br>";
-
-					$counter++;
-				}
-			}
-			
-		}
+?>
 	
 
