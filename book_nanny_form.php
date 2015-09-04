@@ -33,6 +33,7 @@
 					$userID = $_SESSION['userID'];
 					$tableQuery = mysqli_query($conn, "SELECT * FROM parenuser where userID='$userID'")or die("Стана грешкка " . mysql_error());;
 					while($row = mysqli_fetch_array($tableQuery)) { ?>
+					<label>Вашите лични данни:</label><br><br>
 					<label>Име*</label>
 					<input name="book_firstname" value="<?php echo $row['firstname']; ?>" type="text"  >
 					<label>Фамиля*</label>
@@ -40,7 +41,7 @@
 					<label>Email*</label>
 					<input name="book_email"value="<?php echo $row['email']; ?>" type="text">
 					<label>Телефон*</label>
-					<input name="book_tel" value="<?php echo $row['tel']; ?>" type="text" >
+					<input name="book_tel" value="<?php echo $row['tel']; ?>" type="text" ><br>
 					
 
 					<?php 
@@ -51,7 +52,7 @@
 				?>
 
 				<input type="hidden" name="id" value="<?php echo $nannyID; ?>">
-				
+				<label>Вашата заявка:</label><br><br>
 				<label>Град*</label>
 				<select class="city" name="city">
 					<option value=""></option>
