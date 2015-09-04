@@ -1,0 +1,22 @@
+*** Settings ***
+Documentation     A test suite with valid nanny update tests
+
+Resource          resource.txt
+Suite Setup		    Prepare DB
+Test Setup		    Open Browser To Nanny Profil Page
+Test Teardown     Close Browser
+Suite Teardown 	  Clean DB and Close Connection
+
+*** Test Cases ***
+Valid Change of the First And Last Name
+   Exist in DB	select * from parenuser where email = '${NANNY_USER}'
+   Doesn't exist in DB  select * from parenuser where email = '${NANNY_USER}' AND firstname = 'Ivan' AND lastname = 'Indjov'
+   Input Firstname   Ivan
+   Input Lastname    Indjov
+   Submit Update Profile Form
+   Exist in DB 	select * from parenuser where email = '${NANNY_USER}' AND firstname = 'Ivan' AND lastname = 'Indjov'
+
+Valid Change of the City
+   Exist in DB  select * from parenuser where email = '${NANNY_USER}'
+   Select City  Ямбол
+   Submit Update Profile Form
