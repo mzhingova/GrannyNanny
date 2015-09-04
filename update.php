@@ -1,5 +1,6 @@
 
 <?php
+session_start();
 $pageTitle = 'Log-in';
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -33,14 +34,11 @@ if (isset($_POST['submit'])) {
 		$userID = $_SESSION['userID'];
 	}
 }
+
+
 $file = $_FILES['image']['name'];
 $folder = "uploads/";
 
-
-
-
-
-	
 		if (isset($file)) {
 	$file_loc = $_FILES['image']['tmp_name'];
 	$file_size = $_FILES['image']['size'];
@@ -149,9 +147,9 @@ if (!empty($password) && !empty($pass) && !empty($pass2)) {
 	}
 		}
 
-}
 
-header("Refresh: 5; url=nanny_profil.php"."?id=".$userID);
+
+header("Refresh: 2; url=nanny_profil.php"."?id=".$userID);
 echo $userID;
 
 ?>
