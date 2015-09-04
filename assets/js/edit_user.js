@@ -24,15 +24,6 @@ function validateForm() {
 		return false;
 	}
 }
-	   
-	//motivation validation
-	var motivation=document.forms['regform']['motivation'].value;
-	if (motivation != ""){
-	if(!(motivation.match(/^.{20,255}$/))){
-		alert ("Не може да въведете повече от 255 символа  и не по малко от 20 символа.");
-		return false;
-	}
-}
 	//pass
 	var password = document.forms['regform']['password'].value;
 	var pass = document.forms['regform']['pass'].value;

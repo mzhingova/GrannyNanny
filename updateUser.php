@@ -1,8 +1,5 @@
 <?php
  session_start();
- ?>
-
-<?php 
 $pageTitle = 'Log-in';
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -15,10 +12,6 @@ if (!$conn) {
 }
 $conn ->set_charset("utf8");
 ?>
-
-
-
-
 <?php
 
 $firstname = $_POST['firstname'];
@@ -36,42 +29,65 @@ if (isset($_POST['submit'])) {
 	}
 
 
-if(!empty($firstname))
-{
-	if (preg_match("/^[a-zA-Z\p{Cyrillic}]{2,16}$/iu", $firstname)) {
-    mysqli_query($conn, "UPDATE parenuser SET `firstname`='$firstname' WHERE userID='$userID'") or die(mysql_error());
-                echo("You have successfully updated your First name");
+if (!empty($firstname)) {
+    if (preg_match("/^[a-zA-Z\p{Cyrillic}]{2,16}$/iu", $firstname)) {
+        $query = mysqli_query($conn, "UPDATE parenuser SET `firstname`='$firstname' WHERE userID='$userID'") or die(mysql_error());
+        
+    } else {
+        echo "Моля въведете валидно име.";
+    }
 }
-} 
-if(!empty($lastname))
-{
-	if (preg_match("/^[a-zA-Z\p{Cyrillic}]{2,16}$/iu", $lastname)) {
-    mysqli_query($conn, "UPDATE parenuser SET `lastname`='$lastname' WHERE userID='$userID'") or die(mysql_error());
-                echo("You have successfully updated your Last name");
-	}
-} 
-if(!empty($tel))
-{
-	if (preg_match("/^[0-9]{5,10}$/i", $tel)) {
-    mysqli_query($conn, "UPDATE parenuser SET `tel`='$tel' WHERE userID='$userID'") or die(mysql_error());
-                echo("You have successfully updated your Telephone");
-	}
-} 
- 
+if (!empty($lastname)) {
+    if (preg_match("/^[a-zA-Z\p{Cyrillic}]{2,16}$/iu", $lastname)) {
+        $query = mysqli_query($conn, "UPDATE parenuser SET `lastname`='$lastname' WHERE userID='$userID'") or die(mysql_error());
+        
+    } else {
+        echo "Моля въведете валидно фамилия.";
+    }
+}
+if (!empty($tel)) {
+    if (preg_match("/^[0-9]{5,10}$/i", $tel)) 
+    {
+        $query = mysqli_query($conn, "UPDATE parenuser SET `tel`='$tel' WHERE userID='$userID'") or die(mysql_error());
+        
+    } else {
+        echo "Моля въведете валиден телефонен номер.";
+    }
+}
 if(!empty($city))
 {
     mysqli_query($conn, "UPDATE parenuser SET `city`='$city' WHERE userID='$userID'") or die(mysql_error());
                 echo("You have successfully updated your City");
-} 
-
+}
 if(!empty($address))
 {
     mysqli_query($conn, "UPDATE parenuser SET `address`='$address' WHERE userID='$userID'") or die(mysql_error());
                 echo("You have successfully updated your Address");
-} 
+}
+if (!empty($password) && !empty($pass) && !empty($pass2)) {
+    $check = "SELECT * FROM parenuser WHERE 'pass' = '$password'";
+    $rs = mysqli_query($conn, $check) or die("Error in the consult.." . mysqli_error());
+    $data = mysqli_fetch_array($rs, MYSQLI_NUM);
+    if ($data[0] = 1) {
+        
+            if ($password === $pass) {
+                echo ("Моля въведете парола различна от настоящата.");
+            } else if (preg_match("/^(?=.*[a-zA-Z])(?=.*[\d])(?=.*[\W_]).{5,16}$/", $pass)) {
+                if ($pass === $pass2) {
+                    $escapedPass = mysqli_real_escape_string($conn, $pass);
 
-header("Refresh: 1; url=user.php"."?id=".$userID);
+                    $query = mysqli_query($conn, "UPDATE parenuser SET `pass`='$escapedPass' WHERE userID='$userID'") or die(mysql_error());
+
+                } else {
+                    echo ("Паролите ви не съвпадат");
+                }
+            }
+        }
+    }
 
 }
-?>
+header("Refresh: 1; url=user.php"."?id=".$userID);
+echo $userID;
 
+
+?>

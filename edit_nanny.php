@@ -33,7 +33,6 @@ $conn->set_charset("utf8");
 			$isAdmin = $_SESSION['status'];
 			if ($isAdmin == 'admin') {
 				$userID = $_GET["id"];
-
 			} else {
 				$userID = $_SESSION['userID'];
 			}

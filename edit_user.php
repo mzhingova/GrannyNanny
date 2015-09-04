@@ -1,5 +1,4 @@
 <?php
-
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 $conn = new mysqli('localhost', 'root', '', 'grannynanny');
@@ -29,17 +28,14 @@ $conn->set_charset("utf8");
 			session_destroy();
 			header('Location: login.php');
 		}
-
 			$isAdmin = $_SESSION['status'];
 			if ($isAdmin == 'admin') {
-				$currentID = htmlspecialchars($_GET["id"]);
-
+				$userID = $_GET["id"];
 			} else {
 				$userID = $_SESSION['userID'];
 			}
 			?>
-
-			<form action="updateUser.php" method="POST" onsubmit="return validateForm()">
+			<form name="regform" action="updateUser.php" method="POST" onsubmit="return validateForm()" enctype='multipart/form-data'>
 				<b><label class="wtf">Име</label></b>
 				<div class="patt">Mоже да съдържа само букви и да има дължина 2-16 символа.</div>
 				<input type="text" name="firstname"></input>
@@ -70,7 +66,7 @@ $conn->set_charset("utf8");
 				<input type="password" name="pass"></input>
 				<b><label>Повтори  парола</label></b>
 				<input type="password" name="pass2"></input>
-				<input type="hidden" name="userID" value="<?php echo $currentID?>">
+				<input type="hidden" name="userID" value="<?php echo $userID?>">
 				<button type="submit" name="submit" class="btn">Запиши промените</button><br><br><br>
 			</div>
 
@@ -83,5 +79,6 @@ $conn->set_charset("utf8");
 <div class="container">
 	<?php include 'includes/footer.php';?>
 </div>
+<script type="text/javascript" src="assets/js/edit_user.js"></script>
 </body>
 </html>

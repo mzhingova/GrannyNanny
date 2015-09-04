@@ -132,7 +132,7 @@ if (!empty($password) && !empty($pass) && !empty($pass2)) {
 	$data = mysqli_fetch_array($rs, MYSQLI_NUM);
 	if ($data[0] = 1) {
 		
-			if ($password === $pass) {
+			if ($password == $pass) {
 				echo ("Моля въведете парола различна от настоящата.");
 			} else if (preg_match("/^(?=.*[a-zA-Z])(?=.*[\d])(?=.*[\W_]).{5,16}$/", $pass)) {
 				if ($pass === $pass2) {
