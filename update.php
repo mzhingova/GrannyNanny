@@ -38,7 +38,7 @@ if (isset($_POST['submit'])) {
 $file = $_FILES['image']['name'];
 $folder = "uploads/";
 
-if (empty($file && $firstname && $lastname && $tel && $motivation && $workout && $address && $city && $education && $work_status && $password && $pass && $pass2 )) {
+
 	
 		if (isset($file)) {
 	$file_loc = $_FILES['image']['tmp_name'];
@@ -159,7 +159,7 @@ if (!empty($password) && !empty($pass) && !empty($pass2)) {
 
 				$query = mysqli_query($conn, "UPDATE parenuser SET `pass`='$escapedPass' WHERE userID='$userID'") or die(mysql_error());
 				if ($query) {
-					
+					header("Refresh: 0; url=nanny_profil.php");
 				}
 			} else {
 				echo ("Паролите ви не съвпадат");
@@ -169,5 +169,5 @@ if (!empty($password) && !empty($pass) && !empty($pass2)) {
 		}
 }
 
-}
+
 ?>
