@@ -1,6 +1,4 @@
-<?php
-session_start();
-?>
+
 <?php
 $pageTitle = 'Log-in';
 error_reporting(E_ALL);
@@ -39,6 +37,9 @@ $file = $_FILES['image']['name'];
 $folder = "uploads/";
 
 
+
+
+
 	
 		if (isset($file)) {
 	$file_loc = $_FILES['image']['tmp_name'];
@@ -61,21 +62,18 @@ $folder = "uploads/";
 		if ($new_size < 1024) {
 			if (move_uploaded_file($file_loc, $folder . $final_file)) {
 				$query = mysqli_query($conn, "UPDATE parenuser SET `photo`='$final_file' WHERE userID='$userID'") or die(mysql_error());
-				if ($query) {
-					header("Refresh: 0; url=nanny_profil.php");
-				}
+				
 			}
 		} else {
 			echo "Прекалено голяма снимка.";
 		}
 
 	}
+		}
 if (!empty($firstname)) {
 	if (preg_match("/^[a-zA-Z\p{Cyrillic}]{2,16}$/iu", $firstname)) {
 		$query = mysqli_query($conn, "UPDATE parenuser SET `firstname`='$firstname' WHERE userID='$userID'") or die(mysql_error());
-		if ($query) {
-			header("Refresh: 0; url=nanny_profil.php");
-		}
+		
 	} else {
 		echo "Моля въведете валидно име.";
 	}
@@ -83,19 +81,16 @@ if (!empty($firstname)) {
 if (!empty($lastname)) {
 	if (preg_match("/^[a-zA-Z\p{Cyrillic}]{2,16}$/iu", $lastname)) {
 		$query = mysqli_query($conn, "UPDATE parenuser SET `lastname`='$lastname' WHERE userID='$userID'") or die(mysql_error());
-		if ($query) {
-			header("Refresh: 0; url=nanny_profil.php");
-		}
+		
 	} else {
 		echo "Моля въведете валидно фамилия.";
 	}
 }
 if (!empty($tel)) {
-	if (preg_match("/^[0-9]{5,10}$/i", $tel)) {
+	if (preg_match("/^[0-9]{5,10}$/i", $tel)) 
+               {
 		$query = mysqli_query($conn, "UPDATE parenuser SET `tel`='$tel' WHERE userID='$userID'") or die(mysql_error());
-		if ($query) {
-			header("Refresh: 0; url=nanny_profil.php");
-		}
+		
 	} else {
 		echo "Моля въведете валиден телефонен номер.";
 	}
@@ -103,47 +98,35 @@ if (!empty($tel)) {
 if (!empty($motivation)) {
 	if (preg_match("/^.{20,255}$/i", $motivation)) {
 		$query = mysqli_query($conn, "UPDATE parenuser SET `motivation`='$motivation' WHERE userID='$userID'") or die(mysql_error());
-		if ($query) {
-			header("Refresh: 0; url=nanny_profil.php");
-		}
+	
 	} else {
 		echo "Мотивационното писмо не може да съдържа повече от 255 и по-малко от 20 символа.";
 	}
 }
 if (!empty($address)) {
 	$query = mysqli_query($conn, "UPDATE parenuser SET `address`='$address' WHERE userID='$userID'") or die(mysql_error());
-	if ($query) {
-		header("Refresh: 0; url=nanny_profil.php");
-	}
-	// echo("You have successfully updated your Address");
+	
+
 }
 if (!empty($workout)) {
 	$query = mysqli_query($conn, "UPDATE parenuser SET `workout`='$workout' WHERE userID='$userID'") or die(mysql_error());
-	if ($query) {
-		header("Refresh: 0; url=nanny_profil.php");
-	}
-	// echo("You have successfully updated your Workout");
+	
+
 }
 if (!empty($city)) {
 	$query = mysqli_query($conn, "UPDATE parenuser SET `city`='$city' WHERE userID='$userID'") or die(mysql_error());
-	if ($query) {
-		header("Refresh: 0; url=nanny_profil.php");
-	}
-	// echo("You have successfully updated your City");
+	
+	
 }
 if (!empty($education)) {
 	$query = mysqli_query($conn, "UPDATE parenuser SET `education`='$education' WHERE userID='$userID'") or die(mysql_error());
-	if ($query) {
-		header("Refresh: 0; url=nanny_profil.php");
-	}
-	// echo("You have successfully updated your Education");
+	
+	
 }
 if (!empty($work_status)) {
 	$query = mysqli_query($conn, "UPDATE parenuser SET `work_status`='$work_status' WHERE userID='$userID'") or die(mysql_error());
-	if ($query) {
-		header("Refresh: 0; url=nanny_profil.php");
-	}
-	// echo("You have successfully updated your Work stauts");
+	
+	
 }
 if (!empty($password) && !empty($pass) && !empty($pass2)) {
 	$check = "SELECT * FROM parenuser WHERE pass = '$password'";
@@ -158,16 +141,17 @@ if (!empty($password) && !empty($pass) && !empty($pass2)) {
 				$escapedPass = mysqli_real_escape_string($conn, $pass);
 
 				$query = mysqli_query($conn, "UPDATE parenuser SET `pass`='$escapedPass' WHERE userID='$userID'") or die(mysql_error());
-				if ($query) {
-					header("Refresh: 0; url=nanny_profil.php");
-				}
+				
 			} else {
 				echo ("Паролите ви не съвпадат");
 			}
 		}
 	}
 		}
+
 }
 
+header("Refresh: 5; url=nanny_profil.php"."?id=".$userID);
+echo $userID;
 
 ?>

@@ -21,8 +21,17 @@ $conn ->set_charset("utf8");
 		<div class="container">
 			<?php include 'includes/header.php';?>
 			<div class="content">
+									<?php
+$isAdmin = $_SESSION['status'];
+if ($isAdmin == 'admin') {
+	$userID = htmlspecialchars($_GET["id"]);
+
+} else {
+	$userID = $_SESSION['userID'];
+}
+?>
 				<?php
-				$userID = $_SESSION['userID'];
+				
 				$tableQuery = mysqli_query($conn, "SELECT * FROM parenuser where status='nanny' AND userID='$userID'")or die("Стана грешкка " . mysql_error());;
 				while($row = mysqli_fetch_array($tableQuery)) { ?>
 				

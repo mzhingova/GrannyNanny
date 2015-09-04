@@ -1,6 +1,4 @@
-<?php
- session_start();
- ?>
+
 
 <?php 
 $pageTitle = 'Log-in';
@@ -70,7 +68,7 @@ if(!empty($address))
 				header("Refresh: 1; url=user.php");
 } 
 
-/* header("Refresh: 1; url=user.php"); */
+header("Refresh: 1; url=user.php");
 
 
 ?>

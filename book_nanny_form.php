@@ -46,14 +46,12 @@
 					<?php 
 									} 
 					?>
-				   <button type="submit" name="submit" class="btn">Ангажирай</button>
-
 				<?php
 				$_SESSION['nannyID'] = $_GET["id"];				 
 				?>
-				
+
 				<input type="hidden" name="id" value="<?php echo $nannyID; ?>">
-				<br><br>
+				
 				<label>Град*</label>
 				<select class="city" name="city">
 					<option value=""></option>
@@ -73,17 +71,17 @@
 				<label>Дата*</label><br>
 				<!--- calendar-->
 				 <div >
-					<label class="daterange" for="start">От:</label>
+					<label class="daterange" for="start" >От:</label>
 					
-					<input class="daterange" type="text" id="start" name="startDate">
+					<input class="daterange" type="text" id="start" name="startDate"readonly>
 				</div>
 
 				<div >
-					<label class="daterange" for="end">До:</label>
+					<label class="daterange" for="end" >До:</label>
 					
-					<input class="daterange" type="text" id="end" name="endDate">
+					<input class="daterange" type="text" id="end" name="endDate" readonly>
 				</div><br>
-
+<button type="submit" name="submit" class="btn">Ангажирай</button>
 
 				
 
