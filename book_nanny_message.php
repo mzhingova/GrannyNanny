@@ -18,8 +18,7 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")){
 
 $nannyID = $_SESSION["userID"]; 
 $parentID=0;
-
-
+$bookingID = 0;
 
 
 $nannyQuery = mysqli_query($conn, "SELECT * FROM booking where nannyID = '$nannyID'")or die("Стана грешкка " . mysql_error()); 
@@ -79,15 +78,29 @@ $nannyQuery = mysqli_query($conn, "SELECT * FROM booking where nannyID = '$nanny
 									<div>
 									До:
 									<?php 
-									echo $row['endDate']; ?>
+									echo $row['endDate']; 
+									$book_id = $row['bookingID'];
+									?>
 									</div>
 
+        					<form name = "accepted" method ="POST" action = "">
 									<div calss="buttons">
-									<button class="btn">Приеми</button>
-									<button class="btn">Откажи</button>
+									<button type="submit" name="accept" class="btn">Приеми</button>
+									<button type="submit" name="reject" class="btn">Откажи</button>
 									</div>
 								</div>
-							
+							</form>
+<?php if (isset($_POST['accept'])){
+$update_status = mysqli_query($conn, "UPDATE booking SET status='accepted' WHERE bookingID = '$book_id'")or die("Стана грешкка " . mysql_error()); 
+	}
+	if (isset($_POST['reject'])){
+$update_status = mysqli_query($conn, "UPDATE booking SET status='rejected' WHERE bookingID = '$book_id'")or die("Стана грешкка " . mysql_error()); 
+
+	}
+ ?>
+
+        
+
 
 	<!--<a href="edit_user.php"><button id="btn" type="submit" name="submit" class="btn">Редактиране на профила</button></a><br>
 			</div>
