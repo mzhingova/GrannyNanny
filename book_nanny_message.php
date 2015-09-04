@@ -82,11 +82,12 @@ $nannyQuery = mysqli_query($conn, "SELECT * FROM booking where nannyID = '$nanny
 									$book_id = $row['bookingID'];
 									?>
 									</div>
+			<script src="assets/js/nanny_accept_reject.js" type="text/javascript" charset="utf-8"></script>
 
-        					<form name = "accepted" method ="POST" action = "">
+        					<form name = "accepted" method ="POST" onsubmit="return validateForm()" action = "">
 									<div calss="buttons">
-									<button type="submit" name="accept" class="btn">Приеми</button>
-									<button type="submit" name="reject" class="btn">Откажи</button>
+									<button onClick="accept()" type="submit" name="accept" class="btn">Приеми</button>
+									<button onClick="this.style.visibility= 'hidden';" type="submit" name="reject" class="btn">Откажи</button>
 									</div>
 								</div>
 							</form>
@@ -100,6 +101,7 @@ $update_status = mysqli_query($conn, "UPDATE booking SET status='rejected' WHERE
  ?>
 
         
+
 
 
 	<!--<a href="edit_user.php"><button id="btn" type="submit" name="submit" class="btn">Редактиране на профила</button></a><br>

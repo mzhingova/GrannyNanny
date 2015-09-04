@@ -1,0 +1,138 @@
+*** Settings ***
+Documentation     A resource file with reusable keywords and variables.
+
+Library           Selenium2Library
+Library           DatabaseLibrary
+
+*** Variables ***
+${BASE_URL}                        http://localhost:8080/GrannyNanny
+${BROWSER}                         Chrome
+${DELAY}                           0.05 seconds
+${LOGIN_URL}                       ${BASE_URL}/login.php
+${HOME_URL}                        ${BASE_URL}/home.php
+${NANNY_PROFIL_URL}                ${BASE_URL}/nanny_profil.php
+${EDIT_NANNY_PROFIL_URL}           ${BASE_URL}/edit_nanny.php
+
+${SUCCESSFUL_REGISTRATION_URL}     ${BASE_URL}/success.php
+${NANNY_REGISTER_ERROR_PAGE}       ${BASE_URL}/nanny_validation.php
+
+${NANNY_USER}                      test30@abv.bg
+${NANNY_PASS}                      test:1
+
+
+*** Keywords ***
+# Login as nanny
+Login as Nanny
+    Open Browser    ${BASE_URL}      ${BROWSER}
+    Maximize Browser Window
+    Set Selenium Speed    ${DELAY}
+    Click Link  login.php
+    Login Page Should Be Open
+    Input Email     ${NANNY_USER}
+    Input Password     ${NANNY_PASS}
+    Click Button    submit
+
+Login Page Should Be Open
+    Title Should Be    Login Page
+    Location Should Be  ${LOGIN_URL}
+
+# Nanny Profil Page
+Nanny Profile Page Should Be Open
+    Title Should Be    Profile Page
+
+Open Browser To Nanny Profil Page
+    Login as Nanny
+    Click Link      nanny_profil.php
+    Title Should Be    Nanny Profil
+    Location Should Be  ${NANNY_PROFIL_URL}
+    Click Link      edit_nanny.php
+    Location Should Be  ${EDIT_NANNY_PROFIL_URL}
+
+# Inputs
+Input Firstname
+    [Arguments]    ${firstname}
+    Input Text    firstname    ${firstname}
+
+Input Lastname
+    [Arguments]    ${lastname}
+    Input Text    lastname   ${lastname}
+
+Upload Picture
+    [Arguments]    ${path}
+    Choose File    image   ${path}
+
+Select City
+    [Arguments]    ${city}
+    Select From List By Value   city   ${city}
+
+Input Address
+    [Arguments]    ${address}
+    Input Text    address   ${address}
+
+Input Telephone
+    [Arguments]    ${tel}
+    Input Text    tel   ${tel}
+
+Input PID
+    [Arguments]    ${pid}
+    Input Text    pid   ${pid}
+
+Select Education
+    [Arguments]    ${education}
+    Select From List By Value   education   ${education}
+
+Select Workstatus
+    [Arguments]    ${work_status}
+    Select From List By Value   work_status   ${work_status}
+
+Select Gender
+    [Arguments]    ${gender}
+    Select Radio Button   gender   ${gender}
+
+Input Motivation
+    [Arguments]    ${motivation}
+    Input Text    motivation    ${motivation}
+
+Input Email
+    [Arguments]    ${email}
+    Input Text    email    ${email}
+
+Input Password
+    [Arguments]    ${pass}
+    Input Text    pass    ${pass}
+
+Confirm Password
+    [Arguments]    ${pass2}
+    Input Text    pass2    ${pass2}
+
+Submit Update Profile Form
+    Click Button    submit
+
+# Database Setup
+Connect To DB
+    Connect To Database Using Custom Params     MySQLdb     db='grannynanny', user='root', host='localhost', port=3306
+
+Clean DB
+    Execute Sql String      DELETE FROM parenuser WHERE email IN ('${NANNY_USER}')
+
+Exist in DB
+    [Arguments]    ${statement}
+    Check If Exists In Database     ${statement}
+
+Doesn't exist in DB
+    [Arguments]    ${statement}
+    Check If Not Exists In Database     ${statement}
+
+Insert Nanny User in the DB
+    Execute Sql String      INSERT INTO parenuser (userID, firstname, lastname, email, city, address, pass, gender, pid, workout, work_status, education, motivation, status, photoname, photo, tel) VALUES (NULL, 'Carl', 'Cox', '${NANNY_USER}', '', '', '${NANNY_PASS}', '', '6510203010', '', '', '', 'I AM THE BEST!', 'nanny', '', 'D:\\xampp\\htdocs\\GrannyNanny\\Automation\\resources\\nanny.jpg', '1234567890')
+
+# Suite Setup
+Prepare DB
+    Connect To DB
+    Insert Nanny User in the DB
+
+# Suite Teardown
+Clean DB and Close Connection
+    Clean DB
+    Disconnect From Database
+
