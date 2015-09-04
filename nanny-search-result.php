@@ -17,28 +17,17 @@ $per_page=4;
 		}else {
 		$page=1;
 		}
-		
-<<<<<<< HEAD
-		
+	$search=false;
+	$start_from = ($page-1) * $per_page;
 if (isset($_REQUEST['search-button'])) {
-=======
-			$firstname = "";
-	$city = "";
-	$age = 0;
-	$sex = "";
-		
-if (isset($_REQUEST['search-button'])) {
-		$start_from = ($page-1) * $per_page;
-		$select_nanny = "SELECT * FROM parenuser WHERE status='nanny' ";
->>>>>>> 272133ecc866eadff44d2f2d4a45c1573531729f
 
 	$firstname = htmlspecialchars($_GET['firstname']);
 	$city = htmlspecialchars($_GET['city']);
 	$age = htmlspecialchars($_GET['age']);
 	$sex = htmlspecialchars($_GET['gender']);
-
-}
-		$splittedAge = explode("-", $age);
+	$search=true;
+	
+	$splittedAge = explode("-", $age);
 
 		if (count($splittedAge) != 1) {
 			$minAge = intval($splittedAge[0]);
@@ -47,10 +36,10 @@ if (isset($_REQUEST['search-button'])) {
 			$minAge = intval($splittedAge[0]);
 			$maxAge = 100;
 		}
-			
-		
 
-		$start_from = ($page-1) * $per_page;
+}		
+if ($search){
+		
 		$select_nanny = "SELECT * FROM parenuser WHERE status='nanny' ";
 
 		if ($firstname){
@@ -77,7 +66,6 @@ if (isset($_REQUEST['search-button'])) {
 		
 		// Count the total records
 		$total_records = count($nannies);
-		
 
 		$select_nanny .= " LIMIT $per_page offset $start_from";
 
@@ -130,16 +118,17 @@ if (isset($_REQUEST['search-button'])) {
 			$counter++;
 		}
 		}
-		
+
 		//Using ceil function to divide the total records on per page
 		$total_pages = ceil($total_records / $per_page);
 
-		$url=$_SERVER['PHP_SELF']."?page=" ;
-
-		for ($i=1; $i<=$total_pages; $i++) {
-			
-			echo " <a href=".$url.$i.">".$i."</a> ";
-		} 
-
+		if(isset($_GET['search'])&& $_GET['search']=="true" ){
+			$url=$_SERVER['REQUEST_URI']."&page=" ;
+			for ($i=1; $i<=$total_pages; $i++) {
+				echo " <a href=".$url.$i.">".$i."</a> ";
+			} 
+		}
+		
+}
 	
 
