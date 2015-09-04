@@ -39,7 +39,7 @@ if (isset($_POST['submit'])) {
 $file = $_FILES['image']['name'];
 $folder = "uploads/";
 
-		if (isset($file)) {
+if (isset($file)) {
 	$file_loc = $_FILES['image']['tmp_name'];
 	$file_size = $_FILES['image']['size'];
 	$file_type = $_FILES['image']['type'];
@@ -67,7 +67,7 @@ $folder = "uploads/";
 		}
 
 	}
-		}
+}
 if (!empty($firstname)) {
 	if (preg_match("/^[a-zA-Z\p{Cyrillic}]{2,16}$/iu", $firstname)) {
 		$query = mysqli_query($conn, "UPDATE parenuser SET `firstname`='$firstname' WHERE userID='$userID'") or die(mysql_error());
@@ -86,7 +86,7 @@ if (!empty($lastname)) {
 }
 if (!empty($tel)) {
 	if (preg_match("/^[0-9]{5,10}$/i", $tel)) 
-               {
+	{
 		$query = mysqli_query($conn, "UPDATE parenuser SET `tel`='$tel' WHERE userID='$userID'") or die(mysql_error());
 		
 	} else {
@@ -96,7 +96,7 @@ if (!empty($tel)) {
 if (!empty($motivation)) {
 	if (preg_match("/^.{20,255}$/i", $motivation)) {
 		$query = mysqli_query($conn, "UPDATE parenuser SET `motivation`='$motivation' WHERE userID='$userID'") or die(mysql_error());
-	
+
 	} else {
 		echo "Мотивационното писмо не може да съдържа повече от 255 и по-малко от 20 символа.";
 	}
@@ -127,25 +127,25 @@ if (!empty($work_status)) {
 	
 }
 if (!empty($password) && !empty($pass) && !empty($pass2)) {
-	$check = "SELECT * FROM parenuser WHERE pass = '$password'";
+	$check = "SELECT * FROM parenuser WHERE 'pass' = '$password'";
 	$rs = mysqli_query($conn, $check) or die("Error in the consult.." . mysqli_error());
 	$data = mysqli_fetch_array($rs, MYSQLI_NUM);
-	if ($data[0] > 1) {
+	if ($data[0] = 1) {
+		
+			if ($password === $pass) {
+				echo ("Моля въведете парола различна от настоящата.");
+			} else if (preg_match("/^(?=.*[a-zA-Z])(?=.*[\d])(?=.*[\W_]).{5,16}$/", $pass)) {
+				if ($pass === $pass2) {
+					$escapedPass = mysqli_real_escape_string($conn, $pass);
 
-		if ($password == $pass) {
-			echo ("Моля въведете парола различна от настоящата.");
-		} else if (preg_match("/^(?=.*[a-zA-Z])(?=.*[\d])(?=.*[\W_]).{5,16}$/", $pass)) {
-			if ($pass == $pass2) {
-				$escapedPass = mysqli_real_escape_string($conn, $pass);
+					$query = mysqli_query($conn, "UPDATE parenuser SET `pass`='$escapedPass' WHERE userID='$userID'") or die(mysql_error());
 
-				$query = mysqli_query($conn, "UPDATE parenuser SET `pass`='$escapedPass' WHERE userID='$userID'") or die(mysql_error());
-				
-			} else {
-				echo ("Паролите ви не съвпадат");
+				} else {
+					echo ("Паролите ви не съвпадат");
+				}
 			}
 		}
 	}
-		}
 
 
 
