@@ -101,12 +101,12 @@ $conn->set_charset("utf8");
 				<input type="password" name="pass"></input>
 				<label>Повтори  парола</label>
 				<input type="password" name="pass2"></input>
-				<input type="shown" name="userID" value="<?php echo $userID?>">
+				<input type="hidden" name="userID" value="<?php echo $userID?>">
 				<button type="submit" name="submit" class="btn">Запиши промените</button><br><br><br>
 			</div>
 
 			<?php $userID = $_SESSION["userID"]?>
-			<input type="shown" name="id" value="<?php echo $userID;?>">
+			<input type="hidden" name="id" value="<?php echo $userID;?>">
 		</form>
 	</div>
 </div>
