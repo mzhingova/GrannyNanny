@@ -26,6 +26,7 @@ $password = $_POST['password'];
 $pass2 = $_POST['pass2'];
 $pass = $_POST['pass'];
 $isAdmin = $_SESSION['status'];
+$current_pass = $_POST['current_pass'];
 
 if (isset($_POST['submit'])) {
 	if ($isAdmin == 'admin') {
@@ -120,24 +121,39 @@ if (!empty($work_status)) {
 
 }
 if (!empty($password) && !empty($pass) && !empty($pass2)) {
-	$check = "SELECT * FROM parenuser WHERE 'pass' = '$password'";
-	$rs = mysqli_query($conn, $check) or die("Error in the consult.." . mysqli_error());
-	$data = mysqli_fetch_array($rs, MYSQLI_NUM);
-	if ($data[0] = 1) {
-		if ($password === $pass) {
-			echo ("Моля въведете парола различна от настоящата.");
-		} else if (preg_match("/^(?=.*[a-zA-Z])(?=.*[\d])(?=.*[\W_]).{5,16}$/", $pass)) {
-			if ($pass === $pass2) {
-				$escapedPass = mysqli_real_escape_string($conn, $pass);
 
-				$query = mysqli_query($conn, "UPDATE parenuser SET `pass`='$escapedPass' WHERE userID='$userID'") or die(mysql_error());
+    $check = "SELECT * FROM parenuser WHERE 'pass' = '$password' AND userID='$userID'";
 
-			} else {
-				echo ("Паролите ви не съвпадат");
-			}
-		}
-	}
-}
+    $get_current_pass = mysqli_query($conn, "SELECT pass FROM parenuser WHERE userID='$userID'");
+    $row = mysqli_fetch_object($get_current_pass);
+    $current_pass = $row->pass;
 
-header("Refresh: 0; url=nanny_profil.php" . "?id=" . $userID);
+
+
+    $rs = mysqli_query($conn, $check) or die("Error in the consult.." . mysqli_error());
+    $data = mysqli_fetch_array($rs, MYSQLI_BOTH);
+    $data_two = mysqli_fetch_row($rs);
+
+    if ($data[0] = 1) {
+        
+             if (preg_match("/^(?=.*[a-zA-Z])(?=.*[\d])(?=.*[\W_]).{5,16}$/", $pass)) {
+                if (($pass == $pass2) && ($current_pass == $password)) {
+                    $escapedPass = mysqli_real_escape_string($conn, $pass);
+
+                    $query = mysqli_query($conn, "UPDATE parenuser SET `pass`='$escapedPass' WHERE userID='$userID'") or die(mysql_error());
+
+                } else {
+                    echo ("Паролите ви не съвпадат");
+                }
+            
+            } else {
+                echo "Неправилна парола въведена";
+            }
+        }
+    } 
+
+header("Refresh: 5; url=nanny_profil.php"."?id=".$userID);
+echo $userID;
+
+
 ?>

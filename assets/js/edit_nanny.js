@@ -37,19 +37,23 @@ function validateForm() {
 	var password = document.forms['regform']['password'].value;
 	var pass = document.forms['regform']['pass'].value;
 	var pass2 = document.forms['regform']['pass2'].value;
-    if (!(password == "")&&(pass == "")&&(pass2 == "")) {
-     if (!(password.match(/^(?=.*[a-zA-Z])(?=.*[\d])(?=.*[\W_]).{5,16}$/))){
-		alert("Моля въведете валидна парола.");
+	var current_pass = document.forms['regform']['current_pass'].value;
+    if ((password != "") || (pass != "") || (pass2 != "")) {
+
+
+
+     if (!(pass.match(/^(?=.*[a-zA-Z])(?=.*[\d])(?=.*[\W_]).{5,16}$/))){
+		alert("Новата ви парола трябва да съдържа поне една цифра ,един специален символ ,една буква и да бъде с дължина 5-16 символа.");
 		return false;
 	}
-	if (!(pass.match(/^(?=.*[a-zA-Z])(?=.*[\d])(?=.*[\W_]).{5,16}$/))) {
-		alert("Моля въведете валидна нова парола");
+
+	else if (pass != pass2){
+		alert("Несъответствие в полето: 'Повтори парола'");
 		return false;
-	}
-}
-	else if (!(pass === pass2)){
-		alert("Въведената парола не съпада.");
-		return false;
-	}
+	} else if (current_pass != password){
+alert("Несъответствие в полето: 'Настояща парола'");
+return false;
+	}	
+  }	
 	
 }

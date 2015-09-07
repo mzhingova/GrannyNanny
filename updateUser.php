@@ -20,6 +20,11 @@ $city = $_POST['city'];
 $tel = $_POST['tel'];
 $address = $_POST['address'];
 $isAdmin = $_SESSION['status'];
+$password = $_POST['password'];
+$pass = $_POST['pass'];
+$pass2 = $_POST['pass2'];
+$current_pass = $_POST['current_pass'];
+
 
 if (isset($_POST['submit'])) {
 	if ($isAdmin == 'admin') {
@@ -27,7 +32,6 @@ if (isset($_POST['submit'])) {
 	} else {
 		$userID = $_SESSION['userID'];
 	}
-
 
 if (!empty($firstname)) {
     if (preg_match("/^[a-zA-Z\p{Cyrillic}]{2,16}$/iu", $firstname)) {
@@ -65,15 +69,23 @@ if(!empty($address))
                 echo("You have successfully updated your Address");
 }
 if (!empty($password) && !empty($pass) && !empty($pass2)) {
-    $check = "SELECT * FROM parenuser WHERE 'pass' = '$password'";
+
+    $check = "SELECT * FROM parenuser WHERE 'pass' = '$password' AND userID='$userID'";
+
+    $get_current_pass = mysqli_query($conn, "SELECT pass FROM parenuser WHERE userID='$userID'");
+    $row = mysqli_fetch_object($get_current_pass);
+    $current_pass = $row->pass;
+
+
+
     $rs = mysqli_query($conn, $check) or die("Error in the consult.." . mysqli_error());
-    $data = mysqli_fetch_array($rs, MYSQLI_NUM);
+    $data = mysqli_fetch_array($rs, MYSQLI_BOTH);
+    $data_two = mysqli_fetch_row($rs);
+
     if ($data[0] = 1) {
         
-            if ($password === $pass) {
-                echo ("Моля въведете парола различна от настоящата.");
-            } else if (preg_match("/^(?=.*[a-zA-Z])(?=.*[\d])(?=.*[\W_]).{5,16}$/", $pass)) {
-                if ($pass === $pass2) {
+             if (preg_match("/^(?=.*[a-zA-Z])(?=.*[\d])(?=.*[\W_]).{5,16}$/", $pass)) {
+                if (($pass == $pass2) && ($current_pass == $password)) {
                     $escapedPass = mysqli_real_escape_string($conn, $pass);
 
                     $query = mysqli_query($conn, "UPDATE parenuser SET `pass`='$escapedPass' WHERE userID='$userID'") or die(mysql_error());
@@ -81,12 +93,14 @@ if (!empty($password) && !empty($pass) && !empty($pass2)) {
                 } else {
                     echo ("Паролите ви не съвпадат");
                 }
+            
+            } else {
+                echo "Неправилна парола въведена";
             }
         }
-    }
-
+    } 
 }
-header("Refresh: 1; url=user.php"."?id=".$userID);
+header("Refresh: 5; url=user.php"."?id=".$userID);
 echo $userID;
 
 

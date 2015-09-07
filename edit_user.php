@@ -70,6 +70,11 @@ $conn->set_charset("utf8");
 				<button type="submit" name="submit" class="btn">Запиши промените</button><br><br><br>
 			</div>
 
+	<?php     $get_current_pass = mysqli_query($conn, "SELECT pass FROM parenuser WHERE userID='$userID'");
+    $row = mysqli_fetch_object($get_current_pass);
+    $current_pass = $row->pass; ?>
+ 	<input type="hidden" name="current_pass" value="<?php echo $current_pass;?>">
+			
 			<?php $userID = $_SESSION["userID"]?>
 			<input type="hidden" name="id" value="<?php echo $userID;?>">
 		</form>
