@@ -36,9 +36,12 @@
 			   
 			   
 			 }
-		   else{
-			   
-		   }?>
+		   else  if (isset($_SESSION['status']) && ( $_SESSION['status'] == "user")) {
+			   require_once "user_booking_message.php";
+		   }else
+		   {
+		   	}
+		   	?>
 		  </section>
 		  
 		 
