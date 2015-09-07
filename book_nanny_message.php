@@ -22,7 +22,9 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")){
 	$status="";
 
 	$nannyQuery = mysqli_query($conn, "SELECT * FROM booking where nannyID = '$nannyID'")or die("Стана грешкка " . mysql_error()); 
-	while($row = mysqli_fetch_array($nannyQuery)) { ?>	
+	while($row = mysqli_fetch_array($nannyQuery)) { 
+		$book_id = $row['bookingID'];
+		$status=$row['status'];?>	
 		<div class="inner">
 			<div>Запитване от:</div>
 			<div>
@@ -73,41 +75,22 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")){
 			До:
 			<?php 
 			echo $row['endDate']; 
-			$book_id = $row['bookingID'];
-			$status=$row['status'];
-			echo $status . " order-ID=" . $book_id;
 			?>
-			
 			</div>
 			<div class="buttons">
 			<?php if($status=="accepted" ){ ?> <a class="btn" disabled>Приет</a>
 			<?php } else if ($status=="rejected"){ ?> <a class="btn" disabled>Отказан</a>
 			<?php } 
 				else if($status=="request") {
-				echo "<a class='btn' href='home_page.php?action=accept&id=".$book_id."'>Приеми</a>";
-				echo "<a class='btn' href='home_page.php?action=reject&id=".$book_id."'>Откажи</a>";
+				echo "<a class='btn' href='book_nanny_message_update.php?action=accept&id=".$book_id."'>Приеми</a>";
+				echo "<a class='btn' href='book_nanny_message_update.php?action=reject&id=".$book_id."'>Откажи</a>";
 			} ?>
 			</div>
 		</div>
 		
 	<?php } ?>
 	<?php	
-		if (isset($_GET['action'])){
-			$book_id = $_GET['id'];
-			if($_GET['action']=="reject"){
-				$update_status = mysqli_query($conn, "UPDATE booking SET status='rejected' WHERE bookingID = '$book_id'")or die("Стана грешкка " . mysql_error()); 
-				if($update_status){
-					header("Refresh: 1; url=home_page.php");
-				}
-				
-			}
-			if($_GET['action']=="accept"){
-				$update_status = mysqli_query($conn, "UPDATE booking SET status='accepted' WHERE bookingID = '$book_id'")or die("Стана грешкка " . mysql_error()); 
-				if($update_status){
-					header("Refresh: 1; url=home_page.php");
-				}
-			}
-		}			
+			
 	}
  ?>
 

@@ -1,9 +1,7 @@
 <div id="search-result">
-	<table>
-		<tbody>
+	
 			<?php require_once "nanny-search-result.php";?>
-		</tbody>
-	</table>
+	
 </div>
 <h1>Търси по:</h1><br>
 Име
