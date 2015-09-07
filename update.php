@@ -152,8 +152,7 @@ if (!empty($password) && !empty($pass) && !empty($pass2)) {
         }
     } 
 
-header("Refresh: 5; url=nanny_profil.php"."?id=".$userID);
-echo $userID;
+header("Refresh: 0; url=nanny_profil.php"."?id=".$userID);
 
 
 ?>
