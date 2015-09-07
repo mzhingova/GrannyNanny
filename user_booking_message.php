@@ -13,40 +13,17 @@ $conn->set_charset("utf8");
 
 /* include 'includes/header.php'; */
 
-if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")){
+if (isset($_SESSION['status']) && ($_SESSION['status'] == "user")){
 
 
-	$nannyID = $_SESSION["userID"]; 
+	$userID = $_SESSION["userID"]; 
 	$parentID=0;
 	$bookingID = 0;
 	$status="";
 
-	$nannyQuery = mysqli_query($conn, "SELECT * FROM booking where nannyID = '$nannyID'")or die("Стана грешкка " . mysql_error()); 
-	while($row = mysqli_fetch_array($nannyQuery)) { 
-		$book_id = $row['bookingID'];
-		$status=$row['status'];?>	
+	$nannyQuery = mysqli_query($conn, "SELECT * FROM booking where userID = '$userID'")or die("Стана грешкка " . mysql_error()); 
+	while($row = mysqli_fetch_array($nannyQuery)) { ?>	
 		<div class="inner">
-			<div>Запитване от:</div>
-			<div>
-			Име:
-			<?php 
-			echo $row['book_firstname']; ?>
-			</div>
-			<div>
-			Фамилия:
-			<?php 
-			echo $row['book_lastname']; ?>
-			</div>
-			<div>
-			Email:
-			<?php 
-			echo $row['book_email']; ?>
-			</div>
-			<div>
-			Телефон за контакт:
-			<?php 
-			echo $row['book_tel']; ?>
-			</div>
 			<div>Запитване за:</div>
 			<div>Град:
 			<?php 
@@ -75,26 +52,22 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")){
 			До:
 			<?php 
 			echo $row['endDate']; 
+			$book_id = $row['bookingID'];
+			$status=$row['status'];
+			echo $status . " order-ID=" . $book_id;
 			?>
+			
 			</div>
 			<div class="buttons">
 			<?php if($status=="accepted" ){ ?> <a class="btn" disabled>Приет</a>
 			<?php } else if ($status=="rejected"){ ?> <a class="btn" disabled>Отказан</a>
 			<?php } 
-				else if($status=="request") {
-				echo "<a class='btn' href='book_nanny_message_update.php?action=accept&id=".$book_id."'>Приеми</a>";
-				echo "<a class='btn' href='book_nanny_message_update.php?action=reject&id=".$book_id."'>Откажи</a>";
+				else { 
 			} ?>
 			</div>
 		</div>
 		
-	<?php } ?>
-	<?php	
-			
+	<?php }
+				
 	}
  ?>
-
-        
-
-
-

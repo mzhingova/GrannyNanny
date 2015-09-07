@@ -15,14 +15,10 @@
 		<aside class="aside aside-1">
 			<div class="assidenav">
 			
-			<div>Всички
-			</div>
-			<div>Приети
-			</div>
-			<div>Отказани
-			</div>
-			<div>Чакащи
-			</div>
+			<div><a href="booking_all_requests.php">Всички</a></div>
+			<div><a href="booking_accepted_requests.php">Приети</a></div>
+			<div><a href="booking_rejected_requests.php">Отказани</a></div> 
+			<div><a href="booking_pending_requests.php">Чакащи</a></div>
 			
 			</div>
 		
@@ -36,9 +32,12 @@
 			   
 			   
 			 }
-		   else{
-			   
-		   }?>
+		   else  if (isset($_SESSION['status']) && ( $_SESSION['status'] == "user")) {
+			   require_once "user_booking_message.php";
+		   }else
+		   {
+		   	}
+		   	?>
 		  </section>
 		  
 		 
