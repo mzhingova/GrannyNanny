@@ -63,7 +63,7 @@ if (isset($file)) {
 
 			}
 		} else {
-			echo "Прекалено голяма снимка.";
+			echo "Прекалено голяма снимка. Максималният разрешен размер е '1 MB'";
 		}
 
 	}
@@ -81,7 +81,7 @@ if (!empty($lastname)) {
 		$query = mysqli_query($conn, "UPDATE parenuser SET `lastname`='$lastname' WHERE userID='$userID'") or die(mysql_error());
 
 	} else {
-		echo "Моля въведете валидно фамилия.";
+		echo "Моля въведете валидна фамилия.";
 	}
 }
 if (!empty($tel)) {
@@ -106,7 +106,6 @@ if (!empty($address)) {
 }
 if (!empty($workout)) {
 	$query = mysqli_query($conn, "UPDATE parenuser SET `workout`='$workout' WHERE userID='$userID'") or die(mysql_error());
-
 }
 if (!empty($city)) {
 	$query = mysqli_query($conn, "UPDATE parenuser SET `city`='$city' WHERE userID='$userID'") or die(mysql_error());
@@ -115,7 +114,7 @@ if (!empty($city)) {
 if (!empty($education)) {
 	$query = mysqli_query($conn, "UPDATE parenuser SET `education`='$education' WHERE userID='$userID'") or die(mysql_error());
 
-}
+} 
 if (!empty($work_status)) {
 	$query = mysqli_query($conn, "UPDATE parenuser SET `work_status`='$work_status' WHERE userID='$userID'") or die(mysql_error());
 
@@ -151,8 +150,8 @@ if (!empty($password) && !empty($pass) && !empty($pass2)) {
             }
         }
     } 
-
-header("Refresh: 0; url=nanny_profil.php"."?id=".$userID);
+echo "Всички промени бяха успешно запазени ! ";
+header("Refresh: 3; url=nanny_profil.php"."?id=".$userID);
 
 
 ?>

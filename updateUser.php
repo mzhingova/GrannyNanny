@@ -46,14 +46,13 @@ if (!empty($lastname)) {
         $query = mysqli_query($conn, "UPDATE parenuser SET `lastname`='$lastname' WHERE userID='$userID'") or die(mysql_error());
         
     } else {
-        echo "Моля въведете валидно фамилия.";
+        echo "Моля въведете валидна фамилия.";
     }
 }
 if (!empty($tel)) {
     if (preg_match("/^[0-9]{5,10}$/i", $tel)) 
     {
         $query = mysqli_query($conn, "UPDATE parenuser SET `tel`='$tel' WHERE userID='$userID'") or die(mysql_error());
-        
     } else {
         echo "Моля въведете валиден телефонен номер.";
     }
@@ -61,12 +60,10 @@ if (!empty($tel)) {
 if(!empty($city))
 {
     mysqli_query($conn, "UPDATE parenuser SET `city`='$city' WHERE userID='$userID'") or die(mysql_error());
-                echo("You have successfully updated your City");
 }
 if(!empty($address))
 {
     mysqli_query($conn, "UPDATE parenuser SET `address`='$address' WHERE userID='$userID'") or die(mysql_error());
-                echo("You have successfully updated your Address");
 }
 if (!empty($password) && !empty($pass) && !empty($pass2)) {
 
@@ -100,7 +97,8 @@ if (!empty($password) && !empty($pass) && !empty($pass2)) {
         }
     } 
 }
-header("Refresh: 0; url=user.php"."?id=".$userID);
+echo "Всички промени бяха успешно запазени ! ";
+header("Refresh: 3; url=user.php"."?id=".$userID);
 
 
 ?>
