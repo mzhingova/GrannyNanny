@@ -19,7 +19,7 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")){
 $nannyID = $_SESSION["userID"]; 
 $parentID=0;
 $bookingID = 0;
-$status="";
+
 
 $nannyQuery = mysqli_query($conn, "SELECT * FROM booking where nannyID = '$nannyID'")or die("Стана грешкка " . mysql_error()); 
 				while($row = mysqli_fetch_array($nannyQuery)) { ?>	
@@ -49,6 +49,7 @@ $nannyQuery = mysqli_query($conn, "SELECT * FROM booking where nannyID = '$nanny
 									<?php 
 									echo $row['book_tel']; ?>
 									</div>
+									<br><br>
 									<div>Запитване за:</div>
 									<div>Град:
 									<?php 
@@ -62,6 +63,7 @@ $nannyQuery = mysqli_query($conn, "SELECT * FROM booking where nannyID = '$nanny
 									<div>
 									Брой деца: 
 									<?php echo $row['children']; ?>
+
 									</div>
 									<div>Инфо
 									<?php if($row['info'] != '') {
@@ -77,29 +79,18 @@ $nannyQuery = mysqli_query($conn, "SELECT * FROM booking where nannyID = '$nanny
 									До:
 									<?php 
 									echo $row['endDate']; 
-									$book_id = $row['bookingID'];
-									$status=$row['status'];
-									echo $status;
 									?>
 									</div>
-							<script src="assets/js/nanny_accept_reject.js" type="text/javascript" charset="utf-8"></script>
 
-        					<form name = "accepted" method ="POST"  action = "">
-									<div class="buttons">
-									<?php if($status=="accepted" ){?>
-										<button type="button"  class="btn" disabled>Приет</button>
-										<?php
-									}else if ($status=="rejected"){?>
-									<button type="button" class="btn" disabled>Отказан</button>
-									
-									<?php } else if($status=="request") { ?>
-									<button type="submit" name="accept" class="btn">Приеми</button>
-									<button  type="submit" name="reject" class="btn">Откажи</button>
-									<?php } ?>
+        					<form name = "accepted" method ="POST" action = "">
+									<div calss="buttons">
+									<button type="submit" name="accept" value="<?php $book_id ?>" class="btn">Приеми</button>
+									<button type="submit" name="reject" value="<?php $book_id ?>" class="btn">Откажи</button>
 									</div>
-									</form>
 								</div>
-							
+							</form>
+							<?php $book_id = $row['bookingID']; ?>
+							<?php } ?>
 <?php if (isset($_POST['accept'])){
 $update_status = mysqli_query($conn, "UPDATE booking SET status='accepted' WHERE bookingID = '$book_id'")or die("Стана грешкка " . mysql_error()); 
 	}
@@ -112,18 +103,15 @@ $update_status = mysqli_query($conn, "UPDATE booking SET status='rejected' WHERE
         
 
 
-
 	<!--<a href="edit_user.php"><button id="btn" type="submit" name="submit" class="btn">Редактиране на профила</button></a><br>
 			</div>
 			<input type="hidden" name="id" value="<?php echo $userID; ?>" /> -->
 
 							
 							<?php 
-							} 
+							 
 							}
-							
+							?>
 					
 
-/* $tableQuery = mysqli_query($conn, "SELECT * FROM booking where status='nanny' LIMIT $start_from, $per_page")or die("Стана грешкка " . mysql_error()); 
-					$query = mysqli_query($conn, "SELECT * FROM parenuser WHERE status='nanny'") or die("Стана грешкка " . mysql_error()); --> */
 					
