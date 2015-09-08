@@ -54,8 +54,6 @@ function validateForm() {
 alert("Несъответствие в полето: 'Настояща парола'");
 return false;
 	}	
-  }	else {
-  	alert("Промените бяха записани успешно");
   }
 	
 }

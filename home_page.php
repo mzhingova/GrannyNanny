@@ -9,7 +9,7 @@
 	<body>
 		<div class="container">
 			<?php include 'includes/header.php';?>
-			<link rel="stylesheet" href="assets/css/messages_style.css">
+			<link rel="stylesheet" href="assets/css/messages_style.css"> 
 			<div class="content">
 		<div class="wrapper">
 		<aside class="aside aside-1">
@@ -47,8 +47,9 @@
 			</div>
 			
 					<div class="container">
+					
 				<?php include 'includes/footer.php';?>
 			</div>
-			
+			<script src="assets/js/home_page.js"></script>
 		</body>
 	</html>
