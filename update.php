@@ -101,8 +101,12 @@ if (!empty($motivation)) {
 	}
 }
 if (!empty($address)) {
+if (preg_match("/^.{5,50}$/i", $address)) {
 	$query = mysqli_query($conn, "UPDATE parenuser SET `address`='$address' WHERE userID='$userID'") or die(mysql_error());
 
+	} else {
+		echo ("Адресът не може да бъде по-малко от 5 символа и повече от 50.");
+	}
 }
 if (!empty($workout)) {
 	$query = mysqli_query($conn, "UPDATE parenuser SET `workout`='$workout' WHERE userID='$userID'") or die(mysql_error());
@@ -151,7 +155,12 @@ if (!empty($password) && !empty($pass) && !empty($pass2)) {
         }
     } 
 echo "Всички промени бяха успешно запазени ! ";
-header("Refresh: 3; url=nanny_profil.php"."?id=".$userID);
+if ($isAdmin == 'admin') {
+header("Refresh: 3; url=search.php");
+} else {
+header("Refresh: 3; url=nanny_profil.php");
+}
+
 
 
 ?>

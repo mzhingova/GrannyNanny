@@ -63,7 +63,12 @@ if(!empty($city))
 }
 if(!empty($address))
 {
-    mysqli_query($conn, "UPDATE parenuser SET `address`='$address' WHERE userID='$userID'") or die(mysql_error());
+    if (preg_match("/^.{5,50}$/i", $address)) {
+    $query = mysqli_query($conn, "UPDATE parenuser SET `address`='$address' WHERE userID='$userID'") or die(mysql_error());
+
+    } else {
+        echo ("Адресът не може да бъде по-малко от 5 символа и повече от 50.");
+    }
 }
 if (!empty($password) && !empty($pass) && !empty($pass2)) {
 
@@ -98,7 +103,7 @@ if (!empty($password) && !empty($pass) && !empty($pass2)) {
     } 
 }
 echo "Всички промени бяха успешно запазени ! ";
-header("Refresh: 3; url=user.php"."?id=".$userID);
+header("Refresh: 3; url=user.php");
 
 
 ?>

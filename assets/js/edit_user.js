@@ -3,7 +3,7 @@ function validateForm() {
      var fname = document.forms['regform']['firstname'].value;
      if (fname != ""){
      	if (!(fname.match(/^[a-zA-Z-\u0400-\u04FF]{2,16}$/i))){
-		alert("Моля въведете валидно име.");
+		alert("Моля въведете валидно име от 2 до 16 букви включително.");
 		return false;
      }
  }
@@ -12,15 +12,24 @@ function validateForm() {
 	var lname = document.forms['regform']['lastname'].value;
 	if (lname != ""){
    if (!(lname.match(/^[a-zA-Z-\u0400-\u04FF]{2,16}$/i))){
-		alert("Моля въведете валидна фамилия.");
+		alert("Моля въведете валидна фамилия от 2 до 16 букви включително.");
 		return false;
 	}
 }
+
+var address=document.forms['regform']['address'].value;
+	if (address != ""){
+	if(!(address.match(/^.{5,50}$/))){
+		alert ("Моля въведете валиден адрес, той не може да бъде по-малко от 5 символа и повече от 50.");
+		return false;
+	}
+}
+
 	//telephone 
 		var tel = document.forms['regform']['tel'].value;
 	if (tel != ""){
     if (!(tel.match(/^[0-9]{5,10}$/i))){
-		alert("Моля въведете валиден телефон.");
+		alert("Моля въведете валиден телефон от 5 до 10 цифри включително.");
 		return false;
 	}
 }
