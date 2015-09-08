@@ -4,9 +4,10 @@ Documentation     A resource file with reusable keywords and variables.
 Library           Selenium2Library
 Library           DatabaseLibrary
 
+
 *** Variables ***
 ${BASE_URL}                        http://localhost:8080/GrannyNanny
-${BROWSER}                         Chrome
+${BROWSER}                         Firefox
 ${DELAY}                           0.05 seconds
 ${LOGIN_URL}                       ${BASE_URL}/login.php
 ${HOME_URL}                        ${BASE_URL}/home.php
@@ -18,6 +19,17 @@ ${NANNY_REGISTER_ERROR_PAGE}       ${BASE_URL}/nanny_validation.php
 
 ${NANNY_USER}                      test30@abv.bg
 ${NANNY_PASS}                      test:1
+${NANNY_FIRSTNAME}                 Иван
+${NANNY_LASTNAME}                  Иванов
+${NANNY_CITY}                      София
+${NANNY_ADDRESS}                   ж.к. Банишора, бл. 1А
+${NANNY_TEL}                       0888123321
+${NANNY_EDUCATION}                 Средно специално
+${NANNY_WORK_STATUS}               Половин
+${NANNY_GENDER}                    Мъж
+${NANNY_MOTIVATION}                Аз съм най-доброто нани, алооо!
+${NANNY_PICTURE}                   D:\\xampp\\htdocs\\GrannyNanny\\Automation\\resources\\nanny.jpg
+
 
 
 *** Keywords ***
@@ -110,7 +122,7 @@ Submit Update Profile Form
 
 # Database Setup
 Connect To DB
-    Connect To Database Using Custom Params     MySQLdb     db='grannynanny', user='root', host='localhost', port=3306
+    Connect To Database Using Custom Params     MySQLdb     db='grannynanny', user='root', host='localhost', port=3306, charset='utf8'
 
 Clean DB
     Execute Sql String      DELETE FROM parenuser WHERE email IN ('${NANNY_USER}')
@@ -124,7 +136,7 @@ Doesn't exist in DB
     Check If Not Exists In Database     ${statement}
 
 Insert Nanny User in the DB
-    Execute Sql String      INSERT INTO parenuser (userID, firstname, lastname, email, city, address, pass, gender, pid, workout, work_status, education, motivation, status, photoname, photo, tel) VALUES (NULL, 'Carl', 'Cox', '${NANNY_USER}', '', '', '${NANNY_PASS}', '', '6510203010', '', '', '', 'I AM THE BEST!', 'nanny', '', 'D:\\xampp\\htdocs\\GrannyNanny\\Automation\\resources\\nanny.jpg', '1234567890')
+    Execute Sql String      INSERT INTO parenuser (userID, firstname, lastname, email, city, address, pass, gender, pid, workout, work_status, education, motivation, status, photoname, photo, tel) VALUES (NULL, '${NANNY_FIRSTNAME}', '${NANNY_LASTNAME}', '${NANNY_USER}', '${NANNY_CITY}', '${NANNY_ADDRESS}', '${NANNY_PASS}', '${NANNY_GENDER}', '6510203010', '', '${NANNY_WORK_STATUS}', '${NANNY_EDUCATION}', '${NANNY_MOTIVATION}', 'nanny', '', '${NANNY_PICTURE}', '${NANNY_TEL}')
 
 # Suite Setup
 Prepare DB
@@ -135,4 +147,6 @@ Prepare DB
 Clean DB and Close Connection
     Clean DB
     Disconnect From Database
+
+
 

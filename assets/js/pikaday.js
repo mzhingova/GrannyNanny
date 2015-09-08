@@ -1,8 +1,4 @@
-/*!
- * Pikaday
- *
- * Copyright © 2014 David Bushell | BSD & MIT license | https://github.com/dbushell/Pikaday
- */
+
 
 (function (root, factory)
 {
@@ -30,9 +26,7 @@
 {
     'use strict';
 
-    /**
-     * feature detection and helper functions
-     */
+
     var hasMoment = typeof moment === 'function',
 
     hasEventListeners = !!window.addEventListener,
@@ -172,9 +166,7 @@
         return calendar;
     },
 
-    /**
-     * defaults and localisation
-     */
+
     defaults = {
 
         // bind the picker to a form field
@@ -244,9 +236,9 @@
         i18n: {
             previousMonth : 'Previous Month',
             nextMonth     : 'Next Month',
-            months        : ['January','February','March','April','May','June','July','August','September','October','November','December'],
-            weekdays      : ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],
-            weekdaysShort : ['Sun','Mon','Tue','Wed','Thu','Fri','Sat']
+            months        : ['Януари','Февруари','Март','Април','Май','Юни','Юли','Август','Септември','Октомври','Ноемшри','Декември'],
+            weekdays      : ['Неделя','Понеделеник','Вторник','Сряда','Четвъртък','Петък','Събота'],
+            weekdaysShort : ['нед.','пон.','вт.','ср.','чет.','пет.','съб']
         },
 
         // Theme Classname

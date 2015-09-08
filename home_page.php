@@ -9,13 +9,13 @@
 	<body>
 		<div class="container">
 			<?php include 'includes/header.php';?>
-			<link rel="stylesheet" href="assets/css/messages_style.css">
+			<link rel="stylesheet" href="assets/css/messages_style.css"> 
 			<div class="content">
 		<div class="wrapper">
 		<aside class="aside aside-1">
 			<div class="assidenav">
 			
-			<div><a href="booking_all_requests.php">Всички</a></div>
+			<div><a href="home_page.php">Всички</a></div>
 			<div><a href="booking_accepted_requests.php">Приети</a></div>
 			<div><a href="booking_rejected_requests.php">Отказани</a></div> 
 			<div><a href="booking_pending_requests.php">Чакащи</a></div>
@@ -25,7 +25,7 @@
 		</aside>
 		 
 		  <section class="main">
-		   <h1 class="header">Header</h1>
+		   <h1 class="header">Заявки:</h1>
 		   
 		   <?php if (isset($_SESSION['status']) && ( $_SESSION['status'] == "nanny")) {
 			   require_once "book_nanny_message.php";
@@ -47,8 +47,9 @@
 			</div>
 			
 					<div class="container">
+					
 				<?php include 'includes/footer.php';?>
 			</div>
-			
+			<script src="assets/js/home_page.js"></script>
 		</body>
 	</html>
