@@ -5,6 +5,7 @@ $pageTitle = 'Log-in';
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 $conn = mysqli_connect('localhost', 'root', '', 'grannynanny');
+mysqli_set_charset($conn, "utf8");
 
 if (!$conn) {
 	die('Could not connect: ' . mysql_error());
@@ -28,14 +29,14 @@ if (isset($_POST['email']) and isset($_POST['pass'])) {
 			$_SESSION["lastname"] = $row['lastname'];
 			$_SESSION["status"] = $row['status'];
 			$_SESSION["userID"] = $row['userID'];
-			
+
 			/*if ($_SESSION["status"] == "nanny") {
-				header('Location: user_profile.php');
-			} else if ($_SESSION["status"] == "user") {
-				header('Location: user_profile.php');
-			} else if ($_SESSION["status"] == "admin") {
-				header('Location: user_profile.php');
-			}*/
+		header('Location: user_profile.php');
+		} else if ($_SESSION["status"] == "user") {
+		header('Location: user_profile.php');
+		} else if ($_SESSION["status"] == "admin") {
+		header('Location: user_profile.php');
+		}*/
 		}
 		header('Location: home.php');
 	} else {
