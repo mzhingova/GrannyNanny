@@ -18,6 +18,7 @@ if (isset($_POST['email']) and isset($_POST['pass'])) {
 	$escapedEmail = mysqli_real_escape_string($conn, $email);
 
 	$query = mysqli_query($conn, "SELECT * FROM parenuser WHERE email='$escapedEmail' AND pass='$escapedPassword'") or die("Стана грешкка " . mysql_error());
+	//$nannyQuery = mysqli_query($conn, "SELECT * FROM parenuser WHERE status='nanny'") or die("Стана грешкка " . mysql_error());
 	$count = mysqli_num_rows($query);
 	if (!$query) {
 		echo mysqli_error($conn);
@@ -28,15 +29,9 @@ if (isset($_POST['email']) and isset($_POST['pass'])) {
 			$_SESSION["lastname"] = $row['lastname'];
 			$_SESSION["status"] = $row['status'];
 			$_SESSION["userID"] = $row['userID'];
+
 			
-			/*if ($_SESSION["status"] == "nanny") {
-				header('Location: user_profile.php');
-			} else if ($_SESSION["status"] == "user") {
-				header('Location: user_profile.php');
-			} else if ($_SESSION["status"] == "admin") {
-				header('Location: user_profile.php');
-			}*/
-		}
+	}
 		header('Location: home.php');
 	} else {
 		header('Location: error.php');

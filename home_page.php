@@ -25,7 +25,7 @@
 		</aside>
 		 
 		  <section class="main">
-		   <h1 class="header">Header</h1>
+		   <h1 class="header">Заявки:</h1>
 		   
 		   <?php if (isset($_SESSION['status']) && ( $_SESSION['status'] == "nanny")) {
 			   require_once "book_nanny_message.php";
