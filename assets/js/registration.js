@@ -27,6 +27,17 @@ function validateForm(){
       return false;
    }
 
+   var address=document.forms['regform']['address'].value;
+	if (address === null || address === ""){
+	alert("Моля въведете адрес");
+        return false;
+	}
+	else if(!(address.match(/^.{5,50}$/))){
+		alert ("Моля въведете валиден адрес");
+		return false;
+	}
+
+
 	//telephone 
 		var tel = document.forms['regform']['tel'].value;
     if (tel === null || tel === "") {

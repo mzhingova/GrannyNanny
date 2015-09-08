@@ -59,16 +59,18 @@ $conn->set_charset("utf8");
 					<option value="Варна">Варна</option>
 				</select>
 				<label>Адрес</label>
+				<div class="patt">Може да бъде между 5 и 50 символа включително.</div>
 				<input type="text" name="address"></input>
 
 				<label>Телефонен номер</label>
+				<div class="patt">Може да бъде между 5 и 10 цифри включително.</div>
 				<input type="tel" name="tel" ></input>
 
 				<label>Образование</label>
 				<select name="education">
 					<option value=""></option>
 					<option value="Средно">Средно</option>
-					<option value="Средно специално">Средно специално</option>
+					<option value="Средно специално">Средно специално.</option>
 					<option value="Висше">Висше</option>
 				</select>
 				<div>
@@ -90,6 +92,7 @@ $conn->set_charset("utf8");
 				</div><br>
 
 				<label>Мотивационно поле</label><br>
+				<div class="patt">Може да бъде между 20 и 255 символа включително.</div>
 				<textarea id="motivation" type="text" name="motivation" ></textarea><br>
 
 				<label>Настояща парола</label>

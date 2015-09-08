@@ -53,9 +53,11 @@ $conn->set_charset("utf8");
 					<option value="Варна">Варна</option>
 				</select>
 				<b><label>Адрес</label></b>
+				<div class="patt">Може да бъде между 5 и 50 символа включително.</div>
 				<input type="text" name="address"></input>
 
 				<b><label>Телефонен номер</label></b>
+				<div class="patt">Може да бъде между 5 и 10 цифри включително.</div>
 				<input type="tel" name="tel" ></input>
 
 				<b><label>Настояща парола</label></b>

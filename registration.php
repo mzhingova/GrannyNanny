@@ -37,9 +37,11 @@
 							<option value="Бургас">Бургас</option>
 							<option value="Варна">Варна</option>
 							</select>
-							<label>Адрес</label>
+							<label>Адрес*</label>
+							<div class="patt">Може да бъде между 5 и 50 символа включително.</div>
 							<input id="address" type="text" name="address"></input>
 							<label>Телефонен номер*</label>
+							<div class="patt">Може да бъде между 5 и 10 цифри включително.</div>
 							<input id="tel" type="tel" name="tel" ></input>
 
 							<label>Email*</label>
