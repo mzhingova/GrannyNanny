@@ -15,7 +15,7 @@
 		<aside class="aside aside-1">
 			<div class="assidenav">
 			
-			<div><a href="booking_all_requests.php">Всички</a></div>
+			<div><a href="home_page.php">Всички</a></div>
 			<div><a href="booking_accepted_requests.php">Приети</a></div>
 			<div><a href="booking_rejected_requests.php">Отказани</a></div> 
 			<div><a href="booking_pending_requests.php">Чакащи</a></div>

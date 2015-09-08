@@ -93,17 +93,28 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")){
 	$bookingID = 0;
 	$status="";
 
-	$nannyQuery = mysqli_query($conn, "SELECT * FROM booking WHERE userID = '$userID' AND status ='accepted'")or die("Стана грешкка " . mysql_error()); 
-		while($row = mysqli_fetch_array($nannyQuery)) {
-			$nanny=$row['nannyID'];
-	$nannyInfoQuery = mysqli_query($conn, "SELECT * FROM parenuser, booking where parenuser.userID = '$nanny' AND booking.status = 'accepted'") or die ("Стана грешкка " . mysql_error()); ?>	
-		<div class="inner">
+	$nannyQuery = mysqli_query($conn, "SELECT * FROM booking where userID = '$userID' AND status='accepted'")or die("Стана грешкка " . mysql_error()); 
+	if( ! mysqli_num_rows($nannyQuery)) {
+	echo "Няма подобни заявки!";
+} else {
+		while($row = mysqli_fetch_array($nannyQuery)) { 
+	$nanny=$row['nannyID'];
+	$nannyInfoQuery = mysqli_query($conn, "SELECT * FROM parenuser, booking WHERE parenuser.userID = '$nanny'") or die ("Стана грешкка " . mysql_error()); ?>	
+		<div class="inner"> 
+		<div>
+			Заявка номер:
+			<?php
+			$book_id = $row['bookingID'];
+			$status=$row['status'];
+			echo $book_id." е ".$status;
+			?>
+			
+			</div>
 			<div><h3>Запитване към:<h></div>
-			<div>Nanny:
+			
+<div>Nanny:
 		<?php 
 while($row2= mysqli_fetch_array($nannyInfoQuery)){
-
-
 		echo $row2['firstname']. " ". $row2['lastname']; ?> </div>
 		<div> E-mail на Nanny:
 		<?php 
@@ -114,23 +125,16 @@ while($row2= mysqli_fetch_array($nannyInfoQuery)){
 			</div>
 			<div> Град на Nanny:
 			<?php 
-			echo $row2['city']; ?>
-			</div>
-			<div> Status
-			<?php
-			echo $row2['status']; 
-			
-
-
-}?>
-			
-			</div>
-			<div>Град на зявката:
+			echo $row2['city'];
+			break;
+			} 	?>	
+		</div>
+			<div>Град за заявката:
 			<?php 
 			echo $row['city']; ?>
 			</div>
 			<div>
-			Адрес на заявката: 
+			Адрес: 
 			<?php 
 			echo $row['address']; ?>
 			</div>
@@ -151,23 +155,17 @@ while($row2= mysqli_fetch_array($nannyInfoQuery)){
 			<div>
 			До:
 			<?php 
-			echo $row['endDate']; 
-			$book_id = $row['bookingID'];
-			$status=$row['status'];
-			echo $status . "\n order-ID=" . $book_id;
-			?>
+			echo $row['endDate']; ?>
+			</div>
 			
-			</div>
-			</div>
+		</div>
 		
 	<?php }
-	}
+}
 				
+	}		
 	 else {
-		echo "wtf";
-		var_dump($_SESSION["userID"]); 
-		var_dump($_SESSION["nannyID"]);
+		header("Location: error_booking.php");
 	}
+	include 'includes/footer.php';
  ?>
-
-        

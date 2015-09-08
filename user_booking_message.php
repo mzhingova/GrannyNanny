@@ -22,10 +22,22 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "user")){
 	$status="";
 
 	$nannyQuery = mysqli_query($conn, "SELECT * FROM booking where userID = '$userID'")or die("Стана грешкка " . mysql_error()); 
-	while($row = mysqli_fetch_array($nannyQuery)) { 
+		if( ! mysqli_num_rows($nannyQuery)) {
+	echo "Няма подобни заявки!";
+} else {
+		while($row = mysqli_fetch_array($nannyQuery)) { 
 	$nanny=$row['nannyID'];
-	$nannyInfoQuery = mysqli_query($conn, "SELECT * FROM parenuser, booking where parenuser.userID = '$nanny' AND booking.status = 'accepted'") or die ("Стана грешкка " . mysql_error()); ?>	
+	$nannyInfoQuery = mysqli_query($conn, "SELECT * FROM parenuser, booking WHERE parenuser.userID = '$nanny'") or die ("Стана грешкка " . mysql_error()); ?>	
 		<div class="inner"> 
+		<div>
+			Заявка номер:
+			<?php
+			$book_id = $row['bookingID'];
+			$status=$row['status'];
+			echo $book_id;
+			?>
+			
+			</div>
 			<div><h3>Запитване към:<h></div>
 			
 <div>Nanny:
@@ -41,13 +53,8 @@ while($row2= mysqli_fetch_array($nannyInfoQuery)){
 			</div>
 			<div> Град на Nanny:
 			<?php 
-			echo $row2['city']; ?>
-			</div>
-			<div> Status
-			<?php
-			echo $row2['status']; 
+			echo $row2['city'];
 			break;
-
 			} 	?>	
 		</div>
 			<div>Град за заявката:
@@ -76,16 +83,12 @@ while($row2= mysqli_fetch_array($nannyInfoQuery)){
 			<div>
 			До:
 			<?php 
-			echo $row['endDate']; 
-			$book_id = $row['bookingID'];
-			$status=$row['status'];
-			echo $status . " order-ID=" . $book_id;
-			?>
-			
+			echo $row['endDate']; ?>
 			</div>
+			
 		</div>
 		
 	<?php }
-				
+	} 
 	}
  ?>
