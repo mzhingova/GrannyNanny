@@ -68,7 +68,7 @@ if ($search){
 				echo "</div>";
 
 					echo "<div >";
-					echo "<a class='btn' href='edit_user_with_admin_status.php?id=$key->userID'>Редактирай</a>";
+					echo "<a class='btn' href='edit_user.php?id=$key->userID'>Редактирай</a>";
 					echo "</div>";
 				
 
