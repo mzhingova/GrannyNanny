@@ -23,12 +23,14 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")){
 	$status="";
 
 	$nannyQuery = mysqli_query($conn, "SELECT * FROM booking where nannyID = '$nannyID'")or die("Стана грешкка " . mysql_error()); 
+			if( ! mysqli_num_rows($nannyQuery)) {
+	echo "Няма подобни заявки!";
+} else {
 	while($row = mysqli_fetch_array($nannyQuery)) { 
 		$book_id = $row['bookingID'];
 		$status=$row['status'];?>	
 		<div class="inner">
-		
-			<a href="#<?php echo $book_id ;?>" class="<?php echo $status; ?>">Запитване от:
+			<a href="#<?php echo $book_id ;?>" class="<?php echo $status; ?>">Запитване №: <?php echo $book_id. " "; ?> от
 			<?php 
 			echo $row['book_firstname'] ;
 			echo " , ";
@@ -36,6 +38,15 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")){
 			<div id="<?php echo $book_id ?>" class="modalDialog">
 				<div>
 					 <a href="#close" title="Close" class="close">X</a>
+						<div>
+						Заявка номер:
+						<?php
+						$book_id = $row['bookingID'];
+						$status=$row['status'];
+						echo $book_id." е със статус ".$status;
+						?>
+						
+						</div>
 						<div>
 						Име:
 						<?php 
@@ -99,8 +110,8 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")){
 			</div>
 		</div>
 		
-	<?php } ?>
-	<?php	
+	<?php } 
+}
 			
 	}
  ?>

@@ -29,19 +29,19 @@ if (isset($_REQUEST['search-button'])) {
 if ($search){
 	$select_user = "SELECT * FROM parenuser WHERE status='user' ";
 	if ($firstname) {
-		$select_user .= "AND firstname LIKE '%$firstname%'";
+		$select_user .= "AND (firstname LIKE '%$firstname%' OR lastname LIKE '%$firstname%')";
 	}
 
 	if ($city) {
-		$select_user .= "AND city = '$city' AND status = 'user'";
+		$select_user .= "AND city = '$city'";
 	}
 
 	if ($address) {
-		$select_user .= "AND address LIKE '%$address%' AND status = 'user'";
+		$select_user .= "AND address LIKE '%$address%'";
 	}
 
 	if ($email) {
-		$select_user .= "AND email LIKE '%$email%' AND status = 'user'";
+		$select_user .= "AND email LIKE '%$email%'";
 	}
 	
 		$users = $db->get_results($select_user);

@@ -34,7 +34,7 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "user")){
 			<?php
 			$book_id = $row['bookingID'];
 			$status=$row['status'];
-			echo $book_id;
+			echo $book_id." е със статус ".$status;
 			?>
 			
 			</div>
