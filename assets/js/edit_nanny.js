@@ -8,6 +8,25 @@ function validateForm() {
      }
  }
      
+
+     var fileUpload = document.getElementById("img");
+     if (fileUpload.value != "") {
+	 var allowedFiles = [".gif",".png", ".jpeg", ".jpg"];
+     	var regex = new RegExp("([a-zA-Z0-9\s_\\.\-:])+(" + allowedFiles.join('|') + ")$");
+        if (regex.test(fileUpload.value.toLowerCase())) {
+			var size = parseFloat(fileUpload.files[0].size / 1024).toFixed(2);
+			if (size>1024) {
+            
+					alert("Непозволен размер.");
+					return false;
+				} 
+           
+			}else{
+			 alert ("Моля изберете подходящ формат снимка.");
+            return false;
+		}
+}
+
 	//last name
 	var lname = document.forms['regform']['lastname'].value;
 	if (lname != ""){

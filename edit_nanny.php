@@ -46,7 +46,7 @@ $conn->set_charset("utf8");
 				<div class="patt">Mоже да съдържа само букви и да има дължина 2-16 символа.</div>
 				<input type="text" name="lastname">
 				<label >Снимка</label>
-				<input type="file" name="image" >
+				<input type="file" name="image" id="img">
 
 				<label>Град</label>
 				<select name="city">
@@ -77,8 +77,8 @@ $conn->set_charset("utf8");
 					<label>Работен статус</label><br>
 					<select name="work_status">
 						<option value=""></option>
-						<option value="Пълен">Пълен работен ден</option>
-						<option value="Половин">Половин работен ден</option>
+						<option value="Пълен работен ден">Пълен работен ден</option>
+						<option value="Половин работен ден">Половин работен ден</option>
 						<option value="Безработен">Безработен</option>
 					</select>
 				</div>

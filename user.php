@@ -92,7 +92,9 @@ $conn ->set_charset("utf8");
 					</tr>
 					
 				</table><br>
-				<a href="edit_user.php"><button id="btn" type="submit" name="submit" class="btn">Редактиране на профила</button></a><br>
+				<?php 
+				echo "<a href='edit_user.php?firstname=".$row['firstname'].",lastname=".$row['lastname'].",city=".$row['city']."'><button id='btn' type='submit' name='submit' class='btn'>Редактиране на профила</button></a><br>"
+				?>
 				<?php } ?>
 				
 				<?php
