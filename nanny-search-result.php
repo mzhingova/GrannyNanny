@@ -122,7 +122,7 @@ if ($search){
 		}
 		}
 		else if ( !($db->get_results($select_nanny))){
-	echo "Няма намерени резултати!";
+	echo "Няма намерени резултати, моля опитайте отново";
 		}
 		else {
 		header("Location: error_booking.php");
