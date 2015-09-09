@@ -121,6 +121,12 @@ if ($search){
 			$counter++;
 		}
 		}
+		else if ( !($db->get_results($select_nanny))){
+	echo "Няма намерени резултати, моля опитайте отново";
+		}
+		else {
+		header("Location: error_booking.php");
+		}
 
 		//Using ceil function to divide the total records on per page
 		$total_pages = ceil($total_records / $per_page);

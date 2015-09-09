@@ -30,11 +30,11 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")){
 		$book_id = $row['bookingID'];
 		$status=$row['status'];?>	
 		<div class="inner">
-			<a href="#<?php echo $book_id ;?>" class="<?php echo $status; ?>">Запитване №: <?php echo $book_id. " "; ?> от
+			<a href="#<?php echo $book_id ;?>" >Запитване №: <?php echo $book_id. " "; ?> от
 			<?php 
 			echo $row['book_firstname'] ;
 			echo " , ";
-			echo  $row['book_lastname']; ?> <a/>
+			echo  $row['book_lastname']; ?> </a>
 			<div id="<?php echo $book_id ?>" class="modalDialog">
 				<div>
 					 <a href="#close" title="Close" class="close">X</a>
@@ -97,7 +97,7 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")){
 						echo $row['endDate']; 
 						?>
 						</div>
-							<div class="buttons">
+						<div class="buttons">
 							<?php if($status=="accepted" ){ ?> <a class="btn" disabled>Приет</a>
 							<?php } else if ($status=="rejected"){ ?> <a class="btn" disabled>Отказан</a>
 							<?php } 
@@ -105,7 +105,7 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")){
 								echo "<a class='btn' href='book_nanny_message_update.php?action=accept&id=".$book_id."'>Приеми</a>";
 								echo "<a class='btn' href='book_nanny_message_update.php?action=reject&id=".$book_id."'>Откажи</a>";
 							} ?>
-							</div>
+						</div>
 				</div>
 			</div>
 		</div>

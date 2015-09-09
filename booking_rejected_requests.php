@@ -11,8 +11,6 @@ if (!$conn) {
 }
 $conn->set_charset("utf8");
 
-include 'includes/header.php';
-
 if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")){
 
 
@@ -185,5 +183,5 @@ while($row2= mysqli_fetch_array($nannyInfoQuery)){
 	 else {
 		header("Location: error_booking.php");
 	}
-	include 'includes/footer.php';
+
  ?>
