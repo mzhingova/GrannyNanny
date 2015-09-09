@@ -56,6 +56,7 @@ if (isset($file)) {
 	$final_file = str_replace(' ', '-', $new_file_name);
 	$allowed = array('gif', 'png', 'jpg', 'jpeg');
 	$ext = pathinfo($file, PATHINFO_EXTENSION);
+
 	$ext = strtolower($ext);
 	if (in_array($ext, $allowed)) {
 		if ($new_size < 1024) {
@@ -130,7 +131,6 @@ if (!empty($password) && !empty($pass) && !empty($pass2)) {
     $check = "SELECT * FROM parenuser WHERE 'pass' = '$password' AND userID='$userID'";
 
     $get_current_pass = mysqli_query($conn, "SELECT pass FROM parenuser WHERE userID='$userID'");
-    $counter++;
     $row = mysqli_fetch_object($get_current_pass);
     $current_pass = $row->pass;
 

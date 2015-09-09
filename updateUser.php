@@ -77,7 +77,6 @@ if (!empty($password) && !empty($pass) && !empty($pass2)) {
     $check = "SELECT * FROM parenuser WHERE 'pass' = '$password' AND userID='$userID'";
 
     $get_current_pass = mysqli_query($conn, "SELECT pass FROM parenuser WHERE userID='$userID'");
-    $counter++;
     $row = mysqli_fetch_object($get_current_pass);
     $current_pass = $row->pass;
 
