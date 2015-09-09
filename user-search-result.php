@@ -20,7 +20,7 @@ $per_page=10;
 if (isset($_REQUEST['search-button'])) {
 	$firstname = htmlspecialchars($_GET['firstname']);
 	$city = htmlspecialchars($_GET['city']);
-	$address = htmlspecialchars($_GET['address']);
+	$address = ($_GET['address']);
 	$email = htmlspecialchars($_GET['email']);
 	$lastname = htmlspecialchars($_GET['lastname']);
 		$search=true;
