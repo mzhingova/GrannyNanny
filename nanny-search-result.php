@@ -1,10 +1,10 @@
 <?php
-
+/*
 if((!isset($_SESSION['status'])) || ((isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")))) {
 session_destroy(); // does not log out the nanny!!!
 header('Location: login.php');
 
-}
+}*/
 
 require_once 'lib/database.php';
 
@@ -46,7 +46,7 @@ if ($search){
 		$select_nanny = "SELECT * FROM parenuser WHERE status='nanny' ";
 
 		if ($firstname){
-			$select_nanny .= " AND firstname LIKE '%$firstname%'";
+			$select_nanny .= " AND (firstname LIKE '%$firstname%' OR lastname LIKE '%$firstname%')";
 			
 		}
 

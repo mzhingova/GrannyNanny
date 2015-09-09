@@ -12,19 +12,9 @@
 			<link rel="stylesheet" href="assets/css/messages_style.css"> 
 			<div class="content">
 		<div class="wrapper">
-		<aside class="aside aside-1">
-			<div class="assidenav">
-			
-			<div><a href="home_page.php">Всички</a></div>
-			<div><a href="booking_accepted_requests.php">Приети</a></div>
-			<div><a href="booking_rejected_requests.php">Отказани</a></div> 
-			<div><a href="booking_pending_requests.php">Чакащи</a></div>
-			
-			</div>
-		
-		</aside>
+		<?php require_once "booking_requests_navigation.php";?>
 		 
-		  <section class="main">
+		<section class="main">
 		   <h1 class="header">Заявки:</h1>
 		   
 		   <?php if (isset($_SESSION['status']) && ( $_SESSION['status'] == "nanny")) {
