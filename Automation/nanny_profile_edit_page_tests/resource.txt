@@ -7,7 +7,7 @@ Library           DatabaseLibrary
 
 *** Variables ***
 ${BASE_URL}                        http://localhost:8080/GrannyNanny
-${BROWSER}                         Chrome
+${BROWSER}                         Firefox
 ${DELAY}                           0.05 seconds
 ${LOGIN_URL}                       ${BASE_URL}/login.php
 ${HOME_URL}                        ${BASE_URL}/home.php
@@ -137,16 +137,19 @@ Doesn't exist in DB
     Check If Not Exists In Database     ${statement}
 
 Insert Nanny User in the DB
-    Execute Sql String      INSERT INTO parenuser (userID, firstname, lastname, email, city, address, pass, gender, pid, workout, work_status, education, motivation, status, photoname, photo, tel) VALUES (NULL, '${NANNY_FIRSTNAME}', '${NANNY_LASTNAME}', '${NANNY_USER}', '${NANNY_CITY}', '${NANNY_ADDRESS}', '${NANNY_PASS}', '${NANNY_GENDER}', '6510203010', '', '${NANNY_WORK_STATUS}', '${NANNY_EDUCATION}', '${NANNY_MOTIVATION}', 'nanny', '', '${NANNY_PICTURE}', '${NANNY_TEL}')
+    Execute Sql String      INSERT INTO parenuser (userID, firstname, lastname, email, city, address, pass, gender, pid, workout, work_status, education, motivation, status, photoname, photo, tel, age) VALUES (NULL, '${NANNY_FIRSTNAME}', '${NANNY_LASTNAME}', '${NANNY_USER}', '${NANNY_CITY}', '${NANNY_ADDRESS}', '${NANNY_PASS}', '${NANNY_GENDER}', '6510203010', '', '${NANNY_WORK_STATUS}', '${NANNY_EDUCATION}', '${NANNY_MOTIVATION}', 'nanny', '', '${NANNY_PICTURE}', '${NANNY_TEL}', 49)
 
 # Suite Setup
 Prepare DB
     Connect To DB
 
 # Suite Teardown
-Clean DB and Close Connection
-    Clean DB
+Close Connection
     Disconnect From Database
 
+#Test Teardown
+Teardown
+    Clean DB
+    Close Browser
 
 

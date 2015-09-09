@@ -48,7 +48,7 @@ if ($search){
 		$total_records = count($users);
 		$select_user .= " LIMIT $per_page offset $start_from";
 	
-	if ($users = $db->get_results($select_user)) {
+if ($users = $db->get_results($select_user)) {
 			$counter = 1;
 			foreach ($users as $key) {
 				echo "<div>";
@@ -80,9 +80,11 @@ if ($search){
 		
 
 		
-	}/*  else if (count($result==0)) {
-		echo "Няма намерени резултати, моля опитайте отново";
-	} */
+	}  	else if ( !($db->get_results($select_user))){
+	echo "Няма намерени резултати, моля опитайте отново";
+}else {
+		header("Location: error_booking.php");
+	}
 	
 		//Using ceil function to divide the total records on per page
 		$total_pages = ceil($total_records / $per_page);
