@@ -7,7 +7,7 @@ Library           DatabaseLibrary
 *** Variables ***
 ${BASE_URL}                        http://localhost:8080/GrannyNanny
 ${BROWSER}                         Chrome
-${DELAY}                           0.05 seconds
+${DELAY}                           0.5 seconds
 ${LOGIN_URL}                       ${BASE_URL}/login.php
 ${WELCOME_URL}                     ${BASE_URL}/user_profile.php
 ${ERROR_URL}                       ${BASE_URL}/error.php
