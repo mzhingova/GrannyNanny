@@ -81,7 +81,7 @@ if ($users = $db->get_results($select_user)) {
 
 		
 	}  	else if ( !($db->get_results($select_user))){
-	echo "Няма подобни заявки!";
+	echo "Няма намерени резултати!";
 }else {
 		header("Location: error_booking.php");
 	}
