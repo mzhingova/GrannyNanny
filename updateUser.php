@@ -109,7 +109,12 @@ echo "Всички промени бяха успешно запазени ! ";
     } else {
         echo "Не бяха направени промени по профилът. ";
     }
-    header("Refresh: 3; url=user.php");
+
+if ($isAdmin == 'admin') {
+header("Refresh: 3; url=search_one.php");
+} else {
+header("Refresh: 3; url=user.php");
+}
 
 
 ?>
