@@ -56,7 +56,7 @@ if (isset($file)) {
 	$final_file = str_replace(' ', '-', $new_file_name);
 	$allowed = array('gif', 'png', 'jpg', 'jpeg');
 	$ext = pathinfo($file, PATHINFO_EXTENSION);
-
+	$ext = strtolower($ext);
 	if (in_array($ext, $allowed)) {
 		if ($new_size < 1024) {
 			if (move_uploaded_file($file_loc, $folder . $final_file)) {
