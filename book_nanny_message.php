@@ -23,13 +23,14 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")){
 	$status="";
 
 	$nannyQuery = mysqli_query($conn, "SELECT * FROM booking where nannyID = '$nannyID'")or die("Стана грешкка " . mysql_error()); 
-			if( ! mysqli_num_rows($nannyQuery)) {
-	echo "Няма подобни заявки!";
-} else {
+	if( ! mysqli_num_rows($nannyQuery)) {
+		echo "Няма подобни заявки!";
+	} else {
 	while($row = mysqli_fetch_array($nannyQuery)) { 
 		$book_id = $row['bookingID'];
 		$status=$row['status'];?>	
 		<div class="inner">
+		
 			<a href="#<?php echo $book_id ;?>" >Запитване №: <?php echo $book_id. " "; ?> от
 			<?php 
 			echo $row['book_firstname'] ;
@@ -108,12 +109,20 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")){
 						</div>
 				</div>
 			</div>
+				<?php if($status=="accepted"){ ?>
+			<div class="accepted">Приет</div>
+			<?php } else if($status=="rejected"){ ?>
+			<div class="rejected">Отказан</div>
+			<?php } else if($status=="required"){ ?>
+			<div class="required">Чакащ</div>
+			<?php }?>
+			
 		</div>
 		
 	<?php } 
-}
-			
 	}
+			
+}
  ?>
 
         

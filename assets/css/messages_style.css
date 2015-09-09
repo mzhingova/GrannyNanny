@@ -59,9 +59,6 @@ margin-top:2em;}
         background: rgba(0,0,0,0.8);
         z-index: 99999;
         opacity:0;
-        -webkit-transition: opacity 400ms ease-in;
-        -moz-transition: opacity 400ms ease-in;
-        transition: opacity 400ms ease-in;
         pointer-events: none;
     }
 
@@ -99,8 +96,34 @@ margin-top:2em;}
         box-shadow: 1px 1px 3px #000;
     }
 
-    
+.accepted{
+      float: right;
+    background-color: rgba(89, 177, 62, 0.7);
+    padding: 0.2em;
+    border-radius: 0.1em;
+    color: white;
+	width: 10%;
+text-align: center;
+}
+.rejected{
+      float: right;
+    background-color:rgba(212, 65, 65, 0.74); 
+    padding: 0.2em;
+    border-radius: 0.1em;
+    color: white;
+	width: 10%;
+text-align: center;
+}
 
+.required{
+      float: right;
+    background-color: rgba(62, 149, 177, 0.7);
+    padding: 0.2em;
+    border-radius: 0.1em;
+    color: white;
+	width: 10%;
+text-align: center;
+}
 @media all and (min-width: 600px) {
   .aside {
     flex: 1 auto;
