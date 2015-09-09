@@ -7,7 +7,7 @@ Library           DatabaseLibrary
 
 *** Variables ***
 ${BASE_URL}                        http://localhost:8080/GrannyNanny
-${BROWSER}                         Firefox
+${BROWSER}                         Chrome
 ${DELAY}                           0.05 seconds
 ${LOGIN_URL}                       ${BASE_URL}/login.php
 ${HOME_URL}                        ${BASE_URL}/home.php
@@ -35,6 +35,7 @@ ${NANNY_PICTURE}                   D:\\xampp\\htdocs\\GrannyNanny\\Automation\\r
 *** Keywords ***
 # Login as nanny
 Login as Nanny
+    Insert Nanny User in the DB
     Open Browser    ${BASE_URL}      ${BROWSER}
     Maximize Browser Window
     Set Selenium Speed    ${DELAY}
@@ -141,7 +142,6 @@ Insert Nanny User in the DB
 # Suite Setup
 Prepare DB
     Connect To DB
-    Insert Nanny User in the DB
 
 # Suite Teardown
 Clean DB and Close Connection

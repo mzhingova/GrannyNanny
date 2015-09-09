@@ -8,7 +8,7 @@ Test Teardown     Close Browser
 Suite Teardown 	  Clean DB and Close Connection
 
 *** Test Cases ***
-#Valid Registration with filling all fields
+Valid Registration with filling all fields
    Exist in DB	select * from parenuser where email = '${ADMIN_USER}'
    Input Firstname   Gancho
    Input Lastname    Gancho
@@ -27,7 +27,7 @@ Suite Teardown 	  Clean DB and Close Connection
    Success Page Should Be Open
    Exist in DB 	select * from parenuser where email = '${USERNAME}'
 
-#Trying to register with already registered user's data
+Trying to register with already registered user's data
    Exist in DB     select * from parenuser where email = '${ADMIN_USER}'
    Exist in DB     select * from parenuser where email = '${USERNAME}'
    Input Firstname   Gancho
@@ -47,7 +47,7 @@ Suite Teardown 	  Clean DB and Close Connection
    Email already registered page should be opened
    Exist in DB     select * from parenuser where email = '${USERNAME}'
 
-#Trying to register with photo size > 1 mb with already registered email
+Trying to register with photo size > 1 mb with already registered email
    Exist in DB     select * from parenuser where email = '${ADMIN_USER}'
    Exist in DB     select * from parenuser where email = '${USERNAME}'
    Input Firstname   Gancho

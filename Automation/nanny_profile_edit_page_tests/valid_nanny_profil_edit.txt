@@ -9,36 +9,35 @@ Suite Teardown 	    Clean DB and Close Connection
 
 *** Test Cases ***
 Valid Change of the First And Last Name
- Exist in DB	select * from parenuser where email = '${NANNY_USER}' AND firstname = '${NANNY_FIRSTNAME}' AND lastname = '${NANNY_LASTNAME}'
- Doesn't exist in DB  select * from parenuser where email = '${NANNY_USER}' AND firstname = 'Ivan' AND lastname = 'Indjov'
- Input Firstname   Ivan
- Input Lastname    Indjov
- Submit Update Profile Form
- Exist in DB 	select * from parenuser where email = '${NANNY_USER}' AND firstname = 'Ivan' AND lastname = 'Indjov'
+  Exist in DB	select * from parenuser where email = '${NANNY_USER}' AND firstname = '${NANNY_FIRSTNAME}' AND lastname = '${NANNY_LASTNAME}'
+  Input Firstname   Ivan
+  Input Lastname    Indjov
+  Submit Update Profile Form
+  Exist in DB 	select * from parenuser where email = '${NANNY_USER}' AND firstname = 'Ivan' AND lastname = 'Indjov'
 
 Valid Change of the City
- Exist in DB  select * from parenuser where email = '${NANNY_USER}' AND city = '${NANNY_CITY}'
- Select City  Ямбол
- Submit Update Profile Form
- Exist in DB 	select * from parenuser where email = '${NANNY_USER}' AND city = 'Ямбол'
+  Exist in DB  select * from parenuser where email = '${NANNY_USER}' AND city = '${NANNY_CITY}'
+  Select City  Ямбол
+  Submit Update Profile Form
+  Exist in DB 	select * from parenuser where email = '${NANNY_USER}' AND city = 'Ямбол'
 
 Valid Change of the Address
- Exist in DB  select * from parenuser where email = '${NANNY_USER}' AND address = '${NANNY_ADDRESS}'
- Input Address  ул. Балша 1, ж.к. Иван Вазов
- Submit Update Profile Form
- Exist in DB 	select * from parenuser where email = '${NANNY_USER}' AND address = 'ул. Балша 1, ж.к. Иван Вазов'
+  Exist in DB  select * from parenuser where email = '${NANNY_USER}' AND address = '${NANNY_ADDRESS}'
+  Input Address  ул. Балша 1, ж.к. Иван Вазов
+  Submit Update Profile Form
+  Exist in DB 	select * from parenuser where email = '${NANNY_USER}' AND address = 'ул. Балша 1, ж.к. Иван Вазов'
 
 Valid Change of the Telephone
- Exist in DB  select * from parenuser where email = '${NANNY_USER}' AND tel = '${NANNY_TEL}'
- Input Telephone  1234567890
- Submit Update Profile Form
- Exist in DB 	select * from parenuser where email = '${NANNY_USER}' AND tel = '1234567890'
+  Exist in DB  select * from parenuser where email = '${NANNY_USER}' AND tel = '${NANNY_TEL}'
+  Input Telephone  1234567890
+  Submit Update Profile Form
+  Exist in DB 	select * from parenuser where email = '${NANNY_USER}' AND tel = '1234567890'
 
 Valid Change of the Education
- Exist in DB  select * from parenuser where email = '${NANNY_USER}' AND education = '${NANNY_EDUCATION}'
- Select Education  Висше
- Submit Update Profile Form
- Exist in DB 	select * from parenuser where email = '${NANNY_USER}' AND education = 'Висше'
+  Exist in DB  select * from parenuser where email = '${NANNY_USER}' AND education = '${NANNY_EDUCATION}'
+  Select Education  Висше
+  Submit Update Profile Form
+  Exist in DB 	select * from parenuser where email = '${NANNY_USER}' AND education = 'Висше'
 
 Valid Change of the Work Status
   Exist in DB  select * from parenuser where email = '${NANNY_USER}' AND work_status = '${NANNY_WORK_STATUS}'
@@ -53,14 +52,14 @@ Valid Change of the Motivation
    Exist in DB 	select * from parenuser where email = '${NANNY_USER}' AND motivation = 'Абе най-добриятт съм бее ейй! Муцунки :)'
 
 Valid Change of All Fields
-	Exist in DB	select * from parenuser where email = '${NANNY_USER}' AND firstname = '${NANNY_FIRSTNAME}' AND lastname = '${NANNY_LASTNAME}' AND city = '${NANNY_CITY}' AND address = '${NANNY_ADDRESS}' AND tel = '${NANNY_TEL}' AND education = '${NANNY_EDUCATION}' AND work_status = '${NANNY_WORK_STATUS}' AND motivation = '${NANNY_MOTIVATION}'
-	Input Firstname   Ivan
-  	Input Lastname    Indjov
-  	Select City  Ямбол
-  	Input Address  ул. Балша 1, ж.к. Иван Вазов
-  	Input Telephone  1234567890
-  	Select Education  Висше
-  	Select Workstatus  Безработен
-  	Input Motivation  Абе най-добриятт съм бее ейй! Муцунки :)
-  	Submit Update Profile Form
-  	Exist in DB 	select * from parenuser where email = '${NANNY_USER}' AND firstname = 'Ivan' AND lastname = 'Indjov' AND city = 'Ямбол' AND address = 'ул. Балша 1, ж.к. Иван Вазов' AND tel = '1234567890' AND education = 'Висше' AND work_status = 'Безработен' AND motivation = 'Абе най-добриятт съм бее ейй! Муцунки :)'
+	Exist in DB	 select * from parenuser where email = '${NANNY_USER}' AND firstname = '${NANNY_FIRSTNAME}' AND lastname = '${NANNY_LASTNAME}' AND city = '${NANNY_CITY}' AND address = '${NANNY_ADDRESS}' AND tel = '${NANNY_TEL}' AND education = '${NANNY_EDUCATION}' AND work_status = '${NANNY_WORK_STATUS}' AND motivation = '${NANNY_MOTIVATION}'
+	Input Firstname    Ivan
+  Input Lastname     Indjov
+  Select City        Ямбол
+  Input Address      ул. Балша 1, ж.к. Иван Вазов
+  Input Telephone    1234567890
+  Select Education   Висше
+  Select Workstatus  Безработен
+  Input Motivation   Абе най-добриятт съм бее ейй! Муцунки :)
+  Submit Update Profile Form
+  Exist in DB 	select * from parenuser where email = '${NANNY_USER}' AND firstname = 'Ivan' AND lastname = 'Indjov' AND city = 'Ямбол' AND address = 'ул. Балша 1, ж.к. Иван Вазов' AND tel = '1234567890' AND education = 'Висше' AND work_status = 'Безработен' AND motivation = 'Абе най-добриятт съм бее ейй! Муцунки :)'
