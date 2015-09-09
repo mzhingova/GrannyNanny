@@ -27,6 +27,7 @@ $pass2 = $_POST['pass2'];
 $pass = $_POST['pass'];
 $isAdmin = $_SESSION['status'];
 $current_pass = $_POST['current_pass'];
+$counter = 0;
 
 if (isset($_POST['submit'])) {
 	if ($isAdmin == 'admin') {
@@ -60,7 +61,7 @@ if (isset($file)) {
 		if ($new_size < 1024) {
 			if (move_uploaded_file($file_loc, $folder . $final_file)) {
 				$query = mysqli_query($conn, "UPDATE parenuser SET `photo`='$final_file' WHERE userID='$userID'") or die(mysql_error());
-
+				$counter++;
 			}
 		} else {
 			echo "Прекалено голяма снимка. Максималният разрешен размер е '1 MB'";
@@ -71,7 +72,7 @@ if (isset($file)) {
 if (!empty($firstname)) {
 	if (preg_match("/^[a-zA-Z\p{Cyrillic}]{2,16}$/iu", $firstname)) {
 		$query = mysqli_query($conn, "UPDATE parenuser SET `firstname`='$firstname' WHERE userID='$userID'") or die(mysql_error());
-
+		$counter++;
 	} else {
 		echo "Моля въведете валидно име.";
 	}
@@ -79,7 +80,7 @@ if (!empty($firstname)) {
 if (!empty($lastname)) {
 	if (preg_match("/^[a-zA-Z\p{Cyrillic}]{2,16}$/iu", $lastname)) {
 		$query = mysqli_query($conn, "UPDATE parenuser SET `lastname`='$lastname' WHERE userID='$userID'") or die(mysql_error());
-
+		$counter++;
 	} else {
 		echo "Моля въведете валидна фамилия.";
 	}
@@ -87,7 +88,7 @@ if (!empty($lastname)) {
 if (!empty($tel)) {
 	if (preg_match("/^[0-9]{5,10}$/i", $tel)) {
 		$query = mysqli_query($conn, "UPDATE parenuser SET `tel`='$tel' WHERE userID='$userID'") or die(mysql_error());
-
+		$counter++;
 	} else {
 		echo "Моля въведете валиден телефонен номер.";
 	}
@@ -95,7 +96,7 @@ if (!empty($tel)) {
 if (!empty($motivation)) {
 	if (preg_match("/^.{20,255}$/i", $motivation)) {
 		$query = mysqli_query($conn, "UPDATE parenuser SET `motivation`='$motivation' WHERE userID='$userID'") or die(mysql_error());
-
+		$counter++;
 	} else {
 		echo "Мотивационното писмо не може да съдържа повече от 255 и по-малко от 20 символа.";
 	}
@@ -103,31 +104,33 @@ if (!empty($motivation)) {
 if (!empty($address)) {
 if (preg_match("/^.{5,50}$/i", $address)) {
 	$query = mysqli_query($conn, "UPDATE parenuser SET `address`='$address' WHERE userID='$userID'") or die(mysql_error());
-
+	$counter++;
 	} else {
 		echo ("Адресът не може да бъде по-малко от 5 символа и повече от 50.");
 	}
 }
 if (!empty($workout)) {
 	$query = mysqli_query($conn, "UPDATE parenuser SET `workout`='$workout' WHERE userID='$userID'") or die(mysql_error());
+	$counter++;
 }
 if (!empty($city)) {
 	$query = mysqli_query($conn, "UPDATE parenuser SET `city`='$city' WHERE userID='$userID'") or die(mysql_error());
-
+	$counter++;
 }
 if (!empty($education)) {
 	$query = mysqli_query($conn, "UPDATE parenuser SET `education`='$education' WHERE userID='$userID'") or die(mysql_error());
-
+	$counter++;
 } 
 if (!empty($work_status)) {
 	$query = mysqli_query($conn, "UPDATE parenuser SET `work_status`='$work_status' WHERE userID='$userID'") or die(mysql_error());
-
+	$counter++;
 }
 if (!empty($password) && !empty($pass) && !empty($pass2)) {
 
     $check = "SELECT * FROM parenuser WHERE 'pass' = '$password' AND userID='$userID'";
 
     $get_current_pass = mysqli_query($conn, "SELECT pass FROM parenuser WHERE userID='$userID'");
+    $counter++;
     $row = mysqli_fetch_object($get_current_pass);
     $current_pass = $row->pass;
 
@@ -144,7 +147,7 @@ if (!empty($password) && !empty($pass) && !empty($pass2)) {
                     $escapedPass = mysqli_real_escape_string($conn, $pass);
 
                     $query = mysqli_query($conn, "UPDATE parenuser SET `pass`='$escapedPass' WHERE userID='$userID'") or die(mysql_error());
-
+                    $counter++;
                 } else {
                     echo ("Паролите ви не съвпадат");
                 }
@@ -154,7 +157,12 @@ if (!empty($password) && !empty($pass) && !empty($pass2)) {
             }
         }
     } 
-echo "Всички промени бяха успешно запазени ! ";
+    if ($counter>0) {
+echo "Всички промени бяха успешно запазени ! ";    	
+    } else {
+    	echo "Не бяха направени промени по профилът. ";
+    }
+
 if ($isAdmin == 'admin') {
 header("Refresh: 3; url=search.php");
 } else {
