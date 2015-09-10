@@ -8,7 +8,6 @@ $total_records=0;
 $per_page=10;
 		if (isset($_GET['page'])) {
 		$page = $_GET['page'];
-		echo "PAGE NUMBER " . $page;
 		}else {
 		$page=1;
 		}
@@ -24,25 +23,32 @@ if (isset($_REQUEST['search-button'])) {
 	$email = htmlspecialchars($_GET['email']);
 	$lastname = htmlspecialchars($_GET['lastname']);
 		$search=true;
+		$regEx = "/[_]+/"; 
+		$regEx2 = "/[%]+/";
 
-		if($email === "_"){
-			$email = "\\_";
+
+		if(preg_match_all($regEx, $email)){
+			$email = preg_replace("/_/", "\\_", $email);
 		} 
-		if($firstname === "_") {
-			$firstname = "\\_";
-		}
-		if($address === "_") {
-			$address = "\\_";
-		}
-		if($email === "%"){
-			$email = "\\%";
+		if(preg_match_all($regEx, $firstname)){
+			
+			$firstname = preg_replace("/_/", "\\_", $firstname);
 		} 
-		if($firstname === "%") {
-			$firstname = "\\%";
-		}
-		if($address === "%") {
-			$address = "\\%";
-		}
+		if(preg_match_all($regEx, $address)){
+			
+			$address = preg_replace("/_/", "\\_", $address);
+		} 
+		if(preg_match_all($regEx2, $email)){
+			$email = preg_replace("/%/", "\\%", $email);
+		} 
+		if(preg_match_all($regEx2, $firstname)){
+			
+			$firstname = preg_replace("/%/", "\\%", $firstname);
+		} 
+		if(preg_match_all($regEx2, $address)){
+			
+			$address = preg_replace("/%/", "\\%", $address);
+		} 
 
 }
 	
@@ -67,8 +73,8 @@ if ($search){
 		$users = $db->get_results($select_user);
 		$total_records = count($users);
 		$select_user .= " LIMIT $per_page offset $start_from";
-	echo "<h2>". $select_user . "</h2>";
-if ($users = $db->get_results($select_user)) {
+		
+	if ($users = $db->get_results($select_user)) {
 			$counter = 1;
 			foreach ($users as $key) {
 				echo "<div>";

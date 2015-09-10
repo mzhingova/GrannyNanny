@@ -13,7 +13,6 @@ $total_records=0;
 $per_page=10;
 		if (isset($_GET['page'])) {
 		$page = $_GET['page'];
-		echo "PAGE NUMBER " . $page;
 		}else {
 		$page=1;
 		}
@@ -40,7 +39,19 @@ if (isset($_REQUEST['search-button'])) {
 			$maxAge = 100;
 		}
 
-}		
+		if(preg_match_all("/[_]+/", $firstname)){
+			
+			$firstname = preg_replace("/_/", "\\_", $firstname);
+		} 
+		if(preg_match_all("/[%]+/", $firstname)){
+			
+			$firstname = preg_replace("/%/", "\\%", $firstname);
+		}
+
+}	
+
+		 
+
 if ($search){
 		
 		$select_nanny = "SELECT * FROM parenuser WHERE status='nanny' ";
