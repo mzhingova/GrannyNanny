@@ -15,7 +15,7 @@
 					<?php require_once "booking_requests_navigation.php";?>
 				 
 					<section class="main">
-					   <h1 class="header">Заявки:</h1>
+					  
 					   
 					   <?php if (isset($_SESSION['status']) && ( $_SESSION['status'] == "nanny" ||$_SESSION['status'] == "user")) {
 						   require_once "booking_pending_requests.php";

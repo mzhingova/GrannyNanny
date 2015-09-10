@@ -7,6 +7,9 @@
 	
 	background-color:#D0D0D0 ;
 }
+.pagination{
+transform: translateX(40%);
+}
 
 .inner{
 
@@ -118,6 +121,7 @@ a.sidelink{
     color: white;
 	width: 20%;
 text-align: center;
+margin:5%;
 }
 .innerrejected{
    background-color:rgba(212, 65, 65, 0.74); 
@@ -126,6 +130,16 @@ text-align: center;
     color: white;
 	width: 20%;
 text-align: center;	
+margin:5%;
+}
+.innerrequired{
+   background-color:rgba(62, 149, 177, 0.7);
+    padding: 0.2em;
+    border-radius: 0.1em;
+    color: white;
+	width: 20%;
+text-align: center;	
+margin:5%;
 }
 .accepted{
       float: right;
@@ -155,9 +169,7 @@ text-align: center;
 	width: 10%;
 text-align: center;
 }
-.modalDialog:nth-child{
-	padding:2%;
-}
+
 @media all and (min-width: 600px) {
   .aside {
     flex: 1 auto;

@@ -10,16 +10,26 @@ if (!$conn) {
 	exit;
 }
 $conn->set_charset("utf8");
-
+$total_records=0;
+	$per_page=20;
+	if (isset($_GET['page'])) {
+		$page = $_GET['page'];
+		
+	}else {
+	$page=1;
+	}
+	$start_from = ($page-1) * $per_page;
 if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")){
-
+?><h1  class="header">Отказани заявки</h1>
+<?php
 
 	$nannyID = $_SESSION["userID"]; 
 	$parentID=0;
 	$bookingID = 0;
 	$status="";
-
-	$nannyQuery = mysqli_query($conn, "SELECT * FROM booking where nannyID = '$nannyID' AND status='rejected'")or die("Стана грешкка " . mysql_error()); 
+$nanny= mysqli_query($conn,"SELECT * FROM booking where nannyID = '$nannyID' and status='rejected' ");
+		$total_records = mysqli_num_rows($nanny);
+	$nannyQuery = mysqli_query($conn, "SELECT * FROM booking where nannyID = '$nannyID' AND status='rejected' LIMIT $per_page offset $start_from")or die("Стана грешкка " . mysql_error()); 
 			if( ! mysqli_num_rows($nannyQuery)) {
 	echo "Няма подобни заявки!";
 } else {
@@ -27,7 +37,7 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")){
 		$book_id = $row['bookingID'];
 		$status=$row['status'];?>	
 		<div class="inner">
-			<a href="#<?php echo $book_id ;?>" class="<?php echo $status; ?>">Запитване №: <?php echo $book_id. " "; ?> от
+			<a href="#<?php echo $book_id ;?>" >Запитване №: <?php echo $book_id. " "; ?> от
 			<?php 
 			echo $row['book_firstname'] ;
 			echo " , ";
@@ -40,7 +50,7 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")){
 						<?php
 						$book_id = $row['bookingID'];
 						$status=$row['status'];
-						echo $book_id." е със статус ".$status;
+						echo $book_id;
 						?>
 						
 						</div>
@@ -94,89 +104,119 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")){
 						echo $row['endDate']; 
 						?>
 						</div>
-					</div>
+						<div class="innerrejected">Отказан</div>
+				</div>
 			</div>
 		</div>
 		
 	<?php } 
+		?><div class="pagination"><?php
+
+		$total_pages = ceil($total_records / $per_page);
+
+			$url=$_SERVER['PHP_SELF']."?page=" ;
+			for ($i=1; $i<=$total_pages; $i++) {
+				echo " <a href=" . $url . $i . ">" . $i . "</a> ";
+			} 	
+			?> </div><?php
 }
 			
 	} else if (isset($_SESSION['status']) && ($_SESSION['status'] == "user")){
 
-
+	?>
+	<h1  class="header">Отказани заявки</h1>
+<?php
 	$userID = $_SESSION["userID"]; 
 	$parentID=0;
 	$bookingID = 0;
 	$status="";
-
-	$nannyQuery = mysqli_query($conn, "SELECT * FROM booking where userID = '$userID' AND status='rejected'")or die("Стана грешкка " . mysql_error()); 
+	$user= mysqli_query($conn,"SELECT * FROM booking where userID = '$userID' AND status='rejected'");
+	$total_records = mysqli_num_rows($user);
+	
+	$nannyQuery = mysqli_query($conn, "SELECT * FROM booking where userID = '$userID' AND status='rejected'  LIMIT $per_page offset $start_from")or die("Стана грешкка " . mysql_error()); 
 	if( ! mysqli_num_rows($nannyQuery)) {
 	echo "Няма подобни заявки!";
 } else {
+
 		while($row = mysqli_fetch_array($nannyQuery)) { 
 	$nanny=$row['nannyID'];
-	$nannyInfoQuery = mysqli_query($conn, "SELECT * FROM parenuser, booking WHERE parenuser.userID = '$nanny'") or die ("Стана грешкка " . mysql_error()); ?>	
+	$nannyInfoQuery = mysqli_query($conn, "SELECT * FROM parenuser, booking WHERE parenuser.userID = '$nanny' ") or die ("Стана грешкка " . mysql_error()); ?>	
 		<div class="inner"> 
-		<div>
-			Заявка номер:
-			<?php
-			$book_id = $row['bookingID'];
-			$status=$row['status'];
-			echo $book_id." е със статус ".$status;
-			?>
-			
-			</div>
-			<div><h3>Запитване към:<h></div>
-			
-<div>Nanny:
-		<?php 
-while($row2= mysqli_fetch_array($nannyInfoQuery)){
-		echo $row2['firstname']. " ". $row2['lastname']; ?> </div>
-		<div> E-mail на Nanny:
-		<?php 
-			echo $row2['email']; ?>
-			</div>
-			<div> Телефон на Nanny
-			<?php	echo $row2['tel']; ?> 
-			</div>
-			<div> Град на Nanny:
-			<?php 
-			echo $row2['city'];
-			break;
-			} 	?>	
-		</div>
-			<div>Град за заявката:
-			<?php 
-			echo $row['city']; ?>
-			</div>
-			<div>
-			Адрес: 
-			<?php 
-			echo $row['address']; ?>
-			</div>
-			<div>
-			Брой деца: 
-			<?php echo $row['children']; ?>
-			</div>
-			<div>Инфо
-			<?php if($row['info'] != '') {
 
-			echo $row['info'];
-			} else { echo '-';  } ?>
-			</div>
-			<div>
-			От:
-			<?php echo $row['startDate']; ?>
-			</div>
-			<div>
-			До:
+		<?php 
+		while($row2= mysqli_fetch_array($nannyInfoQuery)){
+		?><a href="#<?php echo $bookingID ;?>">Запитване №: <?php echo $bookingID. " "; ?> от
 			<?php 
-			echo $row['endDate']; ?>
+			echo $row2['firstname']. " ". $row2['lastname']; ?> <a/>
+			<div id="<?php echo $bookingID ?>" class="modalDialog">
+				<div>
+					 <a href="#close" title="Close" class="close">X</a>
+						<div>
+						Заявка номер:
+						<?php
+						$bookingID = $row['bookingID'];
+						echo $bookingID;
+						?>
+						</div>
+						<div> E-mail на Nanny:
+						<?php 
+						echo $row2['email']; ?>
+						</div>
+						<div> Телефон на Nanny
+						<?php	echo $row2['tel']; ?> 
+						</div>
+						<div> Град на Nanny:
+						<?php 
+						echo $row2['city'];
+						break;
+						} 	?>	
+						</div>
+						<div>Град за заявката:
+						<?php 
+						echo $row['city']; ?>
+						</div>
+						<div>
+						Адрес: 
+						<?php 
+						echo $row['address']; ?>
+						</div>
+						<div>
+						Брой деца: 
+						<?php echo $row['children']; ?>
+						</div>
+						<div>Инфо
+						<?php if($row['info'] != '') {
+
+						echo $row['info'];
+						} else { echo '-';  } ?>
+						</div>
+						<div>
+						От:
+						<?php echo $row['startDate']; ?>
+						</div>
+						<div>
+						До:
+						<?php 
+						echo $row['endDate']; ?>
+						</div>
+						
+				<div class="innerrejected">Отказан</div>
 			</div>
-			
+			</div>
 		</div>
 		
+		
 	<?php }
+		?><div class="pagination"><?php
+
+$total_pages = ceil($total_records / $per_page);
+
+			$url=$_SERVER['PHP_SELF']."?page=" ;
+			for ($i=1; $i<=$total_pages; $i++) {
+				echo " <a href=" . $url . $i . ">" . $i . "</a> ";
+			} 	
+			?> </div><?php
+
 }
 				
 	}		
