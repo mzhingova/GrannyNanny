@@ -24,6 +24,26 @@ if (isset($_REQUEST['search-button'])) {
 	$email = htmlspecialchars($_GET['email']);
 	$lastname = htmlspecialchars($_GET['lastname']);
 		$search=true;
+
+		if($email === "_"){
+			$email = "\\_";
+		} 
+		if($firstname === "_") {
+			$firstname = "\\_";
+		}
+		if($address === "_") {
+			$address = "\\_";
+		}
+		if($email === "%"){
+			$email = "\\%";
+		} 
+		if($firstname === "%") {
+			$firstname = "\\%";
+		}
+		if($address === "%") {
+			$address = "\\%";
+		}
+
 }
 	
 if ($search){
@@ -47,7 +67,7 @@ if ($search){
 		$users = $db->get_results($select_user);
 		$total_records = count($users);
 		$select_user .= " LIMIT $per_page offset $start_from";
-	
+	echo "<h2>". $select_user . "</h2>";
 if ($users = $db->get_results($select_user)) {
 			$counter = 1;
 			foreach ($users as $key) {
