@@ -84,8 +84,6 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "user")){
 							</div>
 							<div>Инфо
 							<?php if($row['info'] != '') {
-
-<<<<<<< HEAD
 							echo $row['info'];
 							} else { echo '-';  } ?>
 							</div>
@@ -117,36 +115,6 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "user")){
 			<?php } else if($status=="request"){ ?>
 			<div class="required">Чакащ</div>
 			<?php }?>
-=======
-			echo $row['info'];
-			} else { echo '-';  } ?>
-			</div>
-			<div>
-			От:
-			<?php echo $row['startDate']; ?>
-			</div>
-			<div>
-			До:
-			<?php 
-			echo $row['endDate']; ?>
-			</div>
-			<a href="#<?php echo $book_id; ?>">Оцени</a>
-		<div id="<?php echo $book_id ?>" class="modalDialog">
-			<div>
-				 <a href="#close" title="Close" class="close">X</a>
-				<p>От тук можете да дадете оценка на Nanny-то с което сте работили							
-<div>
-<input class="radio" type="radio" name="radgroup" value="1">
-<input class="radio" type="radio" name="radgroup" value="2">
-<input class="radio" type="radio" name="radgroup" value="3">
-<input class="radio" type="radio" name="radgroup" value="4">
-<input class="radio" type="radio" name="radgroup" value="5">
-<input class="radio" type="radio" name="radgroup" value="6">
-<a href="#close" title="Close">Изпрати</a>
-</div>
-
-			</div>
->>>>>>> 33b57953f3a21302feb3b1c55157394d5add7870
 		</div>
 		
 	<?php }
