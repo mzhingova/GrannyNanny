@@ -179,4 +179,7 @@ padding:0;
   .main {
     order: 2;
   }
+  .radio {
+    display: inline;
+  }
 }

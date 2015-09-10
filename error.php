@@ -7,9 +7,9 @@
 		<link rel="stylesheet" href="assets/css/main_style.css">
 	</head>
 	<body>
-		<?php include 'includes/header.php';?>
-		<div class="content">
 			<div class="container">
+				<?php include 'includes/header.php';?>
+				<div class="content">
 				<h2>Невалиден e-mail или парола!</h2>
 			</div>
 		</div>

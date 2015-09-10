@@ -85,7 +85,22 @@ while($row2= mysqli_fetch_array($nannyInfoQuery)){
 			<?php 
 			echo $row['endDate']; ?>
 			</div>
-			
+			<a href="#<?php echo $book_id; ?>">Оцени</a>
+		<div id="<?php echo $book_id ?>" class="modalDialog">
+			<div>
+				 <a href="#close" title="Close" class="close">X</a>
+				<p>От тук можете да дадете оценка на Nanny-то с което сте работили							
+<div>
+<input class="radio" type="radio" name="radgroup" value="1">
+<input class="radio" type="radio" name="radgroup" value="2">
+<input class="radio" type="radio" name="radgroup" value="3">
+<input class="radio" type="radio" name="radgroup" value="4">
+<input class="radio" type="radio" name="radgroup" value="5">
+<input class="radio" type="radio" name="radgroup" value="6">
+<a href="#close" title="Close">Изпрати</a>
+</div>
+
+			</div>
 		</div>
 		
 	<?php }
