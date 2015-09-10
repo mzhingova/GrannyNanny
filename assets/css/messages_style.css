@@ -3,6 +3,11 @@
   
  
 }
+.inner:hover{
+	
+	background-color:#D0D0D0 ;
+}
+
 .inner{
 
 padding:0.5em;}
@@ -48,6 +53,17 @@ margin-top:2em;}
 .aside-1 {
   background: #555;
   color:white;
+}
+.sidenav{
+	
+    padding: 2%;
+}
+a.sidelink{
+	color:white;
+}
+.sidenav:hover{
+	background-color:olive ;
+	cursor:pointer;
 }
 .modalDialog {
         position: fixed;
@@ -95,7 +111,22 @@ margin-top:2em;}
         -webkit-box-shadow: 1px 1px 3px #000;
         box-shadow: 1px 1px 3px #000;
     }
-
+.inneraccepted{
+	background-color: rgba(89, 177, 62, 0.7);
+	padding: 0.2em;
+    border-radius: 0.1em;
+    color: white;
+	width: 20%;
+text-align: center;
+}
+.innerrejected{
+   background-color:rgba(212, 65, 65, 0.74); 
+    padding: 0.2em;
+    border-radius: 0.1em;
+    color: white;
+	width: 20%;
+text-align: center;	
+}
 .accepted{
       float: right;
     background-color: rgba(89, 177, 62, 0.7);
@@ -123,6 +154,9 @@ text-align: center;
     color: white;
 	width: 10%;
 text-align: center;
+}
+.modalDialog:nth-child{
+	padding:2%;
 }
 @media all and (min-width: 600px) {
   .aside {
