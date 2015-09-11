@@ -5,7 +5,7 @@ require_once 'lib/database.php';
 
 $db = new DB();
 $total_records=0;
-$per_page=10;
+$per_page=5;
 		if (isset($_GET['page'])) {
 		$page = $_GET['page'];
 		}else {
@@ -73,8 +73,8 @@ if ($search){
 		$users = $db->get_results($select_user);
 		$total_records = count($users);
 		$select_user .= " LIMIT $per_page offset $start_from";
-		
-	if ($users = $db->get_results($select_user)) {
+	
+		if ($users = $db->get_results($select_user)) {
 			$counter = 1;
 			foreach ($users as $key) {
 				echo "<div>";
@@ -118,7 +118,7 @@ if ($search){
 		if(isset($_GET['search'])&& $_GET['search']=="true"){
 			$url=$_SERVER['REQUEST_URI']."&page=" ;
 			for ($i=1; $i<=$total_pages; $i++) {
-				echo "<a href=".$url.$i.">".$i."</a> ";
+				echo "<a href=".$url.$i."> ".$i."</a> ";
 			} 
 		}
 }

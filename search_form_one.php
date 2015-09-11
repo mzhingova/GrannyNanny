@@ -1,7 +1,13 @@
 <div id="search-result">
 	<table>
 		<tbody>
-			<?php require_once "user-search-result.php";?>
+			<?php if (isset($_REQUEST['search-button'])) {
+				require_once "user-search-result.php";
+			}	else 
+				{
+					require "user-search-allresults.php";
+				}
+				?>
 		</tbody>
 	</table>
 </div>
