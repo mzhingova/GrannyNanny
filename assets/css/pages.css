@@ -1,4 +1,11 @@
 .newButton{
-display: inline-flex;
+display: block;
+margin-bottom:1em;
+}
+.btn {
+	display: block;
+min-width: 150px;
+width: 150px;
+max-width: 150px;
 margin-bottom:1em;
 }
