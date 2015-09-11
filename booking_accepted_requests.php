@@ -131,6 +131,7 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")){
 	$parentID=0;
 	$bookingID = 0;
 	$status="";
+	$nanny=0;
 ?> <h1 class="header">Приети заявки:</h1><?php
 
 
@@ -142,15 +143,17 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")){
 	echo "Няма подобни заявки!";
 } else {
 		while($row = mysqli_fetch_array($nannyQuery)) { 
-	$nanny=$row['nannyID'];
+	$nanny=$row["nannyID"];
 	$nannyInfoQuery = mysqli_query($conn, "SELECT * FROM parenuser, booking WHERE parenuser.userID = '$nanny' LIMIT $per_page offset $start_from") or die ("Стана грешкка " . mysql_error()); ?>	
 		<div class="inner"> 
 			
 			<?php 
 			while($row2= mysqli_fetch_array($nannyInfoQuery)){
-				?><a href="#<?php echo $bookingID ;?>">Запитване №: <?php echo $bookingID. " "; ?> от
+				?>
+			<a href="#<?php echo $bookingID ;?>">Запитване №: <?php echo $bookingID. " "; ?> от
 			<?php 
 			echo $row2['firstname']. " ". $row2['lastname']; ?> <a/>
+			
 			<div id="<?php echo $bookingID ?>" class="modalDialog">
 				<div>
 					 <a href="#close" title="Close" class="close">X</a>
@@ -203,8 +206,35 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")){
 						echo $row['endDate']; ?>
 						</div>
 						<div class="inneraccepted">Приет</div>
+						
 			</div>
-			</div>
+				</div>
+				<a class="vote" href="#vote<?php echo $bookingID ;?>">Оцени</a>
+				<div id="vote<?php echo $bookingID ?>" class="modalDialog">
+					<div>
+					 <a href="#close" title="Close" class="close">X</a>
+					<form method="GET" class="radio" action="nanny_vote.php">
+						<h2>Оценете работата на Nanny</h2>
+						<p>1.Не съм доволен</p>
+						<p>2.Има още какво да се желае</p>
+						<p>3.Задоволително</p>
+						<p>4.Много съм доволен</p>
+						<p>5.Доволен съм бих препоръчал на приятели</p>
+						<span class="star-rating">
+							<input type="radio" name="rating" checked = true  value="1"><i></i>
+							<input type="radio" name="rating" value="2"><i></i>
+							<input type="radio" name="rating" value="3"><i></i>
+							<input type="radio" name="rating" value="4"><i></i>
+							<input type="radio" name="rating" value="5"><i></i>
+							<input type="hiden" name="nannyid" value="<?php echo $nanny;?>">
+						</span>
+					
+					<button class="btn" type="submit">Оцени</button>
+					
+					
+					</form>
+					</div>
+				</div>
 		</div>
 		
 					
