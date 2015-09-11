@@ -99,7 +99,7 @@ if ($search){
 			echo "</div>";
 
 			echo "<div>";
-			echo 'Години: ' . $age;
+			echo 'Години: ' . $key->age;
 			echo "</div>";
 
 			echo "<div>";
