@@ -1,4 +1,4 @@
-l<?php
+<?php
 session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -24,39 +24,35 @@ if (isset($_POST['submit'])) {
 	$folder = "uploads/";
 	$age = "";
 	$file = $_FILES['image']['name'];
-	if (isset($file)) {
-		$file_loc = $_FILES['image']['tmp_name'];
-		$file_size = $_FILES['image']['size'];
-		$file_type = $_FILES['image']['type'];
+if (isset($file)) {
+	$file_loc = $_FILES['image']['tmp_name'];
+	$file_size = $_FILES['image']['size'];
+	$file_type = $_FILES['image']['type'];
 
-		// new file size in KB
-		$new_size = $file_size / 1024;
-		// new file size in KB
+	// new file size in KB
+	$new_size = $file_size / 1024;
+	// new file size in KB
 
-		// make file name in lower case
-		$new_file_name = strtolower($file);
-		// make file name in lower case
+	// make file name in lower case
+	$new_file_name = strtolower($file);
+	// make file name in lower case
 
-		$final_file = str_replace(' ', '-', $new_file_name);
-		$allowed = array('gif', 'png', 'jpg', 'jpeg');
-		$ext = pathinfo($file, PATHINFO_EXTENSION);
+	$final_file = str_replace(' ', '-', $new_file_name);
+	$allowed = array('gif', 'png', 'jpg', 'jpeg');
+	$ext = pathinfo($file, PATHINFO_EXTENSION);
 
-		if (in_array($ext, $allowed)) {
-			if ($new_size < 1024) {
+	$ext = strtolower($ext);
+	if (in_array($ext, $allowed)) {
+		if ($new_size < 1024) {
+			if (move_uploaded_file($file_loc, $folder . $final_file)) {
 				$count++;
-			} else {
-				echo "Прекалено голяма снимка.";
 			}
-
 		} else {
-			echo "Непозволен формат на снимка.";
+			echo "Прекалено голяма снимка. Максималният разрешен размер е '1 MB'";
 		}
 
-	} else {
-		echo "Изберете подходяща снимка  снимка.";
-
 	}
-	echo $count;
+}
 
 	//education validation
 	if (empty($_POST['education'])) {
@@ -140,7 +136,6 @@ if (isset($_POST['submit'])) {
 		echo "Моля въведете телефонен номер.";
 	}
 	//email validation
-	echo $count;
 	if (!empty($email)) {
 		if (preg_match("/^[a-zA-Z]{1}[a-zA-Z0-9_.]+@[a-zA-Z-]+\.[a-zA-Z0-9-.]+$/", $email)) {
 			$count++;
@@ -194,10 +189,8 @@ if (isset($_POST['submit'])) {
 	} else {
 		echo "Моля попълнете полето за мотивация.";
 	}
-	echo $count;
 
 	if ($count > 13) {
-		if (move_uploaded_file($file_loc, $folder . $final_file)) {
 			$escapedPasword = mysqli_real_escape_string($conn, $password);
 			$escapedAddress = mysqli_real_escape_string($conn, $address);
 			$escapedMotivation = mysqli_real_escape_string($conn, $motivation);
@@ -209,7 +202,7 @@ if (isset($_POST['submit'])) {
 				header("Location: success.php");
 
 			}
-		}
+		
 
 	}
 

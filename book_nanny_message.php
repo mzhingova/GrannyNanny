@@ -52,15 +52,16 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")){
 			<div id="<?php echo $book_id ?>" class="modalDialog">
 				<div class="dialoginf">
 					 <a href="#close" title="Close" class="close">X</a>
-						<div>
+						<div><b>
 						Заявка номер:
 						<?php
 						$book_id = $row['bookingID'];
 						$status=$row['status'];
 						echo $book_id;
 						?>
-						
+						</b>
 						</div>
+						<div>Заявка от</div>
 						<div>
 						Име:
 						<?php 
@@ -81,7 +82,8 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")){
 						<?php 
 						echo $row['book_tel']; ?>
 						</div>
-						<div>Запитване за:</div>
+						<br><b>
+						<div>Запитване за:</b></div>
 						<div>Град:
 						<?php 
 						echo $row['city']; ?>
@@ -95,7 +97,7 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")){
 						Брой деца: 
 						<?php echo $row['children']; ?>
 						</div>
-						<div>Инфо
+						<div>Инфо:
 						<?php if($row['info'] != '') {
 
 						echo $row['info'];

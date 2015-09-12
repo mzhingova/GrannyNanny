@@ -41,24 +41,26 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "user")){
 		<div class="inner"> 
 			<?php 
 			while($row2= mysqli_fetch_array($nannyInfoQuery)){
-			?><a href="#<?php echo $bookingID ;?>">Запитване №: <?php echo $bookingID. " "; ?> от
+			?><a href="#<?php echo $bookingID ;?>">Запитване №: <?php echo $bookingID. " "; ?> към
 			<?php 
 			echo $row2['firstname']. " ". $row2['lastname']; ?> <a/>
 			<div id="<?php echo $bookingID ?>" class="modalDialog">
 				<div>
 					 <a href="#close" title="Close" class="close">X</a>
 						<div>
-						Заявка номер:
+						<b>Заявка номер:
 						<?php
 						$bookingID = $row['bookingID'];
 						echo $bookingID;
-						?>
+						?></b>
+						</div>
+						<div>Информация за Nanny
 						</div>						
 						<div> E-mail на Nanny:
 						<?php 
 						echo $row2['email']; ?>
 						</div>
-						<div> Телефон на Nanny
+						<div> Телефон на Nanny:
 						<?php	echo $row2['tel']; ?> 
 						</div>
 						<div> Град на Nanny:
@@ -67,7 +69,8 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "user")){
 						break;
 						} 	?>	
 						</div>
-						
+						<br>
+						<div><b>Вашата информация за заявката</b></div>
 							<div>Град за заявката:
 							<?php 
 							$status=$row['status'];
@@ -82,7 +85,7 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "user")){
 							Брой деца: 
 							<?php echo $row['children']; ?>
 							</div>
-							<div>Инфо
+							<div>Инфо:
 							<?php if($row['info'] != '') {
 							echo $row['info'];
 							} else { echo '-';  } ?>

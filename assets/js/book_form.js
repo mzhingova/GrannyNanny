@@ -23,18 +23,18 @@ var city = document.forms['book_nanny']['city'].value;
 	}
 		var startDate = document.forms['book_nanny']['startDate'].value;
     if (startDate === null || startDate === "") {
-        alert("Моля въведете начална дата.");
+        alert("Моля изберете начална дата.");
 		return false;
 	}
 		var endDate = document.forms['book_nanny']['endDate'].value;
     if (endDate === null || endDate === "") {
-        alert("Моля въведете крайна дата.");
+        alert("Моля изберете крайна дата.");
 		return false;
 	}
 	//first name
      var fname = document.forms['book_nanny']['book_firstname'].value;
     if (fname === null || fname === "") {
-        alert("Моля полълнете име.");
+        alert("Моля въведете име.");
         return false;
 	}
 	else if (!(fname.match(/^[a-zA-Z-\u0400-\u04FF]{2,16}$/i))){

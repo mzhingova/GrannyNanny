@@ -20,15 +20,15 @@ function validateForm() {
 		return false;
 	}
 	
+     var fileUpload = document.getElementById("fileUpload");
+     if (fileUpload.value != "") {
 	 var allowedFiles = [".gif",".png", ".jpeg", ".jpg"];
-        var fileUpload = document.getElementById("fileUpload");
-     
-        var regex = new RegExp("([a-zA-Z0-9\s_\\.\-:])+(" + allowedFiles.join('|') + ")$");
+     	var regex = new RegExp("([a-zA-Z0-9\s_\\.\-:])+(" + allowedFiles.join('|') + ")$");
         if (regex.test(fileUpload.value.toLowerCase())) {
 			var size = parseFloat(fileUpload.files[0].size / 1024).toFixed(2);
 			if (size>1024) {
             
-					alert("Непозволен размер.");
+					alert("Непозволен размер на снимката.");
 					return false;
 				} 
            
@@ -36,6 +36,10 @@ function validateForm() {
 			 alert ("Моля изберете подходящ формат снимка.");
             return false;
 		}
+} else {
+	alert ("Моля прикачете снимка");
+	return false;
+}
      
   
 
