@@ -10,7 +10,7 @@ require_once 'lib/database.php';
 
 $db = new DB();
 $total_records=0;
-$per_page=10;
+$per_page=4;
 		if (isset($_GET['page'])) {
 		$page = $_GET['page'];
 		}else {
