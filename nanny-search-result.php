@@ -113,6 +113,10 @@ if ($search){
 			echo "<div>";
 			echo 'Пол: ' . $key->gender;
 			echo "</div>";
+			
+			echo "<div>";
+			echo 'Рейтинг ' . $key->average;
+			echo "</div>";
 
 			echo "<div>";
 
