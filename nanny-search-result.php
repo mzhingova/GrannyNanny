@@ -115,7 +115,7 @@ if ($search){
 			echo "</div>";
 			
 			echo "<div>";
-			echo 'Рейтинг ' . $key->average;
+			echo 'Рейтинг: ' . $key->average;
 			echo "</div>";
 
 			echo "<div>";

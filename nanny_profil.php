@@ -154,7 +154,14 @@ $conn ->set_charset("utf8");
 									<div class="wordwrap"> <?php echo $row['motivation']; ?></div>
 								</td>
 							</tr>
-							
+														<tr>
+								<td >
+									<b>Рейтинг:</b>
+								</td>
+								<td>
+									<div class="wordwrap"> <?php echo $row['average']; ?></div>
+								</td>
+							</tr>
 							
 						</table>
 					</td>

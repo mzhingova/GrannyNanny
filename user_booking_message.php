@@ -100,7 +100,34 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "user")){
 							echo $row['endDate']; ?>
 							</div>
 							<div class="buttons">
-							<?php if($status=="accepted" ){ ?> <div class="inneraccepted">Приет</div>
+							<?php if($status=="accepted" ){ ?> 
+							<a class="vote" href="#vote<?php echo $bookingID ;?>">Оцени</a>
+				<div id="vote<?php echo $bookingID ?>" class="modalDialog">
+					<div>
+					 <a href="#close" title="Close" class="close">X</a>
+					<form method="GET" class="radio" action="nanny_vote.php">
+						<h2>Оценете работата на Nanny</h2>
+						<p>1.Не съм доволен</p>
+						<p>2.Има още какво да се желае</p>
+						<p>3.Задоволително</p>
+						<p>4.Много съм доволен</p>
+						<p>5.Доволен съм бих препоръчал на приятели</p>
+						<span class="star-rating">
+							<input type="radio" name="rating" checked = true  value="1"><i></i>
+							<input type="radio" name="rating" value="2"><i></i>
+							<input type="radio" name="rating" value="3"><i></i>
+							<input type="radio" name="rating" value="4"><i></i>
+							<input type="radio" name="rating" value="5"><i></i>
+							<input type="hiden" name="nannyid" value="<?php echo $nanny;?>">
+						</span>
+					
+					<button class="btn" type="submit">Оцени</button>
+					
+					
+					</form>
+					</div>
+				</div>
+							<div class="inneraccepted">Приет</div>
 							<?php } else if ($status=="rejected"){ ?> <div class="innerrejected">Отказан</div>
 							<?php } 
 								else if($status=="request") {?>
