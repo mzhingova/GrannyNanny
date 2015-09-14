@@ -117,8 +117,7 @@ if ($search){
 			echo "<div>";
 			echo 'Пол: ' . $key->gender;
 			echo "</div>";
-			
-				echo "<div>";
+			echo "<div>";
 			if($key->average == 0){
 				echo 'Рейтинг:  ' . "-";
 			} else {
