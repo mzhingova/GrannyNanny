@@ -207,9 +207,9 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")){
 						<?php 
 						echo $row['endDate']; ?>
 						</div>
-						<hr><br>
+						<hr>
 						<div class="innerrequired">Чакащ</div>
-				<br>
+				
 				</div>
 			</div>
 		</div>
