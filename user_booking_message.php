@@ -69,7 +69,7 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "user")){
 						break;
 						} 	?>	
 						</div>
-						
+						<hr>
 						<div><b>Вашата информация за заявката</b></div>
 							<div>Град за заявката:
 							<?php 
