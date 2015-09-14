@@ -1,6 +1,11 @@
 <div id="search-result">
-	
-			<?php require_once "nanny-search-result.php";?>
+				<?php if (isset($_REQUEST['search-button'])) {
+				require_once "nanny-search-result.php";
+			}	else 
+				{
+					require "nanny-search-allresult.php";
+				}
+				?>
 	
 </div>
 <h1>Търси по:</h1><br>

@@ -27,6 +27,7 @@ if (isset($_REQUEST['search-button'])) {
 	$city = htmlspecialchars($_GET['city']);
 	$age = htmlspecialchars($_GET['age']);
 	$sex = htmlspecialchars($_GET['gender']);
+	$rating = htmlspecialchars($_GET['rating']);
 	$search=true;
 	
 	$splittedAge = explode("-", $age);
@@ -75,6 +76,9 @@ if ($search){
 			$select_nanny .= " AND gender = '$sex'";
 			
 		}
+		if($rating == 1){
+			$select_nanny .= "ORDER BY $rating";
+		}
 
 		$nannies = $db->get_results($select_nanny);
 		
@@ -88,7 +92,7 @@ if ($search){
 		$counter = 1;
 		foreach ($nannies as $key) {
 
-		
+		//echo "<h2>". $average."</h2>";
 			echo "<div>";
 			
 			echo "<img src='uploads/$key->photo' target='_blank' alt='avatar' />";
@@ -114,8 +118,12 @@ if ($search){
 			echo 'Пол: ' . $key->gender;
 			echo "</div>";
 			
-			echo "<div>";
-			echo 'Рейтинг ' . $key->average;
+				echo "<div>";
+			if($key->average == 0){
+				echo 'Рейтинг:  ' . "-";
+			} else {
+			echo 'Рейтинг:  ' . $key->average . "/5";
+			}
 			echo "</div>";
 
 			echo "<div>";
