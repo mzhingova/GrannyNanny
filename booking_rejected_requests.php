@@ -107,7 +107,7 @@ $nanny= mysqli_query($conn,"SELECT * FROM booking where nannyID = '$nannyID' and
 						?>
 						</div>
 						<hr>
-						<div class="innerrejected">Отказан</div>
+						<div class="innerrejected">Отказан</div><br>
 				</div>
 			</div>
 		</div>
@@ -206,7 +206,7 @@ $nanny= mysqli_query($conn,"SELECT * FROM booking where nannyID = '$nannyID' and
 						echo $row['endDate']; ?>
 						</div>
 						<hr>
-				<div class="innerrejected">Отказан</div>
+				<div class="innerrejected">Отказан</div><br>
 			</div>
 			</div>
 		</div>

@@ -21,7 +21,7 @@ $total_records=0;
 	$start_from = ($page-1) * $per_page;
 	
 if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")){
-?> <h1 class="header">Приети заявки:</h1><?php
+?> <h1 class="header">Заявки чакащи отговор</h1><?php
 	$nannyID = $_SESSION["userID"]; 
 	$parentID=0;
 	$bookingID = 0;
@@ -104,14 +104,14 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")){
 						<?php 
 						echo $row['endDate']; 
 						?>
-						</div><hr><br>
+						</div><hr>
 						<div class="buttons">
 						<?php  
 								if($status=="request") {
 								echo "<a class='inneraccepted' href='book_nanny_message_update.php?action=accept&id=".$book_id."'>Приеми</a>";
-								echo "<a class='innerrejected' href='book_nanny_message_update.php?action=reject&id=".$book_id."'>Откажи</a>";
+								echo "<a class='innerrejectedinall' href='book_nanny_message_update.php?action=reject&id=".$book_id."'>Откажи</a>";
 							} ?>
-							<br><br>
+							<br>
 						</div>
 					</div>
 			</div>
@@ -131,7 +131,7 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")){
 			
 	} else if (isset($_SESSION['status']) && ($_SESSION['status'] == "user")){
 
-?> <h1 class="header">Приети заявки:</h1><?php
+?> <h1 class="header">Заявки чакащи отговор</h1><?php
 	$userID = $_SESSION["userID"]; 
 	$parentID=0;
 	$bookingID = 0;

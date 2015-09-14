@@ -21,7 +21,7 @@ $total_records=0;
 	$start_from = ($page-1) * $per_page;
 	
 if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")){
-?> <h1 class="header">Приети заявки:</h1><?php
+?> <h1 class="header">Приети заявки</h1><?php
 
 	$nannyID = $_SESSION["userID"]; 
 	$parentID=0;
@@ -136,7 +136,7 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")){
 	$bookingID = 0;
 	$status="";
 	$nanny=0;
-?> <h1 class="header">Приети заявки:</h1><?php
+?> <h1 class="header">Приети заявки</h1><?php
 
 
 	$user= mysqli_query($conn,"SELECT * FROM booking where userID = '$userID' AND status='accepted'");
@@ -213,8 +213,11 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")){
 						echo $row['endDate']; ?>
 						</div>
 						<hr>
-						<div class="inneraccepted">Приет</div>
-						
+						<div class="inneruseraccepted">Приет
+
+						</div>
+						<a class="vote" href="#vote<?php echo $bookingID ;?>">Оцени</a>
+						<br>
 			</div>
 				</div>
 				<a class="vote" href="#vote<?php echo $bookingID ;?>">Оцени</a>
