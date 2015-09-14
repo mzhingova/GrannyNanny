@@ -27,7 +27,10 @@ if (isset($_REQUEST['search-button'])) {
 	$city = htmlspecialchars($_GET['city']);
 	$age = htmlspecialchars($_GET['age']);
 	$sex = htmlspecialchars($_GET['gender']);
-	$rating = htmlspecialchars($_GET['rating']);
+	
+	if(($_GET['rating']) === '1'){
+		$rating = ($_GET['rating']);
+	}
 	$search=true;
 	
 	$splittedAge = explode("-", $age);
@@ -75,7 +78,7 @@ if ($search){
 			$select_nanny .= " AND gender = '$sex' ORDER BY average DESC";
 			
 		}
-		if(isset($rating)) {
+		if($rating) {
 			$select_nanny .= "ORDER BY average DESC";
 		}
 

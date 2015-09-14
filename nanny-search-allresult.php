@@ -89,10 +89,6 @@ $per_page=4;
 			for ($i=1; $i<=$total_pages; $i++) {
 				echo " <a href=".$url.$i.">".$i."</a> ";
 			} 
-		
-		
-
-
 ?>
 
 	
