@@ -114,15 +114,6 @@ a.sidelink{
         -webkit-box-shadow: 1px 1px 3px #000;
         box-shadow: 1px 1px 3px #000;
     }
-    .inneruseraccepted{
-        background-color: rgba(89, 177, 62, 0.7);
-  padding: 0.2em;
-    border-radius: 0.1em;
-    color: white;
-  width: 20%;
-text-align: center;
-float: left;
-    }
 .inneraccepted{
 	background-color: rgba(89, 177, 62, 0.7);
 	padding: 0.2em;
@@ -130,22 +121,16 @@ float: left;
     color: white;
 	width: 20%;
 text-align: center;
-}
-.innerrejectedinall{
-   background-color:rgba(212, 65, 65, 0.74); 
-    padding: 0.2em;
-    border-radius: 0.1em;
-    color: white;
-text-align: center; 
-float: right;
+margin:5%;
 }
 .innerrejected{
    background-color:rgba(212, 65, 65, 0.74); 
     padding: 0.2em;
     border-radius: 0.1em;
     color: white;
+	width: 20%;
 text-align: center;	
-float: left;
+margin:5%;
 }
 .innerrequired{
    background-color:rgba(62, 149, 177, 0.7);
@@ -154,6 +139,7 @@ float: left;
     color: white;
 	width: 20%;
 text-align: center;	
+margin:5%;
 }
 .accepted{
       float: right;
@@ -189,9 +175,8 @@ text-align: center;
     padding: 0.2em;
     border-radius: 0.1em;
     color: white;
-	width: 70px;
+	width: 10%;
 	text-align: center;
-
 }
 .radiobtn{
 
