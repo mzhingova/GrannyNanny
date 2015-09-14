@@ -76,7 +76,6 @@ table
 	background-color: transparent;
 	border-spacing: 0;
 	border-collapse: collapse;
-	border-top: 1px solid #ddd;
 }
 
 th, td
@@ -84,7 +83,6 @@ th, td
 	padding: .5em 1em;
 	vertical-align: top;
 	text-align: left;
-	border-bottom: 1px solid #ddd;
 }
 
 /* -----------------------

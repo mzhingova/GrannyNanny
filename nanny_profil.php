@@ -37,11 +37,11 @@ $conn ->set_charset("utf8");
 			<div>
 				<img src="uploads/<?php echo $row['photo'] ?>" target="_blank" alt="avatar" />
 			</div><br><br>
-			<b>Лични Данни:</b><br><br>
+			<h1>Лични Данни</h1>
 			
 			
-			<table width=800px border=0 cellspacing=10><tr>
-				<td >
+			<table width=800px border=0 cellspacing=10>
+				<td>
 					<table  border=0>
 						
 						<tr>
