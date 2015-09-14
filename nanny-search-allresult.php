@@ -13,7 +13,7 @@ $per_page=4;
 
 	$start_from = ($page-1) * $per_page;
 
-		$select_nanny = "SELECT * FROM parenuser WHERE status='nanny' ";
+		$select_nanny = "SELECT * FROM parenuser WHERE status='nanny' ORDER BY average DESC";
 
 		$nannies = $db->get_results($select_nanny);
 		$total_records = count($nannies);

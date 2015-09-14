@@ -52,32 +52,31 @@ if (isset($_REQUEST['search-button'])) {
 }	
 
 		 
-
 if ($search){
 		
 		$select_nanny = "SELECT * FROM parenuser WHERE status='nanny' ";
 
 		if ($firstname){
-			$select_nanny .= " AND (firstname LIKE '%$firstname%' OR lastname LIKE '%$firstname%')";
+			$select_nanny .= " AND (firstname LIKE '%$firstname%' OR lastname LIKE '%$firstname%') ORDER BY average DESC";
 			
 		}
 
 		if ($city) {
-			$select_nanny .= " AND city = '$city'";
+			$select_nanny .= " AND city = '$city' ORDER BY average DESC";
 
 		}
 
 		if ($age) {
-			$select_nanny .= " AND age between $minAge AND $maxAge";
+			$select_nanny .= " AND age between $minAge AND $maxAge ORDER BY average DESC";
 			
 		}
 
 		if ($sex) {
-			$select_nanny .= " AND gender = '$sex'";
+			$select_nanny .= " AND gender = '$sex' ORDER BY average DESC";
 			
 		}
-		if($rating == 1){
-			$select_nanny .= "ORDER BY $rating";
+		if(isset($rating)) {
+			$select_nanny .= "ORDER BY average DESC";
 		}
 
 		$nannies = $db->get_results($select_nanny);
@@ -91,10 +90,8 @@ if ($search){
 
 		$counter = 1;
 		foreach ($nannies as $key) {
-
-		//echo "<h2>". $average."</h2>";
-			echo "<div>";
 			
+			echo "<div>";
 			echo "<img src='uploads/$key->photo' target='_blank' alt='avatar' />";
 			echo "</div>";
 
