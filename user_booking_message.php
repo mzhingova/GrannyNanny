@@ -69,7 +69,7 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "user")){
 						break;
 						} 	?>	
 						</div>
-						<br>
+						
 						<div><b>Вашата информация за заявката</b></div>
 							<div>Град за заявката:
 							<?php 
@@ -98,7 +98,7 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "user")){
 							До:
 							<?php 
 							echo $row['endDate']; ?>
-							</div>
+							</div><hr>
 							<div class="buttons">
 							<?php if($status=="accepted" ){ ?> 
 							<a class="vote" href="#vote<?php echo $bookingID ;?>">Оцени</a>

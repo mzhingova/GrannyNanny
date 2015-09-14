@@ -82,7 +82,7 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")){
 						<?php 
 						echo $row['book_tel']; ?>
 						</div>
-						<br><b>
+						<b><hr>
 						<div>Запитване за:</b></div>
 						<div>Град:
 						<?php 
@@ -114,6 +114,7 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")){
 						?>
 						</div>
 						<div class="buttons">
+							<hr>
 							<?php if($status=="accepted" ){ ?> <div class="inneraccepted">Приет</div>
 							<?php } else if ($status=="rejected"){ ?> <div class="innerrejected">Отказан</div>
 							<?php } 
@@ -122,6 +123,8 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")){
 								echo "<a class='innerrejected' href='book_nanny_message_update.php?action=reject&id=".$book_id."'>Откажи</a>";
 							} ?>
 						</div>
+						
+
 				</div>
 			</div>
 				<?php if($status=="accepted"){ ?>

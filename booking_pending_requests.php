@@ -46,13 +46,12 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")){
 				<div>
 					 <a href="#close" title="Close" class="close">X</a>
 						<div>
-						Заявка номер:
+						<b>Заявка номер:
 						<?php
 						$book_id = $row['bookingID'];
 						$status=$row['status'];
-						echo $book_id." е със статус ".$status;
-						?>
-						
+						?></b>
+						<div>Заявка от</div>
 						</div>
 						<div>
 						Име:
@@ -71,10 +70,12 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")){
 						</div>
 						<div>
 						Телефон за контакт:
+
 						<?php 
 						echo $row['book_tel']; ?>
+						<hr>
 						</div>
-						<div>Запитване за:</div>
+						<div><b>Запитване за:</b></div>
 						<div>Град:
 						<?php 
 						echo $row['city']; ?>
@@ -103,13 +104,14 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")){
 						<?php 
 						echo $row['endDate']; 
 						?>
-						</div>
+						</div><hr><br>
 						<div class="buttons">
 						<?php  
 								if($status=="request") {
 								echo "<a class='inneraccepted' href='book_nanny_message_update.php?action=accept&id=".$book_id."'>Приеми</a>";
 								echo "<a class='innerrejected' href='book_nanny_message_update.php?action=reject&id=".$book_id."'>Откажи</a>";
 							} ?>
+							<br><br>
 						</div>
 					</div>
 			</div>
@@ -154,13 +156,14 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")){
 			<div id="<?php echo $bookingID ?>" class="modalDialog">
 				<div>
 					 <a href="#close" title="Close" class="close">X</a>
-						<div>
+						<div><b>
 						Заявка номер:
 						<?php
 						$bookingID = $row['bookingID'];
 						echo $bookingID;
-						?>
+						?></b>
 						</div>
+						<div>Информация за Nanny</div>
 					<div> E-mail на Nanny:
 					<?php 
 						echo $row2['email']; ?>
@@ -174,6 +177,8 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")){
 						break;
 						} 	?>	
 					</div>
+					<hr>
+					<div><b>Вашата информация за заявката</b></div>	
 						<div>Град за заявката:
 						<?php 
 						echo $row['city']; ?>
@@ -202,7 +207,9 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")){
 						<?php 
 						echo $row['endDate']; ?>
 						</div>
+						<hr><br>
 						<div class="innerrequired">Чакащ</div>
+				<br>
 				</div>
 			</div>
 		</div>
