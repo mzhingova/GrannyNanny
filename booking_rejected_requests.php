@@ -45,15 +45,16 @@ $nanny= mysqli_query($conn,"SELECT * FROM booking where nannyID = '$nannyID' and
 			<div id="<?php echo $book_id ?>" class="modalDialog">
 				<div>
 					 <a href="#close" title="Close" class="close">X</a>
-						<div>
+						<div><b>
 						Заявка номер:
 						<?php
 						$book_id = $row['bookingID'];
 						$status=$row['status'];
 						echo $book_id;
 						?>
-						
+						</b>
 						</div>
+						<div>Заявка от</div>
 						<div>
 						Име:
 						<?php 
@@ -74,7 +75,8 @@ $nanny= mysqli_query($conn,"SELECT * FROM booking where nannyID = '$nannyID' and
 						<?php 
 						echo $row['book_tel']; ?>
 						</div>
-						<div>Запитване за:</div>
+						<hr>
+						<div><b>Запитване за:</b></div>
 						<div>Град:
 						<?php 
 						echo $row['city']; ?>
@@ -104,7 +106,8 @@ $nanny= mysqli_query($conn,"SELECT * FROM booking where nannyID = '$nannyID' and
 						echo $row['endDate']; 
 						?>
 						</div>
-						<div class="innerrejected">Отказан</div>
+						<hr>
+						<div class="innerrejected">Отказан</div><br>
 				</div>
 			</div>
 		</div>
@@ -152,12 +155,13 @@ $nanny= mysqli_query($conn,"SELECT * FROM booking where nannyID = '$nannyID' and
 				<div>
 					 <a href="#close" title="Close" class="close">X</a>
 						<div>
-						Заявка номер:
+						<b>Заявка номер:
 						<?php
 						$bookingID = $row['bookingID'];
 						echo $bookingID;
-						?>
+						?></b>
 						</div>
+						<div>Информация за Nanny</div>
 						<div> E-mail на Nanny:
 						<?php 
 						echo $row2['email']; ?>
@@ -171,6 +175,8 @@ $nanny= mysqli_query($conn,"SELECT * FROM booking where nannyID = '$nannyID' and
 						break;
 						} 	?>	
 						</div>
+						<hr>
+						<div><b>Вашата информация за заявката</b></div>	
 						<div>Град за заявката:
 						<?php 
 						echo $row['city']; ?>
@@ -199,8 +205,8 @@ $nanny= mysqli_query($conn,"SELECT * FROM booking where nannyID = '$nannyID' and
 						<?php 
 						echo $row['endDate']; ?>
 						</div>
-						
-				<div class="innerrejected">Отказан</div>
+						<hr>
+				<div class="innerrejected">Отказан</div><br>
 			</div>
 			</div>
 		</div>

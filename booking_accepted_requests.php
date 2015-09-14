@@ -21,7 +21,7 @@ $total_records=0;
 	$start_from = ($page-1) * $per_page;
 	
 if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")){
-?> <h1 class="header">Приети заявки:</h1><?php
+?> <h1 class="header">Приети заявки</h1><?php
 
 	$nannyID = $_SESSION["userID"]; 
 	$parentID=0;
@@ -47,13 +47,14 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")){
 				<div>
 					 <a href="#close" title="Close" class="close">X</a>
 						<div>
-						Заявка номер:
+						<b>Заявка номер:
 						<?php
 						$book_id = $row['bookingID'];
 						
 						echo $book_id;
 						?>
-						
+						</b>
+						<div>Заявка от</div>
 						</div>
 						<div>
 						Име:
@@ -74,8 +75,9 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")){
 						Телефон за контакт:
 						<?php 
 						echo $row['book_tel']; ?>
+						<hr>
 						</div>
-						<div>Запитване за:</div>
+						<div><b>Запитване за:</b></div>
 						<div>Град:
 						<?php 
 						echo $row['city']; ?>
@@ -104,7 +106,9 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")){
 						<?php 
 						echo $row['endDate']; 
 						?>
+
 						</div>
+						<hr>
 						<div class="inneraccepted">Приет</div>
 					</div>
 					
@@ -132,7 +136,7 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")){
 	$bookingID = 0;
 	$status="";
 	$nanny=0;
-?> <h1 class="header">Приети заявки:</h1><?php
+?> <h1 class="header">Приети заявки</h1><?php
 
 
 	$user= mysqli_query($conn,"SELECT * FROM booking where userID = '$userID' AND status='accepted'");
@@ -158,24 +162,27 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")){
 				<div>
 					 <a href="#close" title="Close" class="close">X</a>
 						<div>
-						Заявка номер:
+						<b>Заявка номер:
 						<?php
 						$bookingID = $row['bookingID'];
 						echo $bookingID;
-						?>
+						?></b>
+						<div>Информация за Nanny</div>
 						</div>
 						<div> E-mail на Nanny:
 						<?php 
 						echo $row2['email']; ?>
 						</div>
-						<div> Телефон на Nanny
+						<div> Телефон на Nanny:
 						<?php	echo $row2['tel']; ?> 
 						</div>
 						<div> Град на Nanny:
 						<?php 
 						echo $row2['city'];
 						break;
-						} 	?>	
+						} 	?>
+						<hr>
+						<div><b>Вашата информация за заявката</b></div>	
 						</div>
 						<div>Град за заявката:
 						<?php 
@@ -190,7 +197,7 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")){
 						Брой деца: 
 						<?php echo $row['children']; ?>
 						</div>
-						<div>Инфо
+						<div>Инфо:
 						<?php if($row['info'] != '') {
 
 						echo $row['info'];
@@ -205,8 +212,12 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")){
 						<?php 
 						echo $row['endDate']; ?>
 						</div>
-						<div class="inneraccepted">Приет</div>
-						
+						<hr>
+						<div class="inneruseraccepted">Приет
+
+						</div>
+						<a class="vote" href="#vote<?php echo $bookingID ;?>">Оцени</a>
+						<br>
 			</div>
 				</div>
 				<a class="vote" href="#vote<?php echo $bookingID ;?>">Оцени</a>

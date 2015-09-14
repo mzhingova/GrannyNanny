@@ -16,7 +16,7 @@ $conn->set_charset("utf8");
 			if($_GET['action']=="reject"){
 				$update_status = mysqli_query($conn, "UPDATE booking SET status='rejected' WHERE bookingID = '$book_id'")or die("Стана грешкка " . mysql_error()); 
 				if($update_status){
-					header("Refresh: 0.5; url=required_requests.php");
+					header("Refresh: 0.5; url=rejected_requests.php");
 				}
 				
 			}

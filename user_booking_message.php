@@ -32,7 +32,7 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "user")){
 	if( ! mysqli_num_rows($nannyQuery)) {
 		echo "Няма подобни заявки!";
 	} else {
-		?><h1 class="header">Всички заявки:</h1>
+		?><h1 class="header">Всички заявки</h1>
 		<?php
 		while($row = mysqli_fetch_array($nannyQuery)) { 
 		$nanny=$row['nannyID'];
@@ -44,6 +44,9 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "user")){
 			?><a href="#<?php echo $bookingID ;?>">Запитване №: <?php echo $bookingID. " "; ?> към
 			<?php 
 			echo $row2['firstname']. " ". $row2['lastname']; ?> <a/>
+
+
+
 			<div id="<?php echo $bookingID ?>" class="modalDialog">
 				<div>
 					 <a href="#close" title="Close" class="close">X</a>
@@ -69,7 +72,7 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "user")){
 						break;
 						} 	?>	
 						</div>
-						<br>
+						<hr>
 						<div><b>Вашата информация за заявката</b></div>
 							<div>Град за заявката:
 							<?php 
@@ -98,11 +101,13 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "user")){
 							До:
 							<?php 
 							echo $row['endDate']; ?>
-							</div>
+							</div><hr>
+
 							<div class="buttons">
 							<?php if($status=="accepted" ){ ?> 
-							<a class="vote" href="#vote<?php echo $bookingID ;?>">Оцени</a>
+							<a class="vote" href="accepted_requests.php#vote<?php echo $bookingID ;?>">Оцени</a>
 				<div id="vote<?php echo $bookingID ?>" class="modalDialog">
+					
 					<div>
 					 <a href="#close" title="Close" class="close">X</a>
 					<form method="GET" class="radio" action="nanny_vote.php">
@@ -135,9 +140,12 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "user")){
 								<?php 
 							} ?>
 						</div>
-			
+									<br>
+
 				</div>
+
 			</div>
+
 			<?php if($status=="accepted"){ ?>
 			<div class="accepted">Приет</div>
 			<?php } else if($status=="rejected"){ ?>
