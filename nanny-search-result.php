@@ -115,7 +115,7 @@ if ($search){
 			if($key->average == 0){
 				echo 'Рейтинг:  ' . "-";
 			} else {
-			echo 'Рейтинг:  ' . round($key->average,2) . "/5";
+			echo 'Рейтинг:  ' . round($key->average,1) . "/5";
 			}
 			echo "</div>";
 

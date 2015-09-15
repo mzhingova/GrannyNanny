@@ -1,4 +1,18 @@
-﻿<?php 
+﻿<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>About us</title>
+		<!-- Override CSS file - add your own CSS rules -->
+		<link rel="stylesheet" href="assets/css/###.css">
+	</head>
+	<body>
+		<div class="container">
+			<?php include 'includes/header.php';?>
+			<div class="content">
+
+
+<?php 
 
 
 error_reporting(E_ALL);
@@ -34,7 +48,18 @@ $newaverage=$newrating/$newusernum;
 
 $query = mysqli_query($conn, "UPDATE parenuser SET `usernum`='$newusernum',`rating`='$newrating',`average`='$newaverage' WHERE userID = '$nannyID'")or die ("Стана грешкка " . mysql_error());
 if($query ){
-	echo "Оценяшането бешеуспешно.";
+	echo "Оценяването беше успешно !";
 	header("Refresh: 3; url=accepted_requests.php");
 }
 ?>
+
+
+
+							</div>
+		</div>
+		<div class="container">
+			<?php include 'includes/footer.php';?>
+		</div>
+	</body>
+</body>
+</html>
