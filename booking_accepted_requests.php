@@ -109,9 +109,7 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")){
 
 						</div>
 						<hr>
-						<div class="inneraccepted">Приет</div>
 					</div>
-					
 			</div>
 		</div>
 		
@@ -213,9 +211,6 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")){
 						echo $row['endDate']; ?>
 						</div>
 						<hr>
-						<div class="inneruseraccepted">Приет
-
-						</div>
 						<a class="vote" href="#vote<?php echo $bookingID ;?>">Оцени</a>
 						<br>
 			</div>

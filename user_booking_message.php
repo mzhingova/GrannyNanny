@@ -132,12 +132,8 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "user")){
 					</form>
 					</div>
 				</div>
-							<div class="inneraccepted">Приет</div>
-							<?php } else if ($status=="rejected"){ ?> <div class="innerrejected">Отказан</div><br>
-							<?php } 
-								else if($status=="request") {?>
-								<div class="innerrequired">Чакащ</div>
-								<?php 
+							<br>
+							<?php 
 							} ?>
 						</div>
 									
