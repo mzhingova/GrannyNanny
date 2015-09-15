@@ -42,7 +42,6 @@ $per_page=5;
 					echo "<a class='btn' href='edit_user.php?id=$key->userID'>Редактирай</a>";
 					echo "</div>";
 				
-
 				echo "</div>";
 				echo "</br>";
 				$counter++;
