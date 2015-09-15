@@ -58,7 +58,9 @@ $conn ->set_charset("utf8");
 						<p>Телефонен номер: <?php echo $row['tel']; ?>		</p>
 						<p>Работен статус:	<?php echo $row['work_status']; ?>						</p>
 						<p class="wordwrap">Мотивационно поле:	<?php echo $row['motivation']; ?>	</p>
-						<p>Рейтинг: 	 <?php echo $row['average']; ?>		</p>
+						<p>Рейтинг: 	 <?php if($row['average'] == 0){	echo "-";
+			} else { echo round($row['average'],1) . "/5"; } ?>		</p>
+
 			<?php } ?>
 			
 			
