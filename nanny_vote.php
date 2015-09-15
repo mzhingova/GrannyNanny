@@ -18,9 +18,11 @@ echo $ratingin;
 echo $nannyID;
 $average="";
 $usernum="";
-$rating="";
+
+
 $vote = mysqli_query($conn,"SELECT * FROM parenuser where userID = '$nannyID' ")or die ("Стана грешкка " . mysql_error());
 while($row= mysqli_fetch_array($vote)){
+$rating = $row['rating'];	
 $average=$row['average'];
 $usernum=$row['usernum'];
 $average=$row['average'];
