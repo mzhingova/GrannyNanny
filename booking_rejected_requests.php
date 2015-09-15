@@ -148,7 +148,7 @@ $nanny= mysqli_query($conn,"SELECT * FROM booking where nannyID = '$nannyID' and
 
 		<?php 
 		while($row2= mysqli_fetch_array($nannyInfoQuery)){
-		?><a href="#<?php echo $bookingID ;?>">Запитване №: <?php echo $bookingID. " "; ?> от
+		?><a href="#<?php echo $bookingID ;?>">Запитване №: <?php echo $bookingID. " "; ?> към
 			<?php 
 			echo $row2['firstname']. " ". $row2['lastname']; ?> <a/>
 			<div id="<?php echo $bookingID ?>" class="modalDialog">
