@@ -136,7 +136,7 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "user")){
 							<?php } else if ($status=="rejected"){ ?> <div class="innerrejected">Отказан</div><br>
 							<?php } 
 								else if($status=="request") {?>
-								<div class="inneraccepted">Чакащ</div>
+								<div class="innerrequired">Чакащ</div>
 								<?php 
 							} ?>
 						</div>

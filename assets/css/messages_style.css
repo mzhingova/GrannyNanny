@@ -123,14 +123,7 @@ a.sidelink{
 text-align: center;
 float: left;
     }
-.inneraccepted{
-	background-color: rgba(89, 177, 62, 0.7);
-	padding: 0.2em;
-    border-radius: 0.1em;
-    color: white;
-	width: 20%;
-text-align: center;
-}
+
 .innerrejectedinall{
    background-color:rgba(212, 65, 65, 0.74); 
     padding: 0.2em;
@@ -145,8 +138,16 @@ float: right;
     border-radius: 0.1em;
     color: white;
 text-align: center;
-	
+
 float: left;
+}
+.inneraccepted{
+  background-color: rgba(89, 177, 62, 0.7);
+  padding: 0.2em;
+    border-radius: 0.1em;
+    color: white;
+  width: 20%;
+text-align: center;
 }
 .innerrequired{
    background-color:rgba(62, 149, 177, 0.7);
