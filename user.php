@@ -33,70 +33,20 @@ $conn ->set_charset("utf8");
 				while($row = mysqli_fetch_array($tableQuery)) { ?>
 				<br><br>
 				
-				<b>Лични Данни:</b><br><br>
-				
-				<table  width=800px border=0 cellspacing=10>
+				<h1>Лични Данни</h1><hr>
+				<p>Име: 			<?php echo $row['firstname']; ?>	</p>
+				<p>Фамилия:			<?php echo $row['lastname']; ?>		</p>
+				<p>Email:			<?php echo $row['email']; ?>		</p>
+				<p>Град:			<?php echo $row['city']; ?>			</p>
+				<p>Адрес:			<?php echo $row['address']; ?>		</p>
+				<p>Телефонен номер: <?php echo $row['tel']; ?>			</p>
 					
-					<tr>
-						<td>
-							<b>Име:</b>
-						</td>
-						<td>
-							<?php
-							echo $row['firstname']; ?>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<b>Фамилия:</b>
-						</td>
-						<td>
-							<?php
-							echo $row['lastname']; ?>
-						</td>
-					</tr>
-					
-					<tr>
-						<td>
-							<b>Email:</b>
-						</td>
-						<td>
-							<?php
-							echo $row['email']; ?>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<b>Град:</b>
-						</td>
-						<td>
-							<?php echo $row['city']; ?>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<b>Адрес:</b>
-						</td>
-						<td>
-							<?php
-							echo $row['address']; ?>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<b>Телефонен номер:</b>
-						</td>
-						<td>
-							<?php echo $row['tel']; ?>
-						</td>
-					</tr>
-					
-				</table><br>
+				<p>
 				<?php 
 				echo "<a href='edit_user.php?firstname=".$row['firstname'].",lastname=".$row['lastname'].",city=".$row['city']."'><button id='btn' type='submit' name='submit' class='btn'>Редактиране на профила</button></a><br>"
 				?>
 				<?php } ?>
-				
+				</p>
 				<?php
 				$userID = $_SESSION["userID"]
 				
