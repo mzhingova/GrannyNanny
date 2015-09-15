@@ -28,8 +28,6 @@ $conn->set_charset("utf8");
 
 $nannyID=$_GET['nannyid'];
 $ratingin=$_GET['rating'];
-echo $ratingin;
-echo $nannyID;
 $average="";
 $usernum="";
 
