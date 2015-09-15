@@ -36,10 +36,10 @@
 		<option value="Мъж">Мъж</option>
 		<option value="Жена">Жена</option>
 	</select>
-	<div id="rating">
+	<!-- <div id="rating">
 		<label>Рейтинг</label>
-		<input type="checkbox" name="rating" value="1" ></input>
-	</div>
+		<input type="checkbox" name="rating" value="1" ></input> 
+	</div>-->
 	<input type="hidden" name="search" value="true" />
 	<button class="btn" name="search-button">Търси</button>
 </form>
