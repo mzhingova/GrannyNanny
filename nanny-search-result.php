@@ -23,7 +23,7 @@ $per_page=4;
 		
 if (isset($_REQUEST['search-button'])) {
 
-	$firstname = htmlspecialchars($_GET['firstname']);
+	$firstname = $db->escape($_GET['firstname']);
 	$city = htmlspecialchars($_GET['city']);
 	$age = htmlspecialchars($_GET['age']);
 	$sex = htmlspecialchars($_GET['gender']);
@@ -47,7 +47,6 @@ if (isset($_REQUEST['search-button'])) {
 			
 			$firstname = preg_replace("/%/", "\\%", $firstname);
 		}
-
 }	
 
 		 

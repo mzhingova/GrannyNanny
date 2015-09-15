@@ -17,11 +17,11 @@ $per_page=5;
 
 
 if (isset($_REQUEST['search-button'])) {
-	$firstname = htmlspecialchars($_GET['firstname']);
+	$firstname = $db->escape($_GET['firstname']);
 	$city = htmlspecialchars($_GET['city']);
-	$address = ($_GET['address']);
-	$email = htmlspecialchars($_GET['email']);
-	$lastname = htmlspecialchars($_GET['lastname']);
+	$address = $db->escape($_GET['address']);
+	$email = $db->escape($_GET['email']);
+	$lastname = $db->escape($_GET['lastname']);
 		$search=true;
 		$regEx = "/[_]+/"; 
 		$regEx2 = "/[%]+/";
