@@ -183,7 +183,7 @@
         reposition: true,
 
         // the default output format for `.toString()` and `field` value
-        format: 'YYYY-MM-DD',
+        format: 'yy-m-dd',
 
         // the initial date to view when first opened
         defaultDate: null,
@@ -654,7 +654,8 @@
          */
        toString: function(format)
         {
-            return !isDate(this._d) ? '' : hasMoment ? moment(this._d).format(format || this._o.format) : this._d.format('MMM D, YYYY');
+            return !isDate(this._d) ? '' : hasMoment ? moment(this._d).format(format || this._o.format) : this._d.toLocaleDateString();
+
         },
 
         /**
