@@ -652,9 +652,9 @@
         /**
          * return a formatted string of the current selection (using Moment.js if available)
          */
-        toString: function(format)
+       toString: function(format)
         {
-            return !isDate(this._d) ? '' : hasMoment ? moment(this._d).format(format || this._o.format) : this._d.toDateString();
+            return !isDate(this._d) ? '' : hasMoment ? moment(this._d).format(format || this._o.format) : this._d.format('MMM D, YYYY');
         },
 
         /**

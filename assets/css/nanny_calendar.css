@@ -1,0 +1,205 @@
+
+
+
+.clear {
+	clear:both;
+}
+
+#categories {
+	float:left;
+	width:20%;
+	position:relative;
+	top:72px;
+}
+#categories ul {
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+#categories ul li {
+	margin:0 0 5px;
+	display:block;
+	padding:9px 10px 8px 10px;
+	border-radius:4px;
+	-webkit-border-radius:4px;
+	-moz-border-radius:4px;
+	background:#FFF;
+	border-bottom:1px #EEE solid;
+}
+#categories ul li:hover {
+	background: #b5bdc8;
+	background: -moz-linear-gradient(top,  #b5bdc8 0%, #5b6d77 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#b5bdc8), color-stop(100%,#5b6d77));
+	background: -webkit-linear-gradient(top,  #b5bdc8 0%,#5b6d77 100%);
+	background: -o-linear-gradient(top,  #b5bdc8 0%,#5b6d77 100%);
+	background: -ms-linear-gradient(top,  #b5bdc8 0%,#5b6d77 100%);
+	background: linear-gradient(to bottom,  #b5bdc8 0%,#5b6d77 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b5bdc8', endColorstr='#5b6d77',GradientType=0 );
+	cursor:pointer;
+}
+#categories ul li:active {
+	background: #98a1ac;
+}
+#categories ul li a {
+	text-transform:uppercase;
+	text-decoration:none;
+	display:block;
+	color:#a4a4a4;
+	font-size:12px;	
+	position:relative;
+}
+#categories ul li a span {
+	display:block;
+	width:8px;
+	height:12px;
+	position:absolute;
+	top:1px;
+	right:0;
+	background:url(https://raw.github.com/spense/Code-play/master/AccordionCalendar/images/sprite-arrow-categories-small.png) right 0 no-repeat;
+}
+#categories ul li:hover a {
+	color:#FFF;
+	text-shadow:0 -1px 0 #333;
+}
+#categories ul li:hover a span {
+	background:url(https://raw.github.com/spense/Code-play/master/AccordionCalendar/images/sprite-arrow-categories-small.png) right -12px no-repeat;
+}
+
+#accordion-calendar {
+	width:78%;
+	margin-top: 7%;
+	position:relative;
+	top:-40px;
+}
+
+#accordion-calendar #month-nav {
+	float:right;
+	padding:0 0 30px;
+	
+}
+#accordion-calendar h1#current-month {
+	float:left;
+	text-align:center;
+	font-weight:lighter;
+	text-transform:uppercase;
+	font-size:22px;
+	letter-spacing:-1px;
+	margin:0;
+	width:180px;
+	padding:0 15px;
+	position:relative;
+	top:4px;
+}
+#accordion-calendar .nav-prev,
+#accordion-calendar .nav-next {
+	background:url(https://raw.github.com/spense/Code-play/master/AccordionCalendar/images/sprite-calendar-arrow.png) no-repeat;
+	width:19px;
+	height:32px;
+	float:left;
+}
+#accordion-calendar .nav-prev a,
+#accordion-calendar .nav-next a {
+	cursor:pointer;
+	display:block;
+	width:19px;
+	height:32px;
+}
+#accordion-calendar .nav-prev {
+	background-position:0 0;
+}
+#accordion-calendar .nav-prev:hover {
+	background-position:0 -32px;
+}
+#accordion-calendar .nav-next {
+	background-position:-19px 0;
+}
+#accordion-calendar .nav-next:hover {
+	background-position:-19px -32px;
+}
+
+#accordion-calendar table {
+	 width:100%;
+	 border-collapse:collapse;
+	 border:none;
+	 clear:both;
+}
+#accordion-calendar table th.weekday {
+	padding:15px 12px;
+	text-align:left;
+	width:14.285%;
+	font-size:16px;
+	font-weight:normal;
+	color:#777;
+}
+#accordion-calendar table tbody tr.week td {
+	background: #ffffff;
+	background: -moz-linear-gradient(top, #ffffff 0%, #e5e5e5 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#e5e5e5));
+	background: -webkit-linear-gradient(top, #ffffff 0%,#e5e5e5 100%);
+	background: -o-linear-gradient(top, #ffffff 0%,#e5e5e5 100%);
+	background: -ms-linear-gradient(top, #ffffff 0%,#e5e5e5 100%);
+	background: linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 ); 
+}
+#accordion-calendar table tbody tr.week:first-child,
+#accordion-calendar table tbody tr.week:first-child:hover {
+	border-bottom:1px #EEE solid;
+	background:none;
+}
+#accordion-calendar table tbody tr.week td:hover {
+	background: #b5bdc8;
+	background: -moz-linear-gradient(top, #b5bdc8 0%, #828c95 36%, #28343b 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#b5bdc8), color-stop(36%,#828c95), color-stop(100%,#28343b));
+	background: -webkit-linear-gradient(top, #b5bdc8 0%,#828c95 36%,#28343b 100%); 
+	background: -o-linear-gradient(top, #b5bdc8 0%,#828c95 36%,#28343b 100%);
+	background: -ms-linear-gradient(top, #b5bdc8 0%,#828c95 36%,#28343b 100%);
+	background: linear-gradient(to bottom, #b5bdc8 0%,#828c95 36%,#28343b 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b5bdc8', endColorstr='#28343b',GradientType=0 );
+	cursor:pointer;
+}
+#accordion-calendar table tbody tr.week.current td {
+	border-top:1px #777 solid;
+	background: rgb(188,192,196);
+	background: -moz-linear-gradient(top,  rgba(188,192,196,1) 0%, rgba(224,227,229,1) 27%, rgba(255,255,255,1) 62%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(188,192,196,1)), color-stop(27%,rgba(224,227,229,1)), color-stop(62%,rgba(255,255,255,1)));
+	background: -webkit-linear-gradient(top,  rgba(188,192,196,1) 0%,rgba(224,227,229,1) 27%,rgba(255,255,255,1) 62%); 
+	background: -o-linear-gradient(top,  rgba(188,192,196,1) 0%,rgba(224,227,229,1) 27%,rgba(255,255,255,1) 62%);
+	background: -ms-linear-gradient(top,  rgba(188,192,196,1) 0%,rgba(224,227,229,1) 27%,rgba(255,255,255,1) 62%);
+	background: linear-gradient(to bottom,  rgba(188,192,196,1) 0%,rgba(224,227,229,1) 27%,rgba(255,255,255,1) 62%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bcc0c4', endColorstr='#ffffff',GradientType=0 );
+}
+#accordion-calendar table tbody tr.week.current td:hover {
+	cursor:default;
+}
+
+#accordion-calendar table tbody tr.week td {
+	text-align:left;
+	padding:22px 12px;
+	font-size:32px;
+	font-weight:normal;
+	color:#555;
+	text-shadow:0 1px 0 #FFF;
+}
+#accordion-calendar table tbody tr.week td:hover {
+	color:#FFF;
+	text-shadow:0 -1px 0 #000;
+}
+#accordion-calendar table tbody tr.week.current:hover td {
+	color:#555;
+	text-shadow:0 1px 0 #FFF;
+}
+#accordion-calendar table tbody tr.week td.other-month span.day {
+	color:#CCC;
+}
+#accordion-calendar table tbody tr.week-details {
+	background-color:#FFF;
+	border-bottom:1px #EEE solid;
+}
+#accordion-calendar table tbody tr.week-details td {
+	padding:22px 12px;
+	font-size:13px;
+}
+#accordion-calendar table tbody tr.week-details td div {
+	display:none;
+	height:140px;
+}

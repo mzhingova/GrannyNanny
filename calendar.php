@@ -10,11 +10,11 @@
 		<div class="container">
 			<?php include 'includes/header.php';?>
 			<div class="content">
-						<?php echo "The page you are looking for is under construction" ?>
-						</div>
-						</div>
-				<div class="container">
-				<?php include 'includes/footer.php';?>
+				<?php echo "The page you are looking for is under construction" ?>
 			</div>
-		</body>
-	</html>
+		</div>
+		<div class="container">
+			<?php include 'includes/footer.php';?>
+		</div>
+	</body>
+</html>
