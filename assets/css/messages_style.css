@@ -114,6 +114,16 @@ a.sidelink{
         -webkit-box-shadow: 1px 1px 3px #000;
         box-shadow: 1px 1px 3px #000;
     }
+<<<<<<< HEAD
+.inneraccepted{
+	background-color: rgba(89, 177, 62, 0.7);
+	padding: 0.2em;
+    border-radius: 0.1em;
+    color: white;
+	width: 20%;
+text-align: center;
+margin:5%;
+=======
     .inneruseraccepted{
         background-color: rgba(89, 177, 62, 0.7);
   padding: 0.2em;
@@ -131,15 +141,18 @@ float: left;
     color: white;
 text-align: center; 
 float: right;
+>>>>>>> 7acc07711f62c7e735f2ab9ba8446456c6e59f04
 }
 .innerrejected{
    background-color:rgba(212, 65, 65, 0.74); 
     padding: 0.2em;
     border-radius: 0.1em;
     color: white;
+
 text-align: center;
 
 float: left;
+
 }
 .inneraccepted{
   background-color: rgba(89, 177, 62, 0.7);
@@ -156,6 +169,7 @@ text-align: center;
     color: white;
 	width: 20%;
 text-align: center;	
+margin:5%;
 }
 .accepted{
       float: right;
@@ -191,11 +205,20 @@ text-align: center;
     padding: 0.2em;
     border-radius: 0.1em;
     color: white;
-	width: 70px;
+	width: 10%;
 	text-align: center;
-
 }
-.radiobtn{
+.innervote{
+   
+    background-color: rgba(206, 156, 15, 0.7);
+    padding: 0.2em;
+    border-radius: 0.1em;
+    color: white;
+	width: 17%;
+	text-align: center;
+}
+.statbtn{
+	display:inline;
 
 }
 .star-rating {
