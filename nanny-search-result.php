@@ -23,11 +23,10 @@ $per_page=4;
 		
 if (isset($_REQUEST['search-button'])) {
 
-	$firstname = htmlspecialchars($_GET['firstname']);
+	$firstname = $db->escape($_GET['firstname']);
 	$city = htmlspecialchars($_GET['city']);
 	$age = htmlspecialchars($_GET['age']);
 	$sex = htmlspecialchars($_GET['gender']);
-	$rating = htmlspecialchars($_GET['rating']);
 	$search=true;
 	
 	$splittedAge = explode("-", $age);
@@ -48,36 +47,34 @@ if (isset($_REQUEST['search-button'])) {
 			
 			$firstname = preg_replace("/%/", "\\%", $firstname);
 		}
-
 }	
 
 		 
 if ($search){
 		
-		$select_nanny = "SELECT * FROM parenuser WHERE status='nanny' ";
+		$select_nanny = "SELECT * FROM parenuser WHERE status='nanny'";
 
 		if ($firstname){
-			$select_nanny .= " AND (firstname LIKE '%$firstname%' OR lastname LIKE '%$firstname%') ORDER BY average DESC";
+			$select_nanny .= " AND (firstname LIKE '%$firstname%' OR lastname LIKE '%$firstname%')";
 			
 		}
 
 		if ($city) {
-			$select_nanny .= " AND city = '$city' ORDER BY average DESC";
+			$select_nanny .= " AND city = '$city'";
 
 		}
 
 		if ($age) {
-			$select_nanny .= " AND age between $minAge AND $maxAge ORDER BY average DESC";
+			$select_nanny .= " AND (age between $minAge AND $maxAge)";
 			
 		}
 
 		if ($sex) {
-			$select_nanny .= " AND gender = '$sex' ORDER BY average DESC";
+			$select_nanny .= " AND gender = '$sex'";
 			
 		}
-		if(isset($rating)) {
-			$select_nanny .= "ORDER BY average DESC";
-		}
+		
+		$select_nanny .= "ORDER BY average DESC";
 
 		$nannies = $db->get_results($select_nanny);
 		
@@ -118,7 +115,7 @@ if ($search){
 			if($key->average == 0){
 				echo 'Рейтинг:  ' . "-";
 			} else {
-			echo 'Рейтинг:  ' . $key->average . "/5";
+			echo 'Рейтинг:  ' . round($key->average,1) . "/5";
 			}
 			echo "</div>";
 

@@ -20,154 +20,47 @@ $conn ->set_charset("utf8");
 	<div class="container">
 		<?php include 'includes/header.php';?>
 		<div class="content">
-			<?php
+		<?php
 			$isAdmin = $_SESSION['status'];
 			if ($isAdmin == 'admin') {
 				$userID = $_GET["id"];
 			} else {
 				$userID = $_SESSION['userID'];
 			}
-			?>
-			<?php
+		?>
+		<?php
 			
-			$tableQuery = mysqli_query($conn, "SELECT * FROM parenuser where status='nanny' AND userID='$userID'")or die("Стана грешкка " . mysql_error());;
-			while($row = mysqli_fetch_array($tableQuery)) { ?>
+			$tableQuery = mysqli_query($conn, "SELECT * FROM parenuser where status='nanny' AND userID='$userID'")or die("Стана грешкка " . mysql_error());
+			while($row = mysqli_fetch_array($tableQuery)) { 
+		?>
 			
 			
 			<div>
 				<img src="uploads/<?php echo $row['photo'] ?>" target="_blank" alt="avatar" />
 			</div><br><br>
-			<h1>Лични Данни</h1>
-			
-			
-			<table width=800px border=0 cellspacing=10>
-				<td>
-					<table  border=0>
-						
-						<tr>
-							<td>
-								<b>Име:</b>
-							</td>
-							<td>
-								<?php
-								echo $row['firstname']; ?>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<b>Фамилия:</b>
-							</td>
-							<td>
-								<?php
-								echo $row['lastname']; ?>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<b>Възраст:</b>
-							</td>
-							<td>
-								<?php if($row['pid'] != '') {
-									echo date('Y')-(intval($row['pid']/100000000) + 1900);
+			<h1>Лични Данни</h1><hr>
+
+						<p>		Име:	<?php echo $row['firstname']; ?>	</p>
+						<p>		Фамилия: <?php echo $row['lastname']; ?>		</p>
+						<p>Възраст:	<?php if($row['pid'] != '') { echo date('Y')-(intval($row['pid']/100000000) + 1900);
+								
 								} else
 								{
 									echo '-';
-								} ?>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<b>Email:</b>
-							</td>
-							<td>
-								<?php
-								echo $row['email']; ?>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<b>Пол:</b>
-							</td>
-							<td>
-								<?php echo $row['gender']; ?>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<b>Възможност за работа извън града:</b>
-							</td>
-							<td>
-								<?php echo $row['workout']; ?>
-							</td>
-						</tr>
-					</table>
-					
-					<td valign=top>
-						<table border=0>
-							
-							<tr>
-								<td>
-									<b>Град:</b>
-								</td>
-								<td>
-									<?php echo $row['city']; ?>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<b>Адрес:</b>
-								</td>
-								<td>
-									<?php
-									echo $row['address']; ?>
-								</tr>
-							</td>
-							<tr>
-								<td>
-									<b>Образование:</b>
-								</td>
-								<td>
-									<?php echo $row['education']; ?>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<b>Телефонен номер:</b>
-								</td>
-								<td>
-									<?php echo $row['tel']; ?>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<b>Работен статус:</b>
-								</td>
-								<td>
-									<?php echo $row['work_status']; ?>
-								</td>
-							</tr>
-							<tr>
-								<td >
-									<b>Мотивационно поле:</b>
-								</td>
-								<td>
-									<div class="wordwrap"> <?php echo $row['motivation']; ?></div>
-								</td>
-							</tr>
-														<tr>
-								<td >
-									<b>Рейтинг:</b>
-								</td>
-								<td>
-									<div class="wordwrap"> <?php echo $row['average']; ?></div>
-								</td>
-							</tr>
-							
-						</table>
-					</td>
-				</tr>
-			</table><br>
-			
+								} ?>										
+						</p>
+						<p>Email:		<?php echo $row['email']; ?>		</p>
+						<p>Пол:			<?php echo $row['gender']; ?>		</p>
+						<p>Възможност за работа извън града:		<?php echo $row['workout']; ?>	</p>
+						<p>Град:		<?php echo $row['city']; ?>			</p>
+						<p>Адрес:		<?php echo $row['address']; ?>		</p>
+						<p>Образование: <?php echo $row['education']; ?>	</p>
+						<p>Телефонен номер: <?php echo $row['tel']; ?>		</p>
+						<p>Работен статус:	<?php echo $row['work_status']; ?>						</p>
+						<p class="wordwrap">Мотивационно поле:	<?php echo $row['motivation']; ?>	</p>
+						<p>Рейтинг: 	 <?php if($row['average'] == 0){	echo "-";
+			} else { echo round($row['average'],1) . "/5"; } ?>		</p>
+
 			<?php } ?>
 			
 			

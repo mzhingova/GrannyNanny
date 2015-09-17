@@ -23,7 +23,7 @@ $conn->set_charset("utf8");
 			if($_GET['action']=="accept"){
 				$update_status = mysqli_query($conn, "UPDATE booking SET status='accepted' WHERE bookingID = '$book_id'")or die("Стана грешкка " . mysql_error()); 
 				if($update_status){
-					header("Refresh: 0.5; url=required_requests.php");
+					header("Refresh: 0.5; url=accepted_requests.php");
 				}
 			}
 		}			

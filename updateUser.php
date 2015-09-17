@@ -105,16 +105,12 @@ if (!empty($password) && !empty($pass) && !empty($pass2)) {
     } 
 }
 if ($counter>0) {
-echo "Всички промени бяха успешно запазени ! ";     
+header("Refresh: 0; url=changes_made_success.php");    
     } else {
-        echo "Не бяха направени промени по профилът. ";
+       header("Refresh: 0; url=changes_made_fail.php"); 
     }
 
-if ($isAdmin == 'admin') {
-header("Refresh: 3; url=search_one.php");
-} else {
-header("Refresh: 3; url=user.php");
-}
+
 
 
 ?>

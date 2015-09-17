@@ -53,7 +53,7 @@ $per_page=4;
 			if($key->average == 0){
 				echo 'Рейтинг:  ' . "-";
 			} else {
-			echo 'Рейтинг:  ' . $key->average . "/5";
+			echo 'Рейтинг:  ' . round($key->average,1) . "/5";
 			}
 			echo "</div>";
 
@@ -89,10 +89,6 @@ $per_page=4;
 			for ($i=1; $i<=$total_pages; $i++) {
 				echo " <a href=".$url.$i.">".$i."</a> ";
 			} 
-		
-		
-
-
 ?>
 
 	
