@@ -11,10 +11,21 @@
 <div class="container">
 			<?php include 'includes/header.php';?>
 			<div class="content">
+<?php
+$pageTitle = 'Log-in';
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+$conn = new mysqli('localhost', 'root', '', 'grannynanny');
+
+if (!$conn) {
+    die('Could not connect: ' . mysql_error());
+    exit;
+}
+$conn ->set_charset("utf8");
+?>
 
 
-/* draws a calendar */
-<
 <?php function draw_calendar($month,$year){
 
 	/* draw table */
@@ -45,6 +56,10 @@
 		$calendar.= '<td class="calendar-day">';
 			/* add in the day number */
 			$calendar.= '<div class="day-number">'.$list_day.'</div>';
+
+
+
+
 
 			/** QUERY THE DATABASE FOR AN ENTRY FOR THIS DAY !!  IF MATCHES FOUND, PRINT THEM !! **/
 			$calendar.= str_repeat('<p> </p>',2);
