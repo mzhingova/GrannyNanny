@@ -43,8 +43,7 @@ td.calendar-day-head
     font-weight:bold; 
     text-align:center; 
     width:120px; 
-    padding:5px; 
-    border-bottom:1px solid #999; 
+1    border-bottom:1px solid #999; 
     border-top:1px solid #999; 
     border-right:1px solid #999; 
 }
