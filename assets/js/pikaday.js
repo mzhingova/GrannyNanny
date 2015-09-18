@@ -654,7 +654,17 @@
          */
        toString: function(format)
         {
-            return !isDate(this._d) ? '' : hasMoment ? moment(this._d).format(format || this._o.format) : this._d.toLocaleDateString();
+
+            var d = new Date();
+            var mm = d.getMonth() + 1;
+            var dd = d.getDate();
+            var yy = d.getFullYear();
+
+            var myDateString = yy + ':' + mm + ':' + dd; //(US)
+
+           var options = {year: "numeric", month: "numeric",day: "numeric"};
+            return !isDate(this._d) ? '' : hasMoment ? myDateString :myDateString;
+           // return !isDate(this._d) ? '' : hasMoment ? this._d.toLocaleDateString(options) : this._d.toLocaleDateString(options);
 
         },
 
