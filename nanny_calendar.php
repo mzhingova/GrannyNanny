@@ -81,7 +81,7 @@
 										
 													if($list_day == $start_date[2] && $month == $month_with_digits){
 																										
-													$calendar .= str_repeat('<a href="#'.$bookingID.'" >Ангажимент №:'.$bookingID. ' </a>
+													$calendar .= str_repeat('<a href="#'.$bookingID.'"class="start" > №:'.$bookingID. 'Начало</a>
 							<div id="'. $bookingID . '"class="modalDialog">
 								<div class="dialoginf">
 										<a href="#close" title="Close" class="close">X</a>
@@ -134,7 +134,7 @@
 																}
 													if ($list_day == $end_date[2] && $month == $month_with_digits_to) {
 														/** QUERY THE DATABASE FOR AN ENTRY FOR THIS DAY !!  IF MATCHES FOUND, PRINT THEM !! **/
-																$calendar.= str_repeat('<a href="#'.$nannyID.'" >Крайна дата на №:'.$bookingID. '</a>
+																$calendar.= str_repeat('<a href="#'.$nannyID.'"  class="end">№:'.$bookingID. ' Край</a>
 										<div id="'. $nannyID . '"class="modalDialog">
 											<div class="dialoginf">
 													<a href="#close" title="Close" class="close">X</a>

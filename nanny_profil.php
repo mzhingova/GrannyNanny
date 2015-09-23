@@ -62,7 +62,7 @@ $conn ->set_charset("utf8");
 			} else { echo round($row['average'],1) . "/5"; } ?>		</p>
 
 			<?php } ?>
-			
+			<hr>
 			
 			<a href="edit_nanny.php"><button id="btn" type="submit" name="submit" class="btn">Редактиране на профила</button></a><br>
 		</div>
