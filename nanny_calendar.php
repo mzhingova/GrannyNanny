@@ -5,6 +5,8 @@
 		<title>Calendar</title>
 		<!-- Override CSS file - add your own CSS rules -->
 		<link rel="stylesheet" href="assets/css/nanny_calendar.css">
+		<link rel="stylesheet" href="assets/css/messages_style.css">
+
 	</head>
 	<body>
 		<div class="container">
@@ -56,6 +58,8 @@
 							$nannyID = $_SESSION["userID"];
 							$results_query = mysqli_query($conn,"SELECT * FROM booking where nannyID = '$nannyID' and status='request' ");
 							while($row = mysqli_fetch_array($results_query)) {
+								$bookingID=$row['bookingID'];
+								//echo '<h2> booking'.$bookingID.'</h2>';
 							$different_parts_of_date = $row['startDate'];
 							
 							$pieces = explode(" ", $different_parts_of_date);
@@ -70,7 +74,59 @@
 																							
 										
 										/** QUERY THE DATABASE FOR AN ENTRY FOR THIS DAY !!  IF MATCHES FOUND, PRINT THEM !! **/
-										$calendar.= str_repeat('<p>tova e test na StartDate</p>',1);
+										$calendar.= str_repeat('<a href="#'.$bookingID.'" >Запитване №:'.$bookingID. 'от </a>
+			<div id="'. $bookingID . '"class="modalDialog">
+				<div class="dialoginf">
+					 <a href="#close" title="Close" class="close">X</a>
+						<div><b>
+						<div>Заявка от</div>
+						<div>
+						Име:'.
+						
+						$row['book_firstname'].'
+						</div>
+						<div>
+						Фамилия:'.
+						 $row['book_lastname'].'
+						</div>
+						<div>
+						Email:'.
+						$row['book_email'].'
+						</div>
+						<div>
+						Телефон за контакт:'.
+						$row['book_tel'].'
+						</div>
+						<b><hr>
+						<div>Запитване за:</b></div>
+						<div>Град:'.
+						$row['city'].'
+						</div>
+						<div>
+						Адрес: '.
+						
+						$row['address'].'
+						</div>
+						<div>
+						Брой деца: '.
+						$row['children'].'
+						</div>
+						<div>Инфо:'.
+						$row['info'] .'
+						</div>
+						<div>
+						От:
+						'.$row['startDate'].'
+						</div>
+						<div>
+						До:'.
+						$row['endDate'].'
+						
+						</div>'
+						,1);
+
+
+										echo "<h2>NannyID: ".$nannyID."</h2><br>";
 										}
 							
 							}
@@ -105,6 +161,10 @@
 				echo draw_calendar(8,2015);
 				echo '<h2>sept 2015</h2>';
 				echo draw_calendar(9,2015);
+				echo '<h2>oct 2015</h2>';
+				echo draw_calendar(10,2015);
+				echo '<h2>nov 2015</h2>';
+				echo draw_calendar(11,2015);
 				?>
 			</div>
 		</div>
