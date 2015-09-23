@@ -105,7 +105,7 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "user")){
 
 							<div class="buttons">
 							<?php if($status=="accepted" ){ ?> 
-							<a class="vote" href="accepted_requests.php#vote<?php echo $bookingID ;?>">Оцени</a>
+							<a class="innervote" href="accepted_requests.php#vote<?php echo $bookingID ;?>">Оцени</a>
 				<div id="vote<?php echo $bookingID ?>" class="modalDialog">
 					
 					<div>

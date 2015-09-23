@@ -42,6 +42,7 @@ $conn ->set_charset("utf8");
 				<p>Телефонен номер: <?php echo $row['tel']; ?>			</p>
 					
 				<p>
+				<hr>
 				<?php 
 				echo "<a href='edit_user.php?firstname=".$row['firstname'].",lastname=".$row['lastname'].",city=".$row['city']."'><button id='btn' type='submit' name='submit' class='btn'>Редактиране на профила</button></a><br>"
 				?>

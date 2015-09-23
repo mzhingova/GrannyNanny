@@ -199,13 +199,13 @@ text-align: center;
   text-align: center;
 }
 .innervote{
-   
+    
+    float: right;
     background-color: rgba(206, 156, 15, 0.7);
     padding: 0.2em;
     border-radius: 0.1em;
     color: white;
-  width: 17%;
-  text-align: center;
+    text-align: center;
 }
 .statbtn{
   display:inline;
@@ -297,4 +297,5 @@ padding:0;
   .radio {
     display: inline;
   }
+  
 }
