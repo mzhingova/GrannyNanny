@@ -60,17 +60,19 @@
 							while($row = mysqli_fetch_array($results_query)) {
 								$bookingID=$row['bookingID'];
 								//echo '<h2> booking'.$bookingID.'</h2>';
-							$different_parts_of_date = $row['startDate'];
-							
-							$pieces = explode(" ", $different_parts_of_date);
+							$start_date_query_result = $row['startDate'];
+							$start_date = explode(" ", $start_date_query_result);
+							$end_date_query_result = $row['endDate'];
+							$end_date = explode(" ", $end_date_query_result);
+														
 							$row_cnt = mysqli_num_rows($results_query);
 							
 							$month_with_words = array("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec");
 							$months_with_digits   = array("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12");
-							$month_with_digits = str_replace($month_with_words, $months_with_digits, $pieces[1]);
+							$month_with_digits = str_replace($month_with_words, $months_with_digits, $start_date[1]);
+							$month_with_digits_to = str_replace($month_with_words, $months_with_digits, $end_date[1]);
 							
-							
-										if($list_day == $pieces[2] && $month == $month_with_digits){
+										if($list_day == $start_date[2] && $month == $month_with_digits){
 																							
 										
 										/** QUERY THE DATABASE FOR AN ENTRY FOR THIS DAY !!  IF MATCHES FOUND, PRINT THEM !! **/
@@ -128,8 +130,65 @@
 
 										echo "<h2>NannyID: ".$nannyID."</h2><br>";
 										}
-							
+							if ($list_day == $end_date[2] && $month == $month_with_digits_to) {
+								/** QUERY THE DATABASE FOR AN ENTRY FOR THIS DAY !!  IF MATCHES FOUND, PRINT THEM !! **/
+										$calendar.= str_repeat('<a href="#'.$bookingID.'" >Запитване №дасдассд:'.$bookingID. 'от </a>
+			<div id="'. $bookingID . '"class="modalDialog">
+				<div class="dialoginf">
+					 <a href="#close" title="Close" class="close">X</a>
+						<div><b>
+						<div>Заявка от</div>
+						<div>
+						Име:'.
+						
+						$row['book_firstname'].'
+						</div>
+						<div>
+						Фамилия:'.
+						 $row['book_lastname'].'
+						</div>
+						<div>
+						Email:'.
+						$row['book_email'].'
+						</div>
+						<div>
+						Телефон за контакт:'.
+						$row['book_tel'].'
+						</div>
+						<b><hr>
+						<div>Запитване за:</b></div>
+						<div>Град:'.
+						$row['city'].'
+						</div>
+						<div>
+						Адрес: '.
+						
+						$row['address'].'
+						</div>
+						<div>
+						Брой деца: '.
+						$row['children'].'
+						</div>
+						<div>Инфо:'.
+						$row['info'] .'
+						</div>
+						<div>
+						От:
+						'.$row['startDate'].'
+						</div>
+						<div>
+						До:'.
+						$row['endDate'].'
+						
+						</div>'
+						,1);
+
+
+										echo "<h2>NannyID: ".$nannyID."</h2><br>";
+										}
 							}
+							
+							
 									
 								$calendar.= '</td>';
 								if($running_day == 6):
