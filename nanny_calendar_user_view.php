@@ -57,11 +57,7 @@
 										}
 										$conn ->set_charset("utf8");
 										
-										if (isset($_SESSION['status']) && ($_SESSION['status'] == "admin")){
 											$nannyID = $_GET["id"];
-										} else if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")){
-										$nannyID = $_SESSION["userID"];
-										}
 										$results_query = mysqli_query($conn,"SELECT * FROM booking where nannyID = '$nannyID' and status='accepted' ");
 										while($row = mysqli_fetch_array($results_query)) {
 											$bookingID=$row['bookingID'];
@@ -81,7 +77,7 @@
 										
 													if($list_day == $start_date[2] && $month == $month_with_digits){
 																										
-													$calendar .= str_repeat('<a href="#'.$bookingID.'"class="start" > №:'.$bookingID. 'Начало</a>
+													$calendar .= str_repeat('<a href="#'.$bookingID.'" >Ангажимент №:'.$bookingID. ' </a>
 							<div id="'. $bookingID . '"class="modalDialog">
 								<div class="dialoginf">
 										<a href="#close" title="Close" class="close">X</a>
@@ -134,7 +130,7 @@
 																}
 													if ($list_day == $end_date[2] && $month == $month_with_digits_to) {
 														/** QUERY THE DATABASE FOR AN ENTRY FOR THIS DAY !!  IF MATCHES FOUND, PRINT THEM !! **/
-																$calendar.= str_repeat('<a href="#'.$nannyID.'"  class="end">№:'.$bookingID. ' Край</a>
+																$calendar.= str_repeat('<a href="#'.$nannyID.'" >Крайна дата на №:'.$bookingID. '</a>
 										<div id="'. $nannyID . '"class="modalDialog">
 											<div class="dialoginf">
 													<a href="#close" title="Close" class="close">X</a>
