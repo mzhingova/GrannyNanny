@@ -56,7 +56,7 @@
 							$conn ->set_charset("utf8");
 							
 							$nannyID = $_SESSION["userID"];
-							$results_query = mysqli_query($conn,"SELECT * FROM booking where nannyID = '$nannyID' and status='request' ");
+							$results_query = mysqli_query($conn,"SELECT * FROM booking where nannyID = '$nannyID' and status='accepted' ");
 							while($row = mysqli_fetch_array($results_query)) {
 								$bookingID=$row['bookingID'];
 								//echo '<h2> booking'.$bookingID.'</h2>';
@@ -74,7 +74,7 @@
 																							
 										
 										/** QUERY THE DATABASE FOR AN ENTRY FOR THIS DAY !!  IF MATCHES FOUND, PRINT THEM !! **/
-										$calendar.= str_repeat('<a href="#'.$bookingID.'" >Запитване №:'.$bookingID. 'от </a>
+										$calendar.= str_repeat('<a href="#'.$bookingID.'" >Ангажимент №:'.$bookingID. ' </a>
 			<div id="'. $bookingID . '"class="modalDialog">
 				<div class="dialoginf">
 					 <a href="#close" title="Close" class="close">X</a>
