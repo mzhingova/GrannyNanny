@@ -40,7 +40,7 @@ $nanny= mysqli_query($conn,"SELECT * FROM booking where nannyID = '$nannyID' and
 			<a href="#<?php echo $book_id ;?>" >Запитване №: <?php echo $book_id. " "; ?> от
 			<?php 
 			echo $row['book_firstname'] ;
-			echo " , ";
+			echo " ";
 			echo  $row['book_lastname']; ?> <a/>
 			<div id="<?php echo $book_id ?>" class="modalDialog">
 				<div>

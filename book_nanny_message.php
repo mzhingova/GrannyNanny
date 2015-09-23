@@ -47,7 +47,7 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")){
 			<a href="#<?php echo $book_id ;?>" >Запитване №: <?php echo $book_id. " "; ?> от
 			<?php 
 			echo $row['book_firstname'] ;
-			echo " , ";
+			echo " ";
 			echo  $row['book_lastname']; ?> </a>
 			<div id="<?php echo $book_id ?>" class="modalDialog">
 				<div class="dialoginf">
