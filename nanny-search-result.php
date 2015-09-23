@@ -125,17 +125,17 @@ if ($search){
 
 				echo "<div >";
 				echo "<a class='btn' href='book_nanny_form.php?id=$key->userID'>Ангажирай</a>";
+				echo "<a class='btns' href='nanny_calendar_user_view.php?id=$key->userID'>Виж календар</a>";
 				echo "</div></br>";
-				echo "<div >";
-				echo "<a class='btn' href='nanny_calendar_user_view.php?id=$key->userID'>Виж календар</a>";
-				echo "</div>";
+				
+				
+				
 			} else if (isset($_SESSION['status']) && ($_SESSION['status'] == "admin")) {
 				echo "<div >";
 				echo "<a class='btn' href='edit_nanny.php?id=$key->userID'>Редактирай</a>";
+				echo "<a class='btns' href='nanny_calendar.php?id=$key->userID'>Виж календар</a>";
 				echo "</div><br>";
-				echo "<div >";
-				echo "<a class='btn' href='nanny_calendar.php?id=$key->userID'>Виж календар</a>";
-				echo "</div>";
+				
 			}
 
 			echo "</div>";
