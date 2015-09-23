@@ -57,11 +57,7 @@
 										}
 										$conn ->set_charset("utf8");
 										
-										if (isset($_SESSION['status']) && ($_SESSION['status'] == "admin")){
 											$nannyID = $_GET["id"];
-										} else if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")){
-										$nannyID = $_SESSION["userID"];
-										}
 										$results_query = mysqli_query($conn,"SELECT * FROM booking where nannyID = '$nannyID' and status='accepted' ");
 										while($row = mysqli_fetch_array($results_query)) {
 											$bookingID=$row['bookingID'];
