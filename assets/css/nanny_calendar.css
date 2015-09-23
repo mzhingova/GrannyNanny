@@ -1,17 +1,20 @@
 /* calendar */
 table.calendar      
 { 
-    border-left:1px solid #999; 
+    border-left:1px solid BLACK; 
 }
 
 tr.calendar-row 
 {  
+ 
+    height: 85px;
+  
 }
 
 td.calendar-day 
 {
  min-height:80px; 
- font-size:11px; 
+ 
  position:relative; 
  } 
 
@@ -20,15 +23,34 @@ td.calendar-day
     height:80px; 
 }
 
-td.calendar-day:hover   
+/* td.calendar-day:hover   
 { 
     background:#eceff5; 
 }
-
+ */
+ .start{
+	  background-color:#EBEBD8 ;
+	  color:black;
+ }
+ .end{
+	 background-color:rgba(212, 65, 65, 0.42);
+	 color:black;
+ }
+ .start:hover{
+	 font-size:105%;
+	 color:black;
+ }
+ .end:hover{
+	 font-size:105%;
+	 color:black;
+ }
+.start ,.end{
+	display:block;
+}
 
 td.calendar-day-np  
 { 
-    background:#eee; 
+    background:#EBEBD8; 
     min-height:80px; 
     } 
 
@@ -39,18 +61,18 @@ td.calendar-day-np
 
 td.calendar-day-head 
 { 
-    background:#ccc; 
+    background:rgb(191, 191, 127); 
     font-weight:bold; 
     text-align:center; 
     width:120px; 
-1    border-bottom:1px solid #999; 
-    border-top:1px solid #999; 
-    border-right:1px solid #999; 
+
+     
+    border-right:1px solid BLACK; 
 }
 
 div.day-number      
 { 
-    background:#999; 
+    background:black; 
     padding:5px; 
     color:#fff; 
     font-weight:bold; 
@@ -65,6 +87,6 @@ td.calendar-day, td.calendar-day-np
 { 
     width:120px; 
     padding:5px; 
-    border-bottom:1px solid #999; 
-    border-right:1px solid #999; 
+    border-bottom:1px solid BLACK; 
+    border-right:1px solid BLACK; 
 }
