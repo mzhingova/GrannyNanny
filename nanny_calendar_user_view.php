@@ -100,17 +100,14 @@
 										}
 										$today = getdate();
 										
-										//previous month
-										echo '<h2>' . ($today['mon']-1). "/" . $today['year']. '</h2>';
-										echo draw_calendar($today['mon']-1,$today['year']);
 										//current month
 										echo '<h2>' . $today['mon']. "/" . $today['year']. '</h2>';
 										echo draw_calendar($today['mon'],$today['year']);
 										//next month
-										echo '<h2>' . ($today['mon']+1) . "/" . $today['year']. '</h2>';
+										echo '<br><h2>' . ($today['mon']+1) . "/" . $today['year']. '</h2>';
 										echo draw_calendar($today['mon']+1,$today['year']);
 										//after next month
-										echo '<h2>' . ($today['mon']+2) . "/" . $today['year']. '</h2>';
+										echo '<br><h2>' . ($today['mon']+2) . "/" . $today['year']. '</h2>';
 										echo draw_calendar($today['mon']+2,$today['year']);
 										
 										
