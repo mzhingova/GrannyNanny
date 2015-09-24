@@ -60,13 +60,7 @@
 											$nannyID = $_GET["id"];
 										$results_query = mysqli_query($conn,"SELECT * FROM booking where nannyID = '$nannyID' and status='accepted' ");
 
-										$start_date_query_result = "";
-										$start_date = "";
-										$end_date_query_result = "";
-										$end_date = "";
-										$i=0;
-										$j=0;
-
+										
 										while($row = mysqli_fetch_array($results_query)) {
 
 											$bookingID=$row['bookingID'];
