@@ -68,6 +68,7 @@
 										$j=0;
 
 										while($row = mysqli_fetch_array($results_query)) {
+
 											$bookingID=$row['bookingID'];
 
 										
@@ -85,37 +86,14 @@
 										
 										//($list_day == $start_date[2] && $month == $month_with_digits){
 										//for($list_day == $start_date[2] && $month == $month_with_digits; $list_day<=$end_date[2] && $month == $month_with_digits_to;$list_day++){
-																	if ($list_day == $start_date[2] && $month == $month_with_digits)
-																		{
-																			$i=$start_date[2];
-																				$calendar .= str_repeat('X',1); 
-																		}
-																	if($list_day == $end_date[2] && $month == $month_with_digits_to)
-																		{
-																			$j=$end_date[2];
-																				$calendar .= str_repeat('X',1); 
-																		}
-																	$k = $j-$i;
-																	for($l=0; $l<=$k; $l++){
+																	if (($list_day >= $start_date[2] && $list_day<=$end_date[2]) && ($month >= $month_with_digits && $month <= $month_with_digits_to)){
 																		$calendar .= str_repeat('X',1); 
 																	}
-																
-																
-													//$calendar .= str_repeat('X',1); 
 																	
+																											
+
 																	}
-																		//echo $i;
-															
-																		//echo "<h2>start: ".$start_date[2]. "end: ". $end_date[2] . "</h2>";
-																		//echo "<h2>start2 : ".$start_date[2]. "end: ". $end_date[2] . "</h2>";
 
-
-				
-													
-
-															
-
-																																	
 																$calendar.= '</td>';
 																if($running_day == 6):
 															$calendar.= '</tr>';
