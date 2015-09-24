@@ -1,20 +1,38 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
 		<title>Calendar</title>
 		<!-- Override CSS file - add your own CSS rules -->
 		<link rel="stylesheet" href="assets/css/nanny_calendar.css">
-		<link rel="stylesheet" href="assets/css/messages_style.css">
+	
 	</head>
 	<body>
 		<div class="container">
 			<?php include 'includes/header.php';?>
 			<div class="content">
+			
 				<?php
 				$pageTitle = 'Calendar';
 				error_reporting(E_ALL);
 				ini_set('display_errors', 1);
+				$conn = new mysqli('localhost', 'root', '', 'grannynanny');
+													if (!$conn) {
+													die('Could not connect: ' . mysql_error());
+													exit;
+													}
+													$conn ->set_charset("utf8");
+				$nannyID=$_GET['id'];
+				$results_query = mysqli_query($conn,"SELECT * FROM parenuser where userid = '$nannyID' ");
+													
+				while($row = mysqli_fetch_array($results_query)) {
+				echo '<h1>Календарът на '.$row['firstname'].' '.$row['lastname'].'</h1>';
+				}
+				?>
+				<div class="description">
+				<h3>Оцветените в червено дати не са свободни.</h3>
+			</div>
+				<?php 
 				/* draws a calendar */
 				function draw_calendar($month,$year){
 					/* draw table */
@@ -67,7 +85,7 @@
 													$month_with_digits_to = str_replace($month_with_words, $months_with_digits, $end_date[1]);
 													
 																				if (($list_day >= $start_date[2] && $list_day<=$end_date[2]) && ($month >= $month_with_digits && $month <= $month_with_digits_to)){
-																					$calendar .= str_repeat('X',1);
+																					$calendar .= str_repeat('<div class="booked"></div>',1);
 																				}
 																				
 																														
@@ -101,8 +119,8 @@
 										$today = getdate();
 										
 										//previous month
-										echo '<h2>' . ($today['mon']-1). "/" . $today['year']. '</h2>';
-										echo draw_calendar($today['mon']-1,$today['year']);
+										
+										
 										//current month
 										echo '<h2>' . $today['mon']. "/" . $today['year']. '</h2>';
 										echo draw_calendar($today['mon'],$today['year']);
