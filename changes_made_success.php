@@ -29,6 +29,8 @@ $conn ->set_charset("utf8");
 <?php $isAdmin = $_SESSION['status'];  
 if ($isAdmin == 'admin') {
 header("Refresh: 3; url=home.php");
+} else if ($isAdmin == 'nanny') {
+header("Refresh: 3; url=nanny_profil.php");
 } else {
 header("Refresh: 3; url=user.php");
 }
