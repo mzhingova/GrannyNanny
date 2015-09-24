@@ -183,7 +183,7 @@
         reposition: true,
 
         // the default output format for `.toString()` and `field` value
-        format: 'yy-m-dd',
+        format: 'YYYY-MM-DD',
 
         // the initial date to view when first opened
         defaultDate: null,
@@ -652,21 +652,10 @@
         /**
          * return a formatted string of the current selection (using Moment.js if available)
          */
+         
        toString: function(format)
         {
-
-          /*  var d = new Date();
-            var mm = d.getMonth() + 1;
-            var dd = d.getDate();
-            var yy = d.getFullYear();
-
-            var myDateString = yy + ':' + mm + ':' + dd; //(US)
-
-           var options = {year: "numeric", month: "numeric",day: "numeric"};
-            return !isDate(this._d) ? '' : hasMoment ? myDateString :myDateString; */
-           // return !isDate(this._d) ? '' : hasMoment ? this._d.toLocaleDateString(options) : this._d.toLocaleDateString(options);
-           return !isDate(this._d) ? '' : hasMoment ? moment(this._d).format(format || this._o.format) : this._d.toLocaleDateString();
-
+         return !isDate(this._d) ? '' : hasMoment ? moment(this._d).format(format || this._o.format) : this._d.toDateString();
         },
 
         /**
