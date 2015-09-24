@@ -59,9 +59,7 @@
 										
 											$nannyID = $_GET["id"];
 										$results_query = mysqli_query($conn,"SELECT * FROM booking where nannyID = '$nannyID' and status='accepted' ");
-
-										while($row = mysqli_fetch_array($results_query)){
-
+										while($row = mysqli_fetch_array($results_query)) {
 											$bookingID=$row['bookingID'];
 
 										
@@ -77,16 +75,115 @@
 										$month_with_digits = str_replace($month_with_words, $months_with_digits, $start_date[1]);
 										$month_with_digits_to = str_replace($month_with_words, $months_with_digits, $end_date[1]);
 										
-										//($list_day == $start_date[2] && $month == $month_with_digits){
-										//for($list_day == $start_date[2] && $month == $month_with_digits; $list_day<=$end_date[2] && $month == $month_with_digits_to;$list_day++){
-																	if (($list_day >= $start_date[2] && $list_day<=$end_date[2]) && ($month >= $month_with_digits && $month <= $month_with_digits_to)){
-																		$calendar .= str_repeat('X',1); 
-																	}
-																	
-																											
-
-																	}
-
+													if($list_day == $start_date[2] && $month == $month_with_digits){
+																										
+													$calendar .= str_repeat('<a href="#'.$bookingID.'" >Ангажимент №:'.$bookingID. ' </a>
+							<div id="'. $bookingID . '"class="modalDialog">
+								<div class="dialoginf">
+										<a href="#close" title="Close" class="close">X</a>
+											<div><b>
+												<div>Заявка от</div></b>
+												<div>
+													Име:'.
+													
+													$row['book_firstname'].'
+												</div>
+												<div>
+													Фамилия:'.
+													$row['book_lastname'].'
+												</div>
+												<div>
+													Email:'.
+													$row['book_email'].'
+												</div>
+												<div>
+													Телефон за контакт:'.
+													$row['book_tel'].'
+												</div>
+												<b><hr>
+												<div>Запитване за:</b></div>
+												<div>Град:'.
+													$row['city'].'
+												</div>
+												<div>
+													Адрес: '.
+													
+													$row['address'].'
+												</div>
+												<div>
+													Брой деца: '.
+													$row['children'].'
+												</div>
+												<div>Инфо:'.
+													$row['info'] .'
+												</div>
+												<div>
+													От:
+													'.$row['startDate'].'
+												</div>
+												<div>
+													До:'.
+													$row['endDate'].'
+													
+												</div></div></div></div>'
+												,1);
+																}
+													if ($list_day == $end_date[2] && $month == $month_with_digits_to) {
+														/** QUERY THE DATABASE FOR AN ENTRY FOR THIS DAY !!  IF MATCHES FOUND, PRINT THEM !! **/
+																$calendar.= str_repeat('<a href="#'.$nannyID.'" >Крайна дата на №:'.$bookingID. '</a>
+										<div id="'. $nannyID . '"class="modalDialog">
+											<div class="dialoginf">
+													<a href="#close" title="Close" class="close">X</a>
+														<div><b>
+															<div>Заявка от</div></b>
+															<div>
+																Име:'.
+																
+																$row['book_firstname'].'
+															</div>
+															<div>
+																Фамилия:'.
+																$row['book_lastname'].'
+															</div>
+															<div>
+																Email:'.
+																$row['book_email'].'
+															</div>
+															<div>
+																Телефон за контакт:'.
+																$row['book_tel'].'
+															</div>
+															<b><hr>
+															<div>Запитване за:</b></div>
+															<div>Град:'.
+																$row['city'].'
+															</div>
+															<div>
+																Адрес: '.
+																
+																$row['address'].'
+															</div>
+															<div>
+																Брой деца: '.
+																$row['children'].'
+															</div>
+															<div>Инфо:'.
+																$row['info'] .'
+															</div>
+															<div>
+																От:
+																'.$row['startDate'].'
+															</div>
+															<div>
+																До:'.
+																$row['endDate'].'
+																
+															</div></div></div></div>'
+															,1);
+																			//echo "<h2>NannyID: ".$nannyID."</h2><br>";
+																			}
+																}
+																																	
 																$calendar.= '</td>';
 																if($running_day == 6):
 															$calendar.= '</tr>';
