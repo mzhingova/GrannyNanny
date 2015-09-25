@@ -126,6 +126,7 @@ if ($search){
 				echo "<div >";
 				echo "<a class='btn' href='book_nanny_form.php?id=$key->userID'>Ангажирай</a>";
 				echo "<a class='btns' href='nanny_calendar_user_view.php?id=$key->userID'>Виж календар</a>";
+				echo "<a class='btns' href='nanny_profil.php?id=$key->userID'>Виж профил</a>";
 				echo "</div></br>";
 				
 				
@@ -134,6 +135,7 @@ if ($search){
 				echo "<div >";
 				echo "<a class='btn' href='edit_nanny.php?id=$key->userID'>Редактирай</a>";
 				echo "<a class='btns' href='nanny_calendar_user_view.php?id=$key->userID'>Виж календар</a>";
+				echo "<a class='btns' href='nanny_profil.php?id=$key->userID'>Виж профил</a>";
 				echo "</div><br>";
 				
 			}

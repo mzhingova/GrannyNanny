@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<title>Потребители</title>
 		<!-- Override CSS file - add your own CSS rules -->
-		<link rel="stylesheet" href="assets/css/###.css">
+		
 	</head>
 	<body>
 		<div class="container">

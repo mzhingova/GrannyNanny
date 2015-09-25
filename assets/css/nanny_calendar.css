@@ -26,13 +26,22 @@ td.calendar-day
     height:80px; 
 }
 .periodSelect{
-	width:120%;
+	width:145%;
 	
 }
 .pick{
-	margin-right:30%;
+	margin-right:35%;
+}
+form {
+	transform:translateX(30%);
 }
 
+.description{
+	transform:translateX(30%);
+}
+.booking{
+	transform:translateX(33%);
+}
 /* td.calendar-day:hover   
 { 
     background:#eceff5; 
@@ -102,7 +111,9 @@ div.day-number
 	margin-top:5%;
 	
 }
-
+#btn{
+	margin-top: 8%;
+}
 
 /* shared */
 td.calendar-day, td.calendar-day-np 

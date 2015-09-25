@@ -14,7 +14,7 @@ $conn ->set_charset("utf8");
 		<meta charset="utf-8">
 		<title>User Profil</title>
 		<!-- Override CSS file - add your own CSS rules -->
-		<link rel="stylesheet" href="assets/css/###.css">
+		<link rel="stylesheet" href="assets/css/user_profile.css">
 	</head>
 	<body>
 		<div class="container">
