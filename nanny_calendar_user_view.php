@@ -95,7 +95,8 @@
 					$month_with_digits = str_replace($month_with_words, $months_with_digits, $start_date[1]);
 					$month_with_digits_to = str_replace($month_with_words, $months_with_digits, $end_date[1]);
 					
-					if (($list_day >= $start_date[2] && $list_day<=$end_date[2]) && ($month >= $month_with_digits && $month <= $month_with_digits_to) && ($month_with_digits == $month_with_digits_to)):
+					
+					if (($list_day >= $start_date[2] && $list_day<=$end_date[2]) && ($month >= $month_with_digits && $month <= $month_with_digits_to) && ($month_with_digits == $month_with_digits_to) && ($year >= $start_date[3] && $year <= $end_date[3])):
 						$calendar .= str_repeat('<div class="booked"></div>',1);
 					endif;
 
