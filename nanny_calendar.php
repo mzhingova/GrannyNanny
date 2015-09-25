@@ -118,7 +118,7 @@
 										$month_with_digits = str_replace($month_with_words, $months_with_digits, $start_date[1]);
 										$month_with_digits_to = str_replace($month_with_words, $months_with_digits, $end_date[1]);
 										
-													if($list_day == $start_date[2] && $month == $month_with_digits){
+													if($list_day == $start_date[2] && $month == $month_with_digits && $year == $start_date[3]){
 																										
 													$calendar .= str_repeat('<a href="#'.$bookingID.'"class="start" > №:'.$bookingID. 'Начало</a>
 							<div id="'. $bookingID . '"class="modalDialog">
@@ -171,7 +171,7 @@
 												</div></div></div></div>'
 												,1);
 																}
-													if ($list_day == $end_date[2] && $month == $month_with_digits_to) {
+													if ($list_day == $end_date[2] && $month == $month_with_digits_to && $year == $end_date[3]) {
 														/** QUERY THE DATABASE FOR AN ENTRY FOR THIS DAY !!  IF MATCHES FOUND, PRINT THEM !! **/
 																$calendar.= str_repeat('<a href="#'.$nannyID.'"  class="end">№:'.$bookingID. ' Край</a>
 										<div id="'. $nannyID . '"class="modalDialog">
@@ -255,24 +255,66 @@
 											return $calendar;
 										}
 
+
 										$today = getdate();
 
+										
 										if (isset($_POST['submit'])) 
 										{ 
 
+
+
+										$year = $_POST['year'];
 										$month = $_POST['month'];
 
-										echo '<h2 class="date">' . ($month-1). "/" . $today['year']. '</h2>';
+										if ($month != "" && $year == "") {
+										echo '<h2 class="date">' . ($month-1). "/" . $today['year'] . '</h2>';
 										echo draw_calendar($month-1,$today['year']);
 
 										//current month
-										echo '<h2 class="date">' . $month. "/" . $today['year']. '</h2>';
+										echo '<h2 class="date">' . $month. "/" . $today['year'] . '</h2>';
 										echo draw_calendar($month,$today['year']);
 
 										//next month
-										echo '<h2 class="date">' . ($month+1) . "/" . $today['year']. '</h2>';
+										echo '<h2 class="date">' . ($month+1) . "/" . $today['year'] . '</h2>';
 										echo draw_calendar($month+1,$today['year']);
+											} else if ($month == "" && $year != ""){
 
+										echo '<h2 class="date">' . ($today['mon']-1). "/" . $year . '</h2>';
+										echo draw_calendar($today['mon']-1,$year);
+
+										//current month
+										echo '<h2 class="date">' . ($today['mon']). "/" . $year . '</h2>';
+										echo draw_calendar($today['mon'], $year);
+
+										//next month
+										echo '<h2 class="date">' . ($today['mon']+1) . "/" . $year . '</h2>';
+										echo draw_calendar($today['mon']+1,$year);
+											} else if ($month == "" && $year == "") {
+												echo "Моля въведете валиден период";
+										echo '<h2 class="date">' . ($today['mon']-1). "/" . $today['year']. '</h2>';
+										echo draw_calendar($today['mon']-1,$today['year']);
+
+										//current month
+										echo '<h2 class="date">' . $today['mon']. "/" . $today['year']. '</h2>';
+										echo draw_calendar($today['mon'],$today['year']);
+
+										//next month
+										echo '<h2 class="date">' . ($today['mon']+1) . "/" . $today['year']. '</h2>';
+										echo draw_calendar($today['mon']+1,$today['year']); 
+											} else if($month != "" && $year != ""){
+
+										echo '<h2 class="date">' . ($month-1). "/" . ($year) . '</h2>';
+										echo draw_calendar($month-1,$year);
+
+										//current month
+										echo '<h2 class="date">' . ($month). "/" . ($year) . '</h2>';
+										echo draw_calendar($month,$year);
+
+										//next month
+										echo '<h2 class="date">' . ($month+1) . "/" . ($year) . '</h2>';
+										echo draw_calendar($month+1,$year);
+									} 
 										} else {									
 										
 										
