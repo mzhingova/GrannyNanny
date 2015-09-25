@@ -145,7 +145,7 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")){
 } else {
 		while($row = mysqli_fetch_array($nannyQuery)) { 
 	$nanny=$row['nannyID'];
-	$nannyInfoQuery = mysqli_query($conn, "SELECT * FROM parenuser, booking WHERE parenuser.userID = '$nanny'") or die ("Стана грешкка " . mysql_error()); ?>	
+	$nannyInfoQuery = mysqli_query($conn, "SELECT * FROM parenuser WHERE parenuser.userID = '$nanny'") or die ("Стана грешкка " . mysql_error()); ?>	
 		<div class="inner"> 
 
 		<?php 

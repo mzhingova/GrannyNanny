@@ -330,8 +330,13 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "admin")){
 										echo draw_calendar($today['mon'],$today['year']);
 
 										//next month
-										echo '<h2 class="date">' . ($today['mon']+1) . "/" . $today['year']. '</h2>';
+										if ($today['mon']== 12){
+										echo '<br><h2>' . "1/" . ($today['year']+1) . '</h2>';
+										echo draw_calendar(1,$today['year']+1);
+										} else {
+										echo '<br><h2>' . ($today['mon']+1) . "/" . $today['year']. '</h2>';
 										echo draw_calendar($today['mon']+1,$today['year']);
+										}
 
 										}
 										
