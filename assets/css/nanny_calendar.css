@@ -99,3 +99,9 @@ td.calendar-day, td.calendar-day-np
     border-bottom:1px solid BLACK; 
     border-right:1px solid BLACK; 
 }
+
+.booked+div{
+    background-color: white;
+    width:0%;
+    height:0px;
+}

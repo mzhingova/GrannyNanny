@@ -15,6 +15,7 @@ $conn ->set_charset("utf8");
 <?php
 
 $firstname = $_POST['firstname'];
+
 $lastname = $_POST['lastname'];
 $city = $_POST['city'];
 $tel = $_POST['tel'];
@@ -35,6 +36,10 @@ if (isset($_POST['submit'])) {
 
 if (!empty($firstname)) {
     if (preg_match("/^[a-zA-Z\p{Cyrillic}]{2,16}$/iu", $firstname)) {
+      
+       if (isset($_SESSION['status']) && ($_SESSION['status'] == "user")){
+        $_SESSION["name"] = $firstname;
+           }
         $query = mysqli_query($conn, "UPDATE parenuser SET `firstname`='$firstname' WHERE userID='$userID'") or die(mysql_error());
         $counter++;
     } else {
@@ -43,6 +48,10 @@ if (!empty($firstname)) {
 }
 if (!empty($lastname)) {
     if (preg_match("/^[a-zA-Z\p{Cyrillic}]{2,16}$/iu", $lastname)) {
+        
+         if (isset($_SESSION['status']) && ($_SESSION['status'] == "user")){
+            $_SESSION["lastname"] = $lastname;
+        }
         $query = mysqli_query($conn, "UPDATE parenuser SET `lastname`='$lastname' WHERE userID='$userID'") or die(mysql_error());
         $counter++;
     } else {
