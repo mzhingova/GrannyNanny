@@ -296,7 +296,7 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "admin")){
 										
 										?>
 
-<<<<<<< HEAD
+
 				<form method="POST" action="nanny_calendar.php?id=$nannyID">
 						<h2>Покажи Месец</h2>
 						<select id="month" name="month">
@@ -316,9 +316,7 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "admin")){
 					
 					<button class="btn" type="submit" name="submit">Покажи</button>
 				</form>
-=======
-				
->>>>>>> aa702e37a0e5f9ce026880d7313cbf5b1200f4f9
+
 
 									</div>
 								</div>
