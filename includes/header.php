@@ -2,12 +2,14 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 session_start();
-
+$home_page = "home_page.php";
 ?>
 			<header>
 			<link rel="stylesheet" href="assets/css/main_style.css">
 				<div class="container">
-					<a href="index.php"><img id="logo" src="assets/img/Logo.png" alt="Logo"></a>
+					<a href="<?php if ($_SESSION['status']=='admin') {
+					echo "home.php";
+					} else { echo "home_page.php"; } ?>"><img id="logo" src="assets/img/Logo.png" alt="Logo"></a>
 					<?php if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny" || $_SESSION['status'] == "user" || $_SESSION['status'] == "admin")) {?>
 					<p id='welcomeNote'>Здравей <?php echo ($_SESSION["name"]) . " " . ($_SESSION["lastname"])?>!</p>
 					<?php }
@@ -49,7 +51,7 @@ session_start();
 							
 
 							<?php if (isset($_SESSION['status']) && ($_SESSION['status'] == "admin")) {?>
-							<li><a href="pages.php">Преглед на всички страници</a></li><?php
+							<?php
 } else {?>
 							<li><a href="help.php">Помощ</a></li>
 							<li><a href="about_us.php">За нас</a></li>
