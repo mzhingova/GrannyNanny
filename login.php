@@ -10,6 +10,7 @@
 		<div class="container">
 			<?php include 'includes/header.php';?>
 			<div class="content">
+			<img class="loginimg"src="assets/img/loginNanny.jpg"/>
 				<h1>Вход </h1>
 				<form action='login_authentication.php' method='post'>
 					<font color="black">
@@ -20,6 +21,8 @@
 						 Натиснете тук за Регистрация!</a> <br>
 					<a href="forgotten_password.php">Натиснете тук за Забравена Парола</a><br><br>
 					
+						
+				
 					
 
 					

@@ -38,7 +38,7 @@
 					/* draw table */
 					$calendar = '<table cellpadding="0" cellspacing="0" class="calendar">';
 								/* table headings */
-								$headings = array('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday');
+								$headings = array('Неделя','Понеделник','Вторник','Сряда','Четвъртък','Петък','Събота');
 								$calendar.= '<tr class="calendar-row"><td class="calendar-day-head">'.implode('</td><td class="calendar-day-head">',$headings).'</td></tr>';
 								/* days and weeks vars now ... */
 								$running_day = date('w',mktime(0,0,0,$month,1,$year));
