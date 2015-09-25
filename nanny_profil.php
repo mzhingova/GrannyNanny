@@ -22,7 +22,7 @@ $conn ->set_charset("utf8");
 		<div class="content">
 		<?php
 			$isAdmin = $_SESSION['status'];
-			if ($isAdmin == 'admin') {
+			if ($isAdmin == 'admin'|| $isAdmin =='user') {
 				$userID = $_GET["id"];
 			} else {
 				$userID = $_SESSION['userID'];
@@ -66,8 +66,9 @@ $conn ->set_charset("utf8");
 			<div>
 			<hr>
 			
-			
+			<?php if ($isAdmin=='admin'){?>
 			<a href="edit_nanny.php"><button id="btn" type="submit" name="submit" class="btn">Редактиране на профила</button></a><br>
+			<?php } ?>
 		</div>
 		<input type="hidden" name="id" value="<?php echo $userID; ?>" />
 	</div>
