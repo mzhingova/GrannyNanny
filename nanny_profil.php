@@ -66,7 +66,7 @@ $conn ->set_charset("utf8");
 			<div>
 			<hr>
 			
-			<?php if ($isAdmin=='admin'){?>
+			<?php if ($isAdmin=='admin'|| $isAdmin=='nanny'){?>
 			<a href="edit_nanny.php"><button id="btn" type="submit" name="submit" class="btn">Редактиране на профила</button></a><br>
 			<?php } ?>
 		</div>

@@ -147,14 +147,7 @@ Nav
 	border-bottom: 1px solid gray;
 }
 
-.nav a:link { color: white; }
-.nav a:visited { color: white; }
 
-.nav a:focus
-{
-	color: black;
-	background-color: white;
-}
 
 .nav a:hover
 {
@@ -205,11 +198,7 @@ color:red
 }
 
 
-.btn:active
-{
-	color: #fff !important;
-	background-color: gray;
-}
+
 
 .table
 {
