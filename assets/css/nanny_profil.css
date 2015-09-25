@@ -1,4 +1,7 @@
-img {
-	width: 40%;
+
+.profileimg {
+	width: 30%;
 	height: auto;
+	float:right;
+	
 }	

@@ -11,7 +11,7 @@
 		<div class="container">
 			<?php include 'includes/header.php';?>
 			<div class="content">
-			<h1>Покажи Месец</h1>
+			<h1>Календар</h1>
 				<form method="POST" action="nanny_calendar.php">
 				<div class="inline">
           <div class="pick">
