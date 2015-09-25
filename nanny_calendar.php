@@ -297,25 +297,6 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "admin")){
 										?>
 
 
-				<form method="POST" action="nanny_calendar.php?id=$nannyID">
-						<h2>Покажи Месец</h2>
-						<select id="month" name="month">
-							<option value="1">Януари</option>
-							<option value="2">Февруари</option>
-							<option value="3">Март</option>
-							<option value="4">Април</option>
-							<option value="5">Май</option>
-							<option value="6">Юни</option>
-							<option value="7">Юли</option>
-							<option value="8">Август</option>
-							<option value="9">Септември</option>
-							<option value="10">Октомври</option>
-							<option value="11">Ноември</option>
-							<option value="12">Декември</option>
-						</select>
-					
-					<button class="btn" type="submit" name="submit">Покажи</button>
-				</form>
 
 
 									</div>
