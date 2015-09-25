@@ -30,18 +30,13 @@ if (isset($_POST['email']) and isset($_POST['pass'])) {
 			$_SESSION["lastname"] = $row['lastname'];
 			$_SESSION["status"] = $row['status'];
 			$_SESSION["userID"] = $row['userID'];
+		
+		if (isset($_SESSION["status"]) && $_SESSION['status'] == "admin") {
+		header('Location: home.php');
+		} else if (isset($_SESSION["status"]) && $_SESSION['status'] == "user" || $_SESSION['status'] == "nanny") {
+header('Location: index.php');
+		} 
+}} else {
+	header('Location: error.php');
 
-			/*if ($_SESSION["status"] == "nanny") {
-		header('Location: user_profile.php');
-		} else if ($_SESSION["status"] == "user") {
-		header('Location: user_profile.php');
-		} else if ($_SESSION["status"] == "admin") {
-		header('Location: user_profile.php');
-		}*/
-		}
-		header('Location: index.php');
-	} else {
-		header('Location: error.php');
-		//echo "Invalid Login Credentials.";
-	}
-}
+}}

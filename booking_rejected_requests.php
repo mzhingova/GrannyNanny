@@ -207,7 +207,6 @@ $nanny= mysqli_query($conn,"SELECT * FROM booking where nannyID = '$nannyID' and
 						<hr>
 				<div class="innerrejected">Отказан</div><br>
 			</div>
-			<div class="innerrejected">Отказан</div><br>
 			</div>
 		</div>
 		

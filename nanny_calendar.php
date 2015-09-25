@@ -270,6 +270,10 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "admin")){
 										$year = $_POST['year'];
 										$month = $_POST['month'];
 
+										if ($month == "12") {
+											# code...
+										}
+
 										if ($month != "" && $year == "") {
 										echo '<h2 class="date">' . ($month-1). "/" . $today['year'] . '</h2>';
 										echo draw_calendar($month-1,$today['year']);
