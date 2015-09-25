@@ -20,6 +20,7 @@ $conn ->set_charset("utf8");
 		<div class="container">
 			<?php include 'includes/header.php';?>
 			<div class="content">
+			
 				<?php
 				$isAdmin = $_SESSION['status'];
 				if ($isAdmin == 'admin') {
@@ -34,6 +35,7 @@ $conn ->set_charset("utf8");
 				<br><br>
 				
 				<h1>Лични Данни</h1><hr>
+				<img class="filler" src="assets/img/user-filler.jpg"/>
 				<p>Име: 			<?php echo $row['firstname']; ?>	</p>
 				<p>Фамилия:			<?php echo $row['lastname']; ?>		</p>
 				<p>Email:			<?php echo $row['email']; ?>		</p>
