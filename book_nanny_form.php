@@ -24,7 +24,7 @@
 		<?php include 'includes/header.php';
 		require_once "book_nanny_form.php";?>
 		<div class="content">
-		<h1>Форма за Nanny валидация</h1>
+		<h1>Ангажирай Nanny </h1>
 
 		<form name="book_nanny"   action='book_nanny.php'  method="POST" onsubmit="return validateForm()">
 

@@ -39,7 +39,7 @@ if (isset($_POST['email']) and isset($_POST['pass'])) {
 		header('Location: user_profile.php');
 		}*/
 		}
-		header('Location: home.php');
+		header('Location: index.php');
 	} else {
 		header('Location: error.php');
 		//echo "Invalid Login Credentials.";

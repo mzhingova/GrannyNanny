@@ -42,7 +42,7 @@
 				$calendar = '<table cellpadding="0" cellspacing="0" class="calendar">';
 
 				/* table headings */
-				$headings = array('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday');
+				$headings = array('Неделя','Понеделник','Вторник','Сряда','Четвъртък','Петък','Събота');
 				$calendar.= '<tr class="calendar-row"><td class="calendar-day-head">'.implode('</td><td class="calendar-day-head">',$headings).'</td></tr>';
 				
 				/* days and weeks vars now ... */
@@ -110,11 +110,9 @@
 					{
 						if($list_day >= $start_date[2] && $list_day <= $start_month_days && $month == $month_with_digits ):
 							$calendar .= str_repeat('<div class="booked"></div>',1);
-							//echo "<br> start"  . $start_month_days . "<br> end: ". $end_month_days . "<br> count:" .$month_count;
 						endif;
 						if($list_day >= 1 && $list_day <= $end_date[2] && $month == $month_with_digits_to ):
 							$calendar .= str_repeat('<div class="booked"></div>',1);
-							//echo "<br> start"  . $start_month_days . "<br> end: ". $end_month_days . "<br> count:" .$month_count;
 						endif;
 
 					}
@@ -175,6 +173,7 @@
 				}
 				$today = getdate();
 				
+
 					/* display current month */
 				echo '<h2>' . $today['mon']. "/" . $today['year']. '</h2>';
 				echo draw_calendar($today['mon'],$today['year']);
@@ -188,6 +187,7 @@
 				echo '<br><h2>' . ($today['mon']+1) . "/" . $today['year']. '</h2>';
 				echo draw_calendar($today['mon']+1,$today['year']);
 				}
+
 					/*display after next month */
 				if (($today['mon']+1)== 12){
 				echo '<br><h2>' . "1/" . ($today['year']+1). '</h2>';

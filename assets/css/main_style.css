@@ -246,7 +246,7 @@ color:red
 	#welcomeNote{
 	display:inline;
 	position:relative;
-	left: 50%;
+	float:right;
 	
 }
 

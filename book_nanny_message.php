@@ -35,7 +35,7 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "nanny")){
 		$total_records = mysqli_num_rows($nanny);
 		
 	$nannyQuery = mysqli_query($conn, "SELECT * FROM booking where nannyID = '$nannyID'")or die("Стана грешкка " . mysql_error()); 
-	if( ! mysqli_num_rows($nannyQuery)) {
+	if( !mysqli_num_rows($nannyQuery)) {
 		echo "Няма подобни заявки!";
 	} else {
 	while($row = mysqli_fetch_array($nannyQuery)) { 

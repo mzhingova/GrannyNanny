@@ -17,6 +17,8 @@ if (!$conn) {
 		<meta charset="utf-8">
 		<title>Profile Page</title>
 		<link rel="stylesheet" href="assets/css/home_style.css">
+        <link rel="stylesheet" href="assets/css/success_fail_edit_profiles.css">
+
 			</head>
 			<body>
 				
@@ -25,8 +27,8 @@ if (!$conn) {
 			
 			<?php include 'includes/header.php';?>
 			<div class="content">
-			<h1 class="welcome">
-			<?php echo "Hello " . ($_SESSION["name"]) . " " . ($_SESSION["lastname"]) . " welcome to your Home page!";?> </h1>
+			<h1 class="head">
+			<?php echo "Здравей " . ($_SESSION["name"]) . " " . ($_SESSION["lastname"]) . " !";?> </h1>
 				
 
 

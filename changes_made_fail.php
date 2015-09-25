@@ -5,6 +5,7 @@
 		<title>About us</title>
 		<!-- Override CSS file - add your own CSS rules -->
 		<link rel="stylesheet" href="assets/css/###.css">
+		<link rel="stylesheet" href="assets/css/success_fail_edit_profiles.css">
 	</head>
 	<body>
 		<div class="container">
@@ -36,7 +37,7 @@ header("Refresh: 3; url=user.php");
 }
 
 ?>
-<h1>Не бяха направени промени по профилът !</h1>
+<h1 class="head">Не бяха направени промени по профилa !</h1>
 
 
 							</div>
