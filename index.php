@@ -26,7 +26,10 @@
 							Търсите Nanny които да наемете<br>
 							Разглеждате профилите на Nanny<br>
 						    Коментирате и оценявате представянето на Nanny с който сте работили<br><br>
-							<a href="registration.php">Регистрирай се</a>
+							<?php if (isset($_SESSION['status']) && ($_SESSION['status'] == 'nanny' || $_SESSION['status'] == 'user')) {
+								
+							} else { echo '<a href="registration.php">Регистрирай се</a>'; }
+							?>
 						</div>
 						<div class="col3">
 							<h3>Като Nanny ще можете да:</h3><br>
@@ -34,7 +37,11 @@
 							Управлявате своя собствен работен календар<br>
 							Бъдете най-доброто Nanny <br><br>
 
-							<a href="apply_for_nanny.php">Кандидатствай за Nanny</a>
+							<?php if (isset($_SESSION['status']) && ($_SESSION['status'] == 'nanny' || $_SESSION['status'] == 'user')) {
+								
+							} else { echo '<a href="apply_for_nanny.php">Кандидатствай за Nanny</a>'; }
+							?>
+							
 						</div>
 					</div>
 					<img src="assets/img/nanny1.jpg" alt="nanny">

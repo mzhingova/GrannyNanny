@@ -33,8 +33,7 @@ if (isset($_SESSION['status']) && ($_SESSION['status'] == "user")){
 	if( ! mysqli_num_rows($nannyQuery)) {
 		echo "Няма подобни заявки!";
 	} else {
-		?><h1 class="header">Всички заявки</h1>
-		<?php
+		
 		while($row = mysqli_fetch_array($nannyQuery)) { 
 		$nanny=$row['nannyID'];
 		$bookingID =$row['bookingID'];
