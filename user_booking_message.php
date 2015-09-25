@@ -11,6 +11,7 @@ if (!$conn) {
 }
 $conn->set_charset("utf8");
 if (isset($_SESSION['status']) && ($_SESSION['status'] == "user")){
+	?> <h1 class="header">Всички заявки</h1> <?php
 	$userID = $_SESSION["userID"]; 
 	$parentID=0;
 	$bookingID = 0;
