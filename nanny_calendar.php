@@ -11,7 +11,43 @@
 		<div class="container">
 			<?php include 'includes/header.php';?>
 			<div class="content">
-				
+			<h1>Покажи Месец</h1>
+				<form method="POST" action="nanny_calendar.php">
+				<div class="inline">
+          <div class="pick">
+						<label for="month">Избери месец</label><br>
+						<select id="month" class="periodSelect" name="month">
+						<option value="">Месец</option>
+							<option value="1">Януари</option>
+							<option value="2">Февруари</option>
+							<option value="3">Март</option>
+							<option value="4">Април</option>
+							<option value="5">Май</option>
+							<option value="6">Юни</option>
+							<option value="7">Юли</option>
+							<option value="8">Август</option>
+							<option value="9">Септември</option>
+							<option value="10">Октомври</option>
+							<option value="11">Ноември</option>
+							<option value="12">Декември</option>
+						</select>
+          </div>
+  </div>
+						<div class="inline">
+              <div class="pick">
+						<label for="year">Избери година</label><br>
+						<select id="year" class="periodSelect" name="year">
+							<option value="">Година</option>
+							<option value="2015">2015</option>
+							<option value="2016">2016</option>
+							<option value="2017">2017</option>
+						</select>
+              </div>
+  </div>
+					
+					<button id="btn" class="btn" type="submit" name="submit">Покажи</button>
+	
+				</form>
 				<?php
 				
 					
@@ -26,7 +62,7 @@
 					$calendar = '<table cellpadding="0" cellspacing="0" class="calendar">';
 
 							/* table headings */
-							$headings = array('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday');
+							$headings = array('Неделя','Понеделник','Вторник','Сряда','Четвъртък','Петък','Събота');
 							$calendar.= '<tr class="calendar-row"><td class="calendar-day-head">'.implode('</td><td class="calendar-day-head">',$headings).'</td></tr>';
 
 							/* days and weeks vars now ... */
@@ -226,30 +262,30 @@
 
 										$month = $_POST['month'];
 
-										echo '<h2>' . ($month-1). "/" . $today['year']. '</h2>';
+										echo '<h2 class="date">' . ($month-1). "/" . $today['year']. '</h2>';
 										echo draw_calendar($month-1,$today['year']);
 
 										//current month
-										echo '<h2>' . $month. "/" . $today['year']. '</h2>';
+										echo '<h2 class="date">' . $month. "/" . $today['year']. '</h2>';
 										echo draw_calendar($month,$today['year']);
 
 										//next month
-										echo '<h2>' . ($month+1) . "/" . $today['year']. '</h2>';
+										echo '<h2 class="date">' . ($month+1) . "/" . $today['year']. '</h2>';
 										echo draw_calendar($month+1,$today['year']);
 
 										} else {									
 										
 										
 										//previous month
-										echo '<h2>' . ($today['mon']-1). "/" . $today['year']. '</h2>';
+										echo '<h2 class="date">' . ($today['mon']-1). "/" . $today['year']. '</h2>';
 										echo draw_calendar($today['mon']-1,$today['year']);
 
 										//current month
-										echo '<h2>' . $today['mon']. "/" . $today['year']. '</h2>';
+										echo '<h2 class="date">' . $today['mon']. "/" . $today['year']. '</h2>';
 										echo draw_calendar($today['mon'],$today['year']);
 
 										//next month
-										echo '<h2>' . ($today['mon']+1) . "/" . $today['year']. '</h2>';
+										echo '<h2 class="date">' . ($today['mon']+1) . "/" . $today['year']. '</h2>';
 										echo draw_calendar($today['mon']+1,$today['year']);
 
 										}
@@ -257,25 +293,7 @@
 										
 										?>
 
-				<form method="POST" action="nanny_calendar.php">
-						<h2>Покажи Месец</h2>
-						<select id="month" name="month">
-							<option value="1">Януари</option>
-							<option value="2">Февруари</option>
-							<option value="3">Март</option>
-							<option value="4">Април</option>
-							<option value="5">Май</option>
-							<option value="6">Юни</option>
-							<option value="7">Юли</option>
-							<option value="8">Август</option>
-							<option value="9">Септември</option>
-							<option value="10">Октомври</option>
-							<option value="11">Ноември</option>
-							<option value="12">Декември</option>
-						</select>
-					
-					<button class="btn" type="submit" name="submit">Покажи</button>
-				</form>
+				
 
 									</div>
 								</div>

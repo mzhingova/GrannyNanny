@@ -25,6 +25,13 @@ td.calendar-day
 { 
     height:80px; 
 }
+.periodSelect{
+	width:120%;
+	
+}
+.pick{
+	margin-right:30%;
+}
 
 /* td.calendar-day:hover   
 { 
@@ -77,8 +84,9 @@ td.calendar-day-head
 	height:78px;
 	background-color:rgba(255, 0, 0, 0.42);
 }
-
-
+.inline{
+	display:inline-flex;
+	}
 div.day-number      
 { 
     background:black; 
@@ -90,6 +98,11 @@ div.day-number
     width:20px; 
     text-align:center; 
 }
+.date{
+	margin-top:5%;
+	
+}
+
 
 /* shared */
 td.calendar-day, td.calendar-day-np 
