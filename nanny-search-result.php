@@ -133,7 +133,7 @@ if ($search){
 			} else if (isset($_SESSION['status']) && ($_SESSION['status'] == "admin")) {
 				echo "<div >";
 				echo "<a class='btn' href='edit_nanny.php?id=$key->userID'>Редактирай</a>";
-				echo "<a class='btns' href='nanny_calendar.php?id=$key->userID'>Виж календар</a>";
+				echo "<a class='btns' href='nanny_calendar_user_view.php?id=$key->userID'>Виж календар</a>";
 				echo "</div><br>";
 				
 			}

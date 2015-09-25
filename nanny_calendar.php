@@ -20,6 +20,9 @@
 				error_reporting(E_ALL);
 				ini_set('display_errors', 1);
 
+if (isset($_SESSION['status']) && ($_SESSION['status'] == "admin")){
+											$nannyID = $_GET["id"]; 
+										}
 				/* draws a calendar */
 				function draw_calendar($month,$year){
 					/* draw table */
@@ -257,7 +260,7 @@
 										
 										?>
 
-				<form method="POST" action="nanny_calendar.php">
+				<form method="POST" action="nanny_calendar.php?id=$nannyID">
 						<h2>Покажи Месец</h2>
 						<select id="month" name="month">
 							<option value="1">Януари</option>
