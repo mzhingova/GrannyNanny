@@ -11,7 +11,7 @@
 		<div class="container">
 			<?php include 'includes/header.php';?>
 			<div class="content">
-			<h1>Покажи Месец</h1>
+			<h1>Календар</h1>
 				<form method="POST" action="nanny_calendar.php">
 				<div class="inline">
           <div class="pick">
@@ -56,6 +56,9 @@
 				error_reporting(E_ALL);
 				ini_set('display_errors', 1);
 
+if (isset($_SESSION['status']) && ($_SESSION['status'] == "admin")){
+											$nannyID = $_GET["id"]; 
+										}
 				/* draws a calendar */
 				function draw_calendar($month,$year){
 					/* draw table */
@@ -335,7 +338,8 @@
 										
 										?>
 
-				
+
+
 
 									</div>
 								</div>

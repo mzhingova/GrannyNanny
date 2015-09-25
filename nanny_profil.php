@@ -22,7 +22,7 @@ $conn ->set_charset("utf8");
 		<div class="content">
 		<?php
 			$isAdmin = $_SESSION['status'];
-			if ($isAdmin == 'admin') {
+			if ($isAdmin == 'admin'|| $isAdmin =='user') {
 				$userID = $_GET["id"];
 			} else {
 				$userID = $_SESSION['userID'];
@@ -35,11 +35,12 @@ $conn ->set_charset("utf8");
 		?>
 			
 			
-			<div>
-				<img src="uploads/<?php echo $row['photo'] ?>" target="_blank" alt="avatar" />
-			</div><br><br>
+			
 			<h1>Лични Данни</h1><hr>
-
+			<figure>
+				<img  class="profileimg"src="uploads/<?php echo $row['photo'] ?>" target="_blank" alt="avatar" />
+				</figure>
+			<div class="information">
 						<p>		Име:	<?php echo $row['firstname']; ?>	</p>
 						<p>		Фамилия: <?php echo $row['lastname']; ?>		</p>
 						<p>Възраст:	<?php if($row['pid'] != '') { echo date('Y')-(intval($row['pid']/100000000) + 1900);
@@ -62,9 +63,12 @@ $conn ->set_charset("utf8");
 			} else { echo round($row['average'],1) . "/5"; } ?>		</p>
 
 			<?php } ?>
+			<div>
 			<hr>
 			
+			<?php if ($isAdmin=='admin'|| $isAdmin=='nanny'){?>
 			<a href="edit_nanny.php"><button id="btn" type="submit" name="submit" class="btn">Редактиране на профила</button></a><br>
+			<?php } ?>
 		</div>
 		<input type="hidden" name="id" value="<?php echo $userID; ?>" />
 	</div>
