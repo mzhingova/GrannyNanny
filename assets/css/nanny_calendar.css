@@ -35,6 +35,13 @@ td.calendar-day
 form {
 	transform:translateX(30%);
 }
+
+.description{
+	transform:translateX(30%);
+}
+.booking{
+	transform:translateX(33%);
+}
 /* td.calendar-day:hover   
 { 
     background:#eceff5; 

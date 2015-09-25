@@ -27,13 +27,17 @@
 			$results_query = mysqli_query($conn,"SELECT * FROM parenuser where userid = '$nannyID' ");
 			
 			while($row = mysqli_fetch_array($results_query)) {
-				echo '<h1>Календарът на '.$row['firstname'].' '.$row['lastname'].'</h1>';
-			}
+			
+			echo '<h1>Календарът на '.$row['firstname'].' '.$row['lastname'].'</h1>';
 			?>
 			<div class="description">
 				<h3>Оцветените в червено дати не са свободни.</h3>
 			</div>
 			<?php
+			echo "<div class='booking'>Ако искате да ангажирате това nanny  натиснете <a   href='book_nanny_form.php?id=".$nannyID."'>Тук</a></div>";
+			
+			}
+			
 
 			/* draws a calendar */
 			function draw_calendar($month,$year){
